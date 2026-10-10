@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Asset Management | WINEMI CAPITAL.</title>
-  <meta name="description" content="Principles of portfolio construction, allocation, diversification, monitoring, and risk-adjusted returns." />
+  <meta name="description" content="Portfolio principles, allocation, risk, and technology-assisted process at WINEMI CAPITAL." />
   <link rel="stylesheet" href="../assets/css/main.css" />
-  <link rel="icon" type="image/png" href="../assets/images/primary_boxed_dark.png" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('winemi-theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. Home">
-        <img src="../assets/images/primary_boxed_dark.png" alt="WINEMI CAPITAL." width="36" height="36" />
-        <span>WINEMI CAPITAL.</span>
+        <span class="logo-mark" role="img" aria-label="WINEMI CAPITAL."></span>
       </a>
       <nav class="nav-desktop" aria-label="Primary">
         <a href="../index.html" class="nav-link">Home</a>
@@ -28,9 +36,19 @@
         <a href="contact.html" class="nav-link">Contact</a>
         <a href="login.html" class="nav-cta">Client / Investor Login</a>
       </nav>
-      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
     </div>
   </header>
   <nav class="mobile-nav" aria-label="Mobile">
@@ -38,6 +56,11 @@
     <a href="about.html" class="nav-link">About</a>
     <a href="investments.html" class="nav-link">Investments</a>
     <a href="asset-management.html" class="nav-link">Asset Management</a>
+    <a href="markets.html" class="nav-link">Markets</a>
+    <a href="approach.html" class="nav-link">Our Approach</a>
+    <a href="insights.html" class="nav-link">Insights</a>
+    <a href="education.html" class="nav-link">Education</a>
+    <a href="mentorship.html" class="nav-link">Mentorship</a>
     <a href="contact.html" class="nav-link">Contact</a>
     <a href="login.html" class="nav-cta">Client / Investor Login</a>
   </nav>
@@ -46,26 +69,29 @@
       <div class="container">
         <p class="label">Stewardship</p>
         <h1 class="heading-1">Asset Management</h1>
-        <p class="body-large" style="max-width:640px;">Portfolio management is understanding how investments interact and how the overall portfolio behaves under different market conditions.</p>
+        <p class="body-large" style="max-width:640px;">Portfolio management is not simply collecting assets. It is understanding how investments interact and how the overall portfolio behaves under different market conditions.</p>
       </div>
     </div>
     <section class="section">
       <div class="container prose">
-  <p>These principles form a framework for thinking about portfolios. They are educational and do not imply that WINEMI CAPITAL. currently offers discretionary portfolio management to the public.</p>
+  <p>The following principles form a framework for thinking about portfolios. They are educational and do not imply that WINEMI CAPITAL. currently offers discretionary portfolio management to the public.</p>
   <h2>Investment Objectives</h2>
-  <p>Clear goals — growth, income, preservation, or a blend — drive every subsequent decision.</p>
+  <p>Clear goals — growth, income, preservation, or a blend — drive every subsequent decision. Objectives must be measurable and time-bound where possible.</p>
   <h2>Risk Tolerance &amp; Time Horizons</h2>
   <p>The capacity and willingness to accept variability in outcomes. When capital will be needed determines how much short-term volatility can be tolerated.</p>
   <h2>Liquidity Needs</h2>
   <p>Portfolios must fund known and contingent cash requirements without forced sales at unfavourable prices.</p>
   <h2>Asset Allocation &amp; Diversification</h2>
-  <p>The division of capital among asset classes is typically the dominant driver of long-term portfolio behaviour.</p>
+  <p>The division of capital among asset classes is typically the dominant driver of long-term portfolio behaviour. Spreading exposure across assets that do not move in perfect unison reduces the impact of any single failure.</p>
   <h2>Portfolio Construction &amp; Research</h2>
-  <p>Selecting and sizing individual holdings within the allocation framework, mindful of correlation, concentration, and costs.</p>
+  <p>Selecting and sizing individual holdings within the allocation framework, mindful of correlation, concentration, and costs. Ongoing analysis of markets and economic conditions informs both strategic and tactical decisions.</p>
   <h2>Performance, Monitoring &amp; Rebalancing</h2>
-  <p>Returns must be evaluated relative to objectives, risk taken, and appropriate benchmarks. Portfolios drift; regular review maintains the intended risk profile.</p>
+  <p>Returns must be evaluated relative to objectives, risk taken, and appropriate benchmarks. Portfolios drift; regular review and rebalancing maintain the intended risk profile.</p>
   <h2>Capital Preservation &amp; Risk-adjusted Returns</h2>
-  <p>For some objectives, avoiding permanent loss of capital takes priority over maximising return.</p>
+  <p>For some objectives, avoiding permanent loss of capital takes priority over maximising return. Higher returns mean little if achieved with unacceptable risk.</p>
+  <h2>Technology, Systems &amp; AI-Assisted Process</h2>
+  <p>Research and risk discipline can be supported by systematic rules and AI-assisted tools — for scanning markets, organising data, and enforcing predefined limits. Automation is infrastructure for consistency, not a promise of profit. Model risk, data quality, and regime change require ongoing human oversight. Any client-facing systems are introduced only with clear disclosures and suitability checks.</p>
+  <p>Educational material on market structure, supply and demand, and institutional order flow is available in <a href="education.html">Education</a> and <a href="insights.html">Insights</a>.</p>
       </div>
     </section>
   </main>
@@ -82,7 +108,7 @@
       </div>
     </div>
   </footer>
-  <script>document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());</script>
+  <script>document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });</script>
   <script src="../assets/js/main.js"></script>
 </body>
 </html>
