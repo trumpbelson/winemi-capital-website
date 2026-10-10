@@ -5,7 +5,7 @@
   <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Client Login | WINEMI CAPITAL.</title>
-  <meta name="description" content="Client and investor login shell for WINEMI CAPITAL." />
+  <meta name="description" content="Client and investor login for WINEMI CAPITAL." />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script>
@@ -53,34 +53,82 @@
   </header>
   <nav class="mobile-nav" aria-label="Mobile">
     <a href="../index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="investments.html" class="nav-link">Investments</a>
+    <a href="asset-management.html" class="nav-link">Asset Management</a>
+    <a href="markets.html" class="nav-link">Markets</a>
+    <a href="approach.html" class="nav-link">Our Approach</a>
+    <a href="insights.html" class="nav-link">Insights</a>
+    <a href="education.html" class="nav-link">Education</a>
+    <a href="mentorship.html" class="nav-link">Mentorship</a>
+    <a href="contact.html" class="nav-link">Contact</a>
     <a href="login.html" class="nav-cta">Client / Investor Login</a>
   </nav>
   <main>
     <div class="page-header">
       <div class="container">
-        <p class="label">Secure access</p>
+        <p class="label">Access</p>
         <h1 class="heading-1">Client / Investor Login</h1>
-        <p class="body-large" style="max-width:560px;">This is a front-end shell. Authentication will connect to a secure backend when credentials and infrastructure are configured.</p>
+        <p class="body-large" style="max-width:640px;">Secure access for registered clients. Authentication backend is not yet configured — this is a structured shell.</p>
       </div>
     </div>
     <section class="section">
-      <div class="container" style="max-width:420px;">
-        <form class="card" id="login-form" novalidate>
-          <div class="form-group">
-            <label class="form-label" for="email">Email</label>
-            <input class="form-input" type="email" id="email" name="email" required autocomplete="username" />
+      <div class="container">
+        <div class="login-grid">
+          <div class="login-form-panel">
+            <h2 class="heading-2" style="font-size:1.5rem;margin-bottom:1.25rem;">Sign in</h2>
+            <form onsubmit="event.preventDefault(); document.getElementById('login-note').style.display='block';">
+              <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-input" type="email" id="email" name="email" required autocomplete="username" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="password">Password</label>
+                <input class="form-input" type="password" id="password" name="password" required autocomplete="current-password" />
+              </div>
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+            <div id="login-note" style="display:none;margin-top:1.5rem;padding:1rem;border:1px solid rgba(184,149,106,0.4);background:rgba(184,149,106,0.1);border-radius:4px;">
+              Authentication requires a backend (e.g. Supabase). Credentials are not processed until that is connected.
+            </div>
+            <p class="body-small" style="margin-top:1.5rem;">Need access? <a href="contact.html" style="color:var(--color-muted-gold);">Contact the firm</a>.</p>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="password">Password</label>
-            <input class="form-input" type="password" id="password" name="password" required autocomplete="current-password" />
+          <div class="login-visual-panel" aria-label="Portal preview">
+            <p class="label" style="margin-bottom:0.75rem;">Portal preview</p>
+            <p class="body-small" style="margin-bottom:1.25rem;">After authentication, clients will access research context, education modules, and account tools. Illustrative modules below.</p>
+            <div class="login-visual-grid">
+              <div class="login-visual-card">
+                <img src="../assets/images/diagrams/four-patterns.svg" alt="Structure module" loading="lazy" />
+                <span>Structure</span>
+              </div>
+              <div class="login-visual-card">
+                <img src="../assets/images/diagrams/order-flow.svg" alt="Order flow module" loading="lazy" />
+                <span>Order flow</span>
+              </div>
+              <div class="login-visual-card">
+                <img src="../assets/images/diagrams/complete-setup.svg" alt="Process module" loading="lazy" />
+                <span>Process</span>
+              </div>
+              <div class="login-visual-card">
+                <img src="../assets/images/diagrams/risk-reward.svg" alt="Risk module" loading="lazy" />
+                <span>Risk</span>
+              </div>
+              <div class="login-visual-card">
+                <img src="../assets/images/diagrams/multi-timeframe.svg" alt="Multi timeframe module" loading="lazy" />
+                <span>Multi-TF</span>
+              </div>
+              <div class="login-visual-card">
+                <img src="../assets/images/diagrams/zone-location.svg" alt="Location module" loading="lazy" />
+                <span>Location</span>
+              </div>
+            </div>
+            <p class="body-small" style="margin-top:1rem;color:var(--color-text-muted);">Preview only — not live account data.</p>
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;">Sign in</button>
-          <p class="body-small mt-3" style="text-align:center;">No account yet? <a href="register.html" class="text-gold">Register interest</a></p>
-        </form>
+        </div>
       </div>
     </section>
   </main>
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-bottom" style="border:none;padding-top:0;">
         <p>© <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
@@ -93,7 +141,7 @@
       </div>
     </div>
   </footer>
-  <script>document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());</script>
+  <script>document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });</script>
   <script src="../assets/js/main.js"></script>
 </body>
 </html>
