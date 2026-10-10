@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy | WINEMI CAPITAL.</title>
+  <title>Privacy | WINEMI CAPITAL.</title>
   <meta name="description" content="Privacy policy for WINEMI CAPITAL." />
   <link rel="stylesheet" href="../assets/css/main.css" />
-  <link rel="icon" type="image/png" href="../assets/images/primary_boxed_dark.png" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('winemi-theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. Home">
-        <img src="../assets/images/primary_boxed_dark.png" alt="WINEMI CAPITAL." width="36" height="36" />
-        <span>WINEMI CAPITAL.</span>
+        <span class="logo-mark" role="img" aria-label="WINEMI CAPITAL."></span>
       </a>
       <nav class="nav-desktop" aria-label="Primary">
         <a href="../index.html" class="nav-link">Home</a>
@@ -21,38 +29,45 @@
         <a href="contact.html" class="nav-link">Contact</a>
         <a href="login.html" class="nav-cta">Client / Investor Login</a>
       </nav>
-      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
     </div>
   </header>
   <nav class="mobile-nav" aria-label="Mobile">
     <a href="../index.html" class="nav-link">Home</a>
     <a href="contact.html" class="nav-link">Contact</a>
-    <a href="login.html" class="nav-cta">Client / Investor Login</a>
   </nav>
   <main>
     <div class="page-header">
       <div class="container">
         <p class="label">Legal</p>
-        <h1 class="heading-1">Privacy Policy</h1>
-        <p class="body-large" style="max-width:640px;">How we handle information you provide through this website.</p>
+        <h1 class="heading-1">Privacy</h1>
       </div>
     </div>
     <section class="section">
       <div class="container prose">
-  <p>WINEMI CAPITAL. respects your privacy. This policy describes how information is handled on this website.</p>
-  <h2>Information you provide</h2>
-  <p>If you use the contact form or email us, we receive the details you choose to share (such as name, email, and message). Backend form delivery may not yet be configured; until then, prefer email or WhatsApp.</p>
-  <h2>Technical data</h2>
-  <p>Hosting providers and analytics tools (if enabled) may collect standard log and device data. Third-party embeds (TradingView, map tiles) are governed by their own policies.</p>
-  <h2>Contact</h2>
-  <p>Questions: <a href="mailto:winemicapital@gmail.com">winemicapital@gmail.com</a></p>
-  <p><em>Draft for legal review before production.</em></p>
+        <p>WINEMI CAPITAL. respects your privacy. This page summarises how information submitted through the site is treated.</p>
+        <h2>Information we collect</h2>
+        <p>Contact forms may collect name, email, phone, and message content that you voluntarily provide. Technical logs may include IP address and browser type for security and performance.</p>
+        <h2>How we use information</h2>
+        <p>Submitted information is used to respond to enquiries and improve the site. We do not sell personal data.</p>
+        <h2>Contact</h2>
+        <p>For privacy questions, use the <a href="contact.html">Contact</a> page.</p>
       </div>
     </section>
   </main>
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-bottom" style="border:none;padding-top:0;">
         <p>© <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
