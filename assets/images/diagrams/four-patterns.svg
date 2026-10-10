@@ -1,0 +1,19 @@
+<svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>RBR, DBR, DBD, RBD</title>
+  <text x="150" y="24" fill="#b8956a" font-size="13" font-family="system-ui,sans-serif" text-anchor="middle" font-weight="600">RBR — Demand (continuation)</text>
+  <polyline points="40,110 80,70 110,70 140,70 180,30" fill="none" stroke="#5a9a7a" stroke-width="2.5"/>
+  <rect x="100" y="62" width="50" height="16" rx="2" fill="none" stroke="#b8956a" stroke-width="1.5"/>
+  <text x="125" y="130" fill="#8a8880" font-size="10" font-family="system-ui,sans-serif" text-anchor="middle">base = demand zone</text>
+  <text x="470" y="24" fill="#b8956a" font-size="13" font-family="system-ui,sans-serif" text-anchor="middle" font-weight="600">DBR — Demand (reversal)</text>
+  <polyline points="360,30 400,80 430,80 460,80 500,30" fill="none" stroke="#5a9a7a" stroke-width="2.5"/>
+  <rect x="420" y="72" width="50" height="16" rx="2" fill="none" stroke="#b8956a" stroke-width="1.5"/>
+  <text x="445" y="130" fill="#8a8880" font-size="10" font-family="system-ui,sans-serif" text-anchor="middle">base = demand zone</text>
+  <text x="150" y="175" fill="#b8956a" font-size="13" font-family="system-ui,sans-serif" text-anchor="middle" font-weight="600">DBD — Supply (continuation)</text>
+  <polyline points="40,200 80,250 110,250 140,250 180,290" fill="none" stroke="#c07070" stroke-width="2.5"/>
+  <rect x="100" y="242" width="50" height="16" rx="2" fill="none" stroke="#b8956a" stroke-width="1.5"/>
+  <text x="125" y="310" fill="#8a8880" font-size="10" font-family="system-ui,sans-serif" text-anchor="middle">base = supply zone</text>
+  <text x="470" y="175" fill="#b8956a" font-size="13" font-family="system-ui,sans-serif" text-anchor="middle" font-weight="600">RBD — Supply (reversal)</text>
+  <polyline points="360,290 400,240 430,240 460,240 500,290" fill="none" stroke="#c07070" stroke-width="2.5"/>
+  <rect x="420" y="232" width="50" height="16" rx="2" fill="none" stroke="#b8956a" stroke-width="1.5"/>
+  <text x="445" y="310" fill="#8a8880" font-size="10" font-family="system-ui,sans-serif" text-anchor="middle">base = supply zone</text>
+</svg>

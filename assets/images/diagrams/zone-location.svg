@@ -1,0 +1,11 @@
+<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Zone location quality</title>
+  <rect x="80" y="40" width="480" height="180" rx="6" fill="none" stroke="#3a3a3e" stroke-width="1.5"/>
+  <rect x="80" y="40" width="480" height="60" fill="#c07070" opacity="0.12"/>
+  <text x="100" y="75" fill="#c07070" font-size="13" font-family="system-ui,sans-serif" font-weight="600">Top zone — prefer supply (RBD)</text>
+  <rect x="80" y="100" width="480" height="60" fill="#8a8880" opacity="0.1"/>
+  <text x="100" y="135" fill="#8a8880" font-size="13" font-family="system-ui,sans-serif" font-weight="600">Mid zone — needs strong HTF bias</text>
+  <rect x="80" y="160" width="480" height="60" fill="#5a9a7a" opacity="0.12"/>
+  <text x="100" y="195" fill="#5a9a7a" font-size="13" font-family="system-ui,sans-serif" font-weight="600">Lower zone — prefer demand (DBR / RBR)</text>
+  <text x="320" y="250" fill="#8a8880" font-size="11" font-family="system-ui,sans-serif" text-anchor="middle">Relative to the larger swing / range</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Rally, Drop, and Base</title>
+  <text x="100" y="28" fill="#b8956a" font-size="14" font-family="system-ui,sans-serif" text-anchor="middle" font-weight="600">Rally</text>
+  <polyline points="40,160 70,140 100,100 130,70 160,50" fill="none" stroke="#5a9a7a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="160,50 148,58 154,62" fill="#5a9a7a"/>
+  <text x="320" y="28" fill="#b8956a" font-size="14" font-family="system-ui,sans-serif" text-anchor="middle" font-weight="600">Drop</text>
+  <polyline points="260,50 290,70 320,110 350,145 380,165" fill="none" stroke="#c07070" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="380,165 368,155 374,152" fill="#c07070"/>
+  <text x="520" y="28" fill="#b8956a" font-size="14" font-family="system-ui,sans-serif" text-anchor="middle" font-weight="600">Base</text>
+  <rect x="450" y="95" width="140" height="50" rx="4" fill="none" stroke="#b8956a" stroke-width="2" stroke-dasharray="6 4"/>
+  <polyline points="460,120 480,108 500,125 520,112 540,128 560,115 580,122" fill="none" stroke="#8a8880" stroke-width="2"/>
+  <text x="520" y="175" fill="#8a8880" font-size="11" font-family="system-ui,sans-serif" text-anchor="middle">balance / compression</text>
+  <text x="100" y="200" fill="#8a8880" font-size="11" font-family="system-ui,sans-serif" text-anchor="middle">buyers in control</text>
+  <text x="320" y="200" fill="#8a8880" font-size="11" font-family="system-ui,sans-serif" text-anchor="middle">sellers in control</text>
+</svg>

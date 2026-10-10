@@ -1,0 +1,25 @@
+<svg viewBox="0 0 640 140" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Complete setup flow</title>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#b8956a"/></marker>
+  </defs>
+  <rect x="10" y="40" width="110" height="50" rx="8" fill="none" stroke="#b8956a" stroke-width="1.5"/>
+  <text x="65" y="62" fill="#f7f5f0" font-size="11" font-family="system-ui,sans-serif" text-anchor="middle">1. Pattern</text>
+  <text x="65" y="78" fill="#8a8880" font-size="9" font-family="system-ui,sans-serif" text-anchor="middle">RBR/DBR/…</text>
+  <line x1="120" y1="65" x2="145" y2="65" stroke="#b8956a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="150" y="40" width="110" height="50" rx="8" fill="none" stroke="#b8956a" stroke-width="1.5"/>
+  <text x="205" y="62" fill="#f7f5f0" font-size="11" font-family="system-ui,sans-serif" text-anchor="middle">2. Location</text>
+  <text x="205" y="78" fill="#8a8880" font-size="9" font-family="system-ui,sans-serif" text-anchor="middle">HTF + zone quality</text>
+  <line x1="260" y1="65" x2="285" y2="65" stroke="#b8956a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="290" y="40" width="110" height="50" rx="8" fill="none" stroke="#b8956a" stroke-width="1.5"/>
+  <text x="345" y="62" fill="#f7f5f0" font-size="11" font-family="system-ui,sans-serif" text-anchor="middle">3. Confirm</text>
+  <text x="345" y="78" fill="#8a8880" font-size="9" font-family="system-ui,sans-serif" text-anchor="middle">FTB / flip / fakeout</text>
+  <line x1="400" y1="65" x2="425" y2="65" stroke="#b8956a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="430" y="40" width="110" height="50" rx="8" fill="none" stroke="#b8956a" stroke-width="1.5"/>
+  <text x="485" y="62" fill="#f7f5f0" font-size="11" font-family="system-ui,sans-serif" text-anchor="middle">4. Risk</text>
+  <text x="485" y="78" fill="#8a8880" font-size="9" font-family="system-ui,sans-serif" text-anchor="middle">invalidation + size</text>
+  <line x1="540" y1="65" x2="565" y2="65" stroke="#b8956a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <circle cx="595" y="65" r="22" fill="none" stroke="#5a9a7a" stroke-width="2"/>
+  <text x="595" y="69" fill="#5a9a7a" font-size="10" font-family="system-ui,sans-serif" text-anchor="middle" font-weight="600">GO</text>
+  <text x="320" y="125" fill="#8a8880" font-size="11" font-family="system-ui,sans-serif" text-anchor="middle">Missing any step → incomplete setup → stand aside</text>
+</svg>
