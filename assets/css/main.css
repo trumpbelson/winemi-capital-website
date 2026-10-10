@@ -208,6 +208,8 @@ html[data-theme="light"] .hero-bg {
 .prose { max-width: 720px; }
 .prose h2 { font-family: var(--font-serif); font-size: 1.75rem; font-weight: 500; margin: 2.5rem 0 1rem; color: var(--color-text-primary); }
 .prose p { margin-bottom: 1.25rem; color: var(--color-text-secondary); line-height: 1.75; }
+.prose ul { margin: 0 0 1.25rem 1.25rem; color: var(--color-text-secondary); }
+.prose li { margin-bottom: 0.5rem; line-height: 1.6; }
 
 .form-group { margin-bottom: 1.25rem; }
 .form-label { display: block; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.03em; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
@@ -234,19 +236,14 @@ html[data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
 html[data-theme="light"] .card,
 html[data-theme="light"] .chart-container,
-html[data-theme="light"] .map-container,
 html[data-theme="light"] .form-input,
 html[data-theme="light"] .form-textarea { background: var(--surface-elevated); }
 
 /* Market ticker tape */
 .market-ticker {
-  position: sticky;
-  top: var(--header-height);
-  z-index: 900;
-  background: var(--color-charcoal);
-  border-bottom: 1px solid var(--color-border);
-  height: 48px;
-  overflow: hidden;
+  position: sticky; top: var(--header-height); z-index: 900;
+  background: var(--color-charcoal); border-bottom: 1px solid var(--color-border);
+  height: 48px; overflow: hidden;
 }
 .market-ticker-inner {
   display: flex; align-items: center; height: 100%;
@@ -265,7 +262,7 @@ html[data-theme="light"] .market-ticker { background: var(--color-charcoal); }
   .market-ticker { height: 44px; }
 }
 
-/* Social icons — higher contrast */
+/* Social icons */
 .social-icons { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1rem; }
 .social-icon {
   display: flex; align-items: center; justify-content: center;
@@ -284,45 +281,7 @@ html[data-theme="light"] .market-ticker { background: var(--color-charcoal); }
 }
 .social-icon svg { display: block; }
 
-/* Map visibility */
-.map-container {
-  height: 520px; min-height: 360px;
-  background: #0d0d0f;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 4px; overflow: hidden; position: relative;
-}
-.map-container--visible { box-shadow: inset 0 0 0 1px rgba(184, 149, 106, 0.12); }
-.map-dot {
-  width: 14px; height: 14px; margin: 2px;
-  background: #b8956a; border: 2px solid #f7f5f0; border-radius: 50%;
-  box-shadow: 0 0 0 3px rgba(184, 149, 106, 0.4), 0 2px 8px rgba(0,0,0,0.45);
-}
-.map-dot--home {
-  width: 18px; height: 18px; margin: 1px;
-  box-shadow: 0 0 0 4px rgba(184, 149, 106, 0.5), 0 2px 10px rgba(0,0,0,0.5);
-}
-.leaflet-container { background: #0d0d0f !important; font-family: var(--font-sans); }
-.leaflet-control-zoom a {
-  background: #1c1c1f !important; color: #f7f5f0 !important;
-  border-color: rgba(255,255,255,0.12) !important;
-}
-.leaflet-control-zoom a:hover { background: #2a2a2e !important; color: #b8956a !important; }
-.leaflet-control-attribution {
-  background: rgba(10,10,11,0.85) !important; color: #8a8780 !important; font-size: 10px !important;
-}
-.leaflet-control-attribution a { color: #b8956a !important; }
-.map-popup-wrap .leaflet-popup-content-wrapper {
-  background: #f7f5f0; color: #0a0a0b; border-radius: 4px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-}
-.map-popup-wrap .leaflet-popup-tip { background: #f7f5f0; }
-.map-popup strong {
-  display: block; font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600;
-  color: #0a0a0b; margin-bottom: 0.35rem;
-}
-.map-popup p { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: #3d3d42; }
-
-/* News / context ticker */
+/* News ticker */
 .news-ticker {
   background: var(--color-near-black);
   border-bottom: 1px solid var(--color-border);
@@ -347,7 +306,6 @@ html[data-theme="light"] .market-ticker { background: var(--color-charcoal); }
   animation: news-scroll 55s linear infinite;
   font-size: 0.8125rem; color: var(--color-text-secondary);
 }
-.news-ticker-content span { padding: 0 0.15rem; }
 .news-sep { color: var(--color-muted-gold); padding: 0 1rem !important; opacity: 0.7; }
 @keyframes news-scroll {
   0% { transform: translateX(0); }
@@ -360,5 +318,77 @@ html[data-theme="light"] .market-ticker { background: var(--color-charcoal); }
 @media (max-width: 640px) {
   .news-ticker-label { display: none; }
   .news-ticker { height: 32px; }
-  .map-container { height: 380px; }
 }
+
+/* Self-contained world map (no external tiles/API) */
+.wc-map {
+  position: relative;
+  background: #0d0d0f;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 4px;
+  overflow: hidden;
+  min-height: 360px;
+}
+.wc-map-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 320px;
+  max-height: 520px;
+}
+.map-land { fill: #1c1c1f; stroke: rgba(184,149,106,0.12); stroke-width: 1; }
+.map-pin { cursor: pointer; }
+.map-pin:hover .map-pin-dot, .map-pin:focus .map-pin-dot { filter: brightness(1.15); }
+.map-pin-label {
+  fill: #f7f5f0;
+  font-size: 11px;
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 500;
+  pointer-events: none;
+  opacity: 0.85;
+}
+.map-pin--home .map-pin-label { fill: #b8956a; font-weight: 600; }
+.wc-map-popup {
+  position: absolute;
+  z-index: 5;
+  width: 220px;
+  padding: 0.75rem 1rem;
+  background: #f7f5f0;
+  color: #0a0a0b;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  pointer-events: none;
+}
+.wc-map-popup-title {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+.wc-map-popup-desc {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #3d3d42;
+}
+.wc-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  margin: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+.leg-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #b8956a;
+  border: 1px solid #f7f5f0;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+.leg-dot--home { width: 10px; height: 10px; box-shadow: 0 0 0 2px rgba(184,149,106,0.4); }
