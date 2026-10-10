@@ -1,0 +1,10 @@
+<svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Fakeout and liquidity sweep</title>
+  <line x1="80" y1="80" x2="560" y2="80" stroke="#c07070" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="560" y="72" fill="#c07070" font-size="11" font-family="system-ui,sans-serif" text-anchor="end">obvious high / stop cluster</text>
+  <polyline points="80,140 140,120 200,100 260,90 320,50 360,55 400,95 460,110 520,100" fill="none" stroke="#8a8880" stroke-width="2.5"/>
+  <circle cx="320" cy="50" r="7" fill="#b8956a"/>
+  <text x="320" y="38" fill="#b8956a" font-size="11" font-family="system-ui,sans-serif" text-anchor="middle">sweep</text>
+  <text x="400" y="130" fill="#8a8880" font-size="11" font-family="system-ui,sans-serif">reclaim — break failed</text>
+  <text x="320" y="190" fill="#8a8880" font-size="11" font-family="system-ui,sans-serif" text-anchor="middle">Liquidity taken above the level; price does not accept higher</text>
+</svg>

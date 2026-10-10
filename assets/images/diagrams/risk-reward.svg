@@ -1,0 +1,16 @@
+<svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Risk reward and invalidation</title>
+  <line x1="120" y1="40" x2="120" y2="200" stroke="#3a3a3e" stroke-width="1"/>
+  <line x1="120" y1="200" x2="520" y2="200" stroke="#3a3a3e" stroke-width="1"/>
+  <line x1="200" y1="130" x2="480" y2="130" stroke="#f7f5f0" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="490" y="134" fill="#f7f5f0" font-size="11" font-family="system-ui,sans-serif">entry</text>
+  <line x1="200" y1="180" x2="480" y2="180" stroke="#c07070" stroke-width="1.5"/>
+  <text x="490" y="184" fill="#c07070" font-size="11" font-family="system-ui,sans-serif">invalidation</text>
+  <line x1="200" y1="50" x2="480" y2="50" stroke="#5a9a7a" stroke-width="1.5"/>
+  <text x="490" y="54" fill="#5a9a7a" font-size="11" font-family="system-ui,sans-serif">target (structure)</text>
+  <rect x="280" y="130" width="40" height="50" fill="#c07070" opacity="0.25"/>
+  <text x="300" y="160" fill="#c07070" font-size="10" font-family="system-ui,sans-serif" text-anchor="middle">risk</text>
+  <rect x="280" y="50" width="40" height="80" fill="#5a9a7a" opacity="0.25"/>
+  <text x="300" y="95" fill="#5a9a7a" font-size="10" font-family="system-ui,sans-serif" text-anchor="middle">reward</text>
+  <text x="320" y="225" fill="#8a8880" font-size="11" font-family="system-ui,sans-serif" text-anchor="middle">Size from distance to invalidation; prefer asymmetric structure</text>
+</svg>

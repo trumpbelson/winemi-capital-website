@@ -1,0 +1,15 @@
+<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Higher and lower time frame process</title>
+  <rect x="40" y="40" width="560" height="50" rx="6" fill="none" stroke="#b8956a" stroke-width="1.5"/>
+  <text x="60" y="62" fill="#b8956a" font-size="12" font-family="system-ui,sans-serif" font-weight="600">HTF (Daily / 4H)</text>
+  <text x="60" y="78" fill="#8a8880" font-size="11" font-family="system-ui,sans-serif">Map major zones · define bias · wait for price to approach</text>
+  <line x1="320" y1="90" x2="320" y2="115" stroke="#b8956a" stroke-width="1.5"/>
+  <polygon points="320,115 314,105 326,105" fill="#b8956a"/>
+  <rect x="40" y="120" width="560" height="50" rx="6" fill="none" stroke="#5a9a7a" stroke-width="1.5"/>
+  <text x="60" y="142" fill="#5a9a7a" font-size="12" font-family="system-ui,sans-serif" font-weight="600">LTF (H1 / M15)</text>
+  <text x="60" y="158" fill="#8a8880" font-size="11" font-family="system-ui,sans-serif">Refine entry · look for complete setup that agrees with HTF location</text>
+  <line x1="320" y1="170" x2="320" y2="195" stroke="#b8956a" stroke-width="1.5"/>
+  <polygon points="320,195 314,185 326,185" fill="#b8956a"/>
+  <rect x="160" y="200" width="320" height="40" rx="6" fill="none" stroke="#f7f5f0" stroke-width="1.5"/>
+  <text x="320" y="225" fill="#f7f5f0" font-size="12" font-family="system-ui,sans-serif" text-anchor="middle" font-weight="600">Act only if both layers align</text>
+</svg>
