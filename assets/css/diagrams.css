@@ -1,0 +1,32 @@
+/* Education diagrams */
+.diagram {
+  margin: 1.75rem 0 2rem;
+  padding: 1.25rem 1rem;
+  background: var(--color-surface-elevated, #141416);
+  border: 1px solid var(--color-border, rgba(255,255,255,0.08));
+  border-radius: 12px;
+  overflow-x: auto;
+}
+.diagram svg,
+.diagram img {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin: 0 auto;
+}
+.diagram-caption,
+.diagram figcaption {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted, #9a9a9c);
+  text-align: center;
+  line-height: 1.45;
+}
+[data-theme="light"] .diagram {
+  background: #f4f2ed;
+  border-color: rgba(0,0,0,0.08);
+}
+.prose h3 { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; margin: 1.75rem 0 0.75rem; color: var(--color-text-primary); }
+.prose ol { margin: 0 0 1.25rem 1.25rem; color: var(--color-text-secondary); }
+.prose ol li, .prose ul li { margin-bottom: 0.5rem; line-height: 1.65; }
