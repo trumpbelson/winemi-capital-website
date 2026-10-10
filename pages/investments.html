@@ -2,23 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Investments | WINEMI CAPITAL.</title>
   <meta name="description" content="Educational coverage of equities, fixed income, FX, commodities, indices, derivatives, real estate, private markets, and digital assets." />
   <link rel="stylesheet" href="../assets/css/main.css" />
-  <link rel="icon" type="image/png" href="../assets/images/primary_boxed_dark.png" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('winemi-theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. Home">
-        <img src="../assets/images/primary_boxed_dark.png" alt="WINEMI CAPITAL." width="36" height="36" />
-        <span>WINEMI CAPITAL.</span>
+        <span class="logo-mark" role="img" aria-label="WINEMI CAPITAL."></span>
       </a>
       <nav class="nav-desktop" aria-label="Primary">
         <a href="../index.html" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About</a>
-        <a href="investments.html" class="nav-link">Investments</a>
+        <a href="investments.html" class="nav-link active">Investments</a>
         <a href="asset-management.html" class="nav-link">Asset Management</a>
         <a href="markets.html" class="nav-link">Markets</a>
         <a href="approach.html" class="nav-link">Our Approach</a>
@@ -28,9 +36,19 @@
         <a href="contact.html" class="nav-link">Contact</a>
         <a href="login.html" class="nav-cta">Client / Investor Login</a>
       </nav>
-      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
     </div>
   </header>
   <nav class="mobile-nav" aria-label="Mobile">
@@ -59,19 +77,19 @@
         <p>Understanding asset classes is foundational to portfolio construction. The descriptions below are educational.</p>
   <h2>Equities</h2>
   <p>Ownership shares in companies. Prices reflect supply, demand, earnings expectations, and market conditions. Principal risks: company-specific, market, liquidity, and permanent capital loss.</p>
-  <h2>Fixed Income &amp; Bonds</h2>
+  <h2>Fixed Income & Bonds</h2>
   <p>Debt instruments that typically pay interest and return principal at maturity. Bond prices move inversely with interest rates. Risks: interest-rate, credit, inflation, and liquidity.</p>
   <h2>Foreign Exchange</h2>
   <p>The market for exchanging currencies. Rates driven by economic conditions, interest rates, and capital flows. High leverage and geopolitical risk for speculative positions.</p>
   <h2>Commodities (including Gold)</h2>
   <p>Physical goods traded as futures, spot, or related instruments. Gold is often used as a store of value and diversifier. Risks: volatility, storage/roll costs, geopolitical shocks.</p>
   <h2>Market Indices</h2>
-  <p>Statistical measures of security baskets (e.g. S&amp;P 500, NASDAQ-100). Enable broad market exposure via funds and derivatives.</p>
+  <p>Statistical measures of security baskets (e.g. S&P 500, NASDAQ-100). Enable broad market exposure via funds and derivatives.</p>
   <h2>Derivatives</h2>
   <p>Contracts whose value derives from an underlying — options, futures, forwards, swaps. Used for hedging or speculation. Risks: complexity, leverage, counterparty risk.</p>
   <h2>Real Estate</h2>
   <p>Physical property or claims on property income, including REITs. Risks: illiquidity, concentration, interest-rate sensitivity.</p>
-  <h2>Private Markets &amp; Alternatives</h2>
+  <h2>Private Markets & Alternatives</h2>
   <p>Private equity, private credit, infrastructure, hedge funds. Capital typically locked multi-year. Risks: illiquidity, valuation uncertainty, manager risk.</p>
   <h2>Digital Assets</h2>
   <p>Cryptocurrencies including Bitcoin. Extreme volatility, regulatory uncertainty, and custody risk. If included, typically a small risk-budgeted allocation.</p>
