@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Education | WINEMI CAPITAL.</title>
-  <meta name="description" content="Structured financial learning from foundations to advanced topics across markets, investing, risk, and analysis." />
+  <meta name="description" content="Structured learning on market structure, supply and demand, institutional order flow, risk, and AI-assisted tools." />
   <link rel="stylesheet" href="../assets/css/main.css" />
-  <link rel="icon" type="image/png" href="../assets/images/primary_boxed_dark.png" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('winemi-theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. Home">
-        <img src="../assets/images/primary_boxed_dark.png" alt="WINEMI CAPITAL." width="36" height="36" />
-        <span>WINEMI CAPITAL.</span>
+        <span class="logo-mark" role="img" aria-label="WINEMI CAPITAL."></span>
       </a>
       <nav class="nav-desktop" aria-label="Primary">
         <a href="../index.html" class="nav-link">Home</a>
@@ -28,9 +36,19 @@
         <a href="contact.html" class="nav-link">Contact</a>
         <a href="login.html" class="nav-cta">Client / Investor Login</a>
       </nav>
-      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
     </div>
   </header>
   <nav class="mobile-nav" aria-label="Mobile">
@@ -51,14 +69,95 @@
       <div class="container">
         <p class="label">Learn</p>
         <h1 class="heading-1">Education</h1>
-        <p class="body-large" style="max-width:640px;">Structured pathways from foundations to advanced topics. Every subject explains definitions, mechanics, terminology, risks, and progression.</p>
+        <p class="body-large" style="max-width:640px;">Structured pathways from market structure and supply–demand to institutional order flow, risk, and technology-assisted process.</p>
       </div>
     </div>
     <section class="section">
       <div class="container prose">
-        <p>Learning progression: <strong>Foundations → Intermediate → Advanced → Practical Application</strong></p>
-<p>These materials are educational. They do not constitute formal accreditation, certification, or investment advice. Every subject is designed to explain definitions, why the topic matters, how it works, key terminology, risks, and a learning pathway.</p>
-<ul><li><strong>Financial Markets</strong> — How assets are issued and traded; exchanges, brokers, institutions, liquidity, volatility, and market cycles.</li><li><strong>Investing</strong> — Objectives, risk and return, allocation, diversification, valuation, compounding, and behavioural discipline.</li><li><strong>Trading</strong> — Shorter-horizon decisions, price action, risk management, psychology, and probability — not guaranteed strategies.</li><li><strong>Wealth Creation & Management</strong> — Capital, income, saving, investing, preservation, compounding, and long-term discipline.</li><li><strong>Portfolio Management</strong> — Objectives, allocation, correlation, rebalancing, liquidity, and risk-adjusted performance.</li><li><strong>Accounting & Business</strong> — Financial statements, ratios, business models, and corporate finance fundamentals.</li><li><strong>Economics</strong> — Supply and demand, inflation, rates, GDP, policy, exchange rates, and economic cycles.</li><li><strong>AI & Quantitative Finance</strong> — Machine learning, quant analysis, backtesting, model risk, and human oversight.</li><li><strong>Risk Management</strong> — Probability, position sizing, drawdowns, diversification, and risk of ruin.</li><li><strong>Financial Technology & Analytics</strong> — Data analytics, digital systems, automation, dashboards, and limitations of data-driven decisions.</li><li><strong>Research & Market Analysis</strong> — Reading news, economic releases, statements, and distinguishing evidence from speculation.</li><li><strong>Financial Discipline & Psychology</strong> — Biases, patience, emotional decisions, consistency, and record keeping.</li></ul><p>See also <a href="insights.html">Insights</a>, <a href="mentorship.html">Mentorship</a>, and <a href="risk-disclosure.html">Risk Disclosure</a>.</p>
+        <p class="label" style="margin-bottom:0.5rem;">Disclaimer</p>
+        <p>These materials are educational only. They are not investment advice, not a trading system recommendation, and not a guarantee of results. Markets involve risk of loss. See <a href="risk-disclosure.html">Risk Disclosure</a>.</p>
+
+        <h2>Learning progression</h2>
+        <p><strong>Foundations → Structure → Confirmation → Risk → Application</strong></p>
+        <p>Progress from how markets move, to where imbalances form, to how institutions leave footprints, to how risk is controlled — before any practical application.</p>
+
+        <h2>1. Market structure: trends and basic moves</h2>
+        <p>In supply and demand analysis, directional moves are described simply:</p>
+        <ul>
+          <li><strong>Rally</strong> — price moving higher; buyers are in control of the leg.</li>
+          <li><strong>Drop</strong> — price moving lower; sellers are in control of the leg.</li>
+          <li><strong>Base</strong> — sideways balance (consolidation) where orders accumulate before the next expansion.</li>
+        </ul>
+        <p>Those three components combine into four structural patterns that frame most zone analysis:</p>
+        <ul>
+          <li><strong>RBR (Rally–Base–Rally)</strong> — continuation demand after a pause in an up leg.</li>
+          <li><strong>DBR (Drop–Base–Rally)</strong> — reversal demand after a decline finds buying interest.</li>
+          <li><strong>DBD (Drop–Base–Drop)</strong> — continuation supply after a pause in a down leg.</li>
+          <li><strong>RBD (Rally–Base–Drop)</strong> — reversal supply after a rally finds selling interest.</li>
+        </ul>
+        <p>A practical rule used in this framework: only act on a <strong>complete setup</strong> — structure, location, and confirming clues aligned. Incomplete pictures invite misjudgment.</p>
+
+        <h2>2. Zones: where trades are located</h2>
+        <p>Zones are price regions where prior imbalance suggests leftover interest may still exist:</p>
+        <ul>
+          <li><strong>Demand zones</strong> — areas associated with buying interest (potential long locations in context).</li>
+          <li><strong>Supply zones</strong> — areas associated with selling interest (potential short locations in context).</li>
+        </ul>
+        <p>Location matters. Frameworks often distinguish <strong>top</strong>, <strong>mid</strong>, and <strong>lower</strong> zones relative to the broader swing. Context from higher time frames improves location quality.</p>
+
+        <h2>3. Institutional order flow — general concept</h2>
+        <p>Institutional order flow is the study of how large participants (funds, banks, market makers, prop desks) interact with liquidity. Retail charts do not show their order tickets directly; the footprint is inferred from price behaviour:</p>
+        <ul>
+          <li><strong>Imbalance</strong> — aggressive buying or selling that moves price through resting liquidity.</li>
+          <li><strong>Absorption</strong> — large passive interest that holds price despite opposing aggression.</li>
+          <li><strong>Liquidity pools</strong> — clusters of stops and pending orders above highs / below lows that can attract sweeps before a reversal.</li>
+          <li><strong>Accumulation / distribution</strong> — quieter periods where size is built or reduced inside a base before expansion.</li>
+        </ul>
+        <p>Supply and demand zones are one way to map where that imbalance previously occurred. Order-flow thinking adds <em>why</em> price might react again: unfinished business at a level, not a magical line on a chart.</p>
+        <p>Important: order-flow language is interpretive. It does not grant certainty. Institutions also lose money; “smart money” narratives are educational models, not guarantees.</p>
+
+        <h2>4. Confirming clues (structure, not signals alone)</h2>
+        <p>Common confirmation concepts in structural trading education include:</p>
+        <ul>
+          <li><strong>Role reversal (SR flip)</strong> — former resistance acting as support (or the reverse) after a clean break and retest.</li>
+          <li><strong>Fakeouts / liquidity sweeps</strong> — brief breaks beyond a level that trap breakout traders, then reverse back into the zone.</li>
+          <li><strong>Failure to return (FTR)</strong> — price leaves a level decisively and does not reclaim it, supporting the new direction.</li>
+          <li><strong>First time back (FTB)</strong> — the first return to a fresh zone often carries higher informational value than a depleted, multi-touched level.</li>
+        </ul>
+        <p>Engulfing structure, Quasimodo (QM) patterns, and decision points are advanced pattern labels used by some practitioners. They remain secondary to location, risk, and completeness of context.</p>
+
+        <h2>5. Risk versus reward</h2>
+        <p>No setup is a holy grail. Trading education that promises “no-loss” methods is not education. Edge is probabilistic: favourable average outcomes over many trials, with position sizing that survives sequences of losses. Back-testing and deliberate practice build pattern recognition; they do not eliminate uncertainty.</p>
+
+        <h2>6. Investing versus trading</h2>
+        <ul>
+          <li><strong>Investing</strong> — longer horizons, allocation, diversification, valuation, compounding, and behavioural discipline.</li>
+          <li><strong>Trading</strong> — shorter horizons, structure and flow, explicit risk per idea, and process over prediction.</li>
+          <li><strong>Portfolio management</strong> — objectives, correlation, rebalancing, liquidity, and risk-adjusted outcomes.</li>
+        </ul>
+
+        <h2>7. Technology, systematic tools, and AI-assisted trading</h2>
+        <p>WINEMI CAPITAL. treats technology as infrastructure for research and process — not as a substitute for judgment.</p>
+        <ul>
+          <li><strong>Systematic rules</strong> — predefined criteria for structure, risk, and invalidation reduce improvisation under stress.</li>
+          <li><strong>AI-assisted analysis</strong> — models can help scan markets, summarise data, and flag patterns that match defined rules. They do not “know” the future.</li>
+          <li><strong>AI bot / automated execution concepts</strong> — automated or semi-automated systems can implement risk limits and rule-based entries when carefully designed. They require monitoring, regime awareness, and hard kill-switches. Model risk, data risk, and operational risk remain.</li>
+        </ul>
+        <p>Any discussion of AI trading tools on this site is educational and product-framework oriented. Past simulation or historical performance is not a promise of future results. Human oversight and capital limits are non-negotiable.</p>
+
+        <h2>8. Core curriculum map</h2>
+        <ul>
+          <li>Financial markets &amp; instruments</li>
+          <li>Supply &amp; demand structure and zones</li>
+          <li>Institutional order flow concepts</li>
+          <li>Investing, allocation, and portfolio construction</li>
+          <li>Risk management and psychology</li>
+          <li>Macro context (rates, policy, cycles)</li>
+          <li>Accounting &amp; financial analysis basics</li>
+          <li>Technology, quant methods, and AI limitations</li>
+        </ul>
+
+        <p>See also <a href="insights.html">Insights</a>, <a href="mentorship.html">Mentorship</a>, <a href="approach.html">Our Approach</a>, and <a href="risk-disclosure.html">Risk Disclosure</a>.</p>
       </div>
     </section>
   </main>
@@ -75,7 +174,7 @@
       </div>
     </div>
   </footer>
-  <script>document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());</script>
+  <script>document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });</script>
   <script src="../assets/js/main.js"></script>
 </body>
 </html>

@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Insights | WINEMI CAPITAL.</title>
-  <meta name="description" content="Research and financial knowledge on markets, investment, macroeconomics, portfolio management, risk, and technology." />
+  <meta name="description" content="Research perspectives on market structure, order flow, supply and demand, portfolios, and technology in finance." />
   <link rel="stylesheet" href="../assets/css/main.css" />
-  <link rel="icon" type="image/png" href="../assets/images/primary_boxed_dark.png" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('winemi-theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. Home">
-        <img src="../assets/images/primary_boxed_dark.png" alt="WINEMI CAPITAL." width="36" height="36" />
-        <span>WINEMI CAPITAL.</span>
+        <span class="logo-mark" role="img" aria-label="WINEMI CAPITAL."></span>
       </a>
       <nav class="nav-desktop" aria-label="Primary">
         <a href="../index.html" class="nav-link">Home</a>
@@ -28,9 +36,19 @@
         <a href="contact.html" class="nav-link">Contact</a>
         <a href="login.html" class="nav-cta">Client / Investor Login</a>
       </nav>
-      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
     </div>
   </header>
   <nav class="mobile-nav" aria-label="Mobile">
@@ -51,12 +69,53 @@
       <div class="container">
         <p class="label">Research</p>
         <h1 class="heading-1">Insights</h1>
-        <p class="body-large" style="max-width:640px;">Substantive explanations of markets, investment, macroeconomics, portfolio construction, risk, and technology — written to teach, not to sell.</p>
+        <p class="body-large" style="max-width:640px;">Frameworks for reading markets — structure, institutional order flow, risk, and the role of technology — written to teach, not to sell.</p>
       </div>
     </div>
     <section class="section">
       <div class="container prose">
-        <p>Insights is a research and financial knowledge publication. Each category explains what the subject means, why it matters, and how it relates to markets and capital.</p><ul><li><strong>Market Insights</strong> — Price movements, liquidity, volatility, cycles, and the forces that move financial assets. Understanding market mechanics helps interpret price action without confusing noise for signal.</li><li><strong>Investment Research</strong> — Fundamental analysis, valuation, financial statements, industry structure, and investment theses. Research reduces the role of opinion and increases the role of evidence.</li><li><strong>Macroeconomics</strong> — Inflation, interest rates, GDP, employment, monetary and fiscal policy, and currencies. Asset prices respond to the economic environment.</li><li><strong>Wealth Creation</strong> — Accumulation, preservation, compounding, diversification, and financial discipline. Without a framework, short-term decisions can undermine long-term security.</li><li><strong>Portfolio Management</strong> — Construction, allocation, correlation, rebalancing, liquidity, and risk-adjusted performance. Most investors experience markets through portfolios, not single positions.</li><li><strong>Trading & Market Structure</strong> — Price action, technical analysis, support and resistance, liquidity, and trading psychology. These are analytical concepts, not guaranteed methods of predicting prices.</li><li><strong>Technology & Artificial Intelligence</strong> — Machine learning, quantitative systems, data, automation, and model limitations in finance. Understanding capabilities and limitations prevents over-reliance on systems that can fail in new regimes.</li><li><strong>Economics & Business</strong> — Business models, corporate performance, accounting, and capital allocation inside firms. Equity returns ultimately depend on business performance.</li><li><strong>Accounting & Financial Analysis</strong> — Financial statements, ratios, cash flow, liquidity, solvency, and profitability metrics. Without the ability to read statements, investment analysis rests on incomplete information.</li><li><strong>Risk Management</strong> — Identification, position sizing, drawdowns, liquidity risk, and the gap between return and acceptable risk. Returns without risk control are incomplete.</li></ul><p>Educational materials and market commentary are informational and do not guarantee returns. See also <a href="education.html">Education</a> and <a href="risk-disclosure.html">Risk Disclosure</a>.</p>
+        <p>Research and commentary here are written to teach frameworks. They are not trade recommendations and do not guarantee outcomes.</p>
+
+        <h2>Why structure matters more than prediction</h2>
+        <p>Markets are continuous auctions. Price expands when one side overwhelms available liquidity and contracts when two-way interest balances. Supply and demand education focuses on recognising those transitions — rally, base, drop — rather than forecasting news headlines.</p>
+
+        <h2>Institutional order flow in plain language</h2>
+        <p>Large participants cannot always enter or exit at a single print without moving the market. Their activity often leaves structural clues:</p>
+        <ul>
+          <li>Strong departures from a base (imbalance)</li>
+          <li>Failed breaks beyond obvious highs/lows (liquidity runs)</li>
+          <li>Defended levels on a first retest (possible residual interest)</li>
+        </ul>
+        <p>Order flow is not a crystal ball. It is a lens for reading <em>where</em> risk and reward may be asymmetric if the prior imbalance still has force.</p>
+
+        <h2>Supply &amp; demand: a practical vocabulary</h2>
+        <p>Shared language reduces ambiguity. Common terms include RBR, RBD, DBR, DBD; demand and supply zones; higher-time-frame location; and “complete setup” discipline — only acting when structure, location, and confirmation align.</p>
+        <p>Educational programmes in this tradition emphasise practice and review of historical price action so pattern recognition becomes literate, not impulsive.</p>
+
+        <h2>Services context: research, education, and systematic support</h2>
+        <p>Visitors exploring WINEMI CAPITAL. typically encounter three related layers:</p>
+        <ul>
+          <li><strong>Education &amp; mentorship</strong> — structured learning on markets, risk, and process.</li>
+          <li><strong>Research &amp; market perspective</strong> — frameworks for reading structure and macro context.</li>
+          <li><strong>Technology-assisted process</strong> — including systematic rules and AI-assisted tools designed to support analysis and risk discipline. Automation is a means of consistency, not a claim of certainty.</li>
+        </ul>
+        <p>Details of any client-facing tools or programmes are provided through formal channels after suitability and disclosure steps. Website content remains general and educational.</p>
+
+        <h2>Risk is the product</h2>
+        <p>Return without risk control is incomplete. Position sizing, maximum loss per idea, correlation, and the possibility of regime change belong in every serious process — discretionary or systematic.</p>
+
+        <h2>Topic index</h2>
+        <ul>
+          <li>Market structure &amp; price action</li>
+          <li>Supply and demand zones</li>
+          <li>Institutional order flow concepts</li>
+          <li>Macroeconomics and policy transmission</li>
+          <li>Portfolio construction and allocation</li>
+          <li>Technology, quant systems, and AI limitations</li>
+          <li>Behavioural discipline and process design</li>
+        </ul>
+
+        <p>Continue in <a href="education.html">Education</a> for the full learning sequence, or <a href="approach.html">Our Approach</a> for how research informs capital decisions.</p>
       </div>
     </section>
   </main>
@@ -73,7 +132,7 @@
       </div>
     </div>
   </footer>
-  <script>document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());</script>
+  <script>document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });</script>
   <script src="../assets/js/main.js"></script>
 </body>
 </html>
