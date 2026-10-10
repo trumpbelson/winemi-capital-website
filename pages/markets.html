@@ -2,16 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Markets | WINEMI CAPITAL.</title>
   <meta name="description" content="Real financial market charts for NASDAQ-100, Gold, Bitcoin, S&P 500, Dow Jones, EUR/USD, GBP/USD, USD/JPY, and crude oil. Genuine candlestick data via TradingView." />
   <link rel="stylesheet" href="../assets/css/main.css" />
-  <link rel="icon" type="image/png" href="../assets/images/primary_boxed_dark.png" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('winemi-theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a href="../index.html" class="logo"><img src="../assets/images/primary_boxed_dark.png" alt="WINEMI CAPITAL." width="36" height="36" /><span>WINEMI CAPITAL.</span></a>
+      <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. Home">
+        <span class="logo-mark" role="img" aria-label="WINEMI CAPITAL."></span>
+      </a>
       <nav class="nav-desktop" aria-label="Primary">
         <a href="../index.html" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About</a>
@@ -25,7 +36,19 @@
         <a href="contact.html" class="nav-link">Contact</a>
         <a href="login.html" class="nav-cta">Client / Investor Login</a>
       </nav>
-      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
     </div>
   </header>
   <nav class="mobile-nav" aria-label="Mobile">
@@ -46,7 +69,7 @@
       <div class="container">
         <p class="label">Market Data</p>
         <h1 class="heading-1">Markets</h1>
-        <p class="body-large" style="max-width:640px;">Genuine candlestick charts with OHLC data for major indices, commodities, foreign exchange, and digital assets. Data provided by TradingView.</p>
+        <p class="body-large" style="max-width:640px;">Genuine candlestick charts with OHLC data for major indices, commodities, foreign exchange, and digital assets. Data provided by TradingView. Availability, delay, and market hours vary by instrument and exchange.</p>
       </div>
     </div>
     <section class="section">
@@ -57,21 +80,22 @@
               <button class="instrument-tab active" data-symbol="BINANCE:BTCUSDT" role="tab">Bitcoin</button>
               <button class="instrument-tab" data-symbol="TVC:GOLD" role="tab">Gold (XAU)</button>
               <button class="instrument-tab" data-symbol="NASDAQ:QQQ" role="tab">NASDAQ-100 (QQQ)</button>
-              <button class="instrument-tab" data-symbol="TVC:SPX" role="tab">S&amp;P 500</button>
+              <button class="instrument-tab" data-symbol="TVC:SPX" role="tab">S&P 500</button>
               <button class="instrument-tab" data-symbol="TVC:DJI" role="tab">Dow Jones</button>
               <button class="instrument-tab" data-symbol="FX:EURUSD" role="tab">EUR/USD</button>
               <button class="instrument-tab" data-symbol="FX:GBPUSD" role="tab">GBP/USD</button>
               <button class="instrument-tab" data-symbol="FX:USDJPY" role="tab">USD/JPY</button>
               <button class="instrument-tab" data-symbol="TVC:USOIL" role="tab">WTI Crude</button>
             </div>
-            <p class="body-small" style="margin:0;">Source: TradingView · Candlestick</p>
+            <p class="body-small" style="margin:0;">Source: TradingView · Candlestick · Multiple timeframes available in chart toolbar</p>
           </div>
           <div id="tv-widget" style="height:520px;"></div>
         </div>
         <div class="prose" style="max-width:none;">
           <h2>About the data</h2>
-          <p>Charts use the TradingView advanced chart widget. Data may be real-time or delayed per exchange rules. No fabricated prices are generated on this site.</p>
-          <p><strong>Instruments:</strong> Bitcoin (BINANCE:BTCUSDT), Gold (TVC:GOLD), NASDAQ-100 via QQQ, S&amp;P 500 (TVC:SPX), Dow Jones (TVC:DJI), EUR/USD, GBP/USD, USD/JPY, WTI Crude (TVC:USOIL).</p>
+          <p>Charts on this page use the TradingView advanced chart widget. Symbols are clearly identified. Data may be real-time or delayed according to the rules of the underlying exchange or data provider. Cryptocurrency pairs (e.g. BTC/USDT) typically update more frequently; index and equity data may be delayed for non-professional users.</p>
+          <p>If a chart fails to load, the cause is usually network restriction, ad-blocking, or temporary unavailability of the widget. No random or fabricated prices are generated on this site.</p>
+          <p><strong>Instruments displayed:</strong> NASDAQ-100 via QQQ (NASDAQ:QQQ), Gold (TVC:GOLD), Bitcoin (BINANCE:BTCUSDT), S&P 500 (TVC:SPX), Dow Jones (TVC:DJI), EUR/USD, GBP/USD, USD/JPY, WTI Crude Oil (TVC:USOIL).</p>
         </div>
       </div>
     </section>
@@ -92,22 +116,51 @@
   <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
   <script>
     document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
-    let widget = new TradingView.widget({
-      autosize: true, symbol: 'BINANCE:BTCUSDT', interval: 'D', timezone: 'Etc/UTC', theme: 'dark', style: '1', locale: 'en',
-      toolbar_bg: '#1c1c1f', enable_publishing: false, allow_symbol_change: true, container_id: 'tv-widget',
-      backgroundColor: '#1c1c1f', gridColor: 'rgba(255,255,255,0.06)'
-    });
-    document.querySelectorAll('#market-tabs .instrument-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('#market-tabs .instrument-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById('tv-widget').innerHTML = '';
-        widget = new TradingView.widget({
-          autosize: true, symbol: tab.dataset.symbol, interval: 'D', timezone: 'Etc/UTC', theme: 'dark', style: '1', locale: 'en',
-          toolbar_bg: '#1c1c1f', enable_publishing: false, allow_symbol_change: true, container_id: 'tv-widget',
-          backgroundColor: '#1c1c1f', gridColor: 'rgba(255,255,255,0.06)'
-        });
+
+    function chartTheme() {
+      var light = document.documentElement.getAttribute('data-theme') === 'light';
+      return light
+        ? { theme: 'light', toolbar_bg: '#ffffff', backgroundColor: '#ffffff', gridColor: 'rgba(10,10,11,0.08)' }
+        : { theme: 'dark', toolbar_bg: '#1c1c1f', backgroundColor: '#1c1c1f', gridColor: 'rgba(255,255,255,0.06)' };
+    }
+
+    var currentSymbol = 'BINANCE:BTCUSDT';
+    var widget;
+
+    function mountChart(symbol) {
+      currentSymbol = symbol || currentSymbol;
+      var t = chartTheme();
+      var el = document.getElementById('tv-widget');
+      if (el) el.innerHTML = '';
+      widget = new TradingView.widget({
+        autosize: true,
+        symbol: currentSymbol,
+        interval: 'D',
+        timezone: 'Etc/UTC',
+        theme: t.theme,
+        style: '1',
+        locale: 'en',
+        toolbar_bg: t.toolbar_bg,
+        enable_publishing: false,
+        allow_symbol_change: true,
+        container_id: 'tv-widget',
+        backgroundColor: t.backgroundColor,
+        gridColor: t.gridColor
       });
+    }
+
+    mountChart(currentSymbol);
+
+    document.querySelectorAll('#market-tabs .instrument-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('#market-tabs .instrument-tab').forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        mountChart(tab.dataset.symbol);
+      });
+    });
+
+    window.addEventListener('winemi:themechange', function () {
+      mountChart(currentSymbol);
     });
   </script>
   <script src="../assets/js/main.js"></script>
