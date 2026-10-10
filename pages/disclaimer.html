@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Disclaimer | WINEMI CAPITAL.</title>
-  <meta name="description" content="Disclaimer for WINEMI CAPITAL. website content." />
+  <meta name="description" content="General disclaimer for WINEMI CAPITAL. website content." />
   <link rel="stylesheet" href="../assets/css/main.css" />
-  <link rel="icon" type="image/png" href="../assets/images/primary_boxed_dark.png" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('winemi-theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. Home">
-        <img src="../assets/images/primary_boxed_dark.png" alt="WINEMI CAPITAL." width="36" height="36" />
-        <span>WINEMI CAPITAL.</span>
+        <span class="logo-mark" role="img" aria-label="WINEMI CAPITAL."></span>
       </a>
       <nav class="nav-desktop" aria-label="Primary">
         <a href="../index.html" class="nav-link">Home</a>
@@ -28,21 +36,24 @@
         <a href="contact.html" class="nav-link">Contact</a>
         <a href="login.html" class="nav-cta">Client / Investor Login</a>
       </nav>
-      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
     </div>
   </header>
   <nav class="mobile-nav" aria-label="Mobile">
     <a href="../index.html" class="nav-link">Home</a>
     <a href="about.html" class="nav-link">About</a>
-    <a href="investments.html" class="nav-link">Investments</a>
-    <a href="asset-management.html" class="nav-link">Asset Management</a>
-    <a href="markets.html" class="nav-link">Markets</a>
-    <a href="approach.html" class="nav-link">Our Approach</a>
-    <a href="insights.html" class="nav-link">Insights</a>
-    <a href="education.html" class="nav-link">Education</a>
-    <a href="mentorship.html" class="nav-link">Mentorship</a>
     <a href="contact.html" class="nav-link">Contact</a>
     <a href="login.html" class="nav-cta">Client / Investor Login</a>
   </nav>
@@ -51,21 +62,17 @@
       <div class="container">
         <p class="label">Legal</p>
         <h1 class="heading-1">Disclaimer</h1>
-        <p class="body-large" style="max-width:640px;">Educational and informational content only.</p>
       </div>
     </div>
     <section class="section">
       <div class="container prose">
-  <p>Nothing on this website constitutes an offer to buy or sell securities or an invitation to engage in investment activity where such offer would be unlawful.</p>
-  <h2>Regulatory status</h2>
-  <p>This website does not claim regulatory licences, authorisations, or approvals that have not been independently verified and published.</p>
-  <h2>Third-party content</h2>
-  <p>Charts, maps, and external links are provided for convenience. We are not responsible for third-party content or services.</p>
-  <p><em>Draft for legal review before production.</em></p>
+        <p>Content on this website is for general informational and educational purposes only. It does not constitute investment advice, an offer to sell, or a solicitation to buy any security or financial product.</p>
+        <p>WINEMI CAPITAL. does not guarantee the accuracy, completeness, or timeliness of any information presented. Markets change; past performance is not indicative of future results.</p>
+        <p>You should conduct your own research and consult qualified advisers before making any financial decision. Use of this site is subject to our Terms and Risk Disclosure.</p>
       </div>
     </section>
   </main>
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-bottom" style="border:none;padding-top:0;">
         <p>© <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
