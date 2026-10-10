@@ -9,7 +9,6 @@
   <link rel="canonical" href="https://winemicapital.com/" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script>
     (function () {
       try {
@@ -190,8 +189,41 @@
         <p class="label section-label">Geographic Context</p>
         <h2 class="heading-2 section-title">GLOBAL FINANCIAL CAPITALS</h2>
         <p class="body-base" style="max-width:640px;margin-bottom:1.5rem;">Seven major global financial capitals — New York, London, Tokyo, Hong Kong, Singapore, Shanghai, and Dubai — plus Accra, where WINEMI CAPITAL. is based. Markers are reference points for liquidity and market structure, not claims of physical offices.</p>
-        <div id="world-map" class="map-container map-container--visible" aria-label="Interactive world map of major financial capitals"></div>
-        <p class="body-small mt-2 text-center">Select a marker for a short description. Accra is highlighted as the company location.</p>
+        <div class="wc-map" id="world-map" role="img" aria-label="Stylised world map of major financial capitals">
+          <svg class="wc-map-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="1000" height="500" fill="#0d0d0f"/>
+            <g opacity="0.35">
+              <path class="map-land" d="M180,120 L210,95 L250,100 L280,130 L270,180 L240,200 L200,190 L170,160 Z"/>
+              <path class="map-land" d="M420,90 L480,85 L520,100 L550,140 L540,180 L500,200 L460,190 L430,150 Z"/>
+              <path class="map-land" d="M520,200 L580,180 L620,200 L640,250 L610,280 L560,270 L530,240 Z"/>
+              <path class="map-land" d="M700,140 L780,130 L820,160 L850,220 L820,280 L760,290 L720,250 L700,200 Z"/>
+              <path class="map-land" d="M780,300 L840,290 L880,320 L870,380 L820,400 L780,370 Z"/>
+              <path class="map-land" d="M150,280 L200,270 L230,300 L220,360 L180,380 L140,350 Z"/>
+              <path class="map-land" d="M250,320 L320,310 L360,340 L350,400 L300,420 L250,390 Z"/>
+            </g>
+            <g class="map-grid" stroke="rgba(255,255,255,0.04)" stroke-width="1">
+              <line x1="0" y1="125" x2="1000" y2="125"/><line x1="0" y1="250" x2="1000" y2="250"/><line x1="0" y1="375" x2="1000" y2="375"/>
+              <line x1="250" y1="0" x2="250" y2="500"/><line x1="500" y1="0" x2="500" y2="500"/><line x1="750" y1="0" x2="750" y2="500"/>
+            </g>
+            <g class="map-pin map-pin--home" data-name="Accra" data-desc="Location of WINEMI CAPITAL. Growing financial centre in West Africa." transform="translate(499.5,234.4)"><circle class="map-pin-hit" r="14" fill="transparent"/><circle class="map-pin-ring" r="13" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/><circle class="map-pin-dot" r="9" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/><text class="map-pin-label" y="-19" text-anchor="middle">Accra · Home</text></g>
+            <g class="map-pin" data-name="New York" data-desc="Largest capital market. NYSE, NASDAQ, extensive institutional activity." transform="translate(294.4,136.9)"><circle class="map-pin-hit" r="14" fill="transparent"/><circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/><circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/><text class="map-pin-label" y="-16" text-anchor="middle">New York</text></g>
+            <g class="map-pin" data-name="London" data-desc="Leading global financial centre. Equity, fixed income, and FX markets." transform="translate(499.6,106.9)"><circle class="map-pin-hit" r="14" fill="transparent"/><circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/><circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/><text class="map-pin-label" y="-16" text-anchor="middle">London</text></g>
+            <g class="map-pin" data-name="Tokyo" data-desc="Major Asian financial hub. Tokyo Stock Exchange and domestic capital markets." transform="translate(887.9,150.9)"><circle class="map-pin-hit" r="14" fill="transparent"/><circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/><circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/><text class="map-pin-label" y="-16" text-anchor="middle">Tokyo</text></g>
+            <g class="map-pin" data-name="Hong Kong" data-desc="Gateway for China-related capital markets and international finance." transform="translate(817.1,188.0)"><circle class="map-pin-hit" r="14" fill="transparent"/><circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/><circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/><text class="map-pin-label" y="-16" text-anchor="middle">Hong Kong</text></g>
+            <g class="map-pin" data-name="Singapore" data-desc="Asian financial centre strong in FX, wealth, and asset management." transform="translate(788.4,246.2)"><circle class="map-pin-hit" r="14" fill="transparent"/><circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/><circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/><text class="map-pin-label" y="-16" text-anchor="middle">Singapore</text></g>
+            <g class="map-pin" data-name="Shanghai" data-desc="Mainland China primary financial centre. Equity, bond, and commodities." transform="translate(837.4,163.2)"><circle class="map-pin-hit" r="14" fill="transparent"/><circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/><circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/><text class="map-pin-label" y="-16" text-anchor="middle">Shanghai</text></g>
+            <g class="map-pin" data-name="Dubai" data-desc="Regional hub for capital markets, commodities, and wealth management." transform="translate(653.5,180.0)"><circle class="map-pin-hit" r="14" fill="transparent"/><circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/><circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/><text class="map-pin-label" y="-16" text-anchor="middle">Dubai</text></g>
+          </svg>
+          <div class="wc-map-popup" id="map-popup" hidden>
+            <strong class="wc-map-popup-title"></strong>
+            <p class="wc-map-popup-desc"></p>
+          </div>
+          <ul class="wc-map-legend" aria-label="Financial centres">
+            <li><span class="leg-dot leg-dot--home"></span> Accra (home)</li>
+            <li><span class="leg-dot"></span> New York · London · Tokyo · Hong Kong · Singapore · Shanghai · Dubai</li>
+          </ul>
+        </div>
+        <p class="body-small mt-2 text-center">Select a marker for a short description. Stylised map — no external map service required. Markers are geographic references, not office claims.</p>
       </div>
     </section>
     <section class="section" id="education-preview">
@@ -199,9 +231,9 @@
         <p class="label section-label">Education</p>
         <h2 class="heading-2 section-title">STRUCTURED LEARNING</h2>
         <div class="grid-3" style="margin-top:2rem;">
-          <div class="card"><h3 class="card-title">Markets &amp; Instruments</h3><p class="card-text">Equity, fixed income, FX, commodities, and digital assets — structure, liquidity, and role in portfolios.</p></div>
-          <div class="card"><h3 class="card-title">Risk &amp; Allocation</h3><p class="card-text">Risk types, position sizing, diversification, and the relationship between capital, risk, and time.</p></div>
-          <div class="card"><h3 class="card-title">Analysis Frameworks</h3><p class="card-text">Fundamental and technical perspectives, valuation concepts, and research process.</p></div>
+          <div class="card"><h3 class="card-title">Supply &amp; Demand Structure</h3><p class="card-text">Rally, drop, and base; demand and supply zones; how institutional footprints appear as imbalance on the chart.</p></div>
+          <div class="card"><h3 class="card-title">Institutional Order Flow</h3><p class="card-text">How large participants accumulate and distribute; liquidity, absorption, and why price reacts at key levels.</p></div>
+          <div class="card"><h3 class="card-title">Systems &amp; AI-Assisted Tools</h3><p class="card-text">How systematic and AI-assisted processes can support analysis — and why human oversight and risk limits remain essential.</p></div>
         </div>
         <p class="mt-4"><a href="pages/education.html" class="btn btn-secondary">Education Hub</a></p>
       </div>
@@ -265,41 +297,35 @@
     </div>
   </footer>
   <script src="https://s3.tradingview.com/tv.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
     document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
     (function () {
-      if (typeof L === 'undefined' || !document.getElementById('world-map')) return;
-      var map = L.map('world-map', { scrollWheelZoom: false, worldCopyJump: true }).setView([18, 15], 2);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 18
-      }).addTo(map);
-      var hubs = [
-        { name: 'Accra', lat: 5.6037, lng: -0.1870, desc: 'Location of WINEMI CAPITAL. Growing financial centre in West Africa.', primary: true },
-        { name: 'New York', lat: 40.7128, lng: -74.0060, desc: 'World largest capital market. NYSE, NASDAQ, and extensive institutional activity.' },
-        { name: 'London', lat: 51.5074, lng: -0.1278, desc: 'Leading global financial centre. Deep equity, fixed income, and FX markets.' },
-        { name: 'Tokyo', lat: 35.6762, lng: 139.6503, desc: 'Asia major financial hub. Tokyo Stock Exchange and deep domestic capital markets.' },
-        { name: 'Hong Kong', lat: 22.3193, lng: 114.1694, desc: 'Key gateway for China-related capital markets and international finance.' },
-        { name: 'Singapore', lat: 1.3521, lng: 103.8198, desc: 'Leading Asian financial centre. Strong in FX, wealth, and asset management.' },
-        { name: 'Shanghai', lat: 31.2304, lng: 121.4737, desc: 'Mainland China primary financial centre. Equity, bond, and commodities markets.' },
-        { name: 'Dubai', lat: 25.2048, lng: 55.2708, desc: 'Regional hub for capital markets, commodities, and wealth management in the Middle East.' }
-      ];
-      var goldIcon = L.divIcon({
-        className: 'map-marker',
-        html: '<div class="map-dot"></div>',
-        iconSize: [18, 18], iconAnchor: [9, 9]
+      var root = document.getElementById('world-map');
+      if (!root) return;
+      var popup = document.getElementById('map-popup');
+      var title = popup && popup.querySelector('.wc-map-popup-title');
+      var desc = popup && popup.querySelector('.wc-map-popup-desc');
+      root.querySelectorAll('.map-pin').forEach(function (pin) {
+        function show(e) {
+          if (!popup) return;
+          title.textContent = pin.getAttribute('data-name') || '';
+          desc.textContent = pin.getAttribute('data-desc') || '';
+          popup.hidden = false;
+          var rect = root.getBoundingClientRect();
+          var cx = e.clientX - rect.left;
+          var cy = e.clientY - rect.top;
+          popup.style.left = Math.min(Math.max(12, cx - 100), rect.width - 220) + 'px';
+          popup.style.top = Math.max(12, cy - 70) + 'px';
+        }
+        pin.addEventListener('click', show);
+        pin.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(e); } });
+        pin.setAttribute('tabindex', '0');
+        pin.setAttribute('role', 'button');
+        pin.setAttribute('aria-label', pin.getAttribute('data-name'));
       });
-      var accraIcon = L.divIcon({
-        className: 'map-marker map-marker-home',
-        html: '<div class="map-dot map-dot--home"></div>',
-        iconSize: [24, 24], iconAnchor: [12, 12]
-      });
-      setTimeout(function () { map.invalidateSize(); }, 200);
-      hubs.forEach(function (h) {
-        L.marker([h.lat, h.lng], { icon: h.primary ? accraIcon : goldIcon })
-          .addTo(map)
-          .bindPopup('<div class="map-popup"><strong>' + h.name + (h.primary ? ' · Home' : '') + '</strong><p>' + h.desc + '</p></div>', { className: 'map-popup-wrap', maxWidth: 280 });
+      document.addEventListener('click', function (e) {
+        if (popup && !root.contains(e.target)) popup.hidden = true;
       });
     })();
     (function () {
