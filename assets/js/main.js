@@ -74,46 +74,26 @@
   }
 
   const tabs = document.querySelectorAll('.instrument-tab');
-  const chartFrame = document.getElementById('tv-chart');
-  if (tabs.length && chartFrame) {
+  if (tabs.length) {
     const symbols = {
-      nasdaq: 'NASDAQ:QQQ',
-      gold: 'TVC:GOLD',
-      btc: 'BINANCE:BTCUSDT',
-      spx: 'TVC:SPX',
-      dji: 'TVC:DJI',
-      eurusd: 'FX:EURUSD',
-      gbpusd: 'FX:GBPUSD',
-      usdjpy: 'FX:USDJPY',
-      oil: 'TVC:USOIL'
+      nasdaq: 'NASDAQ:QQQ', gold: 'TVC:GOLD', btc: 'BINANCE:BTCUSDT',
+      spx: 'TVC:SPX', dji: 'TVC:DJI', eurusd: 'FX:EURUSD',
+      gbpusd: 'FX:GBPUSD', usdjpy: 'FX:USDJPY', oil: 'TVC:USOIL'
     };
     tabs.forEach((tab) => {
       tab.addEventListener('click', () => {
         tabs.forEach((t) => t.classList.remove('active'));
         tab.classList.add('active');
         const key = tab.dataset.symbol;
-        if (symbols[key] && chartFrame) {
-          const container = document.getElementById('tradingview-widget');
-          if (container && window.TradingView) {
-            container.innerHTML = '';
-            new TradingView.widget({
-              autosize: true,
-              symbol: symbols[key],
-              interval: 'D',
-              timezone: 'Etc/UTC',
-              theme: 'dark',
-              style: '1',
-              locale: 'en',
-              toolbar_bg: '#1c1c1f',
-              enable_publishing: false,
-              hide_top_toolbar: false,
-              hide_legend: false,
-              save_image: false,
-              container_id: 'tradingview-widget',
-              backgroundColor: '#1c1c1f',
-              gridColor: 'rgba(255,255,255,0.06)'
-            });
-          }
+        const container = document.getElementById('tradingview-widget');
+        if (symbols[key] && container && window.TradingView) {
+          container.innerHTML = '';
+          new TradingView.widget({
+            autosize: true, symbol: symbols[key], interval: 'D', timezone: 'Etc/UTC',
+            theme: 'dark', style: '1', locale: 'en', toolbar_bg: '#1c1c1f',
+            enable_publishing: false, container_id: 'tradingview-widget',
+            backgroundColor: '#1c1c1f', gridColor: 'rgba(255,255,255,0.06)'
+          });
         }
       });
     });
