@@ -48,8 +48,8 @@
           </svg>
         </button>
         <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -89,7 +89,7 @@
             <p class="body-base" style="margin-top:1.25rem;">WINEMI CAPITAL. approaches markets and portfolios as systems that must be understood before capital is committed. Education and analysis are treated as infrastructure for better decisions.</p>
           </div>
           <div>
-            <p class="body-base">Based in Accra with a global outlook, the firm focuses on capital allocation, asset classes, market structure, portfolio principles, and structured financial education — without unsubstantiated performance claims or invented credentials.</p>
+            <p class="body-base">Based in Accra with a global outlook, the firm focuses on capital allocation, asset classes, market structure, portfolio principles, and structured financial education.</p>
           </div>
         </div>
       </div>
@@ -120,9 +120,10 @@
     <section class="section" id="map" style="background:var(--color-charcoal);">
       <div class="container">
         <p class="label section-label">Geographic Context</p>
-        <h2 class="heading-2 section-title">GLOBAL FINANCIAL LANDSCAPE</h2>
-        <p class="body-base" style="max-width:640px;margin-bottom:1.5rem;">Reference map of major financial centres. Markers indicate market hubs, not claims of physical offices.</p>
-        <div id="world-map" class="map-container"></div>
+        <h2 class="heading-2 section-title">GLOBAL FINANCIAL CAPITALS</h2>
+        <p class="body-base" style="max-width:640px;margin-bottom:1.5rem;">Seven major global financial capitals — New York, London, Tokyo, Hong Kong, Singapore, Shanghai, and Dubai — plus Accra, where WINEMI CAPITAL. is based. Markers are reference points for liquidity and market structure, not claims of physical offices.</p>
+        <div id="world-map" class="map-container" aria-label="Interactive world map of major financial capitals"></div>
+        <p class="body-small mt-2 text-center">Select a marker for a short description. Accra is highlighted as the company location.</p>
       </div>
     </section>
     <section class="section" id="education-preview">
@@ -147,6 +148,16 @@
           </a>
           <p class="body-small" style="margin-top:1rem;">Building wealth through intelligent capital allocation.</p>
           <p class="body-small">Accra, Ghana · Global outlook</p>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/WinemiCapital" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener" title="Instagram @WinemiCapital">IG</a>
+            <a href="https://www.facebook.com/WinemiCapital" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener" title="Facebook /WinemiCapital">FB</a>
+            <a href="https://www.linkedin.com/company/winemicapital" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener" title="LinkedIn">in</a>
+            <a href="https://x.com/WinemiCapital" class="social-icon" aria-label="X" target="_blank" rel="noopener" title="X @WinemiCapital">X</a>
+            <a href="https://www.youtube.com/@WinemiCapital" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener" title="YouTube @WinemiCapital">YT</a>
+            <a href="https://t.me/WinemiCapital" class="social-icon" aria-label="Telegram" target="_blank" rel="noopener" title="Telegram @WinemiCapital">TG</a>
+            <a href="https://wa.me/233503100519" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener" title="WhatsApp +233 50 310 0519">WA</a>
+            <a href="https://www.tiktok.com/@WinemiCapital" class="social-icon" aria-label="TikTok" target="_blank" rel="noopener" title="TikTok @WinemiCapital">TT</a>
+          </div>
         </div>
         <div>
           <p class="footer-heading">Firm</p>
@@ -189,7 +200,64 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
-    document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
+    document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+    (function () {
+      if (typeof L === 'undefined' || !document.getElementById('world-map')) return;
+      var map = L.map('world-map', { scrollWheelZoom: false, worldCopyJump: true }).setView([20, 20], 2);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 18
+      }).addTo(map);
+      var hubs = [
+        { name: 'Accra', lat: 5.6037, lng: -0.1870, desc: 'Location of WINEMI CAPITAL. Growing financial centre in West Africa.', primary: true },
+        { name: 'New York', lat: 40.7128, lng: -74.0060, desc: 'World largest capital market. NYSE, NASDAQ, and extensive institutional activity.' },
+        { name: 'London', lat: 51.5074, lng: -0.1278, desc: 'Leading global financial centre. Deep equity, fixed income, and FX markets.' },
+        { name: 'Tokyo', lat: 35.6762, lng: 139.6503, desc: 'Asia major financial hub. Tokyo Stock Exchange and deep domestic capital markets.' },
+        { name: 'Hong Kong', lat: 22.3193, lng: 114.1694, desc: 'Key gateway for China-related capital markets and international finance.' },
+        { name: 'Singapore', lat: 1.3521, lng: 103.8198, desc: 'Leading Asian financial centre. Strong in FX, wealth, and asset management.' },
+        { name: 'Shanghai', lat: 31.2304, lng: 121.4737, desc: 'Mainland China primary financial centre. Equity, bond, and commodities markets.' },
+        { name: 'Dubai', lat: 25.2048, lng: 55.2708, desc: 'Regional hub for capital markets, commodities, and wealth management in the Middle East.' }
+      ];
+      var goldIcon = L.divIcon({
+        className: 'map-marker',
+        html: '<div style="width:12px;height:12px;background:#b8956a;border:2px solid #f7f5f0;border-radius:50%;box-shadow:0 0 0 2px rgba(184,149,106,0.35);"></div>',
+        iconSize: [12, 12], iconAnchor: [6, 6]
+      });
+      var accraIcon = L.divIcon({
+        className: 'map-marker map-marker-home',
+        html: '<div style="width:16px;height:16px;background:#b8956a;border:2px solid #f7f5f0;border-radius:50%;box-shadow:0 0 0 3px rgba(184,149,106,0.45);"></div>',
+        iconSize: [16, 16], iconAnchor: [8, 8]
+      });
+      hubs.forEach(function (h) {
+        L.marker([h.lat, h.lng], { icon: h.primary ? accraIcon : goldIcon })
+          .addTo(map)
+          .bindPopup('<strong style="color:#0a0a0b;">' + h.name + (h.primary ? ' · Home' : '') + '</strong><br><span style="color:#3d3d42;font-size:0.875rem;">' + h.desc + '</span>');
+      });
+    })();
+    (function () {
+      if (typeof TradingView === 'undefined') return;
+      var el = document.getElementById('tradingview-widget');
+      if (!el) return;
+      var current = 'BINANCE:BTCUSDT';
+      function mount(symbol) {
+        current = symbol || current;
+        el.innerHTML = '';
+        new TradingView.widget({
+          autosize: true, symbol: current, interval: 'D', timezone: 'Etc/UTC',
+          theme: document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark',
+          style: '1', locale: 'en', toolbar_bg: '#1c1c1f', enable_publishing: false,
+          allow_symbol_change: true, container_id: 'tradingview-widget',
+          backgroundColor: '#1c1c1f', gridColor: 'rgba(255,255,255,0.06)'
+        });
+      }
+      mount(current);
+      document.querySelectorAll('.instrument-tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          document.querySelectorAll('.instrument-tab').forEach(function (t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          mount(tab.dataset.symbol);
+        });
+      });
+    })();
   </script>
 </body>
 </html>
