@@ -259,3 +259,33 @@
   .wc-map { max-width: 100%; }
   .map-pin-label { font-size: 7.5px; }
 }
+
+/* Extended news ticker */
+.news-ticker {
+  height: 56px !important;
+}
+.news-ticker-inner {
+  gap: 1rem !important;
+}
+.news-ticker-label {
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  color: var(--color-muted-gold, #b8956a) !important;
+  padding-right: 1rem !important;
+  border-right: 1px solid rgba(184, 149, 106, 0.35) !important;
+}
+.news-ticker-content {
+  font-size: 0.9375rem !important;
+  line-height: 1.4 !important;
+  animation-duration: 60s !important;
+}
+.news-sep {
+  padding: 0 1.35rem !important;
+  opacity: 0.75 !important;
+  font-size: 1rem !important;
+}
+@media (max-width: 640px) {
+  .news-ticker { height: 48px !important; }
+  .news-ticker-content { font-size: 0.875rem !important; }
+}
