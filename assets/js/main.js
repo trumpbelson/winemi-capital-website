@@ -182,13 +182,52 @@
     document.body.appendChild(s);
   })();
 
-  // Place geographic map after education section
   (function reorderMapAfterEducation() {
     var map = document.getElementById('map');
     var edu = document.getElementById('education-preview');
     if (!map || !edu || !map.parentNode) return;
     if (edu.compareDocumentPosition(map) & Node.DOCUMENT_POSITION_FOLLOWING) return;
     edu.parentNode.insertBefore(map, edu.nextSibling);
+  })();
+
+  // Smooth page enter + scroll reveals
+  (function smoothMotion() {
+    document.body.classList.add('page-ready');
+
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+
+    var candidates = document.querySelectorAll(
+      'main .section, main .philosophy-band, .card, .card-visual, .diagram-strip-item, .chart-container, .wc-map, .grid-2 > *, .grid-3 > *'
+    );
+    candidates.forEach(function (el) {
+      if (el.classList.contains('reveal')) return;
+      el.classList.add('reveal');
+    });
+
+    document.querySelectorAll('.grid-2, .grid-3, .diagram-strip, .login-visual-grid').forEach(function (g) {
+      g.classList.add('reveal-stagger');
+    });
+
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        el.classList.add('is-visible');
+      });
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      io.observe(el);
+    });
   })();
 
 })();
