@@ -262,30 +262,30 @@
 
 /* Extended news ticker */
 .news-ticker {
-  height: 56px !important;
+  height: 72px !important;
 }
 .news-ticker-inner {
-  gap: 1rem !important;
+  gap: 1.15rem !important;
 }
 .news-ticker-label {
-  font-size: 0.75rem !important;
+  font-size: 0.8125rem !important;
   font-weight: 600 !important;
   letter-spacing: 0.12em !important;
   color: var(--color-muted-gold, #b8956a) !important;
-  padding-right: 1rem !important;
+  padding-right: 1.15rem !important;
   border-right: 1px solid rgba(184, 149, 106, 0.35) !important;
 }
 .news-ticker-content {
-  font-size: 0.9375rem !important;
-  line-height: 1.4 !important;
-  animation-duration: 60s !important;
+  font-size: 1.0625rem !important;
+  line-height: 1.45 !important;
+  animation-duration: 65s !important;
 }
 .news-sep {
-  padding: 0 1.35rem !important;
-  opacity: 0.75 !important;
-  font-size: 1rem !important;
+  padding: 0 1.5rem !important;
+  opacity: 0.8 !important;
+  font-size: 1.1rem !important;
 }
 @media (max-width: 640px) {
-  .news-ticker { height: 48px !important; }
-  .news-ticker-content { font-size: 0.875rem !important; }
+  .news-ticker { height: 60px !important; }
+  .news-ticker-content { font-size: 0.9375rem !important; }
 }
