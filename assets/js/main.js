@@ -182,4 +182,13 @@
     document.body.appendChild(s);
   })();
 
+  // Place geographic map after education section
+  (function reorderMapAfterEducation() {
+    var map = document.getElementById('map');
+    var edu = document.getElementById('education-preview');
+    if (!map || !edu || !map.parentNode) return;
+    if (edu.compareDocumentPosition(map) & Node.DOCUMENT_POSITION_FOLLOWING) return;
+    edu.parentNode.insertBefore(map, edu.nextSibling);
+  })();
+
 })();
