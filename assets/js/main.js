@@ -5,7 +5,6 @@
 (function () {
   'use strict';
 
-  // Theme toggle (dark default, light optional)
   const THEME_KEY = 'winemi-theme';
   const root = document.documentElement;
 
@@ -42,7 +41,6 @@
     });
   });
 
-  // Sticky header scroll state
   const header = document.querySelector('.site-header');
   if (header) {
     const onScroll = () => {
@@ -52,7 +50,6 @@
     onScroll();
   }
 
-  // Mobile navigation
   const toggle = document.querySelector('.mobile-toggle');
   const mobileNav = document.querySelector('.mobile-nav');
   if (toggle && mobileNav) {
@@ -70,7 +67,6 @@
     });
   }
 
-  // Active nav link
   const path = window.location.pathname.replace(/\/$/, '') || '/';
   document.querySelectorAll('.nav-link').forEach((link) => {
     const href = link.getAttribute('href')?.replace(/\/$/, '') || '';
@@ -79,7 +75,6 @@
     }
   });
 
-  // Contact form validation (client-side)
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -106,12 +101,7 @@
       if (valid) {
         const feedback = document.getElementById('form-feedback');
         if (feedback) {
-          feedback.innerHTML = `
-            <div style="padding:1.25rem;background:rgba(184,149,106,0.1);border:1px solid var(--color-muted-gold);border-radius:4px;color:var(--color-text-primary);">
-              <strong>Form ready.</strong> Backend delivery is not yet configured.
-              Please email <a href="mailto:winemicapital@gmail.com" style="color:var(--color-muted-gold);">winemicapital@gmail.com</a>
-              or use WhatsApp to reach the team directly.
-            </div>`;
+          feedback.innerHTML = '<div style="padding:1.25rem;background:rgba(184,149,106,0.1);border:1px solid var(--color-muted-gold);border-radius:4px;"><strong>Form ready.</strong> Backend delivery is not yet configured. Please email <a href="mailto:winemicapital@gmail.com" style="color:var(--color-muted-gold);">winemicapital@gmail.com</a>.</div>';
           feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
         contactForm.reset();
@@ -119,19 +109,12 @@
     });
   }
 
-  // Instrument tabs for markets
   const tabs = document.querySelectorAll('.instrument-tab');
   if (tabs.length) {
     const symbols = {
-      nasdaq: 'NASDAQ:QQQ',
-      gold: 'TVC:GOLD',
-      btc: 'BINANCE:BTCUSDT',
-      spx: 'TVC:SPX',
-      dji: 'TVC:DJI',
-      eurusd: 'FX:EURUSD',
-      gbpusd: 'FX:GBPUSD',
-      usdjpy: 'FX:USDJPY',
-      oil: 'TVC:USOIL'
+      nasdaq: 'NASDAQ:QQQ', gold: 'TVC:GOLD', btc: 'BINANCE:BTCUSDT',
+      spx: 'TVC:SPX', dji: 'TVC:DJI', eurusd: 'FX:EURUSD',
+      gbpusd: 'FX:GBPUSD', usdjpy: 'FX:USDJPY', oil: 'TVC:USOIL'
     };
     tabs.forEach((tab) => {
       tab.addEventListener('click', () => {
@@ -144,18 +127,10 @@
             container.innerHTML = '';
             const isLight = document.documentElement.getAttribute('data-theme') === 'light';
             new TradingView.widget({
-              autosize: true,
-              symbol: symbols[key],
-              interval: 'D',
-              timezone: 'Etc/UTC',
-              theme: isLight ? 'light' : 'dark',
-              style: '1',
-              locale: 'en',
-              toolbar_bg: isLight ? '#ffffff' : '#1c1c1f',
-              enable_publishing: false,
-              hide_top_toolbar: false,
-              hide_legend: false,
-              save_image: false,
+              autosize: true, symbol: symbols[key], interval: 'D', timezone: 'Etc/UTC',
+              theme: isLight ? 'light' : 'dark', style: '1', locale: 'en',
+              toolbar_bg: isLight ? '#ffffff' : '#1c1c1f', enable_publishing: false,
+              hide_top_toolbar: false, hide_legend: false, save_image: false,
               container_id: 'tradingview-widget',
               backgroundColor: isLight ? '#ffffff' : '#1c1c1f',
               gridColor: isLight ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.06)',
@@ -167,7 +142,6 @@
     });
   }
 
-  // Homepage education visual cards + diagram strip
   (function enhanceEducationPreview() {
     var section = document.getElementById('education-preview');
     if (!section) return;
@@ -199,6 +173,13 @@
       return '<figure class="diagram-strip-item"><img src="' + it[0] + '" alt="" loading="lazy" /><figcaption>' + it[1] + '</figcaption></figure>';
     }).join('');
     grid.parentNode.insertBefore(strip, grid.nextSibling);
+  })();
+
+  (function loadMapRedesign() {
+    var s = document.createElement('script');
+    s.src = 'assets/js/map-redesign.js';
+    s.defer = true;
+    document.body.appendChild(s);
   })();
 
 })();
