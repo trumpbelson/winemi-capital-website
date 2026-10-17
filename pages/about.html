@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | WINEMI CAPITAL.</title>
-  <meta name="description" content="About WINEMI CAPITAL. — Mission, vision, core values, investment philosophy, research-led thinking, and global outlook." />
+  <meta name="description" content="About WINEMI CAPITAL. — Mission, vision, core values, investment philosophy, and founder Wilson Antwi Amoako." />
+  <meta name="theme-color" content="#0a0a0b" />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script>
@@ -20,11 +20,11 @@
 <body>
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. Home">
+      <a href="/" class="logo" aria-label="WINEMI CAPITAL. Home">
         <span class="logo-mark" role="img" aria-label="WINEMI CAPITAL."></span>
       </a>
       <nav class="nav-desktop" aria-label="Primary">
-        <a href="../index.html" class="nav-link">Home</a>
+        <a href="/" class="nav-link">Home</a>
         <a href="about.html" class="nav-link active">About</a>
         <a href="investments.html" class="nav-link">Investments</a>
         <a href="asset-management.html" class="nav-link">Asset Management</a>
@@ -52,7 +52,7 @@
     </div>
   </header>
   <nav class="mobile-nav" aria-label="Mobile">
-    <a href="../index.html" class="nav-link">Home</a>
+    <a href="/" class="nav-link">Home</a>
     <a href="about.html" class="nav-link">About</a>
     <a href="investments.html" class="nav-link">Investments</a>
     <a href="asset-management.html" class="nav-link">Asset Management</a>
@@ -65,7 +65,7 @@
     <a href="login.html" class="nav-cta">Client / Investor Login</a>
   </nav>
   <main>
-    <div class="page-header">
+    <div class="page-hero">
       <div class="container">
         <p class="label">WINEMI CAPITAL.</p>
         <h1 class="heading-1">About</h1>
@@ -103,7 +103,31 @@
         <p>Education is central. The firm provides structured explanations of financial markets, investing concepts, portfolio construction, risk management, economics, accounting, and related subjects.</p>
         <h2>Global Outlook</h2>
         <p>Markets are interconnected. WINEMI CAPITAL. maintains a global perspective while being based in Accra. Financial centres are treated as reference points for liquidity and market structure, not as claims of physical offices.</p>
-        <p class="mt-4"><em>Leadership and founder profiles will be published when verified names, titles, biographies, and photographs are available.</em></p>
+      </div>
+    </section>
+
+    <section class="section" id="leadership" style="background:var(--color-charcoal);">
+      <div class="container">
+        <p class="label section-label">Leadership</p>
+        <h2 class="heading-2 section-title">FOUNDER</h2>
+        <div class="founder-profile">
+          <figure class="founder-photo">
+            <img src="../assets/images/team/wilson-antwi-amoako.jpg" alt="Wilson Antwi Amoako, Founder of WINEMI CAPITAL." width="420" height="560" loading="lazy" id="founder-photo-img" />
+          </figure>
+          <div class="founder-copy">
+            <h3 class="founder-name">Wilson Antwi Amoako</h3>
+            <p class="founder-role">Founder · Forex &amp; Commodities Trader</p>
+            <p class="body-base">Wilson Antwi Amoako is a Ghanaian forex and commodities trader with approximately six years of experience in the foreign exchange market.</p>
+            <p class="body-base">He is a funded proprietary firm trader with FundedNext and works across account management, structured teaching, market signals, and individual mentorship. His approach prioritises consistency, patience, and long-term equity growth over short-term spectacle.</p>
+            <p class="body-base">Through WINEMI CAPITAL., he focuses on disciplined capital allocation, institutional market structure education, and practical frameworks that help participants understand risk, process, and time.</p>
+            <ul class="founder-highlights">
+              <li>≈ 6 years in forex &amp; commodities markets</li>
+              <li>Funded prop firm trader (FundedNext)</li>
+              <li>Account management · teaching · signals · mentorship</li>
+              <li>Emphasis on consistency, patience, and equity growth</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -121,6 +145,18 @@
     </div>
   </footer>
   <script>document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());</script>
-  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/main.js" defer></script>
+  <script>
+    // Ensure founder photo loads from embedded asset if file path not yet on CDN
+    (function () {
+      var img = document.getElementById('founder-photo-img');
+      if (!img) return;
+      img.onerror = function () {
+        if (img.dataset.fallback) return;
+        img.dataset.fallback = '1';
+        img.src = 'PLACEHOLDER_DATA_URI';
+      };
+    })();
+  </script>
 </body>
 </html>
