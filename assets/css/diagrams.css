@@ -514,3 +514,81 @@ body.page-ready { animation: page-in var(--motion-slow) var(--ease-out) both; }
   body.page-ready { animation: none; }
   .hero-content { animation: none; }
 }
+
+/* Founder / leadership profile */
+.founder-profile {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+@media (min-width: 800px) {
+  .founder-profile {
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+}
+.founder-photo {
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(184, 149, 106, 0.28);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  background: #0d0d0f;
+}
+.founder-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+}
+.founder-name {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.35rem;
+  color: var(--color-text-primary, #f7f5f0);
+}
+.founder-role {
+  margin: 0 0 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted-gold, #b8956a);
+}
+.founder-copy .body-base {
+  margin-bottom: 1rem;
+  max-width: 42rem;
+}
+.founder-highlights {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+.founder-highlights li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary, #b8b5ae);
+}
+.founder-highlights li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-muted-gold, #b8956a);
+}
+[data-theme="light"] .founder-photo {
+  border-color: rgba(10, 10, 11, 0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
