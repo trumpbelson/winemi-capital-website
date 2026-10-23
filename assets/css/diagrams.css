@@ -540,9 +540,12 @@ body.page-ready { animation: page-in var(--motion-slow) var(--ease-out) both; }
 .founder-photo img {
   width: 100%;
   height: auto;
+  min-height: 280px;
   display: block;
   object-fit: cover;
+  object-position: center 15%;
   aspect-ratio: 3 / 4;
+  background: #0d0d0f;
 }
 .founder-name {
   font-family: var(--font-serif, Georgia, serif);
@@ -591,4 +594,14 @@ body.page-ready { animation: page-in var(--motion-slow) var(--ease-out) both; }
 [data-theme="light"] .founder-photo {
   border-color: rgba(10, 10, 11, 0.12);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+.founder-profile--secondary {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(184, 149, 106, 0.18);
+}
+[data-theme="light"] .founder-profile--secondary {
+  border-top-color: rgba(10, 10, 11, 0.1);
+}
+.leadership-stack .founder-profile + .founder-profile {
+  margin-top: 3rem;
 }
