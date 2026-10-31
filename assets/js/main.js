@@ -102,14 +102,14 @@
     if (reduced) return;
 
     var candidates = document.querySelectorAll(
-      'main .section, main .philosophy-band, .card, .card-visual, .diagram-strip-item, .chart-container, .wc-map, .grid-2 > *, .grid-3 > *, .env-card, .env-grid, .about-panel, .about-principle, .about-focus-card'
+      'main .section, main .philosophy-band, main .visual-band, .card, .card-visual, .diagram-strip-item, .chart-container, .wc-map, .grid-2 > *, .grid-3 > *, .split-visual, .pair-card, .about-panel, .about-principle, .about-focus-card'
     );
     candidates.forEach(function (el) {
       if (el.classList.contains('reveal')) return;
       el.classList.add('reveal');
     });
 
-    document.querySelectorAll('.grid-2, .grid-3, .diagram-strip, .login-visual-grid, .env-grid').forEach(function (g) {
+    document.querySelectorAll('.grid-2, .grid-3, .diagram-strip, .login-visual-grid, .pair-grid').forEach(function (g) {
       g.classList.add('reveal-stagger');
     });
 
@@ -213,6 +213,27 @@
         navigateTo(url);
       }, EXIT_MS);
     }, true);
+  })();
+
+  /* Pointer tilt for 3D cards (desktop) */
+  (function pointerTilt() {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var fine = window.matchMedia('(pointer: fine)').matches;
+    if (reduce || !fine) return;
+
+    var cards = document.querySelectorAll('.card-3d');
+    cards.forEach(function (card) {
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform =
+          'translateY(-4px) rotateX(' + (-y * 6) + 'deg) rotateY(' + (x * 7) + 'deg) scale(1.015)';
+      });
+      card.addEventListener('pointerleave', function () {
+        card.style.transform = '';
+      });
+    });
   })();
 
 })();
