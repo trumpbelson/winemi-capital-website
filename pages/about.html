@@ -20,40 +20,48 @@
   </script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
+  <header class="site-header" role="banner">
+    <div class="header-inner">
       <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. home">
         <span class="logo-mark" aria-hidden="true"></span>
       </a>
-      <nav class="nav-desktop" aria-label="Primary">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link active">About</a>
-        <a href="approach.html" class="nav-link">Approach</a>
-        <a href="insights.html" class="nav-link">Insights</a>
-        <a href="education.html" class="nav-link">Education</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-        <a href="login.html" class="nav-cta">Client Portal</a>
-      </nav>
-      <div class="header-actions">
-        <button type="button" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
+      <div class="header-right">
+        <nav class="nav-desktop" aria-label="Primary">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link active">About</a>
+          <a href="approach.html" class="nav-link">Approach</a>
+          <a href="markets.html" class="nav-link">Markets</a>
+          <a href="education.html" class="nav-link">Education</a>
+          <a href="insights.html" class="nav-link">Insights</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <a href="login.html" class="nav-cta">Portal</a>
+        <div class="header-actions">
+          <button type="button" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button type="button" class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
+            <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
       </div>
     </div>
-    <nav class="mobile-nav" aria-label="Mobile">
-      <a href="../index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="approach.html">Approach</a>
-      <a href="insights.html">Insights</a>
-      <a href="education.html">Education</a>
-      <a href="contact.html">Contact</a>
-      <a href="login.html">Client Portal</a>
-    </nav>
   </header>
+
+  <nav class="mobile-nav" aria-label="Mobile">
+    <div class="mobile-nav-inner">
+      <a href="../index.html" class="nav-link"><span>Home</span><span class="nav-index">01</span></a>
+      <a href="about.html" class="nav-link active"><span>About</span><span class="nav-index">02</span></a>
+      <a href="approach.html" class="nav-link"><span>Approach</span><span class="nav-index">03</span></a>
+      <a href="markets.html" class="nav-link"><span>Markets</span><span class="nav-index">04</span></a>
+      <a href="education.html" class="nav-link"><span>Education</span><span class="nav-index">05</span></a>
+      <a href="insights.html" class="nav-link"><span>Insights</span><span class="nav-index">06</span></a>
+      <a href="contact.html" class="nav-link"><span>Contact</span><span class="nav-index">07</span></a>
+      <a href="login.html" class="mobile-nav-cta">Client Portal</a>
+    </div>
+  </nav>
 
   <main>
     <section class="section hero-about">
