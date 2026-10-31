@@ -5,166 +5,62 @@
   <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Insights | WINEMI CAPITAL.</title>
-  <meta name="description" content="Detailed insights on supply and demand, market structure, institutional order flow, and risk for serious readers." />
+  <meta name="description" content="Market insights and research notes from WINEMI CAPITAL." />
   <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/nav.css" />
+  <link rel="stylesheet" href="../assets/css/logo.css" />
+  <link rel="stylesheet" href="../assets/css/glass.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script>
     (function () {
       try {
         var t = localStorage.getItem('winemi-theme');
-        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
-      } catch (e) {}
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
   </script>
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. Home">
-        <span class="logo-mark" role="img" aria-label="WINEMI CAPITAL."></span>
-      </a>
-      <nav class="nav-desktop" aria-label="Primary">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="investments.html" class="nav-link">Investments</a>
-        <a href="asset-management.html" class="nav-link">Asset Management</a>
-        <a href="markets.html" class="nav-link">Markets</a>
-        <a href="approach.html" class="nav-link">Our Approach</a>
-        <a href="insights.html" class="nav-link">Insights</a>
-        <a href="education.html" class="nav-link">Education</a>
-        <a href="mentorship.html" class="nav-link">Mentorship</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-        <a href="login.html" class="nav-cta">Client / Investor Login</a>
-      </nav>
-      <div class="header-actions">
-        <button type="button" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-          </svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-        </button>
-        <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
-  <nav class="mobile-nav" aria-label="Mobile">
-    <a href="../index.html" class="nav-link">Home</a>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="investments.html" class="nav-link">Investments</a>
-    <a href="asset-management.html" class="nav-link">Asset Management</a>
-    <a href="markets.html" class="nav-link">Markets</a>
-    <a href="approach.html" class="nav-link">Our Approach</a>
-    <a href="insights.html" class="nav-link">Insights</a>
-    <a href="education.html" class="nav-link">Education</a>
-    <a href="mentorship.html" class="nav-link">Mentorship</a>
-    <a href="contact.html" class="nav-link">Contact</a>
-    <a href="login.html" class="nav-cta">Client / Investor Login</a>
-  </nav>
+  <header class="site-header" role="banner"></header>
   <main>
-    <div class="page-header">
+    <section class="section">
       <div class="container">
         <p class="label">Research</p>
         <h1 class="heading-1">Insights</h1>
-        <p class="body-large" style="max-width:720px;">Longer-form explanation of supply and demand, order flow, and risk — written for readers who want depth beyond definitions.</p>
-      </div>
-    </div>
-    <section class="section">
-      <div class="container prose">
-        <p>These notes are educational. They are not trade signals and do not guarantee outcomes. Pair them with the structured sequence and diagrams on the <a href="education.html">Education</a> page.</p>
-        <h2>Why structure beats prediction</h2>
-        <p>Most retail narratives are predictive: “the market will rally because of X.” Supply and demand education is descriptive first. It asks what the market has already done. Has there been a clear rally or drop? Did price pause in a base? Did the next leg expand with force? Where is that base relative to the larger swing?</p>
-        <p>Prediction is optional and fragile. Structure is observable. A complete setup is a hypothesis built from observables: pattern, location, confirmation, and defined invalidation. The hypothesis can still fail. The point is that failure is defined in advance.</p>
-        <h2>Reading the four patterns like a map</h2>
-        <p>When you open a chart, scan for the last clear expansion. Then look backward for the base that launched it. That base is your candidate zone.</p>
-        <ul>
-          <li>Up–pause–up → <strong>RBR demand</strong> (continuation)</li>
-          <li>Down–pause–up → <strong>DBR demand</strong> (reversal)</li>
-          <li>Down–pause–down → <strong>DBD supply</strong> (continuation)</li>
-          <li>Up–pause–down → <strong>RBD supply</strong> (reversal)</li>
-        </ul>
-        <p>Then ask location: lower third of a range (often better for demand)? Near a prior daily high after a long rally (often better for supply)? Floating mid-range with no HTF context (usually lower priority)? Finally, wait for behaviour on the return — first-time touch, failed break, rejection, or lower-time-frame structure that agrees. That is how “complete setup” becomes practical.</p>
-        <figure class="diagram">
-          <img src="../assets/images/diagrams/four-patterns.svg" alt="Four supply and demand structural patterns" width="640" height="auto" loading="lazy" />
-          <figcaption class="diagram-caption">The four structural patterns at a glance (see Education for full notes).</figcaption>
-        </figure>
-        <h2>Fresh zones versus tired zones</h2>
-        <p>A zone is a hypothesis about residual interest. Every retest can consume some of that interest. Prefer strong impulsive departure, limited prior revisits, and HTF alignment. A zone chopped through five times is not worthless by rule, but the original story is weaker. Attachment to an old line is a behavioural risk, not an edge.</p>
-        <figure class="diagram">
-          <img src="../assets/images/diagrams/fresh-vs-depleted.svg" alt="Fresh versus depleted zones" width="640" height="auto" loading="lazy" />
-          <figcaption class="diagram-caption">Fresh first-time-back zones versus depleted multi-touch levels.</figcaption>
-        </figure>
-        <h2>Institutional order flow without the mythology</h2>
-        <p>You will not see a bank’s order ticket on a retail chart. What you see is the effect of size interacting with liquidity:</p>
-        <ul>
-          <li>Violent departure from a base → imbalance is a working hypothesis</li>
-          <li>Probe beyond a high, then reclaim → liquidity may have been taken without acceptance</li>
-          <li>Price holds a level despite aggressive opposing pressure → absorption is a working hypothesis</li>
-        </ul>
-        <p>Order-flow language helps when tied to observables. It harms when every dip becomes “smart money accumulation.” Institutions accumulate, distribute, and get stopped out. Use the concepts to read the auction, not to invent a rescue narrative for a losing position.</p>
-        <figure class="diagram">
-          <img src="../assets/images/diagrams/order-flow.svg" alt="Institutional order flow diagram" width="640" height="auto" loading="lazy" />
-          <figcaption class="diagram-caption">Order-flow footprints: imbalance, absorption, liquidity pools.</figcaption>
-        </figure>
-        <h2>Fakeouts as liquidity events</h2>
-        <p>Obvious highs and lows attract stops and breakout orders. Markets frequently trade through those levels just far enough to fill them, then reverse. A fakeout that returns into a quality zone can be part of confirmation: the break failed, and the zone is where reverse pressure showed. Not every wick is a fakeout — ask whether price <em>accepted</em> beyond the level or merely visited and failed.</p>
-        <figure class="diagram">
-          <img src="../assets/images/diagrams/fakeout-sweep.svg" alt="Fakeout liquidity sweep" width="640" height="auto" loading="lazy" />
-          <figcaption class="diagram-caption">A sweep beyond obvious highs that fails to hold — liquidity event, not acceptance.</figcaption>
-        </figure>
-        <h2>Multi-time-frame discipline</h2>
-        <p>A clean M5 pattern inside a hostile daily environment is a different risk profile from the same pattern agreeing with the daily zone. Robust process: map major supply and demand on HTF → define bias → use LTF only for timing once price reaches the HTF zone. Skipping the first step is how traders collect lower-time-frame wins that the larger trend erases.</p>
-        <figure class="diagram">
-          <img src="../assets/images/diagrams/multi-timeframe.svg" alt="Multi-timeframe discipline diagram" width="640" height="auto" loading="lazy" />
-          <figcaption class="diagram-caption">HTF bias first; LTF only for timing at the HTF zone.</figcaption>
-        </figure>
-        <h2>Risk is part of the setup</h2>
-        <p>If you cannot state where the idea is wrong, you do not have a complete setup. Invalidation should sit beyond the structure that defines the zone. Position size follows from distance to invalidation and maximum acceptable loss. Reward targets are often logical structural points (opposing zone, prior swing). Asymmetry is desirable; it is not always available. Passing on mediocre reward-to-risk is professionalism.</p>
-        <figure class="diagram">
-          <img src="../assets/images/diagrams/risk-reward.svg" alt="Risk reward structure diagram" width="640" height="auto" loading="lazy" />
-          <figcaption class="diagram-caption">Invalidation defines risk; structure defines target.</figcaption>
-        </figure>
-        <h2>Process over adrenaline</h2>
-        <p>The educational goal is a repeatable process: observe structure, classify pattern, check location, wait for confirmation, define risk, or stand aside. Adrenaline-driven entries after a long watch often violate at least one of those steps. A written checklist (even a short one) reduces that failure mode.</p>
-        <figure class="diagram">
-          <img src="../assets/images/diagrams/complete-setup.svg" alt="Complete setup flow" width="640" height="auto" loading="lazy" />
-          <figcaption class="diagram-caption">Complete setup checklist: pattern, location, confirmation, defined risk.</figcaption>
-        </figure>
-        <h2>Back-testing and deliberate practice</h2>
-        <p>Pattern recognition improves with deliberate review of historical charts under less emotional pressure. Replay sessions, annotated journals, and strict rules about what counts as a “complete” historical example build the eye faster than live improvisation. Back-testing does not guarantee future results; it builds literacy and exposes whether your rules are actually specific enough to follow.</p>
-        <h2>Services and technology in context</h2>
-        <p>WINEMI CAPITAL. presents three related layers for visitors:</p>
-        <ul>
-          <li><strong>Education and mentorship</strong> — frameworks for structure, risk, and process</li>
-          <li><strong>Research perspective</strong> — how markets and macro context can be read without overclaiming</li>
-          <li><strong>Technology-assisted process</strong> — systematic rules and AI-assisted tools that support scanning and risk limits. Automation improves consistency of process; it does not create certainty</li>
-        </ul>
-        <p>Client-facing tools, if any, are introduced with disclosures and suitability steps. Public web content stays educational.</p>
-        <h2>Connecting the dots</h2>
-        <p>Education teaches how to <em>read</em>. Insights reinforce <em>why</em> the reading rules exist. Firm-level approach (see <a href="approach.html">Our Approach</a>) concerns how research and process inform capital allocation — a different layer from individual chart study.</p>
-        <h2>What to study next</h2>
-        <p>On the <a href="education.html">Education</a> page you will find the full sequence with all diagrams: trends, three moves, four patterns, zones, location, complete setup, confirmation, order flow, worked example, common mistakes, and glossary.</p>
-        <p>Also see <a href="approach.html">Our Approach</a> and <a href="risk-disclosure.html">Risk Disclosure</a>.</p>
+        <p class="body-large" style="max-width:40rem;">Notes on market structure, risk, and process — written for participants who value clarity over noise.</p>
+        <div class="grid-2" style="margin-top:2.5rem;">
+          <article class="card">
+            <h3 class="card-title">Process over prediction</h3>
+            <p class="card-text">Forecasts fade. A repeatable research and risk process compounds. Insights here emphasise frameworks you can apply, not one-off calls.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Structure first</h3>
+            <p class="card-text">Price structure, liquidity, and institutional behaviour provide context before any single indicator or headline is weighted.</p>
+          </article>
+        </div>
+        <p class="mt-4"><a href="education.html" class="btn btn-primary">Education Hub</a> <a href="markets.html" class="btn btn-secondary">Markets</a></p>
       </div>
     </section>
   </main>
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-bottom" style="border:none;padding-top:0;">
-        <p>© <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-          <a href="risk-disclosure.html">Risk Disclosure</a>
-          <a href="disclaimer.html">Disclaimer</a>
-        </div>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>
+        <p class="footer-tag">Institutional discipline. Global markets.</p>
       </div>
+      <div class="footer-links">
+        <a href="education.html">Education</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="footer-copy">&copy; <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
     </div>
   </footer>
   <script>document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });</script>
-  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/site-nav.js"></script>
+  <script src="../assets/js/main.js" defer></script>
 </body>
 </html>
