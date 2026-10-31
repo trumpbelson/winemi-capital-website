@@ -9,6 +9,7 @@
   var inPages = /\/pages\//.test(path) || /\/pages$/.test(path);
   var prefix = inPages ? '' : 'pages/';
   var homeHref = inPages ? '../index.html' : 'index.html';
+  var assetPrefix = inPages ? '../assets/' : 'assets/';
 
   var items = [
     { id: 'home', label: 'Home', href: homeHref },
@@ -73,16 +74,17 @@
       '<a href="' + loginHref + '" class="mobile-nav-cta">Client Portal</a>' +
     '</div>';
 
-  function ensureNavCss() {
-    if (document.querySelector('link[href*="nav.css"]')) return;
+  function ensureCss(hrefPart) {
+    if (document.querySelector('link[href*="' + hrefPart + '"]')) return;
     var link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = inPages ? '../assets/css/nav.css' : 'assets/css/nav.css';
+    link.href = assetPrefix + 'css/' + hrefPart;
     document.head.appendChild(link);
   }
 
   function mount() {
-    ensureNavCss();
+    ensureCss('nav.css');
+    ensureCss('glass.css');
     var header = document.querySelector('.site-header');
     if (header) {
       header.innerHTML = headerHtml;
