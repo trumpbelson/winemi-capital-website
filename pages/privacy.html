@@ -5,100 +5,58 @@
   <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy | WINEMI CAPITAL.</title>
-  <meta name="description" content="Privacy policy for WINEMI CAPITAL. website." />
+  <meta name="description" content="Privacy policy for WINEMI CAPITAL." />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/nav.css" />
+  <link rel="stylesheet" href="../assets/css/logo.css" />
+  <link rel="stylesheet" href="../assets/css/glass.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script>
     (function () {
       try {
         var t = localStorage.getItem('winemi-theme');
-        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
-      } catch (e) {}
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
   </script>
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. home">
-        <span class="logo-mark" aria-hidden="true"></span>
-      </a>
-      <div class="header-right">
-        <nav class="nav-desktop" aria-label="Primary">
-          <a href="../index.html" class="nav-link">Home</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="approach.html" class="nav-link">Approach</a>
-          <a href="markets.html" class="nav-link">Markets</a>
-          <a href="education.html" class="nav-link">Education</a>
-          <a href="insights.html" class="nav-link">Insights</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-        </nav>
-        <a href="login.html" class="nav-cta">Portal</a>
-        <div class="header-actions">
-          <button type="button" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
-          <button type="button" class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
-            <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-            <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <nav class="mobile-nav" aria-label="Mobile">
-    <div class="mobile-nav-inner">
-      <a href="../index.html" class="nav-link"><span>Home</span><span class="nav-index">01</span></a>
-      <a href="about.html" class="nav-link"><span>About</span><span class="nav-index">02</span></a>
-      <a href="approach.html" class="nav-link"><span>Approach</span><span class="nav-index">03</span></a>
-      <a href="markets.html" class="nav-link"><span>Markets</span><span class="nav-index">04</span></a>
-      <a href="education.html" class="nav-link"><span>Education</span><span class="nav-index">05</span></a>
-      <a href="insights.html" class="nav-link"><span>Insights</span><span class="nav-index">06</span></a>
-      <a href="contact.html" class="nav-link"><span>Contact</span><span class="nav-index">07</span></a>
-      <a href="login.html" class="mobile-nav-cta">Client Portal</a>
-    </div>
-  </nav>
-
-<main>
-    <div class="page-header">
-      <div class="container">
-        <p class="label">Legal</p>
-        <h1 class="heading-1">Privacy Policy</h1>
-        <p class="body-large" style="max-width:640px;">How we handle information collected through this website.</p>
-      </div>
-    </div>
+  <header class="site-header" role="banner"></header>
+  <main>
     <section class="section">
       <div class="container prose">
-  <p>WINEMI CAPITAL. respects your privacy. This policy describes how we handle information collected through this website.</p>
-  <h2>Information we collect</h2>
-  <p>We may collect information you submit via contact forms (name, email, phone, message) and standard technical data such as browser type and IP address via server logs or analytics if configured.</p>
-  <h2>How we use information</h2>
-  <p>To respond to inquiries, improve the website, and comply with legal obligations. We do not sell personal information.</p>
-  <h2>Third parties</h2>
-  <p>Market charts may load from TradingView. Maps may use OpenStreetMap and CARTO tiles. Social links direct you to third-party platforms governed by their own policies.</p>
-  <h2>Contact</h2>
-  <p>For privacy requests, email <a href="mailto:winemicapital@gmail.com">winemicapital@gmail.com</a>.</p>
-  <p><em>Draft for legal review before production.</em></p>
+        <p class="label">Legal</p>
+        <h1 class="heading-1">Privacy policy</h1>
+        <p class="body-base">This policy describes how WINEMI CAPITAL. handles information when you use this website.</p>
+        <p class="body-base"><strong>Information we collect.</strong> If you contact us via forms or email, we receive the details you provide (such as name, email, and message). Server and hosting logs may include IP address, browser type, and pages visited.</p>
+        <p class="body-base"><strong>How we use it.</strong> To respond to enquiries, operate and improve the site, and meet legal obligations. We do not sell personal information.</p>
+        <p class="body-base"><strong>Cookies and storage.</strong> The site may store theme preference (e.g. light/dark) in localStorage. Analytics or third-party embeds may set their own cookies subject to their policies.</p>
+        <p class="body-base"><strong>Third parties.</strong> Charting and hosting providers process data under their terms. Review TradingView and hosting privacy notices where relevant.</p>
+        <p class="body-base"><strong>Contact.</strong> For privacy requests, use the Contact page.</p>
+        <p class="mt-4"><a href="contact.html" class="btn btn-secondary">Contact</a> <a href="terms.html" class="btn btn-secondary">Terms</a></p>
       </div>
     </section>
   </main>
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-bottom" style="border:none;padding-top:0;">
-        <p>© <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-          <a href="risk-disclosure.html">Risk Disclosure</a>
-          <a href="disclaimer.html">Disclaimer</a>
-        </div>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>
+        <p class="footer-tag">Institutional discipline. Global markets.</p>
       </div>
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+      <p class="footer-copy">&copy; <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
     </div>
   </footer>
-  <script>document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());</script>
-  <script src="../assets/js/main.js"></script>
+  <script>document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });</script>
+  <script src="../assets/js/site-nav.js"></script>
+  <script src="../assets/js/main.js" defer></script>
 </body>
 </html>
