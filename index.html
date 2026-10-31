@@ -5,53 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WINEMI CAPITAL. | Capital. Discipline. Growth.</title>
   <meta name="description" content="WINEMI CAPITAL. — Building wealth through intelligent capital allocation. Institutional perspective on markets, asset management, research, and financial education." />
-  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <link rel="canonical" href="https://winemicapital.com/" />
   <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/nav.css" />
+  <link rel="stylesheet" href="assets/css/glass.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <script>
     (function () {
       try {
         var t = localStorage.getItem('winemi-theme');
-        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-        else document.documentElement.setAttribute('data-theme', 'dark');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
       } catch (e) {}
     })();
   </script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>
-      <nav class="nav-desktop" aria-label="Primary">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="pages/about.html" class="nav-link">About</a>
-        <a href="pages/approach.html" class="nav-link">Approach</a>
-        <a href="pages/markets.html" class="nav-link">Markets</a>
-        <a href="pages/investments.html" class="nav-link">Investments</a>
-        <a href="pages/asset-management.html" class="nav-link">Asset Management</a>
-        <a href="pages/education.html" class="nav-link">Education</a>
-        <a href="pages/insights.html" class="nav-link">Insights</a>
-        <a href="pages/mentorship.html" class="nav-link">Mentorship</a>
-        <a href="pages/contact.html" class="nav-link">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <button type="button" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <button type="button" class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
+  <header class="site-header" role="banner"></header>
+  <nav class="mobile-nav" aria-label="Mobile"></nav>
 
-  <div class="market-ticker" role="region" aria-label="Live market data ticker">
+  <div class="market-ticker" role="region" aria-label="Market ticker">
     <div class="market-ticker-inner">
       <span class="market-ticker-label">Markets</span>
-      <div class="tradingview-widget-container market-ticker-widget">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {
+      <div class="market-ticker-widget">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {
           "symbols": [
             { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
             { "proName": "FOREXCOM:NSXUSD", "title": "NASDAQ 100" },
@@ -60,18 +40,10 @@
             { "proName": "INDEX:NKY", "title": "Nikkei 225" },
             { "proName": "HSI:HSI", "title": "Hang Seng" },
             { "proName": "TVC:GOLD", "title": "Gold" },
-            { "proName": "TVC:SILVER", "title": "Silver" },
             { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
-            { "proName": "BITSTAMP:ETHUSD", "title": "Ethereum" },
             { "proName": "FX:EURUSD", "title": "EUR/USD" },
-            { "proName": "FX:GBPUSD", "title": "GBP/USD" },
-            { "proName": "FX:USDJPY", "title": "USD/JPY" },
-            { "proName": "FX:USDCHF", "title": "USD/CHF" },
-            { "proName": "FX:AUDUSD", "title": "AUD/USD" },
             { "proName": "TVC:USOIL", "title": "Crude Oil" },
-            { "proName": "TVC:UKOIL", "title": "Brent" },
             { "proName": "TVC:US10Y", "title": "US 10Y" },
-            { "proName": "TVC:DE10Y", "title": "DE 10Y" },
             { "proName": "TVC:DXY", "title": "US Dollar Index" }
           ],
           "showSymbolLogo": true,
@@ -80,7 +52,8 @@
           "colorTheme": "dark",
           "locale": "en"
         }
-        </script>
+          </script>
+        </div>
       </div>
     </div>
   </div>
@@ -91,83 +64,185 @@
       <div class="news-ticker-track">
         <div class="news-ticker-content">
           <span>Global equity markets remain sensitive to central bank policy signals and liquidity conditions.</span>
+          <span class="news-sep">·</span>
           <span>Gold continues to serve as a strategic allocation for portfolio diversification and long-horizon risk management.</span>
+          <span class="news-sep">·</span>
           <span>FX volatility reflects divergent growth and interest-rate paths across major economies.</span>
+          <span class="news-sep">·</span>
           <span>Disciplined capital allocation prioritises research, risk awareness, and clear investment objectives.</span>
+          <span class="news-sep">·</span>
           <span>Commodity markets respond to supply dynamics, geopolitical risk, and industrial demand trends.</span>
-          <span>US Treasury yields influence global financing conditions and risk-asset valuations.</span>
-          <span>Structured education remains essential infrastructure for informed capital decisions.</span>
+          <span class="news-sep">·</span>
           <span>Global equity markets remain sensitive to central bank policy signals and liquidity conditions.</span>
+          <span class="news-sep">·</span>
           <span>Gold continues to serve as a strategic allocation for portfolio diversification and long-horizon risk management.</span>
-          <span>FX volatility reflects divergent growth and interest-rate paths across major economies.</span>
-          <span>Disciplined capital allocation prioritises research, risk awareness, and clear investment objectives.</span>
-          <span>Commodity markets respond to supply dynamics, geopolitical risk, and industrial demand trends.</span>
-          <span>US Treasury yields influence global financing conditions and risk-asset valuations.</span>
-          <span>Structured education remains essential infrastructure for informed capital decisions.</span>
         </div>
       </div>
     </div>
   </div>
 
   <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <p class="label">Institutional Perspective</p>
-        <h1 class="heading-1 hero-title">CAPITAL. DISCIPLINE. GROWTH.</h1>
-        <p class="body-lead hero-lead">Building wealth through intelligent capital allocation.</p>
-        <div class="hero-cta">
-          <a href="pages/about.html" class="btn btn-primary">About the Firm</a>
-          <a href="pages/education.html" class="btn btn-secondary">Education Hub</a>
+    <section class="hero" aria-label="Hero">
+      <div class="hero-bg" role="img" aria-label="Institutional architecture"></div>
+      <div class="hero-content">
+        <p class="label">WINEMI CAPITAL.</p>
+        <h1 class="hero-tagline">CAPITAL. DISCIPLINE. GROWTH.</h1>
+        <p class="hero-support">Building wealth through intelligent capital allocation.</p>
+        <div class="hero-ctas">
+          <a href="pages/about.html" class="btn btn-primary">About the firm</a>
+          <a href="pages/approach.html" class="btn btn-secondary">Our approach</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="perspective">
+    <section class="section" id="introduction">
       <div class="container">
         <p class="label section-label">Institutional Perspective</p>
         <h2 class="heading-2 section-title">CAPITAL, ALLOCATED WITH PURPOSE.</h2>
-        <div class="grid-2">
-          <div>
-            <p class="body-large">Sound capital allocation begins with research, disciplined decisions, risk awareness, and a clear understanding of investment objectives and time horizons.</p>
-            <p class="body-base" style="margin-top:1.25rem;">WINEMI CAPITAL. approaches markets and portfolios as systems that must be understood before capital is committed. Education and analysis are treated as infrastructure for better decisions.</p>
-          </div>
-          <div>
-            <p class="body-base">With a global market focus, the firm emphasises capital allocation, asset classes, market structure, portfolio principles, and structured financial education.</p>
-          </div>
-        </div>
+        <p class="body-large" style="max-width:40rem;">Sound capital allocation begins with research, disciplined decisions, risk awareness, and a clear understanding of investment objectives and time horizons.</p>
+        <p class="body-base" style="max-width:40rem;margin-top:1rem;">WINEMI CAPITAL. approaches markets and portfolios as systems that must be understood before capital is committed. Education and analysis are treated as infrastructure for better decisions.</p>
+        <p class="body-base" style="max-width:40rem;margin-top:1rem;">Based in Accra with a global outlook, the firm focuses on capital allocation, asset classes, market structure, portfolio principles, and structured financial education.</p>
       </div>
     </section>
 
     <section class="philosophy-band">
-      <p class="philosophy-text">CAPITAL. DISCIPLINE. GROWTH.</p>
+      <div class="container">
+        <p class="philosophy-text">CAPITAL. DISCIPLINE. GROWTH.</p>
+      </div>
     </section>
 
     <section class="section" id="markets-preview">
       <div class="container">
         <p class="label section-label">Markets</p>
         <h2 class="heading-2 section-title">LIVE MARKET PERSPECTIVE</h2>
-        <p class="body-base" style="max-width:640px;margin-bottom:2rem;">Candlestick charts via TradingView for selected instruments. Data is for informational purposes only.</p>
+        <p class="body-base" style="max-width:40rem;margin-bottom:1.5rem;">Candlestick charts via TradingView for selected instruments. Data is for informational purposes only.</p>
         <div class="chart-container">
-          <div class="chart-toolbar">
-            <p class="body-small" style="margin:0;">Data via TradingView</p>
-          </div>
           <div id="tradingview-widget" style="height:420px;"></div>
         </div>
-        <p class="mt-4"><a href="pages/markets.html" class="btn btn-secondary">Full Markets Page</a></p>
+        <p class="mt-3"><a href="pages/markets.html" class="btn btn-secondary">Full Markets Page</a></p>
       </div>
     </section>
 
-    <section class="section" id="map-section" style="background:var(--color-charcoal);">
+    <section class="section env-section" id="environment">
+      <div class="container">
+        <p class="label section-label">Environment</p>
+        <h2 class="heading-2 section-title">DESKS. FLOORS. OFFICES. MAPS.</h2>
+        <p class="body-base env-lead">Institutional work happens in focused rooms — multi-screen dealing desks, open trading floors, quiet offices, and a clear view of where capital flows globally.</p>
+        <div class="env-grid">
+          <figure class="env-card env-card--wide">
+            <div class="env-media">
+              <img src="https://images.unsplash.com/photo-1748439435495-722cc1728b7e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Multi-monitor dealing desk with live market charts" width="960" height="640" loading="lazy" decoding="async" />
+            </div>
+            <figcaption>
+              <span class="env-index">01</span>
+              <strong>Dealing desk</strong>
+              <span>Multi-screen workstations for real-time price action, order flow, and risk monitoring.</span>
+            </figcaption>
+          </figure>
+          <figure class="env-card">
+            <div class="env-media">
+              <img src="https://images.pexels.com/photos/30309058/pexels-photo-30309058.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Trading floor workspace with digital charts" width="960" height="640" loading="lazy" decoding="async" />
+            </div>
+            <figcaption>
+              <span class="env-index">02</span>
+              <strong>Trading floor</strong>
+              <span>Shared visibility across desks — screens, time, and discipline in one room.</span>
+            </figcaption>
+          </figure>
+          <figure class="env-card">
+            <div class="env-media">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Modern institutional office interior" width="960" height="640" loading="lazy" decoding="async" />
+            </div>
+            <figcaption>
+              <span class="env-index">03</span>
+              <strong>Offices</strong>
+              <span>Quiet space for research, portfolio construction, and client dialogue.</span>
+            </figcaption>
+          </figure>
+          <figure class="env-card env-card--map">
+            <div class="env-media">
+              <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Global map context for financial centres" width="960" height="640" loading="lazy" decoding="async" />
+            </div>
+            <figcaption>
+              <span class="env-index">04</span>
+              <strong>Maps</strong>
+              <span>Liquidity is global. Context from New York to Accra — see the capitals below.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="map" style="background:var(--color-charcoal);">
       <div class="container">
         <p class="label section-label">Geographic Context</p>
         <h2 class="heading-2 section-title">GLOBAL FINANCIAL CAPITALS</h2>
         <p class="body-base" style="max-width:640px;margin-bottom:1.5rem;">Seven major global financial capitals — New York, London, Tokyo, Hong Kong, Singapore, Shanghai, and Dubai — plus Accra, where WINEMI CAPITAL. is based. Markers are reference points for liquidity and market structure, not claims of physical offices.</p>
-        <div id="wc-map" class="wc-map" aria-label="Stylised world map of financial capitals"></div>
-        <p class="body-small mt-3">Select a marker for a short description. Stylised map — no external map service required. Markers are geographic references, not office claims.</p>
-        <ul class="map-legend body-small">
-          <li><span class="leg-dot"></span> Global financial capital</li>
-          <li><span class="leg-dot leg-dot--home"></span> Accra (home)</li>
-        </ul>
+        <div class="wc-map" id="world-map" role="img" aria-label="Stylised world map of major financial capitals">
+          <svg class="wc-map-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="1000" height="500" fill="#0d0d0f"/>
+            <g opacity="0.35">
+              <path class="map-land" d="M180,120 L210,95 L250,100 L280,130 L270,180 L240,200 L200,190 L170,160 Z"/>
+              <path class="map-land" d="M420,90 L480,85 L520,100 L550,140 L540,180 L500,200 L460,190 L430,150 Z"/>
+              <path class="map-land" d="M520,200 L580,180 L620,200 L640,250 L610,280 L560,270 L530,240 Z"/>
+              <path class="map-land" d="M700,140 L780,130 L820,160 L850,220 L820,280 L760,290 L720,250 L700,200 Z"/>
+              <path class="map-land" d="M780,300 L840,290 L880,320 L870,380 L820,400 L780,370 Z"/>
+              <path class="map-land" d="M150,280 L200,270 L230,300 L220,360 L180,380 L140,350 Z"/>
+              <path class="map-land" d="M250,320 L320,310 L360,340 L350,400 L300,420 L250,390 Z"/>
+            </g>
+            <g class="map-pin map-pin--home" data-name="Accra" data-desc="Location of WINEMI CAPITAL. Growing financial centre in West Africa." transform="translate(520,280)">
+              <circle class="map-pin-hit" r="14" fill="transparent"/>
+              <circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/>
+              <circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/>
+              <text class="map-pin-label" y="-16" text-anchor="middle">Accra</text>
+            </g>
+            <g class="map-pin" data-name="New York" data-desc="Global equity and fixed-income hub." transform="translate(280,160)">
+              <circle class="map-pin-hit" r="14" fill="transparent"/>
+              <circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/>
+              <circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/>
+              <text class="map-pin-label" y="-16" text-anchor="middle">New York</text>
+            </g>
+            <g class="map-pin" data-name="London" data-desc="Major FX and international capital markets centre." transform="translate(480,130)">
+              <circle class="map-pin-hit" r="14" fill="transparent"/>
+              <circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/>
+              <circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/>
+              <text class="map-pin-label" y="-16" text-anchor="middle">London</text>
+            </g>
+            <g class="map-pin" data-name="Tokyo" data-desc="Asia-Pacific equity and rates markets." transform="translate(820,160)">
+              <circle class="map-pin-hit" r="14" fill="transparent"/>
+              <circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/>
+              <circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/>
+              <text class="map-pin-label" y="-16" text-anchor="middle">Tokyo</text>
+            </g>
+            <g class="map-pin" data-name="Hong Kong" data-desc="Gateway for China-related capital markets." transform="translate(800,200)">
+              <circle class="map-pin-hit" r="14" fill="transparent"/>
+              <circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/>
+              <circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/>
+              <text class="map-pin-label" y="-16" text-anchor="middle">Hong Kong</text>
+            </g>
+            <g class="map-pin" data-name="Singapore" data-desc="Asian financial centre strong in FX and wealth." transform="translate(780,250)">
+              <circle class="map-pin-hit" r="14" fill="transparent"/>
+              <circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/>
+              <circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/>
+              <text class="map-pin-label" y="-16" text-anchor="middle">Singapore</text>
+            </g>
+            <g class="map-pin" data-name="Dubai" data-desc="Regional hub for capital markets and commodities." transform="translate(620,200)">
+              <circle class="map-pin-hit" r="14" fill="transparent"/>
+              <circle class="map-pin-ring" r="10" fill="none" stroke="#b8956a" stroke-opacity="0.35" stroke-width="1.5"/>
+              <circle class="map-pin-dot" r="6" fill="#b8956a" stroke="#f7f5f0" stroke-width="2"/>
+              <text class="map-pin-label" y="-16" text-anchor="middle">Dubai</text>
+            </g>
+          </svg>
+          <div class="wc-map-popup" id="map-popup" hidden>
+            <strong class="wc-map-popup-title"></strong>
+            <p class="wc-map-popup-desc"></p>
+          </div>
+          <ul class="wc-map-legend" aria-label="Financial centres">
+            <li><span class="leg-dot leg-dot--home"></span> Accra (home)</li>
+            <li><span class="leg-dot"></span> New York · London · Tokyo · Hong Kong · Singapore · Dubai</li>
+          </ul>
+        </div>
+        <p class="body-small mt-2" style="text-align:center;">Select a marker for a short description. Stylised map — markers are geographic references, not office claims.</p>
       </div>
     </section>
 
@@ -175,72 +250,44 @@
       <div class="container">
         <p class="label section-label">Education</p>
         <h2 class="heading-2 section-title">STRUCTURED LEARNING</h2>
-        <div class="grid-3">
+        <div class="grid-3" style="margin-top:2rem;">
           <div class="card"><h3 class="card-title">Supply &amp; Demand Structure</h3><p class="card-text">Rally, drop, and base; demand and supply zones; how institutional footprints appear as imbalance on the chart.</p></div>
           <div class="card"><h3 class="card-title">Institutional Order Flow</h3><p class="card-text">How large participants accumulate and distribute; liquidity, absorption, and why price reacts at key levels.</p></div>
-          <div class="card"><h3 class="card-title">Data Sources &amp; Research</h3><p class="card-text">Charting platforms, exchange data, economic calendars, central bank releases, filings, and research wires — how to study markets with reliable inputs.</p></div>
+          <div class="card"><h3 class="card-title">Data Sources &amp; Research</h3><p class="card-text">Charting platforms, exchange data, economic calendars, central bank releases, filings, and research wires.</p></div>
         </div>
         <p class="mt-4"><a href="pages/education.html" class="btn btn-secondary">Education Hub</a></p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="index.html" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>
-        <p class="footer-tag">Institutional discipline. Global markets.</p>
-        <div class="social-icons">
-          <a href="https://instagram.com/WinemiCapital" class="social-icon" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://facebook.com/WinemiCapital" class="social-icon" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="https://linkedin.com/company/winemicapital" class="social-icon" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="https://x.com/WinemiCapital" class="social-icon" target="_blank" rel="noopener" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
-          <a href="https://youtube.com/@WinemiCapital" class="social-icon" target="_blank" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://t.me/WinemiCapital" class="social-icon" target="_blank" rel="noopener" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></a>
-          <a href="https://wa.me/233503100519" class="social-icon" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-          <a href="https://tiktok.com/@WinemiCapital" class="social-icon" target="_blank" rel="noopener" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <a href="index.html" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>
+          <p class="footer-tag">Capital. Discipline. Growth.</p>
+        </div>
+        <div class="footer-links">
+          <a href="pages/about.html">About</a>
+          <a href="pages/approach.html">Approach</a>
+          <a href="pages/markets.html">Markets</a>
+          <a href="pages/education.html">Education</a>
+          <a href="pages/contact.html">Contact</a>
         </div>
       </div>
-      <div class="footer-links">
-        <a href="pages/about.html">About</a>
-        <a href="pages/approach.html">Approach</a>
-        <a href="pages/education.html">Education</a>
-        <a href="pages/privacy.html">Privacy</a>
-        <a href="pages/terms.html">Terms</a>
-        <a href="pages/disclaimer.html">Disclaimer</a>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 WINEMI CAPITAL. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="pages/privacy.html">Privacy</a>
+          <a href="pages/terms.html">Terms</a>
+          <a href="pages/disclaimer.html">Disclaimer</a>
+        </div>
       </div>
-      <p class="footer-copy">&copy; <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="https://s3.tradingview.com/tv.js"></script>
+  <script src="assets/js/site-nav.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/map-redesign.js"></script>
-  <script src="assets/js/home-visuals.js"></script>
-  <script>
-    (function () {
-      if (typeof TradingView === 'undefined') return;
-      var el = document.getElementById('tradingview-widget');
-      if (!el) return;
-      try {
-        new TradingView.widget({
-          width: '100%',
-          height: 420,
-          symbol: 'NASDAQ:NDX',
-          interval: 'D',
-          timezone: 'Etc/UTC',
-          theme: document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark',
-          style: '1',
-          locale: 'en',
-          toolbar_bg: '#0a0a0b',
-          enable_publishing: false,
-          allow_symbol_change: true,
-          container_id: 'tradingview-widget',
-          hide_side_toolbar: false
-        });
-      } catch (e) {}
-    })();
-    document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
-  </script>
 </body>
 </html>
