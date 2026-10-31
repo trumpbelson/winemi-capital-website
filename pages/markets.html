@@ -5,164 +5,88 @@
   <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Markets | WINEMI CAPITAL.</title>
-  <meta name="description" content="Real financial market charts for NASDAQ-100, Gold, Bitcoin, S&P 500, Dow Jones, EUR/USD, GBP/USD, USD/JPY, and crude oil. Genuine candlestick data via TradingView." />
+  <meta name="description" content="Live market charts via TradingView for major indices, gold, FX, and Bitcoin." />
   <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/nav.css" />
+  <link rel="stylesheet" href="../assets/css/logo.css" />
+  <link rel="stylesheet" href="../assets/css/glass.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script>
     (function () {
       try {
         var t = localStorage.getItem('winemi-theme');
-        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
-      } catch (e) {}
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
   </script>
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. Home">
-        <span class="logo-mark" role="img" aria-label="WINEMI CAPITAL."></span>
-      </a>
-      <nav class="nav-desktop" aria-label="Primary">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="investments.html" class="nav-link">Investments</a>
-        <a href="asset-management.html" class="nav-link">Asset Management</a>
-        <a href="markets.html" class="nav-link active">Markets</a>
-        <a href="approach.html" class="nav-link">Our Approach</a>
-        <a href="insights.html" class="nav-link">Insights</a>
-        <a href="education.html" class="nav-link">Education</a>
-        <a href="mentorship.html" class="nav-link">Mentorship</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-        <a href="login.html" class="nav-cta">Client / Investor Login</a>
-      </nav>
-      <div class="header-actions">
-        <button type="button" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-          </svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-        </button>
-        <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
-  <nav class="mobile-nav" aria-label="Mobile">
-    <a href="../index.html" class="nav-link">Home</a>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="investments.html" class="nav-link">Investments</a>
-    <a href="asset-management.html" class="nav-link">Asset Management</a>
-    <a href="markets.html" class="nav-link">Markets</a>
-    <a href="approach.html" class="nav-link">Our Approach</a>
-    <a href="insights.html" class="nav-link">Insights</a>
-    <a href="education.html" class="nav-link">Education</a>
-    <a href="mentorship.html" class="nav-link">Mentorship</a>
-    <a href="contact.html" class="nav-link">Contact</a>
-    <a href="login.html" class="nav-cta">Client / Investor Login</a>
-  </nav>
+  <header class="site-header" role="banner"></header>
   <main>
-    <div class="page-header">
-      <div class="container">
-        <p class="label">Market Data</p>
-        <h1 class="heading-1">Markets</h1>
-        <p class="body-large" style="max-width:640px;">Genuine candlestick charts with OHLC data for major indices, commodities, foreign exchange, and digital assets. Data provided by TradingView. Availability, delay, and market hours vary by instrument and exchange.</p>
-      </div>
-    </div>
     <section class="section">
       <div class="container">
-        <div class="chart-container" style="margin-bottom:2rem;">
-          <div class="chart-header">
-            <div class="instrument-tabs" role="tablist" id="market-tabs">
-              <button class="instrument-tab active" data-symbol="BINANCE:BTCUSDT" role="tab">Bitcoin</button>
-              <button class="instrument-tab" data-symbol="TVC:GOLD" role="tab">Gold (XAU)</button>
-              <button class="instrument-tab" data-symbol="NASDAQ:QQQ" role="tab">NASDAQ-100 (QQQ)</button>
-              <button class="instrument-tab" data-symbol="TVC:SPX" role="tab">S&P 500</button>
-              <button class="instrument-tab" data-symbol="TVC:DJI" role="tab">Dow Jones</button>
-              <button class="instrument-tab" data-symbol="FX:EURUSD" role="tab">EUR/USD</button>
-              <button class="instrument-tab" data-symbol="FX:GBPUSD" role="tab">GBP/USD</button>
-              <button class="instrument-tab" data-symbol="FX:USDJPY" role="tab">USD/JPY</button>
-              <button class="instrument-tab" data-symbol="TVC:USOIL" role="tab">WTI Crude</button>
-            </div>
-            <p class="body-small" style="margin:0;">Source: TradingView · Candlestick · Multiple timeframes available in chart toolbar</p>
-          </div>
-          <div id="tv-widget" style="height:520px;"></div>
+        <p class="label">Markets</p>
+        <h1 class="heading-1">Live market perspective</h1>
+        <p class="body-large" style="max-width:40rem;">Candlestick charts for selected instruments. Data via TradingView for informational purposes only.</p>
+        <div class="instrument-tabs" role="tablist" style="margin-top:1.5rem;">
+          <button type="button" class="instrument-tab active" data-symbol="NASDAQ:NDX">NASDAQ-100</button>
+          <button type="button" class="instrument-tab" data-symbol="TVC:GOLD">Gold</button>
+          <button type="button" class="instrument-tab" data-symbol="BINANCE:BTCUSDT">Bitcoin</button>
+          <button type="button" class="instrument-tab" data-symbol="SP:SPX">S&amp;P 500</button>
+          <button type="button" class="instrument-tab" data-symbol="FX:EURUSD">EUR/USD</button>
         </div>
-        <div class="prose" style="max-width:none;">
-          <h2>About the data</h2>
-          <p>Charts on this page use the TradingView advanced chart widget. Symbols are clearly identified. Data may be real-time or delayed according to the rules of the underlying exchange or data provider. Cryptocurrency pairs (e.g. BTC/USDT) typically update more frequently; index and equity data may be delayed for non-professional users.</p>
-          <p>If a chart fails to load, the cause is usually network restriction, ad-blocking, or temporary unavailability of the widget. No random or fabricated prices are generated on this site.</p>
-          <p><strong>Instruments displayed:</strong> NASDAQ-100 via QQQ (NASDAQ:QQQ), Gold (TVC:GOLD), Bitcoin (BINANCE:BTCUSDT), S&P 500 (TVC:SPX), Dow Jones (TVC:DJI), EUR/USD, GBP/USD, USD/JPY, WTI Crude Oil (TVC:USOIL).</p>
-        </div>
+        <div id="tradingview-widget" class="tv-widget chart-container" style="height:480px;margin-top:1rem;"></div>
+        <p class="body-small mt-2">Source: TradingView · Not investment advice · <a href="disclaimer.html">Disclaimer</a></p>
       </div>
     </section>
   </main>
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-bottom" style="border:none;padding-top:0;">
-        <p>© <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-          <a href="risk-disclosure.html">Risk Disclosure</a>
-          <a href="disclaimer.html">Disclaimer</a>
-        </div>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>
+        <p class="footer-tag">Institutional discipline. Global markets.</p>
       </div>
+      <div class="footer-links">
+        <a href="investments.html">Investments</a>
+        <a href="education.html">Education</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+      <p class="footer-copy">&copy; <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
     </div>
   </footer>
-  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script src="https://s3.tradingview.com/tv.js"></script>
+  <script src="../assets/js/site-nav.js"></script>
+  <script src="../assets/js/main.js" defer></script>
   <script>
-    document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
-
-    function chartTheme() {
-      var light = document.documentElement.getAttribute('data-theme') === 'light';
-      return light
-        ? { theme: 'light', toolbar_bg: '#ffffff', backgroundColor: '#ffffff', gridColor: 'rgba(10,10,11,0.08)' }
-        : { theme: 'dark', toolbar_bg: '#1c1c1f', backgroundColor: '#1c1c1f', gridColor: 'rgba(255,255,255,0.06)' };
-    }
-
-    var currentSymbol = 'BINANCE:BTCUSDT';
-    var widget;
-
-    function mountChart(symbol) {
-      currentSymbol = symbol || currentSymbol;
-      var t = chartTheme();
-      var el = document.getElementById('tv-widget');
-      if (el) el.innerHTML = '';
-      widget = new TradingView.widget({
-        autosize: true,
-        symbol: currentSymbol,
-        interval: 'D',
-        timezone: 'Etc/UTC',
-        theme: t.theme,
-        style: '1',
-        locale: 'en',
-        toolbar_bg: t.toolbar_bg,
-        enable_publishing: false,
-        allow_symbol_change: true,
-        container_id: 'tv-widget',
-        backgroundColor: t.backgroundColor,
-        gridColor: t.gridColor
+    document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+    (function () {
+      if (typeof TradingView === 'undefined') return;
+      var el = document.getElementById('tradingview-widget');
+      if (!el) return;
+      var current = 'NASDAQ:NDX';
+      function mount(symbol) {
+        current = symbol || current;
+        el.innerHTML = '';
+        new TradingView.widget({
+          autosize: true, symbol: current, interval: 'D', timezone: 'Etc/UTC',
+          theme: document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark',
+          style: '1', locale: 'en', toolbar_bg: '#1c1c1f', enable_publishing: false,
+          allow_symbol_change: true, container_id: 'tradingview-widget',
+          backgroundColor: '#1c1c1f', gridColor: 'rgba(255,255,255,0.06)'
+        });
+      }
+      mount(current);
+      document.querySelectorAll('.instrument-tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          document.querySelectorAll('.instrument-tab').forEach(function (t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          mount(tab.dataset.symbol);
+        });
       });
-    }
-
-    mountChart(currentSymbol);
-
-    document.querySelectorAll('#market-tabs .instrument-tab').forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        document.querySelectorAll('#market-tabs .instrument-tab').forEach(function (t) { t.classList.remove('active'); });
-        tab.classList.add('active');
-        mountChart(tab.dataset.symbol);
-      });
-    });
-
-    window.addEventListener('winemi:themechange', function () {
-      mountChart(currentSymbol);
-    });
+    })();
   </script>
-  <script src="../assets/js/main.js"></script>
 </body>
 </html>
