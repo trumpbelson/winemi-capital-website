@@ -4,42 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | WINEMI CAPITAL.</title>
-  <meta name="description" content="About WINEMI CAPITAL. — Mission, vision, core values, investment philosophy, and leadership. Leadership: Co-Founder & Chief Executive Isaac Winemi Ayama; Co-Founder & COO Wilson Antwi Amoako." />
-  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml" />
+  <meta name="description" content="About WINEMI CAPITAL. — Mission, vision, principles, and founding leadership. Co-Founder &amp; Chief Executive Isaac Winemi Ayama; Co-Founder &amp; COO Wilson Antwi Amoako." />
+  <meta name="theme-color" content="#0a0a0b" />
   <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/diagrams.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script>
-    (function(){try{var t=localStorage.getItem('winemi-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);else document.documentElement.setAttribute('data-theme','dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
+    (function () {
+      try {
+        var t = localStorage.getItem('winemi-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {}
+    })();
   </script>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>
-      <nav class="nav-desktop" aria-label="Main">
+      <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. home">
+        <span class="logo-mark" aria-hidden="true"></span>
+      </a>
+      <nav class="nav-desktop" aria-label="Primary">
         <a href="../index.html" class="nav-link">Home</a>
         <a href="about.html" class="nav-link active">About</a>
         <a href="approach.html" class="nav-link">Approach</a>
-        <a href="education.html" class="nav-link">Education</a>
         <a href="insights.html" class="nav-link">Insights</a>
-        <a href="markets.html" class="nav-link">Markets</a>
+        <a href="education.html" class="nav-link">Education</a>
         <a href="contact.html" class="nav-link">Contact</a>
-        <button type="button" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
+        <a href="login.html" class="nav-cta">Client Portal</a>
       </nav>
-      <button type="button" class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
     </div>
-    <nav class="nav-mobile" aria-label="Mobile" hidden>
-      <a href="../index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link active">About</a>
-      <a href="approach.html" class="nav-link">Approach</a>
-      <a href="education.html" class="nav-link">Education</a>
-      <a href="insights.html" class="nav-link">Insights</a>
-      <a href="markets.html" class="nav-link">Markets</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+    <nav class="mobile-nav" aria-label="Mobile">
+      <a href="../index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="approach.html">Approach</a>
+      <a href="insights.html">Insights</a>
+      <a href="education.html">Education</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Client Portal</a>
     </nav>
   </header>
 
@@ -53,39 +65,66 @@
     </section>
 
     <section class="section" id="mission">
-      <div class="container narrow">
+      <div class="container">
         <p class="label section-label">Mission &amp; Vision</p>
         <h2 class="heading-2 section-title">Why we exist</h2>
-        <p class="body-base">Our mission is to deliver disciplined capital allocation, clear market education, and long-term wealth creation for clients who value process over spectacle. We combine rigorous research with operational integrity so that strategy becomes consistent execution.</p>
-        <p class="body-base">We envision an institution that sets a higher standard for how capital is researched, managed, and taught — transparent, patient, and accountable across global markets.</p>
+        <div class="about-dual-panels">
+          <article class="about-panel about-panel--mission">
+            <div class="about-panel-index">01</div>
+            <h3 class="about-panel-title">Mission</h3>
+            <p class="body-base">To deliver disciplined capital allocation, clear market education, and long-term wealth creation for clients who value process over spectacle. We combine rigorous research with operational integrity so that strategy becomes consistent execution.</p>
+          </article>
+          <article class="about-panel about-panel--vision">
+            <div class="about-panel-index">02</div>
+            <h3 class="about-panel-title">Vision</h3>
+            <p class="body-base">An institution recognised for clarity of thought, quality of research, and the practical usefulness of its educational and advisory frameworks — serving participants who value substance over spectacle across global markets.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="leadership" style="background:var(--color-charcoal);">
+    <section class="section about-principles-section" style="background:var(--color-charcoal);">
+      <div class="container">
+        <p class="label section-label">Principles</p>
+        <h2 class="heading-2 section-title">How capital is treated</h2>
+        <div class="about-principles-grid">
+          <article class="about-principle">
+            <span class="about-principle-num">I</span>
+            <h3 class="about-principle-title">Research before allocation</h3>
+            <p class="body-small">Decisions rest on evidence and analysis. Narrative and momentum alone are insufficient grounds for committing capital.</p>
+          </article>
+          <article class="about-principle">
+            <span class="about-principle-num">II</span>
+            <h3 class="about-principle-title">Risk is defined first</h3>
+            <p class="body-small">Every position and every portfolio carries risk. Understanding, sizing, and limiting that risk is non-negotiable before entry.</p>
+          </article>
+          <article class="about-principle">
+            <span class="about-principle-num">III</span>
+            <h3 class="about-principle-title">Time horizons are respected</h3>
+            <p class="body-small">Long-term orientation filters short-term noise. Strategies are evaluated against defined horizons, not daily fluctuations.</p>
+          </article>
+          <article class="about-principle">
+            <span class="about-principle-num">IV</span>
+            <h3 class="about-principle-title">Education as infrastructure</h3>
+            <p class="body-small">Informed participants make better decisions. Learning pathways are treated as core activity, not marketing collateral.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leadership">
       <div class="container">
         <p class="label section-label">Leadership</p>
         <h2 class="heading-2 section-title">FOUNDING LEADERSHIP</h2>
+        <p class="body-base about-lead-intro">A founding partnership built on complementary strengths — strategic vision paired with operational clarity.</p>
 
         <div class="leadership-stack">
-          <!-- Isaac Winemi Ayama — Co-Founder & CEO -->
           <div class="founder-profile">
             <figure class="founder-photo">
               <div class="founder-photo-frame">
                 <picture>
-                  <source
-                    type="image/webp"
-                    srcset="../assets/images/team/isaac-winemi-ayama.webp 1x, ../assets/images/team/isaac-winemi-ayama@2x.webp 2x"
-                  />
-                  <img
-                    id="founder-photo-img"
-                    src="../assets/images/team/isaac-winemi-ayama.jpg"
-                    srcset="../assets/images/team/isaac-winemi-ayama.jpg 1x, ../assets/images/team/isaac-winemi-ayama@2x.jpg 2x"
-                    alt="Isaac Winemi Ayama, Co-Founder and Chief Executive of WINEMI CAPITAL."
-                    width="400"
-                    height="520"
-                    loading="eager"
-                    decoding="async"
-                  />
+                  <source type="image/webp" srcset="../assets/images/team/isaac-winemi-ayama.webp 1x, ../assets/images/team/isaac-winemi-ayama@2x.webp 2x" />
+                  <img id="founder-photo-img" src="../assets/images/team/isaac-winemi-ayama.jpg" srcset="../assets/images/team/isaac-winemi-ayama.jpg 1x, ../assets/images/team/isaac-winemi-ayama@2x.jpg 2x" alt="Isaac Winemi Ayama, Co-Founder and Chief Executive of WINEMI CAPITAL." width="400" height="520" loading="eager" decoding="async" />
                 </picture>
               </div>
             </figure>
@@ -105,20 +144,10 @@
             </div>
           </div>
 
-          <!-- Wilson Antwi Amoako — Co-Founder & COO (reversed layout) -->
           <div class="founder-profile founder-profile--secondary founder-profile--reverse">
             <figure class="founder-photo">
               <div class="founder-photo-frame">
-                <img
-                  id="founder-photo-wilson"
-                  src="../assets/images/team/wilson-antwi-amoako.jpg"
-                  srcset="../assets/images/team/wilson-antwi-amoako.webp"
-                  alt="Wilson Antwi Amoako, Co-Founder and Chief Operating Officer of WINEMI CAPITAL."
-                  width="400"
-                  height="533"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img id="founder-photo-wilson" src="../assets/images/team/wilson-antwi-amoako.jpg" srcset="../assets/images/team/wilson-antwi-amoako.webp" alt="Wilson Antwi Amoako, Co-Founder and Chief Operating Officer of WINEMI CAPITAL." width="400" height="533" loading="lazy" decoding="async" />
               </div>
             </figure>
             <div class="founder-copy">
@@ -137,14 +166,111 @@
             </div>
           </div>
         </div>
+
+        <div class="about-partnership-panel">
+          <div class="about-partnership-inner">
+            <p class="label">Partnership design</p>
+            <h3 class="about-partnership-title">Strategy meets execution</h3>
+            <div class="about-partnership-grid">
+              <div class="about-partnership-col">
+                <h4>Chief Executive</h4>
+                <ul>
+                  <li>Investment philosophy &amp; research direction</li>
+                  <li>Market analysis frameworks</li>
+                  <li>Capital allocation principles</li>
+                  <li>Educational curriculum design</li>
+                </ul>
+              </div>
+              <div class="about-partnership-divider" aria-hidden="true"></div>
+              <div class="about-partnership-col">
+                <h4>Chief Operating Officer</h4>
+                <ul>
+                  <li>Operational systems &amp; process design</li>
+                  <li>Execution discipline &amp; delivery</li>
+                  <li>Organisational coordination</li>
+                  <li>Standards &amp; institutional continuity</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container narrow">
+    <section class="section" style="background:var(--color-charcoal);">
+      <div class="container">
+        <p class="label section-label">Focus</p>
+        <h2 class="heading-2 section-title">Where we concentrate</h2>
+        <div class="about-focus-grid">
+          <article class="about-focus-card">
+            <div class="about-focus-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+            </div>
+            <h3 class="about-focus-title">Market analysis</h3>
+            <p class="body-small">Structure, liquidity, and institutional behaviour across equities, FX, commodities, and indices — read as systems, not narratives.</p>
+          </article>
+          <article class="about-focus-card">
+            <div class="about-focus-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            </div>
+            <h3 class="about-focus-title">Capital allocation</h3>
+            <p class="body-small">Portfolio construction, risk budgeting, and the relationship between capital, time, and uncertainty under defined objectives.</p>
+          </article>
+          <article class="about-focus-card">
+            <div class="about-focus-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
+            </div>
+            <h3 class="about-focus-title">Structured education</h3>
+            <p class="body-small">Progressive literacy in price structure, order flow concepts, risk definition, and reliable data sources — built for practice, not performance theatre.</p>
+          </article>
+          <article class="about-focus-card">
+            <div class="about-focus-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <h3 class="about-focus-title">Process &amp; discipline</h3>
+            <p class="body-small">Repeatable frameworks, journaling, review cycles, and risk limits that protect both capital and decision quality over a large sample.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="values">
+      <div class="container">
         <p class="label section-label">Values</p>
         <h2 class="heading-2 section-title">How we work</h2>
-        <p class="body-base">Discipline over noise. Research before action. Process before personality. We measure success by durable outcomes, not activity.</p>
+        <div class="about-values-grid">
+          <article class="about-value">
+            <h3>Discipline over noise</h3>
+            <p class="body-small">Markets generate constant signal and distraction. Process filters both. We measure success by durable outcomes, not activity.</p>
+          </article>
+          <article class="about-value">
+            <h3>Research before action</h3>
+            <p class="body-small">Capital is committed only after a coherent thesis, defined risk parameters, and portfolio context have been established.</p>
+          </article>
+          <article class="about-value">
+            <h3>Process before personality</h3>
+            <p class="body-small">Systems outlast individuals. Clear ownership, documented workflows, and accountable delivery are treated as competitive advantages.</p>
+          </article>
+          <article class="about-value">
+            <h3>Intellectual honesty</h3>
+            <p class="body-small">Uncertainty is acknowledged. Guarantees are not invented. Performance claims are not fabricated. Education is not sales.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-cta-band">
+      <div class="container about-cta-inner">
+        <div>
+          <p class="label">Continue</p>
+          <h2 class="heading-2" style="margin-bottom:0.75rem;">Explore the platform</h2>
+          <p class="body-base" style="max-width:32rem;margin:0;">Approach, education, markets, and contact — structured for participants who value clarity and substance.</p>
+        </div>
+        <div class="about-cta-actions">
+          <a href="approach.html" class="btn btn-primary">Our Approach</a>
+          <a href="education.html" class="btn btn-secondary">Education Hub</a>
+          <a href="contact.html" class="btn btn-secondary">Contact</a>
+        </div>
       </div>
     </section>
   </main>
@@ -165,9 +291,9 @@
       <p class="footer-copy">&copy; <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
     </div>
   </footer>
-  <script>document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());</script>
+  <script>document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });</script>
   <script src="../assets/js/main.js" defer></script>
   <script src="../assets/js/founder-photo.js" defer></script>
   <script src="../assets/js/wilson-photo.js" defer></script>
-  </body>
+</body>
 </html>
