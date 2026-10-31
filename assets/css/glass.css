@@ -1,4 +1,76 @@
-/* WINEMI CAPITAL. — Premium glass morphism layer */
+/* WINEMI CAPITAL. — Premium glass morphism + smooth page transitions */
+
+/* ── Page transitions ─────────────────────────────────────── */
+html {
+  background: var(--color-charcoal, #0a0a0b);
+}
+
+body {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.page-ready {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.page-exit {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity 280ms cubic-bezier(0.4, 0, 1, 1),
+    transform 280ms cubic-bezier(0.4, 0, 1, 1);
+  pointer-events: none;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 380ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(root) {
+  animation-name: wc-fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: wc-fade-in;
+}
+
+@keyframes wc-fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-6px); }
+}
+
+@keyframes wc-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  body.page-ready,
+  body.page-exit {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
+
+/* ── Glass surfaces ───────────────────────────────────────── */
 .card {
   background: rgba(28, 28, 31, 0.55) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -87,4 +159,110 @@ html[data-theme="light"] .about-focus-card:hover {
   background: rgba(255, 255, 255, 0.9) !important;
   border-color: rgba(184, 149, 106, 0.32) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 14px 36px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Environment gallery (desk / floor / office / map) ─────── */
+.env-section { position: relative; }
+.env-lead {
+  max-width: 40rem;
+  margin: 0 0 2.25rem;
+}
+.env-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .env-grid {
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  .env-card--wide { grid-column: 1; grid-row: 1 / span 2; }
+}
+@media (min-width: 1024px) {
+  .env-grid {
+    grid-template-columns: 1.35fr 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  .env-card--wide { grid-column: 1; grid-row: 1 / span 2; }
+  .env-card--map { grid-column: 2 / span 2; }
+}
+.env-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: rgba(20, 20, 22, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(16px) saturate(1.1);
+  -webkit-backdrop-filter: blur(16px) saturate(1.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 10px 32px rgba(0, 0, 0, 0.18);
+  transition: border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+}
+.env-card:hover {
+  border-color: rgba(184, 149, 106, 0.32);
+  transform: translateY(-3px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 18px 44px rgba(0, 0, 0, 0.28);
+}
+.env-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #0d0d0f;
+  overflow: hidden;
+}
+.env-card--wide .env-media { aspect-ratio: 4 / 5; min-height: 100%; }
+@media (min-width: 720px) {
+  .env-card--wide .env-media { aspect-ratio: auto; flex: 1; min-height: 280px; }
+  .env-card--wide { min-height: 100%; }
+}
+.env-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.env-card:hover .env-media img { transform: scale(1.04); }
+.env-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 11, 0.55) 100%);
+  pointer-events: none;
+}
+.env-card figcaption {
+  padding: 1.15rem 1.25rem 1.35rem;
+  display: grid;
+  gap: 0.35rem;
+}
+.env-index {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--color-muted-gold, #b8956a);
+}
+.env-card strong {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--color-text-primary, #f7f5f0);
+}
+.env-card figcaption span:last-child {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary, rgba(247,245,240,0.72));
+}
+html[data-theme="light"] .env-card {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(10, 10, 11, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 10px 28px rgba(0, 0, 0, 0.05);
+}
+html[data-theme="light"] .env-card:hover {
+  border-color: rgba(184, 149, 106, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 16px 36px rgba(0, 0, 0, 0.07);
+}
+html[data-theme="light"] .env-media::after {
+  background: linear-gradient(180deg, transparent 50%, rgba(247, 245, 240, 0.35) 100%);
 }
