@@ -1,0 +1,88 @@
+/* Founders home grid + hero particles */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.92;
+}
+.hero-content { z-index: 2; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-particles { display: none !important; }
+}
+.founders-home-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .founders-home-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
+  }
+}
+.founder-home-card {
+  margin: 0;
+  display: grid;
+  gap: 0;
+  background: rgba(20, 20, 22, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  backdrop-filter: blur(16px) saturate(1.1);
+  -webkit-backdrop-filter: blur(16px) saturate(1.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+.founder-home-card .founder-photo { margin: 0; }
+.founder-home-card .founder-photo-frame {
+  aspect-ratio: 4 / 5;
+  max-height: 340px;
+  overflow: hidden;
+  background: #0d0d0f;
+  position: relative;
+}
+.founder-home-card .founder-photo-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(184, 149, 106, 0.22);
+  pointer-events: none;
+}
+.founder-home-card .founder-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 16%;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.founder-home-card:hover .founder-photo-frame img { transform: scale(1.03); }
+.founder-home-copy {
+  padding: 1.25rem 1.35rem 1.5rem;
+  display: grid;
+  gap: 0.45rem;
+}
+.founder-home-copy .founder-name {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--color-text-primary, #f7f5f0);
+}
+.founder-home-copy .founder-role {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted-gold, #b8956a);
+}
+.founder-home-copy .founder-highlights {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, rgba(247,245,240,0.72));
+  line-height: 1.55;
+}
+html[data-theme="light"] .founder-home-card {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(10, 10, 11, 0.08);
+}
