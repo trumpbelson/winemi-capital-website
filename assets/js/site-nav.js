@@ -9,7 +9,6 @@
   var inPages = /\/pages\//.test(path) || /\/pages$/.test(path);
   var prefix = inPages ? '' : 'pages/';
   var homeHref = inPages ? '../index.html' : 'index.html';
-  var assetPrefix = inPages ? '../assets/' : 'assets/';
 
   var items = [
     { id: 'home', label: 'Home', href: homeHref },
@@ -74,17 +73,16 @@
       '<a href="' + loginHref + '" class="mobile-nav-cta">Client Portal</a>' +
     '</div>';
 
-  function ensureCss(hrefPart) {
-    if (document.querySelector('link[href*="' + hrefPart + '"]')) return;
+  function ensureNavCss() {
+    if (document.querySelector('link[href*="nav.css"]')) return;
     var link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = assetPrefix + 'css/' + hrefPart;
+    link.href = inPages ? '../assets/css/nav.css' : 'assets/css/nav.css';
     document.head.appendChild(link);
   }
 
   function mount() {
-    ensureCss('nav.css');
-    ensureCss('glass.css');
+    ensureNavCss();
     var header = document.querySelector('.site-header');
     if (header) {
       header.innerHTML = headerHtml;
@@ -103,19 +101,24 @@
     }
     mobile.innerHTML = mobileHtml;
 
-    var toggle = document.querySelector('.mobile-toggle');
+    var toggle = header && header.querySelector('.mobile-toggle');
+    var themeBtn = header && header.querySelector('.theme-toggle');
+
     if (toggle && mobile) {
       toggle.addEventListener('click', function () {
-        var open = mobile.classList.toggle('open');
+        var open = mobile.classList.toggle('is-open');
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        document.body.style.overflow = open ? 'hidden' : '';
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.classList.toggle('nav-open', open);
       });
-      mobile.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () {
-          mobile.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        });
+    }
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', function () {
+        var root = document.documentElement;
+        var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('winemi-theme', next); } catch (e) {}
       });
     }
   }
