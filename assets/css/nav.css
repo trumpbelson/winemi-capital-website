@@ -220,8 +220,7 @@ html[data-theme="light"] .nav-link.active {
   gap: 0.4rem;
 }
 
-.theme-toggle,
-.mobile-toggle {
+.theme-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -235,14 +234,12 @@ html[data-theme="light"] .nav-link.active {
   transition: background 160ms ease, border-color 160ms ease;
 }
 
-.theme-toggle:hover,
-.mobile-toggle:hover {
+.theme-toggle:hover {
   background: rgba(184, 149, 106, 0.12);
   border-color: rgba(184, 149, 106, 0.45);
 }
 
-.theme-toggle svg,
-.mobile-toggle svg {
+.theme-toggle svg {
   width: 18px;
   height: 18px;
 }
@@ -252,12 +249,82 @@ html:not([data-theme="light"]) .theme-toggle .icon-moon {
   display: none;
 }
 
-.mobile-toggle .icon-close { display: none; }
-.mobile-toggle[aria-expanded="true"] .icon-menu { display: none; }
-.mobile-toggle[aria-expanded="true"] .icon-close { display: block; }
+/* Mobile menu button — prominent */
+.mobile-toggle {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: auto !important;
+  min-width: 42px;
+  height: 40px !important;
+  padding: 0 0.85rem !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(184, 149, 106, 0.45) !important;
+  background: rgba(184, 149, 106, 0.1) !important;
+  color: var(--color-muted-gold, #b8956a) !important;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.mobile-toggle:hover {
+  background: rgba(184, 149, 106, 0.18) !important;
+  border-color: rgba(184, 149, 106, 0.7) !important;
+}
+
+.mobile-toggle:active {
+  transform: scale(0.97);
+}
+
+.mobile-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.mobile-toggle-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mobile-toggle .icon-close {
+  display: none;
+  position: absolute;
+}
+
+.mobile-toggle[aria-expanded="true"] .icon-menu {
+  display: none;
+}
+
+.mobile-toggle[aria-expanded="true"] .icon-close {
+  display: block;
+  position: static;
+}
+
+.mobile-toggle-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+}
 
 @media (min-width: 1024px) {
-  .mobile-toggle { display: none; }
+  .mobile-toggle {
+    display: none !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-toggle {
+    padding: 0 0.65rem !important;
+  }
+  .mobile-toggle-label {
+    font-size: 0.65rem;
+  }
 }
 
 .mobile-nav {
