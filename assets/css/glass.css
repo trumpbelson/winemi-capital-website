@@ -1,4 +1,4 @@
-/* WINEMI CAPITAL. — Surfaces, classical hero, footer, map, top feed, offices, markets */
+/* WINEMI CAPITAL. — Surfaces + fixed offices layout */
 
 html { background: var(--color-charcoal, #0a0a0b); }
 
@@ -141,12 +141,21 @@ html[data-theme="light"] .contact-form {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #0d0d0f;
+  width: 100%;
 }
 .visual-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.pair-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+@media (min-width: 700px) {
+  .pair-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 }
 .founders-home-grid { display: grid; gap: 1.75rem; }
 @media (min-width: 768px) {
@@ -247,29 +256,99 @@ main, .site-footer { position: relative; z-index: 1; }
   .news-ticker-content { font-size: 0.75rem; }
 }
 
-/* Offices — smaller imagery */
-#offices .offices-split .visual-frame,
+/* Offices — balanced imagery (fixed layout) */
+#offices .split-layout {
+  gap: 1.75rem;
+  align-items: center;
+}
+#offices .split-visual {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
 #offices .split-visual .visual-frame {
-  aspect-ratio: 16 / 10;
-  max-height: 280px;
-  max-width: 420px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 11;
+  max-height: 320px;
+  margin: 0;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+#offices .split-visual .visual-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#offices .split-visual figcaption {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.9rem 1.1rem 1.1rem;
 }
 #offices .pair-grid {
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  gap: 1rem;
+  display: grid !important;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+  margin-top: 1.5rem;
+  max-width: none;
+  width: 100%;
+}
+@media (min-width: 700px) {
+  #offices .pair-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.25rem;
+  }
+}
+#offices .pair-card {
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  width: 100%;
 }
 #offices .pair-card .visual-frame {
+  width: 100%;
+  max-width: none;
   aspect-ratio: 16 / 10;
-  max-height: 180px;
+  max-height: 200px;
+  margin: 0;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
 }
-#offices .split-layout { gap: 1.5rem; }
-@media (min-width: 768px) {
-  #offices .offices-split .visual-frame,
-  #offices .split-visual .visual-frame { max-height: 300px; }
+#offices .pair-card .visual-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#offices .pair-card figcaption {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.85rem 1rem 1.05rem;
+}
+#offices .pair-card figcaption .env-index {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted-gold, #b8956a);
+}
+#offices .pair-card figcaption strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--color-text-primary, #f7f5f0);
+}
+#offices .pair-card figcaption span:not(.env-index) {
+  display: block;
+  font-size: 0.875rem;
+  color: rgba(247, 245, 240, 0.65);
+  line-height: 1.45;
+}
+@media (max-width: 699px) {
+  #offices .split-visual .visual-frame { max-height: 240px; }
+  #offices .pair-card .visual-frame { max-height: 180px; }
 }
 
 /* Markets — broader TradingView */
@@ -289,12 +368,6 @@ main, .site-footer { position: relative; z-index: 1; }
     min-height: 380px;
     height: 380px !important;
   }
-  #offices .offices-split .visual-frame,
-  #offices .split-visual .visual-frame {
-    max-height: 220px;
-    max-width: 100%;
-  }
-  #offices .pair-card .visual-frame { max-height: 150px; }
 }
 
 /* Footer gold border */
