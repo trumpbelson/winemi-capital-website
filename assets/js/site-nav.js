@@ -49,9 +49,14 @@
 
   var headerHtml =
     '<div class="header-inner">' +
-      '<a href="' + homeHref + '" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>' +
+      '<div class="header-left">' +
+        '<a href="' + homeHref + '" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>' +
+        '<span class="header-divider" aria-hidden="true"></span>' +
+        '<span class="header-meta" title="Firm focus">Accra · Global markets</span>' +
+      '</div>' +
+      '<nav class="nav-desktop" aria-label="Primary">' + desktopLinks + '</nav>' +
       '<div class="header-right">' +
-        '<nav class="nav-desktop" aria-label="Primary">' + desktopLinks + '</nav>' +
+        '<span class="header-status" aria-hidden="true"><span class="status-dot"></span>Live context</span>' +
         '<a href="' + loginHref + '" class="nav-cta">Portal</a>' +
         '<div class="header-actions">' +
           '<button type="button" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">' +
@@ -68,8 +73,13 @@
 
   var mobileHtml =
     '<div class="mobile-nav-inner">' +
+      '<p class="mobile-nav-label">Navigate</p>' +
       mobileLinks +
-      '<a href="' + loginHref + '" class="mobile-nav-cta">Client Portal</a>' +
+      '<div class="mobile-nav-footer">' +
+        '<p class="mobile-nav-meta">Accra · Global markets · Institutional research</p>' +
+        '<a class="mobile-nav-contact" href="https://wa.me/233503100519" target="_blank" rel="noopener noreferrer">WhatsApp +233 50 310 0519</a>' +
+        '<a href="' + loginHref + '" class="mobile-nav-cta">Client Portal</a>' +
+      '</div>' +
     '</div>';
 
   function icon(paths) {
@@ -113,18 +123,18 @@
       { label: '@WinemiCapital', href: 'https://t.me/WinemiCapital' },
       { label: 'Accra, Ghana', href: prefix + 'contact.html' }
     ].map(function (l) {
-      var ext = l.href.indexOf('http') === 0;
+      var ext = l.href.indexOf('http') === 0 || l.href.indexOf('mailto:') === 0;
       return '<a href="' + l.href + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>' + l.label + '</a>';
     }).join('');
 
     var footerHtml =
       '<div class="container">' +
-        '<div class="footer-grid">' +
+        '<div class="footer-grid footer-grid--rich">' +
           '<div class="footer-brand">' +
             '<a href="' + homeHref + '" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>' +
             '<p class="footer-tag">Building wealth through intelligent capital allocation.</p>' +
-            '<p class="footer-tag">Global markets · Institutional research</p>' +
-            '<div class="social-icons">' + socialHtml + '</div>' +
+            '<p class="footer-meta">Global markets · Institutional research · Accra</p>' +
+            '<div class="social-icons footer-social">' + socialHtml + '</div>' +
           '</div>' +
           '<div class="footer-col">' +
             '<p class="footer-col-title">Firm</p>' +
@@ -200,6 +210,7 @@
     if (toggle && mobile) {
       toggle.addEventListener('click', function () {
         var open = mobile.classList.toggle('is-open');
+        mobile.classList.toggle('open', open);
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
         document.body.classList.toggle('nav-open', open);
