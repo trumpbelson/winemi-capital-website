@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Structure Lab | WINEMI CAPITAL.</title>
+  <meta name="description" content="Live chart education lab for supply and demand structure across major instruments." />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/nav.css" />
+  <link rel="stylesheet" href="../assets/css/logo.css" />
+  <link rel="stylesheet" href="../assets/css/glass.css" />
+  <link rel="stylesheet" href="../assets/css/learn-interactive.css" />
+  <link rel="stylesheet" href="../assets/css/footer-rich.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('winemi-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <style>
+    .live-toolbar { display:flex; flex-wrap:wrap; gap:0.5rem; margin:1rem 0 0.75rem; }
+    .live-chip {
+      border:1px solid rgba(184,149,106,0.28); background:transparent; color:rgba(247,245,240,0.75);
+      border-radius:999px; padding:0.42rem 0.9rem; font-size:0.72rem; font-weight:600;
+      letter-spacing:0.06em; text-transform:uppercase; cursor:pointer;
+    }
+    .live-chip.active, .live-chip:hover {
+      background:rgba(184,149,106,0.12); color:var(--color-muted-gold,#b8956a);
+      border-color:rgba(184,149,106,0.55);
+    }
+    .live-chart {
+      width:100%; min-height:520px; height:560px; border-radius:14px; overflow:hidden;
+      border:1px solid rgba(184,149,106,0.28); background:#0e0e10;
+    }
+    @media (max-width:767px) { .live-chart { min-height:380px; height:400px; } }
+    .edu-subnav { display:flex; flex-wrap:wrap; gap:0.5rem; margin:0 0 1.5rem; }
+    .edu-subnav a {
+      font-size:0.75rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+      text-decoration:none; color:rgba(247,245,240,0.65);
+      border:1px solid rgba(184,149,106,0.22); border-radius:999px; padding:0.4rem 0.85rem;
+    }
+    .edu-subnav a:hover, .edu-subnav a.active {
+      color:var(--color-muted-gold,#b8956a); border-color:rgba(184,149,106,0.5);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner"></header>
+  <main id="main">
+    <div class="page-header">
+      <div class="container">
+        <p class="label">Education · Live data</p>
+        <h1 class="heading-1">Live structure lab</h1>
+        <p class="body-large" style="max-width:720px;">Study supply–demand structure on a live chart. Switch instruments, observe bases and impulsive departures. Data via TradingView — educational use only.</p>
+      </div>
+    </div>
+    <section class="section">
+      <div class="container">
+        <nav class="edu-subnav" aria-label="Education modules">
+          <a href="education.html">Overview</a>
+          <a href="education-live.html" class="active">Live structure lab</a>
+          <a href="education-macro.html">Macro &amp; data</a>
+          <a href="education-risk.html">Risk lab</a>
+          <a href="insights.html">Insights</a>
+        </nav>
+        <div class="context-strip">
+          <p class="label">How to use this lab</p>
+          <p>Pick an instrument. Look for tight bases followed by impulsive range expansion (DBR, RBR, RBD, DBD). Mark higher-timeframe context first. Nothing on this page is a signal or recommendation.</p>
+        </div>
+        <div class="live-toolbar" role="toolbar" aria-label="Instruments">
+          <button type="button" class="live-chip active" data-symbol="BINANCE:BTCUSDT">Bitcoin</button>
+          <button type="button" class="live-chip" data-symbol="TVC:GOLD">Gold</button>
+          <button type="button" class="live-chip" data-symbol="FX:EURUSD">EUR/USD</button>
+          <button type="button" class="live-chip" data-symbol="NASDAQ:NDX">NASDAQ-100</button>
+          <button type="button" class="live-chip" data-symbol="TVC:USOIL">Crude oil</button>
+          <button type="button" class="live-chip" data-symbol="FOREXCOM:SPXUSD">S&amp;P 500</button>
+        </div>
+        <div id="edu-live-chart" class="live-chart"></div>
+        <p class="body-small" style="margin-top:0.75rem;">Real-time chart · TradingView · Not investment advice</p>
+        <div class="pattern-grid" style="margin-top:2rem;" role="list">
+          <button type="button" class="pattern-card" data-pattern="DBR" role="listitem"><strong>DBR</strong><span>Drop → Base → Rally</span></button>
+          <button type="button" class="pattern-card" data-pattern="RBR" role="listitem"><strong>RBR</strong><span>Rally → Base → Rally</span></button>
+          <button type="button" class="pattern-card" data-pattern="RBD" role="listitem"><strong>RBD</strong><span>Rally → Base → Drop</span></button>
+          <button type="button" class="pattern-card" data-pattern="DBD" role="listitem"><strong>DBD</strong><span>Drop → Base → Drop</span></button>
+        </div>
+        <div id="pattern-detail" class="pattern-detail" aria-live="polite"></div>
+        <p style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <a class="btn btn-secondary" href="education.html">Education overview</a>
+          <a class="btn btn-secondary" href="education-risk.html">Risk lab</a>
+        </p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" role="contentinfo"></footer>
+  <script src="https://s3.tradingview.com/tv.js"></script>
+  <script src="../assets/js/site-nav.js"></script>
+  <script src="../assets/js/learn-interactive.js" defer></script>
+  <script>
+    (function () {
+      var el = document.getElementById('edu-live-chart');
+      if (!el || typeof TradingView === 'undefined') return;
+      var current = 'BINANCE:BTCUSDT';
+      function theme() {
+        return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      }
+      function mount(symbol) {
+        current = symbol || current;
+        el.innerHTML = '';
+        new TradingView.widget({
+          autosize: true, symbol: current, interval: '60', timezone: 'Etc/UTC',
+          theme: theme(), style: '1', locale: 'en', toolbar_bg: '#1c1c1f',
+          enable_publishing: false, allow_symbol_change: true, hide_side_toolbar: false,
+          container_id: 'edu-live-chart',
+          backgroundColor: theme() === 'light' ? '#f7f5f0' : '#0e0e10',
+          gridColor: 'rgba(184,149,106,0.08)'
+        });
+      }
+      mount(current);
+      document.querySelectorAll('.live-chip').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('.live-chip').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          mount(btn.getAttribute('data-symbol'));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

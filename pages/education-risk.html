@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Risk Lab | WINEMI CAPITAL.</title>
+  <meta name="description" content="Live volatility and benchmark charts with risk education modules." />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/nav.css" />
+  <link rel="stylesheet" href="../assets/css/logo.css" />
+  <link rel="stylesheet" href="../assets/css/glass.css" />
+  <link rel="stylesheet" href="../assets/css/learn-interactive.css" />
+  <link rel="stylesheet" href="../assets/css/footer-rich.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('winemi-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <style>
+    .edu-subnav { display:flex; flex-wrap:wrap; gap:0.5rem; margin:0 0 1.5rem; }
+    .edu-subnav a {
+      font-size:0.75rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+      text-decoration:none; color:rgba(247,245,240,0.65);
+      border:1px solid rgba(184,149,106,0.22); border-radius:999px; padding:0.4rem 0.85rem;
+    }
+    .edu-subnav a:hover, .edu-subnav a.active {
+      color:var(--color-muted-gold,#b8956a); border-color:rgba(184,149,106,0.5);
+    }
+    .live-chart {
+      width:100%; min-height:420px; height:440px; border-radius:14px; overflow:hidden;
+      border:1px solid rgba(184,149,106,0.28); background:#0e0e10;
+    }
+    .two-col { display:grid; gap:1.25rem; }
+    @media (min-width:900px) { .two-col { grid-template-columns:1fr 1fr; align-items:start; } }
+    @media (max-width:767px) { .live-chart { min-height:320px; height:340px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner"></header>
+  <main id="main">
+    <div class="page-header">
+      <div class="container">
+        <p class="label">Education · Live data</p>
+        <h1 class="heading-1">Risk lab</h1>
+        <p class="body-large" style="max-width:720px;">Pair structure study with live volatility and benchmark context. Define invalidation before narrative. Educational use only.</p>
+      </div>
+    </div>
+    <section class="section">
+      <div class="container">
+        <nav class="edu-subnav" aria-label="Education modules">
+          <a href="education.html">Overview</a>
+          <a href="education-live.html">Live structure lab</a>
+          <a href="education-macro.html">Macro &amp; data</a>
+          <a href="education-risk.html" class="active">Risk lab</a>
+          <a href="insights.html">Insights</a>
+        </nav>
+        <div class="context-strip">
+          <p class="label">Core rule</p>
+          <p>A zone hypothesis needs a price where the idea is wrong. Size risk so a string of failed zones is survivable.</p>
+        </div>
+        <div class="two-col">
+          <div>
+            <h2 class="heading-2">Volatility context (VIX)</h2>
+            <div id="risk-vix-chart" class="live-chart" style="margin-top:1rem;"></div>
+            <p class="body-small" style="margin-top:0.5rem;">Live chart · CBOE VIX · TradingView</p>
+          </div>
+          <div>
+            <h2 class="heading-2">Benchmark (S&amp;P 500)</h2>
+            <div id="risk-spx-chart" class="live-chart" style="margin-top:1rem;"></div>
+            <p class="body-small" style="margin-top:0.5rem;">Live chart · S&amp;P 500 proxy · TradingView</p>
+          </div>
+        </div>
+        <div class="accordion" style="margin-top:2rem;">
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="r1"><span>Invalidation first</span><span class="accordion-icon">+</span></button>
+            <div id="r1" class="accordion-panel">Mark the far side of the base before debating targets. If price accepts beyond that level with initiative, the original zone story weakens.</div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="r2"><span>Volatility and zone quality</span><span class="accordion-icon">+</span></button>
+            <div id="r2" class="accordion-panel">High-volatility regimes produce wider noise around levels. Require stronger departure and clearer HTF alignment before treating a base as high quality.</div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="r3"><span>Position sizing as education</span><span class="accordion-icon">+</span></button>
+            <div id="r3" class="accordion-panel">Risk a fraction of capital that survives multiple consecutive invalidations. Process discipline is part of literacy.</div>
+          </div>
+        </div>
+        <div class="quiz-block" id="edu-quiz">
+          <h3>Risk self-check</h3>
+          <div class="quiz-question" data-answered="0">
+            <p class="quiz-q">When should invalidation be defined?</p>
+            <div class="quiz-options">
+              <button type="button" class="quiz-opt" data-correct="false">After price reaches the first target</button>
+              <button type="button" class="quiz-opt" data-correct="true">Before treating a zone as a complete hypothesis</button>
+              <button type="button" class="quiz-opt" data-correct="false">Only on higher timeframes</button>
+            </div>
+            <p class="quiz-feedback"></p>
+          </div>
+        </div>
+        <p style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <a class="btn btn-secondary" href="education-live.html">Live structure lab</a>
+          <a class="btn btn-secondary" href="risk-disclosure.html">Risk disclosure</a>
+        </p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" role="contentinfo"></footer>
+  <script src="https://s3.tradingview.com/tv.js"></script>
+  <script src="../assets/js/site-nav.js"></script>
+  <script src="../assets/js/learn-interactive.js" defer></script>
+  <script>
+    (function () {
+      if (typeof TradingView === 'undefined') return;
+      function theme() {
+        return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      }
+      function mount(id, symbol) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.innerHTML = '';
+        new TradingView.widget({
+          autosize: true, symbol: symbol, interval: '60', timezone: 'Etc/UTC',
+          theme: theme(), style: '1', locale: 'en', toolbar_bg: '#1c1c1f',
+          enable_publishing: false, allow_symbol_change: true, container_id: id,
+          backgroundColor: theme() === 'light' ? '#f7f5f0' : '#0e0e10',
+          gridColor: 'rgba(184,149,106,0.08)'
+        });
+      }
+      mount('risk-vix-chart', 'TVC:VIX');
+      mount('risk-spx-chart', 'FOREXCOM:SPXUSD');
+    })();
+  </script>
+</body>
+</html>
