@@ -1,5 +1,5 @@
 (function(){
-var root=document.getElementById('world-map');
+var root=document.getElementById('world-map')||document.getElementById('wc-map')||document.querySelector('.wc-map');
 if(!root)return;
 var section=document.getElementById('map');
 if(section){section.classList.add('map-section-enhanced');}
@@ -8,9 +8,19 @@ var svg="<svg class=\"wc-map-svg\" viewBox=\"0 0 1000 500\" xmlns=\"http://www.w
 var legend="<ul class=\"wc-map-legend\" aria-label=\"Financial centres\"><li data-pin=\"Accra\"><button type=\"button\" class=\"leg-btn\"><span class=\"leg-dot leg-dot--home\"></span> Accra</button></li><li data-pin=\"New York\"><button type=\"button\" class=\"leg-btn\"><span class=\"leg-dot\"></span> New York</button></li><li data-pin=\"London\"><button type=\"button\" class=\"leg-btn\"><span class=\"leg-dot\"></span> London</button></li><li data-pin=\"Dubai\"><button type=\"button\" class=\"leg-btn\"><span class=\"leg-dot\"></span> Dubai</button></li><li data-pin=\"Singapore\"><button type=\"button\" class=\"leg-btn\"><span class=\"leg-dot\"></span> Singapore</button></li><li data-pin=\"Hong Kong\"><button type=\"button\" class=\"leg-btn\"><span class=\"leg-dot\"></span> Hong Kong</button></li><li data-pin=\"Shanghai\"><button type=\"button\" class=\"leg-btn\"><span class=\"leg-dot\"></span> Shanghai</button></li><li data-pin=\"Tokyo\"><button type=\"button\" class=\"leg-btn\"><span class=\"leg-dot\"></span> Tokyo</button></li></ul>";
 
 var oldSvg=root.querySelector('svg.wc-map-svg');
-if(oldSvg)oldSvg.outerHTML=svg;
+if(oldSvg){ oldSvg.outerHTML=svg; }
+else { root.insertAdjacentHTML('afterbegin', svg); }
 var oldLeg=root.querySelector('ul.wc-map-legend');
-if(oldLeg)oldLeg.outerHTML=legend;
+if(oldLeg){ oldLeg.outerHTML=legend; }
+else { root.insertAdjacentHTML('beforeend', legend); }
+if(!document.getElementById('map-popup')){
+  var p=document.createElement('div');
+  p.id='map-popup';
+  p.className='wc-map-popup';
+  p.hidden=true;
+  p.innerHTML='<button type="button" class="wc-map-popup-close" aria-label="Close">×</button><strong class="wc-map-popup-title"></strong><p class="wc-map-popup-desc"></p><p class="wc-map-popup-hint">Click another city or press Esc to close</p>';
+  root.appendChild(p);
+}
 
 var popup=document.getElementById('map-popup');
 if(popup && !popup.querySelector('.wc-map-popup-close')){
