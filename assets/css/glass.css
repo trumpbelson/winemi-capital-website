@@ -1,4 +1,4 @@
-/* WINEMI CAPITAL. — Solid surfaces + layout alignment (no glass morphism) */
+/* WINEMI CAPITAL. — Solid surfaces + centered hero (no glass morphism) */
 
 html {
   background: var(--color-charcoal, #0a0a0b);
@@ -232,36 +232,69 @@ html[data-theme="light"] .site-footer {
   color: var(--color-text-secondary, rgba(247, 245, 240, 0.72));
 }
 
-/* Hero centered */
+/* Hero — fully centered middle view */
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - var(--header-height, 72px));
+  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh;
+  padding-top: var(--header-height, 72px);
   text-align: center;
+  overflow: hidden;
 }
 
-.hero-content {
-  max-width: 52rem;
-  margin: 0 auto;
-  padding: 2rem var(--container-padding, 1.5rem);
-  text-align: center;
+.hero-bg,
+.hero-particles {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-content,
+.hero .container.hero-content,
+.container.hero-content {
+  position: relative !important;
+  z-index: 2;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 52rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 2rem var(--container-padding, 1.5rem) !important;
+  text-align: center !important;
+  box-sizing: border-box;
 }
 
 .hero-content .label,
 .hero-content .heading-1,
+.hero-content .hero-tagline,
+.hero-content .body-large,
 .hero-content .body-base,
-.hero-content .hero-actions {
-  margin-left: auto;
-  margin-right: auto;
+.hero-content .hero-lead,
+.hero-content .hero-support,
+.hero-content .hero-actions,
+.hero-content .hero-ctas {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
 }
 
-.hero-actions {
-  display: flex;
+.hero-actions,
+.hero-ctas {
+  display: flex !important;
   flex-wrap: wrap;
   gap: 0.75rem;
-  justify-content: center;
+  justify-content: center !important;
+  align-items: center;
   margin-top: 1.75rem;
+  width: 100%;
 }
 
 .split-layout {
