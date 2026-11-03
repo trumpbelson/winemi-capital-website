@@ -105,18 +105,19 @@
 
     var firmLinks = [
       { label: 'About', href: prefix + 'about.html' },
+      { label: 'Services', href: prefix + 'services.html' },
       { label: 'Approach', href: prefix + 'approach.html' },
-      { label: 'Markets', href: prefix + 'markets.html' },
-      { label: 'Education', href: prefix + 'education.html' },
-      { label: 'Insights', href: prefix + 'insights.html' },
+      { label: 'Global presence', href: prefix + 'global.html' },
+      { label: 'Careers', href: prefix + 'careers.html' },
       { label: 'Contact', href: prefix + 'contact.html' }
     ].map(function (l) { return '<a href="' + l.href + '">' + l.label + '</a>'; }).join('');
 
     var resourceLinks = [
-      { label: 'Client Portal', href: prefix + 'login.html' },
-      { label: 'Privacy', href: prefix + 'privacy.html' },
-      { label: 'Terms', href: prefix + 'terms.html' },
-      { label: 'Disclaimer', href: prefix + 'disclaimer.html' },
+      { label: 'Education', href: prefix + 'education.html' },
+      { label: 'Resources', href: prefix + 'resources.html' },
+      { label: 'Glossary', href: prefix + 'glossary.html' },
+      { label: 'FAQ', href: prefix + 'faq.html' },
+      { label: 'Insights', href: prefix + 'insights.html' },
       { label: 'Risk Disclosure', href: prefix + 'risk-disclosure.html' }
     ].map(function (l) { return '<a href="' + l.href + '">' + l.label + '</a>'; }).join('');
 
