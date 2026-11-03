@@ -27,6 +27,81 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" role="banner"></header>
+
+  <div class="top-feed" aria-label="Live markets and news">
+    <div class="market-ticker" role="region" aria-label="Live market data ticker">
+      <div class="market-ticker-inner">
+        <span class="market-ticker-label">Live Markets</span>
+        <div class="tradingview-widget-container market-ticker-widget">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {
+            "symbols": [
+              { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
+              { "proName": "FOREXCOM:NSXUSD", "title": "NASDAQ 100" },
+              { "proName": "FOREXCOM:DJI", "title": "Dow 30" },
+              { "proName": "INDEX:DAX", "title": "DAX" },
+              { "proName": "INDEX:NKY", "title": "Nikkei 225" },
+              { "proName": "HSI:HSI", "title": "Hang Seng" },
+              { "proName": "TVC:GOLD", "title": "Gold" },
+              { "proName": "TVC:SILVER", "title": "Silver" },
+              { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
+              { "proName": "BITSTAMP:ETHUSD", "title": "Ethereum" },
+              { "proName": "FX:EURUSD", "title": "EUR/USD" },
+              { "proName": "FX:GBPUSD", "title": "GBP/USD" },
+              { "proName": "FX:USDJPY", "title": "USD/JPY" },
+              { "proName": "TVC:USOIL", "title": "Crude Oil" },
+              { "proName": "TVC:US10Y", "title": "US 10Y" },
+              { "proName": "TVC:DXY", "title": "US Dollar Index" }
+            ],
+            "showSymbolLogo": true,
+            "isTransparent": true,
+            "displayMode": "adaptive",
+            "colorTheme": "dark",
+            "locale": "en"
+          }
+          </script>
+        </div>
+      </div>
+    </div>
+    <div class="news-ticker" role="region" aria-label="Market context headlines">
+      <div class="news-ticker-inner">
+        <span class="news-ticker-label">Live News</span>
+        <div class="news-ticker-track">
+          <div class="news-ticker-content">
+            <span>Global equity markets remain sensitive to central bank policy signals and liquidity conditions.</span>
+            <span class="news-sep">·</span>
+            <span>Gold continues to serve as a strategic allocation for portfolio diversification and long-horizon risk management.</span>
+            <span class="news-sep">·</span>
+            <span>FX volatility reflects divergent growth and interest-rate paths across major economies.</span>
+            <span class="news-sep">·</span>
+            <span>Disciplined capital allocation prioritises research, risk awareness, and clear investment objectives.</span>
+            <span class="news-sep">·</span>
+            <span>Commodity markets respond to supply dynamics, geopolitical risk, and industrial demand trends.</span>
+            <span class="news-sep">·</span>
+            <span>US Treasury yields influence global financing conditions and risk-asset valuations.</span>
+            <span class="news-sep">·</span>
+            <span>Structured education remains essential infrastructure for informed capital decisions.</span>
+            <span class="news-sep">·</span>
+            <span>Global equity markets remain sensitive to central bank policy signals and liquidity conditions.</span>
+            <span class="news-sep">·</span>
+            <span>Gold continues to serve as a strategic allocation for portfolio diversification and long-horizon risk management.</span>
+            <span class="news-sep">·</span>
+            <span>FX volatility reflects divergent growth and interest-rate paths across major economies.</span>
+            <span class="news-sep">·</span>
+            <span>Disciplined capital allocation prioritises research, risk awareness, and clear investment objectives.</span>
+            <span class="news-sep">·</span>
+            <span>Commodity markets respond to supply dynamics, geopolitical risk, and industrial demand trends.</span>
+            <span class="news-sep">·</span>
+            <span>US Treasury yields influence global financing conditions and risk-asset valuations.</span>
+            <span class="news-sep">·</span>
+            <span>Structured education remains essential infrastructure for informed capital decisions.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <main id="main">
     <section class="hero">
       <div class="hero-bg" aria-hidden="true"></div>
@@ -40,15 +115,6 @@
         </div>
       </div>
     </section>
-
-    <div class="context-ticker" aria-label="Market context">
-      <div class="context-ticker-track">
-        <span>Global equity markets remain sensitive to central bank policy signals and liquidity conditions.</span>
-        <span>Gold continues to serve as a strategic allocation for portfolio diversification and long-horizon risk management.</span>
-        <span>FX markets price differential policy paths and relative growth expectations across major economies.</span>
-        <span>Structured research and disciplined process remain the foundation of sound capital allocation.</span>
-      </div>
-    </div>
 
     <section class="section split-section" id="intro">
       <div class="container">
