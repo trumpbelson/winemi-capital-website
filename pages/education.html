@@ -5,12 +5,14 @@
   <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Education | WINEMI CAPITAL.</title>
-  <meta name="description" content="Structured education on supply and demand, zones, institutional order flow, risk, and process — with diagrams." />
+  <meta name="description" content="Interactive education on supply and demand patterns, zones, institutional order flow, and risk." />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/nav.css" />
   <link rel="stylesheet" href="../assets/css/logo.css" />
   <link rel="stylesheet" href="../assets/css/glass.css" />
   <link rel="stylesheet" href="../assets/css/diagrams.css" />
+  <link rel="stylesheet" href="../assets/css/learn-interactive.css" />
+  <link rel="stylesheet" href="../assets/css/footer-rich.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script>
     (function () {
@@ -25,84 +27,134 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" role="banner"></header>
-  <main>
-    <section class="section">
+
+  <main id="main">
+    <div class="page-header">
       <div class="container">
-        <p class="label">Education</p>
-        <h1 class="heading-1">Structured learning</h1>
-        <p class="body-large" style="max-width:42rem;">A pathway through market structure, supply and demand zones, institutional order flow, confirmation, and risk — with diagrams so the ideas are visual, not only verbal.</p>
+        <p class="label">Learn</p>
+        <h1 class="heading-1">Education</h1>
+        <p class="body-large" style="max-width:720px;">Interactive pathway through market structure, supply and demand zones, institutional order flow, and risk — built for literacy, not prediction.</p>
+      </div>
+    </div>
 
-        <div class="grid-3" style="margin-top:2.5rem;">
-          <article class="card">
-            <h3 class="card-title">Supply &amp; demand structure</h3>
-            <p class="card-text">Rally, drop, and base; the four patterns (RBR, DBR, DBD, RBD); demand and supply zones.</p>
-          </article>
-          <article class="card">
-            <h3 class="card-title">Institutional order flow</h3>
-            <p class="card-text">Imbalance, absorption, liquidity pools — how size leaves footprints on the chart.</p>
-          </article>
-          <article class="card">
-            <h3 class="card-title">Complete setup discipline</h3>
-            <p class="card-text">Pattern, location, confirmation, and defined risk — act only when the picture is complete.</p>
-          </article>
+    <section class="section">
+      <div class="container prose">
+        <p class="label" style="margin-bottom:0.5rem;">Educational disclaimer</p>
+        <p>Everything below is for learning. It is not investment advice, not a recommendation to buy or sell any instrument, and not a promise of results. Markets involve the risk of loss. See <a href="risk-disclosure.html">Risk Disclosure</a>.</p>
+
+        <div class="learn-nav" role="navigation" aria-label="Education sections">
+          <button type="button" class="learn-nav-btn active" data-target="edu-patterns">Patterns</button>
+          <button type="button" class="learn-nav-btn" data-target="edu-zones">Zones</button>
+          <button type="button" class="learn-nav-btn" data-target="edu-flow">Order flow</button>
+          <button type="button" class="learn-nav-btn" data-target="edu-risk">Risk</button>
+          <button type="button" class="learn-nav-btn" data-target="edu-quiz">Self-check</button>
         </div>
 
-        <h2 class="heading-2" style="margin-top:3rem;">Diagrams</h2>
-        <div class="grid-2" style="margin-top:1.5rem;">
-          <figure class="diagram card" style="padding:1rem;">
-            <img src="../assets/images/diagrams/trend-structure.svg" alt="Trend structure diagram" width="640" height="auto" loading="lazy" />
-            <figcaption class="body-small">Trend structure</figcaption>
-          </figure>
-          <figure class="diagram card" style="padding:1rem;">
-            <img src="../assets/images/diagrams/moves.svg" alt="Rally drop base diagram" width="640" height="auto" loading="lazy" />
-            <figcaption class="body-small">Moves: rally, drop, base</figcaption>
-          </figure>
-          <figure class="diagram card" style="padding:1rem;">
-            <img src="../assets/images/diagrams/four-patterns.svg" alt="Four patterns diagram" width="640" height="auto" loading="lazy" />
-            <figcaption class="body-small">Four patterns</figcaption>
-          </figure>
-          <figure class="diagram card" style="padding:1rem;">
-            <img src="../assets/images/diagrams/zone-anatomy.svg" alt="Zone anatomy diagram" width="640" height="auto" loading="lazy" />
-            <figcaption class="body-small">Zone anatomy</figcaption>
-          </figure>
-          <figure class="diagram card" style="padding:1rem;">
-            <img src="../assets/images/diagrams/order-flow.svg" alt="Order flow diagram" width="640" height="auto" loading="lazy" />
-            <figcaption class="body-small">Order flow</figcaption>
-          </figure>
-          <figure class="diagram card" style="padding:1rem;">
-            <img src="../assets/images/diagrams/risk-reward.svg" alt="Risk reward diagram" width="640" height="auto" loading="lazy" />
-            <figcaption class="body-small">Risk and reward</figcaption>
-          </figure>
+        <div class="context-strip">
+          <p class="label">Interactive module</p>
+          <p>Explore the four structural patterns used to map institutional footprints: demand and supply formed by a base and an impulsive departure. Select a pattern card for the educational definition.</p>
         </div>
 
-        <h2 class="heading-2" style="margin-top:3rem;">Data sources</h2>
-        <ul class="body-base" style="max-width:42rem;margin-top:1rem;">
+        <h2 id="edu-patterns">Interactive pattern explorer</h2>
+        <p>Zone identification reduces to four patterns built from arrival, base, and departure:</p>
+        <div class="pattern-grid" role="list">
+          <button type="button" class="pattern-card" data-pattern="DBR" role="listitem"><strong>DBR</strong><span>Drop → Base → Rally<br/>Demand · reversal</span></button>
+          <button type="button" class="pattern-card" data-pattern="RBR" role="listitem"><strong>RBR</strong><span>Rally → Base → Rally<br/>Demand · continuation</span></button>
+          <button type="button" class="pattern-card" data-pattern="RBD" role="listitem"><strong>RBD</strong><span>Rally → Base → Drop<br/>Supply · reversal</span></button>
+          <button type="button" class="pattern-card" data-pattern="DBD" role="listitem"><strong>DBD</strong><span>Drop → Base → Drop<br/>Supply · continuation</span></button>
+        </div>
+        <div id="pattern-detail" class="pattern-detail" aria-live="polite"></div>
+
+        <h2 id="edu-zones">Zone quality checklist</h2>
+        <div class="accordion">
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-fresh"><span>Freshness (virgin vs tested)</span><span class="accordion-icon">+</span></button>
+            <div id="acc-fresh" class="accordion-panel">A zone never revisited since formation often carries more informational weight than one chopped through many times. Each revisit can fill residual orders. Freshness is a quality score — not a promise of reversal.</div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-depart"><span>Strength of departure</span><span class="accordion-icon">+</span></button>
+            <div id="acc-depart" class="accordion-panel">Impulsive, wide-range candles leaving a tight base suggest imbalance. Slow drifts away from a messy base are weaker evidence. Prefer departure that also breaks nearby structure where possible.</div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-htf"><span>Higher-timeframe alignment</span><span class="accordion-icon">+</span></button>
+            <div id="acc-htf" class="accordion-panel">A lower-timeframe demand zone inside a higher-timeframe discount area is a different hypothesis than the same zone against a higher-timeframe supply wall. Context filters noise.</div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-vs"><span>Zones vs classic support/resistance</span><span class="accordion-icon">+</span></button>
+            <div id="acc-vs" class="accordion-panel">
+              <ul>
+                <li><strong>Origin:</strong> zones form at the base of an impulsive move; S/R often forms from repeated turns.</li>
+                <li><strong>Retests:</strong> untested zones can be preferred; repeated S/R tests sometimes strengthen a level in classic TA.</li>
+                <li><strong>Order-flow idea:</strong> zones aim to mark imbalance left by size; S/R is primarily price history.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="edu-flow">Order flow — practical observables</h2>
+        <p>Order flow is the sequence of aggressive and passive orders. Retail charts rarely show a bank’s ticket; they show effects.</p>
+        <div class="accordion">
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-tools"><span>Common tools (education)</span><span class="accordion-icon">+</span></button>
+            <div id="acc-tools" class="accordion-panel">
+              <ul>
+                <li><strong>Time &amp; sales:</strong> sequence of prints — useful for spotting bursts of size.</li>
+                <li><strong>Depth / book:</strong> resting liquidity — thin vs thick areas.</li>
+                <li><strong>Footprint / volume profile:</strong> where volume clustered inside a bar or session.</li>
+                <li><strong>Delta / absorption ideas:</strong> whether aggressive flow was accepted or absorbed (hypothesis only).</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-limit"><span>Limits of the lens</span><span class="accordion-icon">+</span></button>
+            <div id="acc-limit" class="accordion-panel">Information asymmetry is real: large blocks, hedges, and off-screen activity may not be visible. Treat order-flow language as a way to describe observables, not as proof of intent on every candle.</div>
+          </div>
+        </div>
+
+        <h2 id="edu-risk">Risk framing</h2>
+        <p>A complete setup is still a probability statement. Define invalidation beyond the zone, size risk before entry ideas, and accept that many zones fail. Education improves recognition; it does not remove uncertainty.</p>
+
+        <div class="quiz-block" id="edu-quiz">
+          <h3>Self-check</h3>
+          <p class="body-small">Answer to test literacy — not performance.</p>
+          <div class="quiz-question" data-answered="0">
+            <p class="quiz-q">1. A high-quality demand zone is most often identified by:</p>
+            <div class="quiz-options">
+              <button type="button" class="quiz-opt" data-correct="false">Any swing low touched three times</button>
+              <button type="button" class="quiz-opt" data-correct="true">A base followed by impulsive rally (e.g. DBR / RBR)</button>
+              <button type="button" class="quiz-opt" data-correct="false">A moving-average cross alone</button>
+            </div>
+            <p class="quiz-feedback"></p>
+          </div>
+          <div class="quiz-question" data-answered="0">
+            <p class="quiz-q">2. Why might an untested (fresh) zone be preferred in study?</p>
+            <div class="quiz-options">
+              <button type="button" class="quiz-opt" data-correct="false">Because it guarantees a reversal</button>
+              <button type="button" class="quiz-opt" data-correct="true">Residual imbalance may still be present versus a multi-tested level</button>
+              <button type="button" class="quiz-opt" data-correct="false">Because indicators lag less there</button>
+            </div>
+            <p class="quiz-feedback"></p>
+          </div>
+        </div>
+
+        <h2>Data sources for study</h2>
+        <ul>
           <li>Charting platforms — TradingView, broker terminals, exchange data</li>
           <li>Economic calendars and central bank releases</li>
           <li>Filings, research wires, and primary market statistics</li>
         </ul>
-        <p class="body-small" style="margin-top:1rem;">Diagrams and widgets are illustrations — not live advice.</p>
-        <p class="mt-4"><a href="mentorship.html" class="btn btn-primary">Mentorship</a> <a href="markets.html" class="btn btn-secondary">Markets</a></p>
+        <p class="mt-4" style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <a href="insights.html" class="btn btn-primary">Insights desk</a>
+          <a href="markets.html" class="btn btn-secondary">Markets</a>
+        </p>
       </div>
     </section>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>
-        <p class="footer-tag">Institutional discipline. Global markets.</p>
-      </div>
-      <div class="footer-links">
-        <a href="about.html">About</a>
-        <a href="markets.html">Markets</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <p class="footer-copy">&copy; <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
-    </div>
-  </footer>
-  <script>document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });</script>
+
+  <footer class="site-footer" role="contentinfo"></footer>
   <script src="../assets/js/site-nav.js"></script>
-  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/learn-interactive.js" defer></script>
 </body>
 </html>
