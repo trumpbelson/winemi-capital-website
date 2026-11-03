@@ -5,12 +5,11 @@
   <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Education | WINEMI CAPITAL.</title>
-  <meta name="description" content="Interactive education on supply and demand patterns, zones, institutional order flow, and risk." />
+  <meta name="description" content="Interactive education hub with live market data labs for structure, macro, and risk." />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/nav.css" />
   <link rel="stylesheet" href="../assets/css/logo.css" />
   <link rel="stylesheet" href="../assets/css/glass.css" />
-  <link rel="stylesheet" href="../assets/css/diagrams.css" />
   <link rel="stylesheet" href="../assets/css/learn-interactive.css" />
   <link rel="stylesheet" href="../assets/css/footer-rich.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
@@ -25,36 +24,62 @@
       }
     })();
   </script>
+  <style>
+    .edu-subnav { display:flex; flex-wrap:wrap; gap:0.5rem; margin:0 0 1.5rem; }
+    .edu-subnav a {
+      font-size:0.75rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+      text-decoration:none; color:rgba(247,245,240,0.65);
+      border:1px solid rgba(184,149,106,0.22); border-radius:999px; padding:0.4rem 0.85rem;
+    }
+    .edu-subnav a:hover, .edu-subnav a.active {
+      color:var(--color-muted-gold,#b8956a); border-color:rgba(184,149,106,0.5);
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" role="banner"></header>
-
   <main id="main">
     <div class="page-header">
       <div class="container">
         <p class="label">Learn</p>
         <h1 class="heading-1">Education</h1>
-        <p class="body-large" style="max-width:720px;">Interactive pathway through market structure, supply and demand zones, institutional order flow, and risk — built for literacy, not prediction.</p>
+        <p class="body-large" style="max-width:720px;">Interactive pathway through market structure and live data labs — literacy first, not prediction.</p>
       </div>
     </div>
-
     <section class="section">
       <div class="container prose">
-        <p class="label" style="margin-bottom:0.5rem;">Educational disclaimer</p>
-        <p>Everything below is for learning. It is not investment advice, not a recommendation to buy or sell any instrument, and not a promise of results. Markets involve the risk of loss. See <a href="risk-disclosure.html">Risk Disclosure</a>.</p>
+        <nav class="edu-subnav" aria-label="Education modules">
+          <a href="education.html" class="active">Overview</a>
+          <a href="education-live.html">Live structure lab</a>
+          <a href="education-macro.html">Macro &amp; data</a>
+          <a href="education-risk.html">Risk lab</a>
+          <a href="insights.html">Insights</a>
+        </nav>
 
-        <div class="learn-nav" role="navigation" aria-label="Education sections">
+        <p class="label" style="margin-bottom:0.5rem;">Educational disclaimer</p>
+        <p>Everything here is for learning. It is not investment advice, not a recommendation to buy or sell, and not a promise of results. See <a href="risk-disclosure.html">Risk Disclosure</a>.</p>
+
+        <div class="grid-3" style="margin:1.75rem 0 2rem;">
+          <a href="education-live.html" class="card" style="text-decoration:none;color:inherit;">
+            <h3 class="card-title">Live structure lab</h3>
+            <p class="card-text">Real-time charts across Bitcoin, gold, FX, indices, and oil — practice reading bases and departures.</p>
+          </a>
+          <a href="education-macro.html" class="card" style="text-decoration:none;color:inherit;">
+            <h3 class="card-title">Macro &amp; data desk</h3>
+            <p class="card-text">Live ticker tape, economic calendar, and cross-asset overview for event context.</p>
+          </a>
+          <a href="education-risk.html" class="card" style="text-decoration:none;color:inherit;">
+            <h3 class="card-title">Risk lab</h3>
+            <p class="card-text">Live VIX and S&amp;P context with invalidation, volatility, and sizing modules.</p>
+          </a>
+        </div>
+
+        <div class="learn-nav" role="navigation" aria-label="On this page">
           <button type="button" class="learn-nav-btn active" data-target="edu-patterns">Patterns</button>
           <button type="button" class="learn-nav-btn" data-target="edu-zones">Zones</button>
           <button type="button" class="learn-nav-btn" data-target="edu-flow">Order flow</button>
-          <button type="button" class="learn-nav-btn" data-target="edu-risk">Risk</button>
           <button type="button" class="learn-nav-btn" data-target="edu-quiz">Self-check</button>
-        </div>
-
-        <div class="context-strip">
-          <p class="label">Interactive module</p>
-          <p>Explore the four structural patterns used to map institutional footprints: demand and supply formed by a base and an impulsive departure. Select a pattern card for the educational definition.</p>
         </div>
 
         <h2 id="edu-patterns">Interactive pattern explorer</h2>
@@ -71,56 +96,37 @@
         <div class="accordion">
           <div class="accordion-item">
             <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-fresh"><span>Freshness (virgin vs tested)</span><span class="accordion-icon">+</span></button>
-            <div id="acc-fresh" class="accordion-panel">A zone never revisited since formation often carries more informational weight than one chopped through many times. Each revisit can fill residual orders. Freshness is a quality score — not a promise of reversal.</div>
+            <div id="acc-fresh" class="accordion-panel">A zone never revisited since formation often carries more weight than one chopped through many times. Freshness is a quality score — not a promise of reversal.</div>
           </div>
           <div class="accordion-item">
             <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-depart"><span>Strength of departure</span><span class="accordion-icon">+</span></button>
-            <div id="acc-depart" class="accordion-panel">Impulsive, wide-range candles leaving a tight base suggest imbalance. Slow drifts away from a messy base are weaker evidence. Prefer departure that also breaks nearby structure where possible.</div>
+            <div id="acc-depart" class="accordion-panel">Impulsive, wide-range candles leaving a tight base suggest imbalance. Prefer departure that also breaks nearby structure where possible.</div>
           </div>
           <div class="accordion-item">
             <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-htf"><span>Higher-timeframe alignment</span><span class="accordion-icon">+</span></button>
-            <div id="acc-htf" class="accordion-panel">A lower-timeframe demand zone inside a higher-timeframe discount area is a different hypothesis than the same zone against a higher-timeframe supply wall. Context filters noise.</div>
-          </div>
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-vs"><span>Zones vs classic support/resistance</span><span class="accordion-icon">+</span></button>
-            <div id="acc-vs" class="accordion-panel">
-              <ul>
-                <li><strong>Origin:</strong> zones form at the base of an impulsive move; S/R often forms from repeated turns.</li>
-                <li><strong>Retests:</strong> untested zones can be preferred; repeated S/R tests sometimes strengthen a level in classic TA.</li>
-                <li><strong>Order-flow idea:</strong> zones aim to mark imbalance left by size; S/R is primarily price history.</li>
-              </ul>
-            </div>
+            <div id="acc-htf" class="accordion-panel">Lower-timeframe demand inside higher-timeframe discount is a different hypothesis than the same zone against higher-timeframe supply.</div>
           </div>
         </div>
 
         <h2 id="edu-flow">Order flow — practical observables</h2>
-        <p>Order flow is the sequence of aggressive and passive orders. Retail charts rarely show a bank’s ticket; they show effects.</p>
         <div class="accordion">
           <div class="accordion-item">
             <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-tools"><span>Common tools (education)</span><span class="accordion-icon">+</span></button>
             <div id="acc-tools" class="accordion-panel">
               <ul>
-                <li><strong>Time &amp; sales:</strong> sequence of prints — useful for spotting bursts of size.</li>
-                <li><strong>Depth / book:</strong> resting liquidity — thin vs thick areas.</li>
-                <li><strong>Footprint / volume profile:</strong> where volume clustered inside a bar or session.</li>
-                <li><strong>Delta / absorption ideas:</strong> whether aggressive flow was accepted or absorbed (hypothesis only).</li>
+                <li><strong>Time &amp; sales</strong> — sequence of prints</li>
+                <li><strong>Depth / book</strong> — resting liquidity</li>
+                <li><strong>Footprint / volume profile</strong> — where volume clustered</li>
+                <li><strong>Delta / absorption ideas</strong> — hypothesis only</li>
               </ul>
             </div>
           </div>
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="acc-limit"><span>Limits of the lens</span><span class="accordion-icon">+</span></button>
-            <div id="acc-limit" class="accordion-panel">Information asymmetry is real: large blocks, hedges, and off-screen activity may not be visible. Treat order-flow language as a way to describe observables, not as proof of intent on every candle.</div>
-          </div>
         </div>
-
-        <h2 id="edu-risk">Risk framing</h2>
-        <p>A complete setup is still a probability statement. Define invalidation beyond the zone, size risk before entry ideas, and accept that many zones fail. Education improves recognition; it does not remove uncertainty.</p>
 
         <div class="quiz-block" id="edu-quiz">
           <h3>Self-check</h3>
-          <p class="body-small">Answer to test literacy — not performance.</p>
           <div class="quiz-question" data-answered="0">
-            <p class="quiz-q">1. A high-quality demand zone is most often identified by:</p>
+            <p class="quiz-q">A high-quality demand zone is most often identified by:</p>
             <div class="quiz-options">
               <button type="button" class="quiz-opt" data-correct="false">Any swing low touched three times</button>
               <button type="button" class="quiz-opt" data-correct="true">A base followed by impulsive rally (e.g. DBR / RBR)</button>
@@ -128,31 +134,15 @@
             </div>
             <p class="quiz-feedback"></p>
           </div>
-          <div class="quiz-question" data-answered="0">
-            <p class="quiz-q">2. Why might an untested (fresh) zone be preferred in study?</p>
-            <div class="quiz-options">
-              <button type="button" class="quiz-opt" data-correct="false">Because it guarantees a reversal</button>
-              <button type="button" class="quiz-opt" data-correct="true">Residual imbalance may still be present versus a multi-tested level</button>
-              <button type="button" class="quiz-opt" data-correct="false">Because indicators lag less there</button>
-            </div>
-            <p class="quiz-feedback"></p>
-          </div>
         </div>
 
-        <h2>Data sources for study</h2>
-        <ul>
-          <li>Charting platforms — TradingView, broker terminals, exchange data</li>
-          <li>Economic calendars and central bank releases</li>
-          <li>Filings, research wires, and primary market statistics</li>
-        </ul>
-        <p class="mt-4" style="display:flex;flex-wrap:wrap;gap:0.75rem;">
-          <a href="insights.html" class="btn btn-primary">Insights desk</a>
-          <a href="markets.html" class="btn btn-secondary">Markets</a>
+        <p style="margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <a href="education-live.html" class="btn btn-primary">Open live structure lab</a>
+          <a href="insights.html" class="btn btn-secondary">Insights</a>
         </p>
       </div>
     </section>
   </main>
-
   <footer class="site-footer" role="contentinfo"></footer>
   <script src="../assets/js/site-nav.js"></script>
   <script src="../assets/js/learn-interactive.js" defer></script>
