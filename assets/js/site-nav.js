@@ -22,10 +22,10 @@
   function activeId() {
     var p = path.toLowerCase();
     if (p.endsWith('/index.html') || p.endsWith('/') || p === '' || /winemi-capital-website\/?$/.test(p)) return 'home';
-    if (p.indexOf('about') !== -1) return 'about';
-    if (p.indexOf('approach') !== -1) return 'approach';
+    if (p.indexOf('about') !== -1 || p.indexOf('team') !== -1) return 'about';
+    if (p.indexOf('approach') !== -1 || p.indexOf('services') !== -1) return 'approach';
     if (p.indexOf('markets') !== -1 || p.indexOf('investments') !== -1 || p.indexOf('asset-management') !== -1) return 'markets';
-    if (p.indexOf('education') !== -1 || p.indexOf('mentorship') !== -1) return 'education';
+    if (p.indexOf('education') !== -1 || p.indexOf('mentorship') !== -1 || p.indexOf('glossary') !== -1 || p.indexOf('resources') !== -1 || p.indexOf('research') !== -1) return 'education';
     if (p.indexOf('insights') !== -1) return 'insights';
     if (p.indexOf('contact') !== -1) return 'contact';
     return null;
@@ -105,19 +105,24 @@
 
     var firmLinks = [
       { label: 'About', href: prefix + 'about.html' },
+      { label: 'Team', href: prefix + 'team.html' },
       { label: 'Services', href: prefix + 'services.html' },
       { label: 'Approach', href: prefix + 'approach.html' },
       { label: 'Global presence', href: prefix + 'global.html' },
       { label: 'Careers', href: prefix + 'careers.html' },
+      { label: 'Partners', href: prefix + 'partners.html' },
       { label: 'Contact', href: prefix + 'contact.html' }
     ].map(function (l) { return '<a href="' + l.href + '">' + l.label + '</a>'; }).join('');
 
     var resourceLinks = [
       { label: 'Education', href: prefix + 'education.html' },
+      { label: 'Research', href: prefix + 'research.html' },
       { label: 'Resources', href: prefix + 'resources.html' },
       { label: 'Glossary', href: prefix + 'glossary.html' },
       { label: 'FAQ', href: prefix + 'faq.html' },
       { label: 'Insights', href: prefix + 'insights.html' },
+      { label: 'Media', href: prefix + 'media.html' },
+      { label: 'Compliance', href: prefix + 'compliance.html' },
       { label: 'Risk Disclosure', href: prefix + 'risk-disclosure.html' }
     ].map(function (l) { return '<a href="' + l.href + '">' + l.label + '</a>'; }).join('');
 
