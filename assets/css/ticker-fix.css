@@ -1,13 +1,24 @@
-/* Live market + news: in document flow under header — scrolls away with page */
+/* Live market + news: sits below fixed header, scrolls away with page */
 .top-feed {
   position: relative !important;
   top: auto !important;
+  margin-top: var(--header-height, 72px) !important;
   z-index: 2 !important;
   width: 100% !important;
   background: #0a0a0b !important;
   border-bottom: 1px solid rgba(184, 149, 106, 0.28) !important;
   box-shadow: none !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
+
+/* Hero no longer needs full header offset — feed already sits under header */
+body:has(.top-feed) .hero {
+  padding-top: 2.25rem !important;
+  min-height: calc(100vh - var(--header-height, 72px) - 84px) !important;
+}
+
 .top-feed .market-ticker {
   position: relative !important;
   top: auto !important;
@@ -76,6 +87,9 @@
   100% { transform: translate3d(-50%, 0, 0); }
 }
 @media (max-width: 640px) {
+  .top-feed {
+    margin-top: var(--header-height, 64px) !important;
+  }
   .top-feed .market-ticker-label,
   .top-feed .news-ticker-label { display: none; }
   .top-feed .market-ticker { height: 42px !important; }
@@ -86,6 +100,10 @@
   }
   .top-feed .news-ticker { height: 32px !important; }
   .top-feed .news-ticker-content { animation-duration: 40s !important; }
+  body:has(.top-feed) .hero {
+    padding-top: 1.5rem !important;
+    min-height: calc(100vh - var(--header-height, 64px) - 74px) !important;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .top-feed .news-ticker-content { animation: none !important; }
