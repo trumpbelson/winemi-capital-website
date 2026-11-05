@@ -1,4 +1,11 @@
-/* Live market + news: sits below fixed header, scrolls away with page */
+/* Live market + news: visible under header, scrolls away with page */
+
+/* Fixed header must not be trapped by body transform containing-block */
+body.page-ready,
+body.page-exit {
+  transform: none !important;
+}
+
 .top-feed {
   position: relative !important;
   top: auto !important;
@@ -13,7 +20,7 @@
   opacity: 1 !important;
 }
 
-/* Hero no longer needs full header offset — feed already sits under header */
+/* Hero spacing once feed is in flow under header */
 body:has(.top-feed) .hero {
   padding-top: 2.25rem !important;
   min-height: calc(100vh - var(--header-height, 72px) - 84px) !important;
@@ -87,9 +94,7 @@ body:has(.top-feed) .hero {
   100% { transform: translate3d(-50%, 0, 0); }
 }
 @media (max-width: 640px) {
-  .top-feed {
-    margin-top: var(--header-height, 64px) !important;
-  }
+  .top-feed { margin-top: var(--header-height, 64px) !important; }
   .top-feed .market-ticker-label,
   .top-feed .news-ticker-label { display: none; }
   .top-feed .market-ticker { height: 42px !important; }
