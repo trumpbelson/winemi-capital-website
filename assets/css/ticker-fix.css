@@ -1,12 +1,12 @@
-/* Force live market + news motion (overrides main.css conflicts) */
+/* Live market + news: in document flow under header — scrolls away with page */
 .top-feed {
-  position: sticky !important;
-  top: var(--header-height, 72px) !important;
-  z-index: 900 !important;
+  position: relative !important;
+  top: auto !important;
+  z-index: 2 !important;
   width: 100% !important;
   background: #0a0a0b !important;
   border-bottom: 1px solid rgba(184, 149, 106, 0.28) !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  box-shadow: none !important;
 }
 .top-feed .market-ticker {
   position: relative !important;
