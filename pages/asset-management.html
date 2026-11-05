@@ -2,59 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Asset Management | WINEMI CAPITAL.</title>
-  <meta name="description" content="Asset management philosophy at WINEMI CAPITAL. — process, risk, and long-horizon allocation." />
+  <meta name="description" content="Asset management philosophy and process context at WINEMI CAPITAL." />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/nav.css" />
   <link rel="stylesheet" href="../assets/css/logo.css" />
   <link rel="stylesheet" href="../assets/css/glass.css" />
+  <link rel="stylesheet" href="../assets/css/footer-rich.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('winemi-theme');
-        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-        else document.documentElement.setAttribute('data-theme', 'dark');
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
+  <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 </head>
 <body>
   <header class="site-header" role="banner"></header>
-  <main>
-    <section class="section">
-      <div class="container">
-        <p class="label">Capital</p>
-        <h1 class="heading-1">Asset management</h1>
-        <p class="body-large" style="max-width:40rem;">Portfolio construction as a system: research, risk limits, diversification across regimes, and periodic review.</p>
-        <div class="grid-2" style="margin-top:2.5rem;">
-          <article class="card"><h3 class="card-title">Construction</h3><p class="card-text">Align holdings with objectives and constraints. Avoid concentration that is not intentional and sized.</p></article>
-          <article class="card"><h3 class="card-title">Monitoring</h3><p class="card-text">Track risk and thesis integrity. Rebalance when process rules say so — not when headlines demand action.</p></article>
-        </div>
-        <p class="mt-4"><a href="investments.html" class="btn btn-primary">Investments</a> <a href="contact.html" class="btn btn-secondary">Contact</a></p>
+  <main id="main">
+    <div class="page-header"><div class="container">
+      <p class="label">Portfolio</p>
+      <h1 class="heading-1">Asset management</h1>
+      <p class="body-large" style="max-width:720px;">Allocation thinking, time horizon, and risk budgets in institutional-style portfolio discipline. Educational context — not a prospectus.</p>
+    </div></div>
+    <section class="section"><div class="container">
+      <div class="grid-3">
+        <article class="card"><h3 class="card-title">Objectives first</h3><p class="card-text">Return goals without risk limits are incomplete. Clarify horizon, liquidity, and unacceptable drawdowns first.</p></article>
+        <article class="card"><h3 class="card-title">Risk budget</h3><p class="card-text">Volatility, concentration, and tail scenarios are designed — not discovered after the fact.</p></article>
+        <article class="card"><h3 class="card-title">Diversification with intent</h3><p class="card-text">Many names are not diversification if they share the same factor. Correlations change under stress.</p></article>
+        <article class="card"><h3 class="card-title">Rebalance rules</h3><p class="card-text">Pre-committed rules reduce chasing what just worked or abandoning what is temporarily out of favour.</p></article>
+        <article class="card"><h3 class="card-title">Costs and friction</h3><p class="card-text">Fees, spreads, and taxes compound. Process includes operational realism.</p></article>
+        <article class="card"><h3 class="card-title">Review cadence</h3><p class="card-text">Scheduled review beats constant tinkering. Document why a change is made.</p></article>
       </div>
-    </section>
+      <div class="context-strip" style="margin-top:2rem;"><p class="label">Boundary</p><p>Any discretionary or advisory relationship would be governed by separate documentation and applicable regulation. This website does not establish such a relationship.</p></div>
+      <p style="margin-top:1.5rem;"><a class="btn btn-primary" href="approach.html">Our approach</a> <a class="btn btn-secondary" href="investments.html">Investments</a> <a class="btn btn-secondary" href="contact.html">Contact</a></p>
+    </div></section>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>
-        <p class="footer-tag">Institutional discipline. Global markets.</p>
-      </div>
-      <div class="footer-links">
-        <a href="markets.html">Markets</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <p class="footer-copy">&copy; <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
-    </div>
-  </footer>
-  <script>document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });</script>
+  <footer class="site-footer" role="contentinfo"></footer>
   <script src="../assets/js/site-nav.js"></script>
-  <script src="../assets/js/main.js" defer></script>
 </body>
 </html>

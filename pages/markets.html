@@ -2,91 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Markets | WINEMI CAPITAL.</title>
-  <meta name="description" content="Live market charts via TradingView for major indices, gold, FX, and Bitcoin." />
+  <meta name="description" content="Multi-asset markets workspace and educational market context at WINEMI CAPITAL." />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/nav.css" />
   <link rel="stylesheet" href="../assets/css/logo.css" />
   <link rel="stylesheet" href="../assets/css/glass.css" />
+  <link rel="stylesheet" href="../assets/css/footer-rich.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('winemi-theme');
-        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-        else document.documentElement.setAttribute('data-theme', 'dark');
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
+  <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 </head>
 <body>
   <header class="site-header" role="banner"></header>
-  <main>
-    <section class="section">
-      <div class="container">
-        <p class="label">Markets</p>
-        <h1 class="heading-1">Live market perspective</h1>
-        <p class="body-large" style="max-width:40rem;">Candlestick charts for selected instruments. Data via TradingView for informational purposes only.</p>
-        <div class="instrument-tabs" role="tablist" style="margin-top:1.5rem;">
-          <button type="button" class="instrument-tab active" data-symbol="NASDAQ:NDX">NASDAQ-100</button>
-          <button type="button" class="instrument-tab" data-symbol="TVC:GOLD">Gold</button>
-          <button type="button" class="instrument-tab" data-symbol="BINANCE:BTCUSDT">Bitcoin</button>
-          <button type="button" class="instrument-tab" data-symbol="SP:SPX">S&amp;P 500</button>
-          <button type="button" class="instrument-tab" data-symbol="FX:EURUSD">EUR/USD</button>
+  <main id="main">
+    <div class="page-header"><div class="container">
+      <p class="label">Workspace</p>
+      <h1 class="heading-1">Markets</h1>
+      <p class="body-large" style="max-width:720px;">Live multi-asset context for study and situational awareness. Charts support literacy — they are not trade signals.</p>
+    </div></div>
+    <section class="section"><div class="container">
+      <div class="context-strip"><p class="label">How to use this page</p><p>Scan cross-asset conditions, then open a focused lab to practise structure or risk framing. Pair with the calendar on Macro &amp; data when events are dense.</p></div>
+      <h2 class="heading-2" style="margin-top:1.75rem;">Live market tape</h2>
+      <div style="margin:1rem 0 1.75rem;border:1px solid rgba(184,149,106,0.28);border-radius:14px;overflow:hidden;min-height:90px;background:#0e0e10;">
+        <div class="tradingview-widget-container" style="height:90px;">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {"symbols":[{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"FOREXCOM:NSXUSD","title":"NASDAQ 100"},{"proName":"TVC:GOLD","title":"Gold"},{"proName":"TVC:USOIL","title":"Crude"},{"proName":"FX:EURUSD","title":"EUR/USD"},{"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},{"proName":"TVC:DXY","title":"DXY"},{"proName":"TVC:US10Y","title":"US 10Y"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
+          </script>
         </div>
-        <div id="tradingview-widget" class="tv-widget chart-container" style="height:480px;margin-top:1rem;"></div>
-        <p class="body-small mt-2">Source: TradingView · Not investment advice · <a href="disclaimer.html">Disclaimer</a></p>
       </div>
-    </section>
+      <div class="grid-3">
+        <a class="card" href="education-live.html" style="text-decoration:none;color:inherit;"><h3 class="card-title">Live structure lab</h3><p class="card-text">Switch instruments and practise bases and departures on a full chart.</p></a>
+        <a class="card" href="education-macro.html" style="text-decoration:none;color:inherit;"><h3 class="card-title">Macro &amp; data desk</h3><p class="card-text">Economic calendar and cross-asset overview panels.</p></a>
+        <a class="card" href="education-risk.html" style="text-decoration:none;color:inherit;"><h3 class="card-title">Risk lab</h3><p class="card-text">VIX and benchmark context with invalidation modules.</p></a>
+      </div>
+      <h2 class="heading-2" style="margin-top:2.5rem;">Asset coverage (study)</h2>
+      <ul class="body-base" style="max-width:40rem;">
+        <li>Global equity indices and leadership/breadth questions</li>
+        <li>Major FX and dollar conditions</li>
+        <li>Gold, oil, and related commodity context</li>
+        <li>Rates sensitivity via benchmark yields where available</li>
+        <li>Selected digital assets with explicit volatility awareness</li>
+      </ul>
+      <p class="body-small" style="margin-top:1rem;">Market data via TradingView. Educational use only.</p>
+    </div></section>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>
-        <p class="footer-tag">Institutional discipline. Global markets.</p>
-      </div>
-      <div class="footer-links">
-        <a href="investments.html">Investments</a>
-        <a href="education.html">Education</a>
-        <a href="disclaimer.html">Disclaimer</a>
-      </div>
-      <p class="footer-copy">&copy; <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
-    </div>
-  </footer>
-  <script src="https://s3.tradingview.com/tv.js"></script>
+  <footer class="site-footer" role="contentinfo"></footer>
   <script src="../assets/js/site-nav.js"></script>
-  <script src="../assets/js/main.js" defer></script>
-  <script>
-    document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
-    (function () {
-      if (typeof TradingView === 'undefined') return;
-      var el = document.getElementById('tradingview-widget');
-      if (!el) return;
-      var current = 'NASDAQ:NDX';
-      function mount(symbol) {
-        current = symbol || current;
-        el.innerHTML = '';
-        new TradingView.widget({
-          autosize: true, symbol: current, interval: 'D', timezone: 'Etc/UTC',
-          theme: document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark',
-          style: '1', locale: 'en', toolbar_bg: '#1c1c1f', enable_publishing: false,
-          allow_symbol_change: true, container_id: 'tradingview-widget',
-          backgroundColor: '#1c1c1f', gridColor: 'rgba(255,255,255,0.06)'
-        });
-      }
-      mount(current);
-      document.querySelectorAll('.instrument-tab').forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          document.querySelectorAll('.instrument-tab').forEach(function (t) { t.classList.remove('active'); });
-          tab.classList.add('active');
-          mount(tab.dataset.symbol);
-        });
-      });
-    })();
-  </script>
 </body>
 </html>

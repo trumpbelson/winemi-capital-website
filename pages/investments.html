@@ -2,60 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Investments | WINEMI CAPITAL.</title>
-  <meta name="description" content="Investment perspective and capital allocation focus at WINEMI CAPITAL." />
+  <meta name="description" content="Educational orientation to multi-asset investment building blocks at WINEMI CAPITAL." />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/nav.css" />
   <link rel="stylesheet" href="../assets/css/logo.css" />
   <link rel="stylesheet" href="../assets/css/glass.css" />
+  <link rel="stylesheet" href="../assets/css/footer-rich.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('winemi-theme');
-        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-        else document.documentElement.setAttribute('data-theme', 'dark');
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
+  <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 </head>
 <body>
   <header class="site-header" role="banner"></header>
-  <main>
-    <section class="section">
-      <div class="container">
-        <p class="label">Markets</p>
-        <h1 class="heading-1">Investments</h1>
-        <p class="body-large" style="max-width:40rem;">Capital is allocated with a defined objective, time horizon, and risk budget — not as a reaction to noise.</p>
-        <div class="grid-3" style="margin-top:2.5rem;">
-          <article class="card"><h3 class="card-title">Objectives first</h3><p class="card-text">Clarify return needs, liquidity, and constraints before selecting instruments or strategies.</p></article>
-          <article class="card"><h3 class="card-title">Risk budget</h3><p class="card-text">Position size and portfolio exposure are governed by predefined limits, not by conviction alone.</p></article>
-          <article class="card"><h3 class="card-title">Process over prediction</h3><p class="card-text">Repeatable research and review cycles matter more than any single forecast.</p></article>
-        </div>
-        <p class="mt-4"><a href="markets.html" class="btn btn-primary">Markets</a> <a href="asset-management.html" class="btn btn-secondary">Asset management</a></p>
+  <main id="main">
+    <div class="page-header"><div class="container">
+      <p class="label">Allocation</p>
+      <h1 class="heading-1">Investments</h1>
+      <p class="body-large" style="max-width:720px;">Educational framing of multi-asset building blocks and questions allocators ask before capital is committed. Not a product catalogue.</p>
+    </div></div>
+    <section class="section"><div class="container">
+      <div class="context-strip"><p class="label">Read this first</p><p>Nothing here is a recommendation to buy or sell, or an offer of a fund or managed account. It is literacy about asset classes and process.</p></div>
+      <div class="grid-3" style="margin-top:1.75rem;">
+        <article class="card"><h3 class="card-title">Equities</h3><p class="card-text">Ownership claims on productive assets. Sensitive to growth, rates, and earnings. Structure and breadth matter.</p></article>
+        <article class="card"><h3 class="card-title">Fixed income</h3><p class="card-text">Rates, credit, and duration as building blocks — with their own volatility when policy shifts.</p></article>
+        <article class="card"><h3 class="card-title">Commodities &amp; real assets</h3><p class="card-text">Energy, metals, and related exposures that can diversify or amplify inflation and geopolitical shocks.</p></article>
+        <article class="card"><h3 class="card-title">FX</h3><p class="card-text">Relative growth and policy differentials — often the transmission channel for global liquidity.</p></article>
+        <article class="card"><h3 class="card-title">Digital assets</h3><p class="card-text">High-volatility instruments requiring explicit risk limits; education does not remove market risk.</p></article>
+        <article class="card"><h3 class="card-title">Process questions</h3><p class="card-text">Horizon, liquidity needs, drawdown tolerance, concentration, and rebalance triggers — before product labels.</p></article>
       </div>
-    </section>
+      <p style="margin-top:1.75rem;"><a class="btn btn-primary" href="asset-management.html">Asset management context</a> <a class="btn btn-secondary" href="education-risk.html">Risk lab</a></p>
+    </div></section>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="../index.html" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>
-        <p class="footer-tag">Institutional discipline. Global markets.</p>
-      </div>
-      <div class="footer-links">
-        <a href="markets.html">Markets</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <p class="footer-copy">&copy; <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>
-    </div>
-  </footer>
-  <script>document.querySelectorAll('.year').forEach(function (el) { el.textContent = new Date().getFullYear(); });</script>
+  <footer class="site-footer" role="contentinfo"></footer>
   <script src="../assets/js/site-nav.js"></script>
-  <script src="../assets/js/main.js" defer></script>
 </body>
 </html>
