@@ -2,53 +2,304 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Markets | WINEMI CAPITAL.</title>
-  <meta name="description" content="Multi-asset markets workspace and educational market context at WINEMI CAPITAL." />
+  <meta name="description" content="Live multi-asset markets workspace — equities, FX, commodities, rates, and digital assets for educational study." />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/nav.css" />
   <link rel="stylesheet" href="../assets/css/logo.css" />
   <link rel="stylesheet" href="../assets/css/glass.css" />
+  <link rel="stylesheet" href="../assets/css/learn-interactive.css" />
   <link rel="stylesheet" href="../assets/css/footer-rich.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+  <style>
+    .live-toolbar { display:flex; flex-wrap:wrap; gap:0.5rem; margin:1rem 0 0.75rem; }
+    .live-chip {
+      border:1px solid rgba(184,149,106,0.28); background:transparent; color:rgba(247,245,240,0.75);
+      border-radius:999px; padding:0.42rem 0.9rem; font-size:0.72rem; font-weight:600;
+      letter-spacing:0.06em; text-transform:uppercase; cursor:pointer;
+    }
+    .live-chip.active, .live-chip:hover {
+      background:rgba(184,149,106,0.12); color:var(--color-muted-gold,#b8956a);
+      border-color:rgba(184,149,106,0.55);
+    }
+    .live-chart {
+      width:100%; min-height:520px; height:560px; border-radius:14px; overflow:hidden;
+      border:1px solid rgba(184,149,106,0.28); background:#0e0e10;
+    }
+    @media (max-width:767px) { .live-chart { min-height:380px; height:400px; } }
+    .widget-frame {
+      border-radius:14px; overflow:hidden; border:1px solid rgba(184,149,106,0.28);
+      background:#0e0e10; min-height:420px;
+    }
+    .two-col { display:grid; gap:1.25rem; }
+    @media (min-width:960px) { .two-col { grid-template-columns:1.35fr 1fr; align-items:start; } }
+    .session-grid { display:grid; gap:0.85rem; }
+    @media (min-width:700px) { .session-grid { grid-template-columns:repeat(3,1fr); } }
+    .session-card {
+      border:1px solid rgba(184,149,106,0.22); border-radius:12px; padding:1rem 1.1rem; background:#141416;
+    }
+    .session-card h3 { margin:0 0 0.4rem; font-size:0.95rem; color:var(--color-muted-gold,#b8956a); }
+    .session-card p { margin:0; font-size:0.88rem; line-height:1.55; color:rgba(247,245,240,0.68); }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" role="banner"></header>
+
   <main id="main">
-    <div class="page-header"><div class="container">
-      <p class="label">Workspace</p>
-      <h1 class="heading-1">Markets</h1>
-      <p class="body-large" style="max-width:720px;">Live multi-asset context for study and situational awareness. Charts support literacy — they are not trade signals.</p>
-    </div></div>
-    <section class="section"><div class="container">
-      <div class="context-strip"><p class="label">How to use this page</p><p>Scan cross-asset conditions, then open a focused lab to practise structure or risk framing. Pair with the calendar on Macro &amp; data when events are dense.</p></div>
-      <h2 class="heading-2" style="margin-top:1.75rem;">Live market tape</h2>
-      <div style="margin:1rem 0 1.75rem;border:1px solid rgba(184,149,106,0.28);border-radius:14px;overflow:hidden;min-height:90px;background:#0e0e10;">
-        <div class="tradingview-widget-container" style="height:90px;">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-          {"symbols":[{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"FOREXCOM:NSXUSD","title":"NASDAQ 100"},{"proName":"TVC:GOLD","title":"Gold"},{"proName":"TVC:USOIL","title":"Crude"},{"proName":"FX:EURUSD","title":"EUR/USD"},{"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},{"proName":"TVC:DXY","title":"DXY"},{"proName":"TVC:US10Y","title":"US 10Y"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
-          </script>
+    <div class="page-header">
+      <div class="container">
+        <p class="label">Workspace</p>
+        <h1 class="heading-1">Markets</h1>
+        <p class="body-large" style="max-width:720px;">Live multi-asset context for study and situational awareness. Charts and tickers support literacy — they are not trade signals or investment advice.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="context-strip">
+          <p class="label">How to use this desk</p>
+          <p>Start with the tape for a cross-asset pulse, open the focused chart to study structure on one instrument, then check the overview panel for relative context. When the calendar is dense, pair this page with the <a href="education-macro.html">Macro &amp; data desk</a>. Nothing here is a recommendation to buy or sell.</p>
         </div>
+
+        <h2 class="heading-2" style="margin-top:1.75rem;">Live market tape</h2>
+        <div style="margin:1rem 0 2rem;border:1px solid rgba(184,149,106,0.28);border-radius:14px;overflow:hidden;min-height:90px;background:#0e0e10;">
+          <div class="tradingview-widget-container" style="height:90px;">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {"symbols":[
+              {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
+              {"proName":"FOREXCOM:NSXUSD","title":"NASDAQ 100"},
+              {"proName":"INDEX:DEU40","title":"DAX"},
+              {"proName":"TVC:GOLD","title":"Gold"},
+              {"proName":"TVC:USOIL","title":"Crude"},
+              {"proName":"FX:EURUSD","title":"EUR/USD"},
+              {"proName":"FX:USDJPY","title":"USD/JPY"},
+              {"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},
+              {"proName":"TVC:DXY","title":"DXY"},
+              {"proName":"TVC:US10Y","title":"US 10Y"},
+              {"proName":"TVC:VIX","title":"VIX"}
+            ],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
+            </script>
+          </div>
+        </div>
+
+        <h2 class="heading-2">Focused live chart</h2>
+        <p class="body-base" style="max-width:40rem;">Switch instruments to practise reading bases, impulsive departures, and higher-timeframe context. Use the drawing tools on the chart for study only.</p>
+        <div class="live-toolbar" role="toolbar" aria-label="Instruments">
+          <button type="button" class="live-chip active" data-symbol="FOREXCOM:SPXUSD">S&amp;P 500</button>
+          <button type="button" class="live-chip" data-symbol="NASDAQ:NDX">NASDAQ-100</button>
+          <button type="button" class="live-chip" data-symbol="TVC:GOLD">Gold</button>
+          <button type="button" class="live-chip" data-symbol="TVC:USOIL">Crude</button>
+          <button type="button" class="live-chip" data-symbol="FX:EURUSD">EUR/USD</button>
+          <button type="button" class="live-chip" data-symbol="FX:USDJPY">USD/JPY</button>
+          <button type="button" class="live-chip" data-symbol="TVC:DXY">DXY</button>
+          <button type="button" class="live-chip" data-symbol="BINANCE:BTCUSDT">Bitcoin</button>
+          <button type="button" class="live-chip" data-symbol="TVC:US10Y">US 10Y</button>
+          <button type="button" class="live-chip" data-symbol="TVC:VIX">VIX</button>
+        </div>
+        <div id="markets-live-chart" class="live-chart"></div>
+        <p class="body-small" style="margin-top:0.6rem;">Real-time chart · TradingView · Educational use only</p>
+
+        <div class="two-col" style="margin-top:2.75rem;">
+          <div>
+            <h2 class="heading-2">Cross-asset overview</h2>
+            <p class="body-base">Indices, rates &amp; FX, and commodities in one panel for relative context.</p>
+            <div class="widget-frame" style="margin-top:1rem;min-height:480px;">
+              <div class="tradingview-widget-container" style="height:480px;">
+                <div class="tradingview-widget-container__widget" style="height:480px;"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                {
+                  "colorTheme": "dark",
+                  "dateRange": "1M",
+                  "showChart": true,
+                  "locale": "en",
+                  "width": "100%",
+                  "height": "100%",
+                  "isTransparent": true,
+                  "showSymbolLogo": true,
+                  "tabs": [
+                    { "title": "Indices", "symbols": [
+                      { "s": "FOREXCOM:SPXUSD", "d": "S&P 500" },
+                      { "s": "FOREXCOM:NSXUSD", "d": "NASDAQ 100" },
+                      { "s": "INDEX:DEU40", "d": "DAX" },
+                      { "s": "INDEX:NKY", "d": "Nikkei" },
+                      { "s": "HSI:HSI", "d": "Hang Seng" }
+                    ]},
+                    { "title": "Rates & FX", "symbols": [
+                      { "s": "TVC:US10Y", "d": "US 10Y" },
+                      { "s": "TVC:DXY", "d": "DXY" },
+                      { "s": "FX:EURUSD", "d": "EUR/USD" },
+                      { "s": "FX:USDJPY", "d": "USD/JPY" },
+                      { "s": "FX:GBPUSD", "d": "GBP/USD" }
+                    ]},
+                    { "title": "Commodities", "symbols": [
+                      { "s": "TVC:GOLD", "d": "Gold" },
+                      { "s": "TVC:USOIL", "d": "WTI" },
+                      { "s": "TVC:SILVER", "d": "Silver" },
+                      { "s": "TVC:COPPER", "d": "Copper" }
+                    ]},
+                    { "title": "Crypto", "symbols": [
+                      { "s": "BITSTAMP:BTCUSD", "d": "Bitcoin" },
+                      { "s": "BITSTAMP:ETHUSD", "d": "Ethereum" }
+                    ]}
+                  ]
+                }
+                </script>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h2 class="heading-2">Study labs</h2>
+            <p class="body-base">Move from scan to deliberate practice.</p>
+            <div style="display:grid;gap:0.85rem;margin-top:1rem;">
+              <a class="card" href="education-live.html" style="text-decoration:none;color:inherit;">
+                <h3 class="card-title">Live structure lab</h3>
+                <p class="card-text">DBR / RBR / RBD / DBD pattern cards beside a full live chart.</p>
+              </a>
+              <a class="card" href="education-macro.html" style="text-decoration:none;color:inherit;">
+                <h3 class="card-title">Macro &amp; data desk</h3>
+                <p class="card-text">Economic calendar and cross-asset panels for event weeks.</p>
+              </a>
+              <a class="card" href="education-risk.html" style="text-decoration:none;color:inherit;">
+                <h3 class="card-title">Risk lab</h3>
+                <p class="card-text">VIX and benchmark context with invalidation modules.</p>
+              </a>
+              <a class="card" href="insights.html" style="text-decoration:none;color:inherit;">
+                <h3 class="card-title">Insights desk</h3>
+                <p class="card-text">Filterable notes on structure, liquidity, macro, and risk.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="heading-2" style="margin-top:2.75rem;">Asset desks (study framing)</h2>
+        <div class="grid-3" style="margin-top:1.15rem;">
+          <article class="card">
+            <h3 class="card-title">Equities</h3>
+            <p class="card-text">Index structure, leadership vs breadth, and whether advances are accepted on higher timeframes. Watch how equities respond when yields and the dollar move together.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Rates &amp; dollar</h3>
+            <p class="card-text">Policy paths and real-yield pressure often set the tone for risk assets and gold. DXY and US 10Y are practical anchors on this desk.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">FX majors</h3>
+            <p class="card-text">Relative growth and rate differentials expressed through pairs. Clean bases still need event awareness around data and central banks.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Commodities</h3>
+            <p class="card-text">Gold as a hedge and dollar foil; oil as a growth and geopolitical pulse. Impulsive departures from bases can reprice inflation expectations quickly.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Volatility</h3>
+            <p class="card-text">VIX is a regime label, not a timing oracle. High-vol environments widen noise around levels — demand stronger departure and clearer HTF alignment.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Digital assets</h3>
+            <p class="card-text">High-beta instruments with operational and market risk. Treat structure study with explicit size discipline; education does not remove technology risk.</p>
+          </article>
+        </div>
+
+        <h2 class="heading-2" style="margin-top:2.75rem;">Session awareness</h2>
+        <p class="body-base" style="max-width:42rem;">Liquidity and narrative leadership rotate across the day. Structure still comes first — session context only changes how much noise to expect around a level.</p>
+        <div class="session-grid" style="margin-top:1.15rem;">
+          <div class="session-card">
+            <h3>Asia</h3>
+            <p>Often sets early tone in FX and regional equities; watch for continuation or fade into Europe.</p>
+          </div>
+          <div class="session-card">
+            <h3>Europe</h3>
+            <p>Deep FX and rates liquidity; data and policy speakers can expand ranges before the US open.</p>
+          </div>
+          <div class="session-card">
+            <h3>North America</h3>
+            <p>US equities, dollar, and policy calendar frequently dominate global risk sentiment into the close.</p>
+          </div>
+        </div>
+
+        <h2 class="heading-2" style="margin-top:2.75rem;">Recommended study workflow</h2>
+        <div class="accordion" style="margin-top:1rem;">
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="w1"><span>1 · Scan the tape</span><span class="accordion-icon">+</span></button>
+            <div id="w1" class="accordion-panel">Note which assets are leading or lagging. A strong equity tape with a firm dollar and rising yields is a different environment than risk-on with a soft dollar.</div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="w2"><span>2 · Pick one chart</span><span class="accordion-icon">+</span></button>
+            <div id="w2" class="accordion-panel">Use the instrument chips. Mark higher-timeframe structure first, then look for bases and impulsive departures. Avoid treating every wick as institutional intent.</div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="w3"><span>3 · Check the calendar</span><span class="accordion-icon">+</span></button>
+            <div id="w3" class="accordion-panel">Open Macro &amp; data for high-impact releases. Quiet bases into major events can fail violently — event risk is part of zone quality.</div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="w4"><span>4 · Define invalidation</span><span class="accordion-icon">+</span></button>
+            <div id="w4" class="accordion-panel">Before debating targets, mark where the idea is wrong. Visit the Risk lab for volatility context and sizing education.</div>
+          </div>
+          <div class="accordion-item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="w5"><span>5 · Journal what you saw</span><span class="accordion-icon">+</span></button>
+            <div id="w5" class="accordion-panel">Write the structure story in one paragraph: regime, location, what would invalidate. Process improves faster than memory.</div>
+          </div>
+        </div>
+
+        <div class="context-strip" style="margin-top:2.5rem;">
+          <p class="label">Disclaimer</p>
+          <p>Market data is provided through third-party widgets (TradingView) and may be delayed or differ from your broker. WINEMI CAPITAL does not guarantee accuracy or continuity of feeds. This page is for education and situational awareness only — not investment advice, not a solicitation, and not a recommendation to trade any instrument. See <a href="risk-disclosure.html">Risk Disclosure</a>.</p>
+        </div>
+
+        <p style="margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <a class="btn btn-primary" href="education-live.html">Open structure lab</a>
+          <a class="btn btn-secondary" href="education-macro.html">Macro &amp; data</a>
+          <a class="btn btn-secondary" href="education.html">Education hub</a>
+        </p>
       </div>
-      <div class="grid-3">
-        <a class="card" href="education-live.html" style="text-decoration:none;color:inherit;"><h3 class="card-title">Live structure lab</h3><p class="card-text">Switch instruments and practise bases and departures on a full chart.</p></a>
-        <a class="card" href="education-macro.html" style="text-decoration:none;color:inherit;"><h3 class="card-title">Macro &amp; data desk</h3><p class="card-text">Economic calendar and cross-asset overview panels.</p></a>
-        <a class="card" href="education-risk.html" style="text-decoration:none;color:inherit;"><h3 class="card-title">Risk lab</h3><p class="card-text">VIX and benchmark context with invalidation modules.</p></a>
-      </div>
-      <h2 class="heading-2" style="margin-top:2.5rem;">Asset coverage (study)</h2>
-      <ul class="body-base" style="max-width:40rem;">
-        <li>Global equity indices and leadership/breadth questions</li>
-        <li>Major FX and dollar conditions</li>
-        <li>Gold, oil, and related commodity context</li>
-        <li>Rates sensitivity via benchmark yields where available</li>
-        <li>Selected digital assets with explicit volatility awareness</li>
-      </ul>
-      <p class="body-small" style="margin-top:1rem;">Market data via TradingView. Educational use only.</p>
-    </div></section>
+    </section>
   </main>
+
   <footer class="site-footer" role="contentinfo"></footer>
+  <script src="https://s3.tradingview.com/tv.js"></script>
   <script src="../assets/js/site-nav.js"></script>
+  <script src="../assets/js/learn-interactive.js" defer></script>
+  <script>
+    (function () {
+      var el = document.getElementById('markets-live-chart');
+      if (!el || typeof TradingView === 'undefined') return;
+      var current = 'FOREXCOM:SPXUSD';
+      function theme() {
+        return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      }
+      function mount(symbol) {
+        current = symbol || current;
+        el.innerHTML = '';
+        new TradingView.widget({
+          autosize: true,
+          symbol: current,
+          interval: '60',
+          timezone: 'Etc/UTC',
+          theme: theme(),
+          style: '1',
+          locale: 'en',
+          toolbar_bg: '#1c1c1f',
+          enable_publishing: false,
+          allow_symbol_change: true,
+          hide_side_toolbar: false,
+          container_id: 'markets-live-chart',
+          backgroundColor: theme() === 'light' ? '#f7f5f0' : '#0e0e10',
+          gridColor: 'rgba(184,149,106,0.08)'
+        });
+      }
+      mount(current);
+      document.querySelectorAll('.live-chip').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('.live-chip').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          mount(btn.getAttribute('data-symbol'));
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
