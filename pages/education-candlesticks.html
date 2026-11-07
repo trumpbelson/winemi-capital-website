@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#0a0a0b" />
 <title>Candlestick Literacy | Education | WINEMI CAPITAL.</title>
-<meta name="description" content="Original candlestick literacy: anatomy, single and dual patterns, SVG guides, structure context, self-check." />
+<meta name="description" content="Original candlestick literacy: anatomy, single dual and triple patterns, SVG guides, structure context, self-check." />
 <link rel="stylesheet" href="../assets/css/main.css" />
 <link rel="stylesheet" href="../assets/css/nav.css" />
 <link rel="stylesheet" href="../assets/css/logo.css" />
@@ -42,7 +42,7 @@
 <div class="page-header"><div class="container">
 <p class="label">Education · Literacy</p>
 <h1 class="heading-1">Candlestick literacy</h1>
-<p class="body-large" style="max-width:720px">How a candle is built, how common single and dual patterns are read, and why structure and invalidation come before any label. Original educational material — not investment advice.</p>
+<p class="body-large" style="max-width:720px">How a candle is built, how common single, dual, and triple patterns are read, and why structure and invalidation come before any label. Original educational material — not investment advice.</p>
 </div></div>
 <section class="section"><div class="container prose">
 <nav class="edu-subnav" aria-label="Education modules">
@@ -106,9 +106,9 @@
 
 <h2>How this ties to WINEMI structure work</h2>
 <ul>
-<li>Inside a <strong>demand base</strong>, rejection of lows (hammers, dragonfly, bullish engulfing) is timing detail — not a substitute for the base.</li>
-<li>Inside a <strong>supply base</strong>, rejection of highs (shooting star, gravestone, bearish engulfing) plays the same role.</li>
-<li>After an <strong>impulsive departure</strong>, marubozu-type bodies often describe the impulse leg; doji clusters may describe pause.</li>
+<li>Inside a <strong>demand base</strong> (DBR / RBR), rejection of lows (hammers, dragonfly, bullish engulfing, morning star) is timing detail — not a substitute for the base.</li>
+<li>Inside a <strong>supply base</strong> (RBD / DBD), rejection of highs (shooting star, gravestone, bearish engulfing, evening star) plays the same role.</li>
+<li>After an <strong>impulsive departure</strong>, marubozu-type bodies and three soldiers/crows often describe the impulse leg; doji clusters may describe pause.</li>
 <li>Always write <strong>invalidation</strong> and check the <strong>calendar</strong> before treating any pattern as high quality.</li>
 </ul>
 
@@ -145,6 +145,7 @@
 <footer class="site-footer" role="contentinfo"></footer>
 <script src="../assets/js/site-nav.js"></script>
 <script src="../assets/js/learn-interactive.js" defer></script>
+<script src="../assets/js/candles-extra.js"></script>
 <script>
 (function(){
 var details={
@@ -159,22 +160,12 @@ dragonfly:{title:'Dragonfly Doji',bias:'Rejection of lows',body:'Open and close 
 gravestone:{title:'Gravestone Doji',bias:'Rejection of highs',body:'Open and close near the low with a long upper wick. Rejection of higher prices. Pair with supply location and invalidation above the wick.'},
 'engulf-bull':{title:'Bullish Engulfing',bias:'Shift toward buy-side control',body:'A bullish candle whose body fully covers the prior bearish body. Describes a clear shift in session control. Best read after a decline or at demand, with invalidation below the two-candle structure.'},
 'engulf-bear':{title:'Bearish Engulfing',bias:'Shift toward sell-side control',body:'A bearish candle whose body fully covers the prior bullish body. Filter with HTF premium/supply and invalidation above the structure.'},
-'harami-bull':{title:'Bullish Harami',bias:'Possible slowing of selling',body:'A small body inside the prior large bearish body. Selling may be decelerating. Weaker than engulfing; often needs confirmation and strong location.'},
-'harami-bear':{title:'Bearish Harami',bias:'Possible slowing of buying',body:'A small body inside the prior large bullish body. Buying momentum may be fading. Soft warning until structure confirms.'},
-piercing:{title:'Piercing Line',bias:'Recovery into prior decline',body:'After a bearish session, a bullish candle opens weaker and closes well into the prior body. Describes a recovery attempt — quality depends on location and follow-through.'},
-'dark-cloud':{title:'Dark Cloud Cover',bias:'Pressure into prior advance',body:'After a bullish session, a bearish candle opens stronger and closes well into the prior body. Structure and invalidation decide usefulness.'}
+'harami-bull':{title:'Bullish Harami',bias:'Selling may be slowing',body:'A small body inside a prior large bearish body. Suggests reduced sell pressure. Weaker than engulfing; wait for confirmation.'},
+'harami-bear':{title:'Bearish Harami',bias:'Buying may be slowing',body:'A small body inside a prior large bullish body. Suggests reduced buy pressure. Treat as a caution flag inside a supply thesis.'},
+piercing:{title:'Piercing Line',bias:'Buyers reclaim into prior sell body',body:'After a decline, a bullish candle opens weaker and closes well into the prior bearish body. Intermediate strength between a weak recovery and full engulfing.'},
+'dark-cloud':{title:'Dark Cloud Cover',bias:'Sellers reclaim into prior buy body',body:'After an advance, a bearish candle opens stronger and closes well into the prior bullish body. Mirror of the piercing line on the supply side.'}
 };
-function bind(gridId,detailId){
-var grid=document.getElementById(gridId),detail=document.getElementById(detailId);
-if(!grid||!detail)return;
-grid.addEventListener('click',function(e){
-var card=e.target.closest('.candle-card');if(!card)return;
-grid.querySelectorAll('.candle-card').forEach(function(c){c.classList.remove('active')});
-card.classList.add('active');
-var d=details[card.getAttribute('data-id')];if(!d)return;
-detail.innerHTML='<span class="bias">'+d.bias+'</span><h3>'+d.title+'</h3><p class="body-base">'+d.body+'</p><p class="body-small" style="margin:0;opacity:.7">Educational description only. Not a recommendation to trade.</p>';
-});
-}
+function bind(gridId,detailId){var grid=document.getElementById(gridId),detail=document.getElementById(detailId);if(!grid||!detail)return;grid.querySelectorAll('.candle-card').forEach(function(card){card.addEventListener('click',function(){grid.querySelectorAll('.candle-card').forEach(function(c){c.classList.remove('active')});card.classList.add('active');var d=details[card.getAttribute('data-id')];if(!d)return;detail.innerHTML='<span class="bias">'+d.bias+'</span><h3>'+d.title+'</h3><p class="body-base" style="margin:0">'+d.body+'</p>'})})}
 bind('single-patterns','single-detail');
 bind('dual-patterns','dual-detail');
 })();
