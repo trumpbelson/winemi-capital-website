@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0a0b" />
   <title>Insights | WINEMI CAPITAL.</title>
-  <meta name="description" content="Market structure, liquidity, macro and risk notes from WINEMI CAPITAL." />
+  <meta name="description" content="Deep research notes on market structure, liquidity, macro, and risk — with visual context." />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/nav.css" />
   <link rel="stylesheet" href="../assets/css/logo.css" />
@@ -15,6 +15,27 @@
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
   <script src="../assets/js/page-ready.js"></script>
+  <style>
+    .insight-hero-visual{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem;margin:1.5rem 0 2rem}
+    .insight-hero-visual img{width:100%;height:280px;object-fit:cover;border-radius:14px;border:1px solid rgba(184,149,106,.28)}
+    .insight-feature{display:grid;grid-template-columns:1fr 1.2fr;gap:1.75rem;align-items:center;margin:2.5rem 0;padding:1.5rem;border-radius:16px;border:1px solid rgba(184,149,106,.22);background:rgba(20,20,22,.9)}
+    .insight-feature.reverse{grid-template-columns:1.2fr 1fr}
+    .insight-feature.reverse .feature-media{order:2}
+    .insight-feature img{width:100%;height:260px;object-fit:cover;border-radius:12px;border:1px solid rgba(184,149,106,.25)}
+    .insight-feature .feature-copy h3{margin:.35rem 0 .75rem;font-size:1.35rem}
+    .data-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem;margin:1.5rem 0 2rem}
+    .data-chip{border:1px solid rgba(184,149,106,.25);border-radius:12px;padding:1rem 1.1rem;background:#121214}
+    .data-chip strong{display:block;color:var(--color-muted-gold,#b8956a);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.35rem}
+    .data-chip span{font-size:.92rem;color:rgba(247,245,240,.78);line-height:1.45}
+    .insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem;margin-top:1.25rem}
+    .insight-card{border:1px solid rgba(184,149,106,.22);border-radius:14px;padding:1.25rem 1.35rem;background:#141416}
+    .insight-card img{width:100%;height:140px;object-fit:cover;border-radius:10px;margin-bottom:.85rem;border:1px solid rgba(184,149,106,.18)}
+    .insight-tag{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-muted-gold,#b8956a)}
+    .insight-filters{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.25rem 0}
+    .insight-filter{border:1px solid rgba(184,149,106,.28);background:transparent;color:rgba(247,245,240,.7);border-radius:999px;padding:.4rem .9rem;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+    .insight-filter.active,.insight-filter:hover{background:rgba(184,149,106,.14);color:var(--color-muted-gold,#b8956a);border-color:rgba(184,149,106,.55)}
+    @media(max-width:900px){.insight-hero-visual,.insight-feature,.insight-feature.reverse,.insight-grid,.data-strip{grid-template-columns:1fr}.insight-feature.reverse .feature-media{order:0}.insight-feature img,.insight-hero-visual img{height:200px}}
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -23,10 +44,32 @@
     <div class="page-header"><div class="container">
       <p class="label">Research notes</p>
       <h1 class="heading-1">Insights</h1>
-      <p class="body-large" style="max-width:720px;">Structured notes on market structure, liquidity, macro context, and risk — written for literacy, not prediction.</p>
+      <p class="body-large" style="max-width:720px">Deep notes on structure, liquidity, macro regime, and risk — written for literacy. Visual context supports the ideas; nothing here is a forecast or solicitation.</p>
     </div></div>
     <section class="section"><div class="container">
-      <div class="context-strip"><p class="label">How to read these notes</p><p>Educational framing only — not forecasts or recommendations. Pair with <a href="risk-disclosure.html">Risk Disclosure</a>.</p></div>
+      <div class="insight-hero-visual">
+        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0b7235e5?auto=format&fit=crop&w=1400&q=80" alt="Multi-screen market chart analysis desk" width="1400" height="280" loading="eager" />
+        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80" alt="Financial data and candlestick charts" width="1200" height="280" loading="eager" />
+      </div>
+      <div class="context-strip"><p class="label">How to read these notes</p><p>Themes synthesise publicly discussed market forces. Pair every idea with <a href="risk-disclosure.html">Risk Disclosure</a>. Use Education modules for pattern vocabulary and the live lab to practise on charts.</p></div>
+      <div class="data-strip" aria-label="Study dimensions">
+        <div class="data-chip"><strong>Structure</strong><span>Bases, impulsive departures, HTF regime, freshness of zones.</span></div>
+        <div class="data-chip"><strong>Liquidity</strong><span>Session depth, absorption vs exhaustion, event-driven gaps.</span></div>
+        <div class="data-chip"><strong>Macro</strong><span>Policy paths, growth dispersion, dollar and yield backdrop.</span></div>
+        <div class="data-chip"><strong>Risk</strong><span>Invalidation design, volatility regime, size from distance.</span></div>
+      </div>
+      <article class="insight-feature">
+        <div class="feature-media"><img src="https://images.unsplash.com/photo-1642790595397-94332f39f6c4?auto=format&fit=crop&w=1200&q=80" alt="Trader analysing structure on multiple monitors" loading="lazy" /></div>
+        <div class="feature-copy"><p class="label">Structure · Liquidity</p><h3>When bases matter more than headlines</h3><p class="body-base">Impulsive departures from compact bases often carry more information than the narrative of the day. Quality rises with prior impulse strength, a tight orderly base, higher-timeframe acceptance, and a clear invalidation level written before targets.</p><p class="body-base" style="margin-top:.75rem">Practise sequence: mark HTF regime → locate the base → score departure → define what proves the idea wrong.</p></div>
+      </article>
+      <article class="insight-feature reverse">
+        <div class="feature-media"><img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80" alt="Global macro and currency context" loading="lazy" /></div>
+        <div class="feature-copy"><p class="label">Macro · Liquidity</p><h3>Policy paths and the price of liquidity</h3><p class="body-base">Rate expectations, the dollar, and balance-sheet signals set the backdrop against which equity and commodity structure plays out. Quiet bases into major policy events can fail violently when liquidity reprices.</p><p class="body-base" style="margin-top:.75rem">Treat the economic calendar as part of zone quality. Cross-check equities against yields, DXY, and gold.</p></div>
+      </article>
+      <article class="insight-feature">
+        <div class="feature-media"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Risk analytics dashboards" loading="lazy" /></div>
+        <div class="feature-copy"><p class="label">Risk</p><h3>Invalidation is a design choice</h3><p class="body-base">Where the idea is wrong should be written before where it might work. Position size follows from that distance and from how many consecutive failed ideas the book can absorb.</p><p class="body-base" style="margin-top:.75rem">In elevated-VIX environments, demand stronger departures and clearer HTF alignment.</p></div>
+      </article>
       <div class="insight-filters" role="toolbar" aria-label="Filter insights">
         <button type="button" class="insight-filter active" data-filter="all">All</button>
         <button type="button" class="insight-filter" data-filter="structure">Structure</button>
@@ -35,22 +78,18 @@
         <button type="button" class="insight-filter" data-filter="risk">Risk</button>
       </div>
       <div class="insight-grid">
-        <article class="insight-card card" data-tags="structure liquidity"><span class="insight-tag">Structure · Liquidity</span><h3 class="card-title">When bases matter more than headlines</h3><p class="card-text">Impulsive departures from compact bases often carry more information than the narrative of the day. Quality rises with prior impulse strength, tight bases, HTF acceptance, and clear invalidation.</p></article>
-        <article class="insight-card card" data-tags="structure"><span class="insight-tag">Structure</span><h3 class="card-title">The four patterns — a working vocabulary</h3><p class="card-text">DBR and RBR describe demand contexts; RBD and DBD describe supply. Labels are shared language for imbalance — not trade signals. Filter with higher-timeframe structure.</p></article>
-        <article class="insight-card card" data-tags="macro liquidity"><span class="insight-tag">Macro · Liquidity</span><h3 class="card-title">Policy paths and the price of liquidity</h3><p class="card-text">Rate expectations, the dollar, and balance-sheet signals set the backdrop for equity and commodity structure. Quiet bases into policy events can fail violently.</p></article>
-        <article class="insight-card card" data-tags="risk"><span class="insight-tag">Risk</span><h3 class="card-title">Invalidation is a design choice</h3><p class="card-text">Where the idea is wrong should be written before where it might work. Size follows from that distance and how many failed ideas the book can absorb.</p></article>
-        <article class="insight-card card" data-tags="liquidity structure"><span class="insight-tag">Liquidity · Structure</span><h3 class="card-title">Absorption versus exhaustion</h3><p class="card-text">Not every pause is accumulation. Departure quality and follow-through help distinguish absorption from a move that is simply out of fuel.</p></article>
-        <article class="insight-card card" data-tags="macro"><span class="insight-tag">Macro</span><h3 class="card-title">Growth dispersion across regions</h3><p class="card-text">Economies sit in different cycle phases. Relative growth shows up in FX, regional equity leadership, and commodity demand.</p></article>
-        <article class="insight-card card" data-tags="risk structure"><span class="insight-tag">Risk · Structure</span><h3 class="card-title">Crowding and narrow leadership</h3><p class="card-text">An index that holds up while breadth deteriorates is different from a broad advance. Concentration changes how shocks transmit.</p></article>
-        <article class="insight-card card" data-tags="macro risk"><span class="insight-tag">Macro · Risk</span><h3 class="card-title">Event risk is part of zone quality</h3><p class="card-text">A perfect base into CPI, NFP, or a central-bank decision is not the same setup as identical geometry on a quiet data day.</p></article>
-        <article class="insight-card card" data-tags="structure"><span class="insight-tag">Structure</span><h3 class="card-title">Higher-timeframe context first</h3><p class="card-text">Map weekly and daily structure before refining intraday patterns. Sequence: regime → bases → location → confirmation → invalidation.</p></article>
-        <article class="insight-card card" data-tags="liquidity"><span class="insight-tag">Liquidity</span><h3 class="card-title">Session liquidity and narrative leadership</h3><p class="card-text">Asia, Europe, and North America rotate depth and narrative. Structure still comes first; session context changes expected noise.</p></article>
+        <article class="insight-card" data-tags="structure"><img src="https://images.unsplash.com/photo-1535320903710-d993d3d77d29?auto=format&fit=crop&w=900&q=80" alt="Candlestick chart structure" loading="lazy" /><span class="insight-tag">Structure</span><h3 class="card-title">The four patterns — working vocabulary</h3><p class="card-text">DBR and RBR describe demand; RBD and DBD describe supply. Labels are language — not signals. Filter with HTF structure.</p></article>
+        <article class="insight-card" data-tags="liquidity structure"><img src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=900&q=80" alt="Order flow screens" loading="lazy" /><span class="insight-tag">Liquidity · Structure</span><h3 class="card-title">Absorption versus exhaustion</h3><p class="card-text">Not every pause is accumulation. Departure quality and follow-through distinguish absorption from a move out of fuel.</p></article>
+        <article class="insight-card" data-tags="macro"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Global financial centres" loading="lazy" /><span class="insight-tag">Macro</span><h3 class="card-title">Growth dispersion across regions</h3><p class="card-text">Relative growth shows up in FX, regional equity leadership, and commodity demand. Session leadership rotates with depth.</p></article>
+        <article class="insight-card" data-tags="risk structure"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Risk analytics workspace" loading="lazy" /><span class="insight-tag">Risk · Structure</span><h3 class="card-title">Crowding and narrow leadership</h3><p class="card-text">An index that holds while breadth deteriorates is different from a broad advance. Concentration changes shock transmission.</p></article>
+        <article class="insight-card" data-tags="macro risk"><img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80" alt="Economic policy research" loading="lazy" /><span class="insight-tag">Macro · Risk</span><h3 class="card-title">Event risk is part of zone quality</h3><p class="card-text">A perfect base into CPI, NFP, or a central-bank decision is not the same as identical geometry on a quiet data day.</p></article>
+        <article class="insight-card" data-tags="structure"><img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=900&q=80" alt="Higher timeframe chart review" loading="lazy" /><span class="insight-tag">Structure</span><h3 class="card-title">Higher-timeframe context first</h3><p class="card-text">Map weekly and daily structure before refining intraday patterns. Sequence: regime → bases → location → confirmation → invalidation.</p></article>
       </div>
-      <h2 class="heading-2" style="margin-top:2.75rem;">Continue studying</h2>
-      <div class="grid-3" style="margin-top:1rem;">
-        <a class="card" href="education.html" style="text-decoration:none;color:inherit;"><h3 class="card-title">Education hub</h3><p class="card-text">Patterns, zones, order flow, and risk framing.</p></a>
-        <a class="card" href="education-live.html" style="text-decoration:none;color:inherit;"><h3 class="card-title">Live structure lab</h3><p class="card-text">Practise on a live chart with instrument switcher.</p></a>
-        <a class="card" href="markets.html" style="text-decoration:none;color:inherit;"><h3 class="card-title">Markets workspace</h3><p class="card-text">Cross-asset tape and study workflow.</p></a>
+      <h2 class="heading-2" style="margin-top:2.75rem">Continue studying</h2>
+      <div class="grid-3" style="margin-top:1rem">
+        <a class="card" href="education.html" style="text-decoration:none;color:inherit"><h3 class="card-title">Education hub</h3><p class="card-text">Full pathway: patterns, zones, order flow, risk framing.</p></a>
+        <a class="card" href="education-live.html" style="text-decoration:none;color:inherit"><h3 class="card-title">Live structure lab</h3><p class="card-text">Practise on a live chart with instrument switcher.</p></a>
+        <a class="card" href="markets.html" style="text-decoration:none;color:inherit"><h3 class="card-title">TradingView desk</h3><p class="card-text">Unified workspace — chart, calendar, FX, crypto, heatmap.</p></a>
       </div>
     </div></section>
   </main>
