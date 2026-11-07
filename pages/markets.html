@@ -5,21 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0a0b" />
   <title>Markets | WINEMI CAPITAL.</title>
-  <meta name="description" content="Live market toolkit — charts, overview, calendar, FX, crypto, heatmap." />
+  <meta name="description" content="Unified TradingView workspace — chart, overview, calendar, technicals, FX, crypto, heatmap." />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/nav.css" />
   <link rel="stylesheet" href="../assets/css/logo.css" />
   <link rel="stylesheet" href="../assets/css/glass.css" />
-  <link rel="stylesheet" href="../assets/css/learn-interactive.css" />
   <link rel="stylesheet" href="../assets/css/footer-rich.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
   <script src="../assets/js/page-ready.js"></script>
   <style>
-    .tv-panel{border:1px solid rgba(184,149,106,0.28);border-radius:14px;overflow:hidden;background:#0e0e10;margin:0.75rem 0 1.75rem;}
-    .instrument-tabs{display:flex;flex-wrap:wrap;gap:0.45rem;margin:1rem 0 0.5rem;}
-    .instrument-tab{border:1px solid rgba(184,149,106,0.28);background:transparent;color:rgba(247,245,240,0.75);border-radius:999px;padding:0.4rem 0.85rem;font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;}
-    .instrument-tab.active,.instrument-tab:hover{background:rgba(184,149,106,0.12);color:var(--color-muted-gold,#b8956a);border-color:rgba(184,149,106,0.55);}
+    .tv-workspace { margin-top: 1.25rem; }
+    .tv-tool-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1rem; border-bottom: 1px solid rgba(184,149,106,0.22); padding-bottom: 0.85rem; }
+    .tv-tool-tab { border: 1px solid rgba(184,149,106,0.28); background: transparent; color: rgba(247,245,240,0.72); border-radius: 999px; padding: 0.42rem 0.9rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; }
+    .tv-tool-tab:hover, .tv-tool-tab.active { background: rgba(184,149,106,0.14); color: var(--color-muted-gold,#b8956a); border-color: rgba(184,149,106,0.55); }
+    .tv-panel-host { border: 1px solid rgba(184,149,106,0.28); border-radius: 14px; overflow: hidden; background: #0e0e10; min-height: 520px; }
+    .tv-panel { display: none; width: 100%; min-height: 520px; }
+    .tv-panel.active { display: block; }
+    .tv-panel .tradingview-widget-container, .tv-panel .tradingview-widget-container__widget { width: 100% !important; min-height: 520px; height: 520px; }
+    .instrument-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.75rem; }
+    .instrument-tab { border: 1px solid rgba(184,149,106,0.22); background: transparent; color: rgba(247,245,240,0.65); border-radius: 999px; padding: 0.35rem 0.75rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
+    .instrument-tab.active, .instrument-tab:hover { background: rgba(184,149,106,0.12); color: var(--color-muted-gold,#b8956a); border-color: rgba(184,149,106,0.5); }
+    @media (max-width: 767px) { .tv-panel-host, .tv-panel, .tv-panel .tradingview-widget-container, .tv-panel .tradingview-widget-container__widget { min-height: 400px; height: 400px; } }
   </style>
 </head>
 <body>
@@ -28,138 +35,79 @@
   <main id="main">
     <div class="page-header"><div class="container">
       <p class="label">Markets desk</p>
-      <h1 class="heading-1">Markets</h1>
-      <p class="body-large" style="max-width:720px;">Live TradingView toolkit for structure study across indices, FX, commodities, and digital assets. Educational use only.</p>
+      <h1 class="heading-1">TradingView</h1>
+      <p class="body-large" style="max-width:720px;">All market tools in one TradingView workspace. Switch chart, overview, calendar, technicals, forex, crypto, and heatmap without leaving the section.</p>
     </div></div>
     <section class="section"><div class="container">
-      <div class="context-strip">
-        <p class="label">How to use this desk</p>
-        <p>Start with the advanced chart and instrument tabs. Use overview and calendar for context. FX, crypto, and heatmap boards support cross-asset scans. None of this is a trade signal.</p>
-      </div>
-      <h2 class="heading-2" style="margin-top:1.75rem;">Live market tape</h2>
-      <div class="tv-panel" style="height:90px;">
-        <div class="tradingview-widget-container" style="height:100%;">
-          <div class="tradingview-widget-container__widget" style="height:100%;"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-          {"symbols":[{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"FOREXCOM:NSXUSD","title":"NASDAQ 100"},{"proName":"FOREXCOM:DJI","title":"Dow 30"},{"proName":"TVC:GOLD","title":"Gold"},{"proName":"TVC:USOIL","title":"WTI"},{"proName":"FX:EURUSD","title":"EUR/USD"},{"proName":"BINANCE:BTCUSDT","title":"Bitcoin"},{"proName":"TVC:DXY","title":"DXY"},{"proName":"TVC:VIX","title":"VIX"}],"showSymbolLogo":true,"colorTheme":"dark","isTransparent":true,"displayMode":"adaptive","locale":"en"}
-          </script>
+      <div class="tv-workspace">
+        <div class="tv-tool-tabs" role="tablist" aria-label="TradingView tools">
+          <button type="button" class="tv-tool-tab active" data-tv-panel="chart">Chart</button>
+          <button type="button" class="tv-tool-tab" data-tv-panel="overview">Overview</button>
+          <button type="button" class="tv-tool-tab" data-tv-panel="calendar">Calendar</button>
+          <button type="button" class="tv-tool-tab" data-tv-panel="technicals">Technicals</button>
+          <button type="button" class="tv-tool-tab" data-tv-panel="forex">Forex</button>
+          <button type="button" class="tv-tool-tab" data-tv-panel="crypto">Crypto</button>
+          <button type="button" class="tv-tool-tab" data-tv-panel="heatmap">Heatmap</button>
+        </div>
+        <div class="instrument-tabs" id="tv-symbol-tabs" role="tablist" aria-label="Instruments">
+          <button type="button" class="instrument-tab active" data-symbol="FOREXCOM:SPXUSD">S&amp;P 500</button>
+          <button type="button" class="instrument-tab" data-symbol="NASDAQ:NDX">NASDAQ-100</button>
+          <button type="button" class="instrument-tab" data-symbol="TVC:GOLD">Gold</button>
+          <button type="button" class="instrument-tab" data-symbol="TVC:USOIL">Crude</button>
+          <button type="button" class="instrument-tab" data-symbol="FX:EURUSD">EUR/USD</button>
+          <button type="button" class="instrument-tab" data-symbol="BINANCE:BTCUSDT">Bitcoin</button>
+          <button type="button" class="instrument-tab" data-symbol="TVC:DXY">DXY</button>
+          <button type="button" class="instrument-tab" data-symbol="TVC:VIX">VIX</button>
+        </div>
+        <div class="tv-panel-host">
+          <div class="tv-panel active" data-panel="chart"><div id="tradingview-widget" style="height:520px;width:100%;"></div></div>
+          <div class="tv-panel" data-panel="overview"><div class="tradingview-widget-container" style="height:520px;"><div class="tradingview-widget-container__widget" style="height:520px;"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>{"colorTheme":"dark","dateRange":"1M","showChart":true,"locale":"en","width":"100%","height":"100%","isTransparent":true,"showSymbolLogo":true,"tabs":[{"title":"Indices","symbols":[{"s":"FOREXCOM:SPXUSD","d":"S&P 500"},{"s":"FOREXCOM:NSXUSD","d":"NASDAQ 100"},{"s":"FOREXCOM:DJI","d":"Dow 30"}]},{"title":"Rates & FX","symbols":[{"s":"TVC:US10Y","d":"US 10Y"},{"s":"TVC:DXY","d":"DXY"},{"s":"FX:EURUSD","d":"EUR/USD"}]},{"title":"Commodities","symbols":[{"s":"TVC:GOLD","d":"Gold"},{"s":"TVC:USOIL","d":"WTI"}]}]}</script></div></div>
+          <div class="tv-panel" data-panel="calendar"><div class="tradingview-widget-container" style="height:520px;"><div class="tradingview-widget-container__widget" style="height:520px;"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>{"colorTheme":"dark","isTransparent":true,"width":"100%","height":"100%","locale":"en","importanceFilter":"0,1","countryFilter":"us,eu,gb,jp,cn"}</script></div></div>
+          <div class="tv-panel" data-panel="technicals"><div class="tradingview-widget-container" style="height:520px;"><div class="tradingview-widget-container__widget" style="height:520px;"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>{"interval":"1h","width":"100%","isTransparent":true,"height":"100%","symbol":"FOREXCOM:SPXUSD","showIntervalTabs":true,"displayMode":"single","locale":"en","colorTheme":"dark"}</script></div></div>
+          <div class="tv-panel" data-panel="forex"><div class="tradingview-widget-container" style="height:520px;"><div class="tradingview-widget-container__widget" style="height:520px;"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>{"width":"100%","height":"100%","currencies":["EUR","USD","GBP","JPY","CHF","AUD","CAD","CNY"],"isTransparent":true,"colorTheme":"dark","locale":"en"}</script></div></div>
+          <div class="tv-panel" data-panel="crypto"><div class="tradingview-widget-container" style="height:520px;"><div class="tradingview-widget-container__widget" style="height:520px;"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>{"width":"100%","height":"100%","defaultColumn":"overview","screener_type":"crypto_mkt","displayCurrency":"USD","colorTheme":"dark","locale":"en","isTransparent":true}</script></div></div>
+          <div class="tv-panel" data-panel="heatmap"><div class="tradingview-widget-container" style="height:520px;"><div class="tradingview-widget-container__widget" style="height:520px;"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>{"exchanges":[],"dataSource":"SPX500","grouping":"sector","blockSize":"market_cap_basic","blockColor":"change","locale":"en","symbolUrl":"","colorTheme":"dark","hasTopBar":true,"isDataSetEnabled":true,"isZoomEnabled":true,"hasSymbolTooltip":true,"isMonoSize":false,"width":"100%","height":"100%"}</script></div></div>
         </div>
       </div>
-      <h2 class="heading-2">Advanced chart</h2>
-      <div class="instrument-tabs" role="tablist">
-        <button type="button" class="instrument-tab active" data-symbol="FOREXCOM:SPXUSD">S&amp;P 500</button>
-        <button type="button" class="instrument-tab" data-symbol="NASDAQ:NDX">NASDAQ-100</button>
-        <button type="button" class="instrument-tab" data-symbol="TVC:GOLD">Gold</button>
-        <button type="button" class="instrument-tab" data-symbol="TVC:USOIL">Crude</button>
-        <button type="button" class="instrument-tab" data-symbol="FX:EURUSD">EUR/USD</button>
-        <button type="button" class="instrument-tab" data-symbol="BINANCE:BTCUSDT">Bitcoin</button>
-        <button type="button" class="instrument-tab" data-symbol="TVC:DXY">DXY</button>
-        <button type="button" class="instrument-tab" data-symbol="TVC:VIX">VIX</button>
-      </div>
-      <div id="markets-advanced-chart" class="tv-panel" style="height:560px;"></div>
-      <h2 class="heading-2">Market overview</h2>
-      <div class="tv-panel" style="height:450px;">
-        <div class="tradingview-widget-container" style="height:100%;">
-          <div class="tradingview-widget-container__widget" style="height:100%;"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-          {"colorTheme":"dark","dateRange":"1M","showChart":true,"locale":"en","width":"100%","height":"100%","isTransparent":true,"showSymbolLogo":true,"tabs":[{"title":"Indices","symbols":[{"s":"FOREXCOM:SPXUSD","d":"S&P 500"},{"s":"FOREXCOM:NSXUSD","d":"NASDAQ 100"},{"s":"FOREXCOM:DJI","d":"Dow 30"},{"s":"INDEX:DEU40","d":"DAX"}]},{"title":"Rates & FX","symbols":[{"s":"TVC:US10Y","d":"US 10Y"},{"s":"TVC:DXY","d":"DXY"},{"s":"FX:EURUSD","d":"EUR/USD"},{"s":"FX:USDJPY","d":"USD/JPY"}]},{"title":"Commodities","symbols":[{"s":"TVC:GOLD","d":"Gold"},{"s":"TVC:USOIL","d":"WTI"},{"s":"TVC:SILVER","d":"Silver"}]}]}
-          </script>
-        </div>
-      </div>
-      <div class="grid-2">
-        <div>
-          <h2 class="heading-2">Economic calendar</h2>
-          <div class="tv-panel" style="height:420px;">
-            <div class="tradingview-widget-container" style="height:100%;">
-              <div class="tradingview-widget-container__widget" style="height:100%;"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
-              {"colorTheme":"dark","isTransparent":true,"width":"100%","height":"100%","locale":"en","importanceFilter":"0,1","countryFilter":"us,eu,gb,jp,cn"}
-              </script>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h2 class="heading-2">Technical analysis</h2>
-          <div class="tv-panel" style="height:420px;">
-            <div class="tradingview-widget-container" style="height:100%;">
-              <div class="tradingview-widget-container__widget" style="height:100%;"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
-              {"interval":"1h","width":"100%","isTransparent":true,"height":"100%","symbol":"FOREXCOM:SPXUSD","showIntervalTabs":true,"displayMode":"single","locale":"en","colorTheme":"dark"}
-              </script>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="grid-2">
-        <div>
-          <h2 class="heading-2">Forex cross rates</h2>
-          <div class="tv-panel" style="height:380px;">
-            <div class="tradingview-widget-container" style="height:100%;">
-              <div class="tradingview-widget-container__widget" style="height:100%;"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
-              {"width":"100%","height":"100%","currencies":["EUR","USD","GBP","JPY","CHF","AUD","CAD","CNY"],"isTransparent":true,"colorTheme":"dark","locale":"en"}
-              </script>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h2 class="heading-2">Crypto market</h2>
-          <div class="tv-panel" style="height:380px;">
-            <div class="tradingview-widget-container" style="height:100%;">
-              <div class="tradingview-widget-container__widget" style="height:100%;"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-              {"width":"100%","height":"100%","defaultColumn":"overview","screener_type":"crypto_mkt","displayCurrency":"USD","colorTheme":"dark","locale":"en","isTransparent":true}
-              </script>
-            </div>
-          </div>
-        </div>
-      </div>
-      <h2 class="heading-2">Stock heatmap</h2>
-      <div class="tv-panel" style="height:450px;">
-        <div class="tradingview-widget-container" style="height:100%;">
-          <div class="tradingview-widget-container__widget" style="height:100%;"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
-          {"exchanges":[],"dataSource":"SPX500","grouping":"sector","blockSize":"market_cap_basic","blockColor":"change","locale":"en","symbolUrl":"","colorTheme":"dark","hasTopBar":true,"isDataSetEnabled":true,"isZoomEnabled":true,"hasSymbolTooltip":true,"isMonoSize":false,"width":"100%","height":"100%"}
-          </script>
-        </div>
-      </div>
-      <h2 class="heading-2">Asset coverage (study)</h2>
-      <div class="grid-3" style="margin-top:1rem;">
-        <article class="card"><h3 class="card-title">Indices</h3><p class="card-text">S&amp;P 500, NASDAQ-100, Dow, DAX — regime and leadership context.</p></article>
-        <article class="card"><h3 class="card-title">FX &amp; rates</h3><p class="card-text">Major pairs, DXY, and yields as the price of liquidity.</p></article>
-        <article class="card"><h3 class="card-title">Commodities &amp; crypto</h3><p class="card-text">Gold, oil, and digital assets for cross-asset confirmation.</p></article>
-      </div>
-      <p style="margin-top:1.5rem;"><a class="btn btn-primary" href="education-live.html">Structure lab</a> <a class="btn btn-secondary" href="education-macro.html">Macro desk</a> <a class="btn btn-secondary" href="insights.html">Insights</a></p>
+      <p class="body-small" style="margin-top:1rem;">TradingView · Educational use only</p>
     </div></section>
   </main>
   <footer class="site-footer" role="contentinfo"></footer>
   <script src="../assets/js/site-nav.js"></script>
   <script src="https://s3.tradingview.com/tv.js"></script>
   <script>
-    (function(){
-      var el=document.getElementById('markets-advanced-chart');
-      if(!el||typeof TradingView==='undefined')return;
-      var current='FOREXCOM:SPXUSD';
-      function theme(){return document.documentElement.getAttribute('data-theme')==='light'?'light':'dark';}
-      function mount(symbol){
-        current=symbol||current; el.innerHTML='';
-        new TradingView.widget({
-          autosize:true, symbol:current, interval:'60', timezone:'Etc/UTC',
-          theme:theme(), style:'1', locale:'en', toolbar_bg:'#1c1c1f',
-          enable_publishing:false, allow_symbol_change:true, hide_side_toolbar:false,
-          container_id:'markets-advanced-chart',
-          backgroundColor: theme()==='light'?'#f7f5f0':'#0e0e10',
-          gridColor:'rgba(184,149,106,0.08)'
-        });
+    (function () {
+      var panels = document.querySelectorAll('.tv-panel');
+      var tabs = document.querySelectorAll('.tv-tool-tab');
+      var symbolTabs = document.querySelectorAll('.instrument-tab');
+      var chartEl = document.getElementById('tradingview-widget');
+      var current = 'FOREXCOM:SPXUSD';
+      var chartMounted = false;
+      function theme() { return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
+      function mountChart(symbol) {
+        if (!chartEl || typeof TradingView === 'undefined') return;
+        current = symbol || current;
+        chartEl.innerHTML = '';
+        new TradingView.widget({ autosize: true, symbol: current, interval: '60', timezone: 'Etc/UTC', theme: theme(), style: '1', locale: 'en', toolbar_bg: '#1c1c1f', enable_publishing: false, allow_symbol_change: true, hide_side_toolbar: false, container_id: 'tradingview-widget', backgroundColor: theme() === 'light' ? '#f7f5f0' : '#0e0e10', gridColor: 'rgba(184,149,106,0.08)' });
+        chartMounted = true;
       }
-      mount(current);
-      document.querySelectorAll('.instrument-tab').forEach(function(btn){
-        btn.addEventListener('click', function(){
-          document.querySelectorAll('.instrument-tab').forEach(function(b){b.classList.remove('active');});
-          btn.classList.add('active');
-          mount(btn.getAttribute('data-symbol'));
+      function showPanel(id) {
+        panels.forEach(function (p) { p.classList.toggle('active', p.getAttribute('data-panel') === id); });
+        tabs.forEach(function (t) { t.classList.toggle('active', t.getAttribute('data-tv-panel') === id); });
+        var symRow = document.getElementById('tv-symbol-tabs');
+        if (symRow) symRow.style.display = (id === 'chart' || id === 'technicals') ? 'flex' : 'none';
+        if (id === 'chart' && !chartMounted) mountChart(current);
+      }
+      tabs.forEach(function (tab) { tab.addEventListener('click', function () { showPanel(tab.getAttribute('data-tv-panel')); }); });
+      symbolTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          symbolTabs.forEach(function (t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          mountChart(tab.getAttribute('data-symbol'));
         });
       });
+      function boot() { if (typeof TradingView !== 'undefined') mountChart(current); else setTimeout(boot, 200); }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
     })();
   </script>
 </body>
