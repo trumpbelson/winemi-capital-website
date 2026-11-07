@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="theme-color" content="#0a0a0b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Macro &amp; Data Desk | WINEMI CAPITAL.</title>
-  <meta name="description" content="Live economic calendar and cross-asset overview for educational macro context." />
+  <title>Macro &amp; data desk | WINEMI CAPITAL.</title>
+  <meta name="description" content="Economic calendar and cross-asset macro context for education." />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/nav.css" />
   <link rel="stylesheet" href="../assets/css/logo.css" />
@@ -13,160 +12,46 @@
   <link rel="stylesheet" href="../assets/css/learn-interactive.css" />
   <link rel="stylesheet" href="../assets/css/footer-rich.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('winemi-theme');
-        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-        else document.documentElement.setAttribute('data-theme', 'dark');
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
-  <style>
-    .edu-subnav { display:flex; flex-wrap:wrap; gap:0.5rem; margin:0 0 1.5rem; }
-    .edu-subnav a {
-      font-size:0.75rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
-      text-decoration:none; color:rgba(247,245,240,0.65);
-      border:1px solid rgba(184,149,106,0.22); border-radius:999px; padding:0.4rem 0.85rem;
-    }
-    .edu-subnav a:hover, .edu-subnav a.active {
-      color:var(--color-muted-gold,#b8956a); border-color:rgba(184,149,106,0.5);
-    }
-    .widget-frame {
-      border-radius:14px; overflow:hidden; border:1px solid rgba(184,149,106,0.28);
-      background:#0e0e10; min-height:420px;
-    }
-    .two-col { display:grid; gap:1.25rem; }
-    @media (min-width:900px) { .two-col { grid-template-columns:1.4fr 1fr; align-items:start; } }
-  </style>
+  <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+  <script src="../assets/js/page-ready.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" role="banner"></header>
   <main id="main">
-    <div class="page-header">
-      <div class="container">
-        <p class="label">Education · Live data</p>
-        <h1 class="heading-1">Macro &amp; data desk</h1>
-        <p class="body-large" style="max-width:720px;">Connect chart structure to the calendar: policy dates, releases, and cross-asset context. Live widgets for study — not forecasts.</p>
+    <div class="page-header"><div class="container">
+      <p class="label">Education · Macro</p>
+      <h1 class="heading-1">Macro &amp; data desk</h1>
+      <p class="body-large" style="max-width:720px;">Policy paths, growth dispersion, and the data calendar — read next to structure, not instead of it. Educational context only.</p>
+    </div></div>
+    <section class="section"><div class="container">
+      <div class="context-strip"><p class="label">How to use this desk</p><p>Scan the calendar for high-impact releases. Note whether quiet bases sit in front of those events. Cross-check equities against yields, the dollar, and gold.</p></div>
+      <h2 class="heading-2" style="margin-top:1.5rem;">Economic calendar</h2>
+      <div style="margin:1rem 0 2rem;border:1px solid rgba(184,149,106,0.28);border-radius:14px;overflow:hidden;min-height:400px;background:#0e0e10;">
+        <div class="tradingview-widget-container" style="height:420px;">
+          <div class="tradingview-widget-container__widget" style="height:420px;"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+          {"colorTheme":"dark","isTransparent":true,"width":"100%","height":"100%","locale":"en","importanceFilter":"0,1","countryFilter":"us,eu,gb,jp,cn"}
+          </script>
+        </div>
       </div>
-    </div>
-    <section class="section">
-      <div class="container">
-        <nav class="edu-subnav" aria-label="Education modules">
-          <a href="education.html">Overview</a>
-          <a href="education-live.html">Live structure lab</a>
-          <a href="education-macro.html" class="active">Macro &amp; data</a>
-          <a href="education-risk.html">Risk lab</a>
-          <a href="insights.html">Insights</a>
-        </nav>
-        <div class="context-strip">
-          <p class="label">Study frame</p>
-          <p>Before marking zones on an index or FX pair, note what the calendar is pricing: inflation prints, employment, and central-bank decisions.</p>
+      <h2 class="heading-2">Cross-asset overview</h2>
+      <div style="margin:1rem 0 2rem;border:1px solid rgba(184,149,106,0.28);border-radius:14px;overflow:hidden;min-height:420px;background:#0e0e10;">
+        <div class="tradingview-widget-container" style="height:450px;">
+          <div class="tradingview-widget-container__widget" style="height:450px;"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+          {"colorTheme":"dark","dateRange":"1M","showChart":true,"locale":"en","width":"100%","height":"100%","isTransparent":true,"showSymbolLogo":true,"tabs":[{"title":"Indices","symbols":[{"s":"FOREXCOM:SPXUSD","d":"S&P 500"},{"s":"FOREXCOM:NSXUSD","d":"NASDAQ 100"}]},{"title":"Rates & FX","symbols":[{"s":"TVC:US10Y","d":"US 10Y"},{"s":"TVC:DXY","d":"DXY"},{"s":"FX:EURUSD","d":"EUR/USD"}]},{"title":"Commodities","symbols":[{"s":"TVC:GOLD","d":"Gold"},{"s":"TVC:USOIL","d":"WTI"}]}]}
+          </script>
         </div>
-        <h2 class="heading-2">Live market tape</h2>
-        <div class="widget-frame" style="min-height:90px;margin:1rem 0 2rem;">
-          <div class="tradingview-widget-container" style="height:90px;">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-            {
-              "symbols": [
-                { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
-                { "proName": "FOREXCOM:NSXUSD", "title": "NASDAQ 100" },
-                { "proName": "TVC:GOLD", "title": "Gold" },
-                { "proName": "TVC:USOIL", "title": "Crude" },
-                { "proName": "FX:EURUSD", "title": "EUR/USD" },
-                { "proName": "FX:USDJPY", "title": "USD/JPY" },
-                { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
-                { "proName": "TVC:US10Y", "title": "US 10Y" },
-                { "proName": "TVC:DXY", "title": "DXY" }
-              ],
-              "showSymbolLogo": true,
-              "isTransparent": true,
-              "displayMode": "adaptive",
-              "colorTheme": "dark",
-              "locale": "en"
-            }
-            </script>
-          </div>
-        </div>
-        <div class="two-col">
-          <div>
-            <h2 class="heading-2">Economic calendar</h2>
-            <p class="body-base">Upcoming releases that often reprice rates, FX, and risk assets.</p>
-            <div class="widget-frame" style="margin-top:1rem;min-height:480px;">
-              <div class="tradingview-widget-container" style="height:480px;">
-                <div class="tradingview-widget-container__widget" style="height:480px;"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
-                {
-                  "colorTheme": "dark",
-                  "isTransparent": true,
-                  "width": "100%",
-                  "height": "100%",
-                  "locale": "en",
-                  "importanceFilter": "0,1",
-                  "countryFilter": "us,eu,jp,gb,cn"
-                }
-                </script>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h2 class="heading-2">Cross-asset overview</h2>
-            <p class="body-base">Indices, bonds, commodities, and FX in one panel.</p>
-            <div class="widget-frame" style="margin-top:1rem;min-height:480px;">
-              <div class="tradingview-widget-container" style="height:480px;">
-                <div class="tradingview-widget-container__widget" style="height:480px;"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-                {
-                  "colorTheme": "dark",
-                  "dateRange": "1M",
-                  "showChart": true,
-                  "locale": "en",
-                  "width": "100%",
-                  "height": "100%",
-                  "isTransparent": true,
-                  "showSymbolLogo": true,
-                  "tabs": [
-                    { "title": "Indices", "symbols": [
-                      { "s": "FOREXCOM:SPXUSD", "d": "S&P 500" },
-                      { "s": "FOREXCOM:NSXUSD", "d": "NASDAQ 100" },
-                      { "s": "INDEX:DEU40", "d": "DAX" },
-                      { "s": "INDEX:NKY", "d": "Nikkei" }
-                    ]},
-                    { "title": "Rates & FX", "symbols": [
-                      { "s": "TVC:US10Y", "d": "US 10Y" },
-                      { "s": "TVC:DXY", "d": "DXY" },
-                      { "s": "FX:EURUSD", "d": "EUR/USD" },
-                      { "s": "FX:USDJPY", "d": "USD/JPY" }
-                    ]},
-                    { "title": "Commodities", "symbols": [
-                      { "s": "TVC:GOLD", "d": "Gold" },
-                      { "s": "TVC:USOIL", "d": "WTI" },
-                      { "s": "TVC:SILVER", "d": "Silver" }
-                    ]}
-                  ]
-                }
-                </script>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="accordion" style="margin-top:2rem;">
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="m1"><span>Why the calendar belongs next to the chart</span><span class="accordion-icon">+</span></button>
-            <div id="m1" class="accordion-panel">High-impact releases can expand ranges and invalidate quiet bases. Note event risk before treating a zone as high quality on event day.</div>
-          </div>
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="m2"><span>Rates, dollar, and risk assets</span><span class="accordion-icon">+</span></button>
-            <div id="m2" class="accordion-panel">Watch whether equities accept higher yields or fade them, and whether gold/DXY absorb the hedge bid when energy or geopolitics reprice.</div>
-          </div>
-        </div>
-        <p class="body-small" style="margin-top:1.25rem;">Widgets by TradingView. Educational context only.</p>
       </div>
-    </section>
+      <h2 class="heading-2">Study themes</h2>
+      <div class="grid-3" style="margin-top:1rem;">
+        <article class="card"><h3 class="card-title">Policy reaction function</h3><p class="card-text">How markets price the next moves in rates matters as much as the level of rates itself.</p></article>
+        <article class="card"><h3 class="card-title">Growth dispersion</h3><p class="card-text">Regions diverge. Relative growth shows up in FX, equity leadership, and commodity demand.</p></article>
+        <article class="card"><h3 class="card-title">Event risk</h3><p class="card-text">Treat major data and central-bank days as part of zone quality — not an afterthought.</p></article>
+      </div>
+      <p style="margin-top:1.5rem;"><a class="btn btn-primary" href="education-live.html">Structure lab</a> <a class="btn btn-secondary" href="education.html">Education hub</a> <a class="btn btn-secondary" href="insights.html">Insights</a></p>
+    </div></section>
   </main>
   <footer class="site-footer" role="contentinfo"></footer>
   <script src="../assets/js/site-nav.js"></script>
