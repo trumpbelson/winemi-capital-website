@@ -1,6 +1,5 @@
 /* Live market + news: visible under header, scrolls away with page */
 
-/* Fixed header must not be trapped by body transform containing-block */
 body.page-ready,
 body.page-exit {
   transform: none !important;
@@ -20,7 +19,6 @@ body.page-exit {
   opacity: 1 !important;
 }
 
-/* Hero spacing once feed is in flow under header */
 body:has(.top-feed) .hero {
   padding-top: 2.25rem !important;
   min-height: calc(100vh - var(--header-height, 72px) - 84px) !important;
@@ -113,3 +111,14 @@ body:has(.top-feed) .hero {
 @media (prefers-reduced-motion: reduce) {
   .top-feed .news-ticker-content { animation: none !important; }
 }
+
+/* Hard visibility — prevent black screen */
+html, body {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background-color: #0a0a0b !important;
+  color: #f7f5f0 !important;
+}
+body.page-ready, body.page-exit { transform: none !important; opacity: 1 !important; }
+.reveal, .reveal.is-visible { opacity: 1 !important; transform: none !important; filter: none !important; }
+.hero, .hero-content, main, .top-feed { opacity: 1 !important; visibility: visible !important; }
