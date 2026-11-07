@@ -1,1 +1,183 @@
-PLACEHOLDER_WILL_FAIL
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0a0b" />
+<title>Candlestick Literacy | Education | WINEMI CAPITAL.</title>
+<meta name="description" content="Original candlestick literacy: anatomy, single and dual patterns, SVG guides, structure context, self-check." />
+<link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="stylesheet" href="../assets/css/nav.css" />
+<link rel="stylesheet" href="../assets/css/logo.css" />
+<link rel="stylesheet" href="../assets/css/glass.css" />
+<link rel="stylesheet" href="../assets/css/learn-interactive.css" />
+<link rel="stylesheet" href="../assets/css/footer-rich.css" />
+<link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+<script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<script src="../assets/js/page-ready.js"></script>
+<style>
+.candle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.85rem;margin:1.15rem 0 1.5rem}
+.candle-card{border:1px solid rgba(184,149,106,.28);border-radius:14px;padding:.9rem 1rem;background:#121214;cursor:pointer;text-align:left;color:inherit;width:100%;font:inherit;transition:border-color .15s,transform .2s}
+.candle-card:hover,.candle-card.active{border-color:rgba(184,149,106,.65);background:#18181b;transform:translateY(-2px)}
+.candle-card .svg-wrap{height:96px;display:flex;align-items:center;justify-content:center;margin-bottom:.5rem}
+.candle-card strong{display:block;font-size:.9rem;margin-bottom:.2rem;color:var(--color-muted-gold,#b8956a)}
+.candle-card span{font-size:.78rem;color:rgba(247,245,240,.62);line-height:1.35}
+.candle-detail{border:1px solid rgba(184,149,106,.3);border-radius:14px;padding:1.25rem 1.4rem;background:#141416;min-height:110px;margin-bottom:1.75rem}
+.candle-detail h3{margin:0 0 .45rem;font-size:1.15rem}
+.candle-detail .bias{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--color-muted-gold,#b8956a);border:1px solid rgba(184,149,106,.4);border-radius:999px;padding:.22rem .6rem;margin-bottom:.65rem}
+.anatomy{display:grid;grid-template-columns:120px 1fr;gap:1.35rem;align-items:center;margin:1.25rem 0 1.75rem;padding:1.15rem;border-radius:14px;border:1px solid rgba(184,149,106,.25);background:#121214}
+.context-list{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0 1.5rem}
+.context-list article{border:1px solid rgba(184,149,106,.22);border-radius:12px;padding:.9rem 1.05rem;background:#121214}
+.context-list h3{font-size:.92rem;margin:0 0 .35rem}
+.edu-subnav{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1.35rem}
+.edu-subnav a{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:rgba(247,245,240,.65);border:1px solid rgba(184,149,106,.22);border-radius:999px;padding:.38rem .8rem}
+.edu-subnav a:hover,.edu-subnav a.active{color:var(--color-muted-gold,#b8956a);border-color:rgba(184,149,106,.5)}
+@media(max-width:700px){.anatomy,.context-list{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" role="banner"></header>
+<main id="main">
+<div class="page-header"><div class="container">
+<p class="label">Education · Literacy</p>
+<h1 class="heading-1">Candlestick literacy</h1>
+<p class="body-large" style="max-width:720px">How a candle is built, how common single and dual patterns are read, and why structure and invalidation come before any label. Original educational material — not investment advice.</p>
+</div></div>
+<section class="section"><div class="container prose">
+<nav class="edu-subnav" aria-label="Education modules">
+<a href="education.html">Overview</a>
+<a href="education-candlesticks.html" class="active">Candlesticks</a>
+<a href="education-live.html">Live structure lab</a>
+<a href="education-macro.html">Macro & data</a>
+<a href="education-risk.html">Risk lab</a>
+<a href="insights.html">Insights</a>
+</nav>
+<p class="label" style="margin-bottom:.45rem">Disclaimer</p>
+<p>Candlestick names are shared market vocabulary. Pattern labels are hypotheses about short-term imbalance — not signals to buy or sell. Filter with higher-timeframe structure and a written invalidation. See <a href="risk-disclosure.html">Risk Disclosure</a>.</p>
+
+<h2>Anatomy of a candle</h2>
+<p>Each candle summarises open, high, low, and close for a session. The <strong>body</strong> is the distance between open and close. The <strong>wicks</strong> show how far price traded beyond that range before the period closed.</p>
+<div class="anatomy">
+<div aria-hidden="true"><svg viewBox="0 0 80 140" width="72" height="126"><line x1="40" y1="8" x2="40" y2="42" stroke="#b8956a" stroke-width="2"/><rect x="28" y="42" width="24" height="48" fill="#2d6a4f" stroke="#b8956a" stroke-width="1"/><line x1="40" y1="90" x2="40" y2="132" stroke="#b8956a" stroke-width="2"/><text x="56" y="22" fill="rgba(247,245,240,.7)" font-size="9">High</text><text x="56" y="55" fill="rgba(247,245,240,.7)" font-size="9">Body</text><text x="56" y="120" fill="rgba(247,245,240,.7)" font-size="9">Low</text></svg></div>
+<ul class="body-base" style="margin:0;padding-left:1.15rem">
+<li><strong>Bullish close</strong> — close above open (buyers held the period).</li>
+<li><strong>Bearish close</strong> — close below open (sellers held the period).</li>
+<li><strong>Long body</strong> — strong directional commitment during the session.</li>
+<li><strong>Long wick</strong> — rejection or exploration that failed to hold.</li>
+<li><strong>Doji-like</strong> — open and close nearly equal; indecision relative to the range.</li>
+</ul>
+</div>
+
+<h2>Context before labels</h2>
+<div class="context-list">
+<article><h3>Higher-timeframe first</h3><p class="card-text">A hammer at HTF support after a clear discount differs from the same shape in a choppy mid-range with no structure.</p></article>
+<article><h3>Location matters</h3><p class="card-text">Rejection wicks into premium or discount relative to the HTF swing change the quality of the read. Geometry alone is not enough.</p></article>
+<article><h3>Invalidation</h3><p class="card-text">Define what proves the idea wrong before treating a pattern as actionable. Beyond the low/high of the candle or base is a common starting point.</p></article>
+<article><h3>Pair with structure</h3><p class="card-text">Candles refine timing inside a zone (DBR, RBR, RBD, DBD). They do not replace bases, impulsive departures, or regime context.</p></article>
+</div>
+
+<h2>Single-candle patterns</h2>
+<p>Select a pattern for a short educational description. Literacy aids — not trade calls.</p>
+<div class="candle-grid" id="single-patterns" role="list">
+<button type="button" class="candle-card" data-id="marubozu-bull" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 60 100" width="44" height="72"><rect x="18" y="10" width="24" height="80" fill="#2d6a4f"/></svg></div><strong>Bullish Marubozu</strong><span>Long body, little or no wick — strong buy-side control</span></button>
+<button type="button" class="candle-card" data-id="marubozu-bear" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 60 100" width="44" height="72"><rect x="18" y="10" width="24" height="80" fill="#9b2226"/></svg></div><strong>Bearish Marubozu</strong><span>Long body, little or no wick — strong sell-side control</span></button>
+<button type="button" class="candle-card" data-id="hammer" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 60 100" width="44" height="72"><line x1="30" y1="55" x2="30" y2="92" stroke="#b8956a" stroke-width="2"/><rect x="20" y="28" width="20" height="28" fill="#2d6a4f"/></svg></div><strong>Hammer</strong><span>Small body, long lower wick — rejection of lows after a decline</span></button>
+<button type="button" class="candle-card" data-id="hanging" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 60 100" width="44" height="72"><line x1="30" y1="55" x2="30" y2="92" stroke="#b8956a" stroke-width="2"/><rect x="20" y="28" width="20" height="28" fill="#9b2226"/></svg></div><strong>Hanging Man</strong><span>Same shape as hammer after an advance — potential supply warning</span></button>
+<button type="button" class="candle-card" data-id="inv-hammer" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 60 100" width="44" height="72"><line x1="30" y1="8" x2="30" y2="45" stroke="#b8956a" stroke-width="2"/><rect x="20" y="45" width="20" height="28" fill="#2d6a4f"/></svg></div><strong>Inverted Hammer</strong><span>Small body, long upper wick after decline — buyers probed higher</span></button>
+<button type="button" class="candle-card" data-id="shooting" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 60 100" width="44" height="72"><line x1="30" y1="8" x2="30" y2="45" stroke="#b8956a" stroke-width="2"/><rect x="20" y="45" width="20" height="28" fill="#9b2226"/></svg></div><strong>Shooting Star</strong><span>Small body, long upper wick after advance — rejection of highs</span></button>
+<button type="button" class="candle-card" data-id="doji" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 60 100" width="44" height="72"><line x1="30" y1="12" x2="30" y2="88" stroke="#b8956a" stroke-width="2"/><line x1="16" y1="50" x2="44" y2="50" stroke="#b8956a" stroke-width="3"/></svg></div><strong>Standard Doji</strong><span>Open ≈ close — indecision; meaning depends on trend and location</span></button>
+<button type="button" class="candle-card" data-id="dragonfly" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 60 100" width="44" height="72"><line x1="30" y1="50" x2="30" y2="90" stroke="#b8956a" stroke-width="2"/><line x1="16" y1="50" x2="44" y2="50" stroke="#b8956a" stroke-width="3"/></svg></div><strong>Dragonfly Doji</strong><span>Long lower wick, open/close near high — rejection of lows</span></button>
+<button type="button" class="candle-card" data-id="gravestone" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 60 100" width="44" height="72"><line x1="30" y1="10" x2="30" y2="50" stroke="#b8956a" stroke-width="2"/><line x1="16" y1="50" x2="44" y2="50" stroke="#b8956a" stroke-width="3"/></svg></div><strong>Gravestone Doji</strong><span>Long upper wick, open/close near low — rejection of highs</span></button>
+</div>
+<div class="candle-detail" id="single-detail" aria-live="polite"><p class="body-base" style="margin:0;color:rgba(247,245,240,.55)">Select a single-candle pattern above to view its educational description.</p></div>
+
+<h2>Dual-candle patterns</h2>
+<p>Two-session sequences often describe a shift in control more clearly than one candle alone.</p>
+<div class="candle-grid" id="dual-patterns" role="list">
+<button type="button" class="candle-card" data-id="engulf-bull" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 90 100" width="64" height="64"><rect x="12" y="35" width="18" height="30" fill="#9b2226"/><rect x="38" y="22" width="28" height="56" fill="#2d6a4f"/></svg></div><strong>Bullish Engulfing</strong><span>Second body fully covers the first — buyers overwhelm prior sellers</span></button>
+<button type="button" class="candle-card" data-id="engulf-bear" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 90 100" width="64" height="64"><rect x="12" y="35" width="18" height="30" fill="#2d6a4f"/><rect x="38" y="22" width="28" height="56" fill="#9b2226"/></svg></div><strong>Bearish Engulfing</strong><span>Second body fully covers the first — sellers overwhelm prior buyers</span></button>
+<button type="button" class="candle-card" data-id="harami-bull" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 90 100" width="64" height="64"><rect x="10" y="18" width="28" height="64" fill="#9b2226"/><rect x="48" y="38" width="18" height="24" fill="#2d6a4f"/></svg></div><strong>Bullish Harami</strong><span>Small body inside prior large bearish body — selling may be slowing</span></button>
+<button type="button" class="candle-card" data-id="harami-bear" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 90 100" width="64" height="64"><rect x="10" y="18" width="28" height="64" fill="#2d6a4f"/><rect x="48" y="38" width="18" height="24" fill="#9b2226"/></svg></div><strong>Bearish Harami</strong><span>Small body inside prior large bullish body — buying may be slowing</span></button>
+<button type="button" class="candle-card" data-id="piercing" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 90 100" width="64" height="64"><rect x="10" y="25" width="22" height="50" fill="#9b2226"/><rect x="42" y="40" width="22" height="40" fill="#2d6a4f"/></svg></div><strong>Piercing Line</strong><span>Bullish second candle closes well into prior bearish body</span></button>
+<button type="button" class="candle-card" data-id="dark-cloud" role="listitem"><div class="svg-wrap"><svg viewBox="0 0 90 100" width="64" height="64"><rect x="10" y="25" width="22" height="50" fill="#2d6a4f"/><rect x="42" y="20" width="22" height="40" fill="#9b2226"/></svg></div><strong>Dark Cloud Cover</strong><span>Bearish second candle closes well into prior bullish body</span></button>
+</div>
+<div class="candle-detail" id="dual-detail" aria-live="polite"><p class="body-base" style="margin:0;color:rgba(247,245,240,.55)">Select a dual-candle pattern above to view its educational description.</p></div>
+
+<h2>How this ties to WINEMI structure work</h2>
+<ul>
+<li>Inside a <strong>demand base</strong>, rejection of lows (hammers, dragonfly, bullish engulfing) is timing detail — not a substitute for the base.</li>
+<li>Inside a <strong>supply base</strong>, rejection of highs (shooting star, gravestone, bearish engulfing) plays the same role.</li>
+<li>After an <strong>impulsive departure</strong>, marubozu-type bodies often describe the impulse leg; doji clusters may describe pause.</li>
+<li>Always write <strong>invalidation</strong> and check the <strong>calendar</strong> before treating any pattern as high quality.</li>
+</ul>
+
+<div class="quiz-block" id="candle-quiz">
+<h3>Self-check</h3>
+<div class="quiz-question" data-answered="0">
+<p class="quiz-q">A hammer is most useful as a literacy cue when:</p>
+<div class="quiz-options">
+<button type="button" class="quiz-opt" data-correct="false">It appears anywhere on the chart regardless of structure</button>
+<button type="button" class="quiz-opt" data-correct="true">It forms after a decline near defined support or demand, with a plan for invalidation</button>
+<button type="button" class="quiz-opt" data-correct="false">It guarantees a reversal within three sessions</button>
+</div>
+<p class="quiz-feedback"></p>
+</div>
+<div class="quiz-question" data-answered="0" style="margin-top:1.15rem">
+<p class="quiz-q">Bullish engulfing is best described as:</p>
+<div class="quiz-options">
+<button type="button" class="quiz-opt" data-correct="false">A guaranteed long entry on any timeframe</button>
+<button type="button" class="quiz-opt" data-correct="true">A two-candle sequence where the second body fully covers the first — still filtered by structure</button>
+<button type="button" class="quiz-opt" data-correct="false">The same as a doji</button>
+</div>
+<p class="quiz-feedback"></p>
+</div>
+</div>
+
+<p style="margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:.7rem">
+<a class="btn btn-primary" href="education-live.html">Practise on live charts</a>
+<a class="btn btn-secondary" href="education.html">Education hub</a>
+<a class="btn btn-secondary" href="education-risk.html">Risk lab</a>
+<a class="btn btn-secondary" href="insights.html">Insights</a>
+</p>
+</div></section>
+</main>
+<footer class="site-footer" role="contentinfo"></footer>
+<script src="../assets/js/site-nav.js"></script>
+<script src="../assets/js/learn-interactive.js" defer></script>
+<script>
+(function(){
+var details={
+'marubozu-bull':{title:'Bullish Marubozu',bias:'Bullish context cue',body:'A long bullish body with little or no wick. Buyers controlled the session from open to close. Educational use: evidence of directional commitment — still require HTF alignment and a place where the idea is wrong.'},
+'marubozu-bear':{title:'Bearish Marubozu',bias:'Bearish context cue',body:'A long bearish body with minimal wicks. Sellers dominated the period. Useful as a description of impulse, not as a standalone short signal.'},
+hammer:{title:'Hammer',bias:'Potential demand cue after decline',body:'Small body near the top of the range with a long lower wick. Price traded lower and was rejected. Quality improves when it appears after a decline at a defined support or demand zone.'},
+hanging:{title:'Hanging Man',bias:'Potential supply warning after advance',body:'Same geometry as a hammer, but after a rally. The long lower wick shows a temporary sell-off that recovered into the close — a possible early sign of supply if confirmed by structure.'},
+'inv-hammer':{title:'Inverted Hammer',bias:'Probe higher after decline',body:'Small body with a long upper wick after a down-move. Buyers pushed higher but did not hold the extreme. Often a watch-list cue pending confirmation.'},
+shooting:{title:'Shooting Star',bias:'Rejection of highs after advance',body:'Small body with a long upper wick after a rally. Price explored higher and failed. Stronger at HTF premium or defined supply with invalidation above the high.'},
+doji:{title:'Standard Doji',bias:'Indecision',body:'Open and close are nearly equal. Balance for that session. Meaning depends on prior trend, location, and the next session.'},
+dragonfly:{title:'Dragonfly Doji',bias:'Rejection of lows',body:'Open and close near the high with a long lower wick. Aggressive rejection of lower prices. Context still decides whether this is meaningful.'},
+gravestone:{title:'Gravestone Doji',bias:'Rejection of highs',body:'Open and close near the low with a long upper wick. Rejection of higher prices. Pair with supply location and invalidation above the wick.'},
+'engulf-bull':{title:'Bullish Engulfing',bias:'Shift toward buy-side control',body:'A bullish candle whose body fully covers the prior bearish body. Describes a clear shift in session control. Best read after a decline or at demand, with invalidation below the two-candle structure.'},
+'engulf-bear':{title:'Bearish Engulfing',bias:'Shift toward sell-side control',body:'A bearish candle whose body fully covers the prior bullish body. Filter with HTF premium/supply and invalidation above the structure.'},
+'harami-bull':{title:'Bullish Harami',bias:'Possible slowing of selling',body:'A small body inside the prior large bearish body. Selling may be decelerating. Weaker than engulfing; often needs confirmation and strong location.'},
+'harami-bear':{title:'Bearish Harami',bias:'Possible slowing of buying',body:'A small body inside the prior large bullish body. Buying momentum may be fading. Soft warning until structure confirms.'},
+piercing:{title:'Piercing Line',bias:'Recovery into prior decline',body:'After a bearish session, a bullish candle opens weaker and closes well into the prior body. Describes a recovery attempt — quality depends on location and follow-through.'},
+'dark-cloud':{title:'Dark Cloud Cover',bias:'Pressure into prior advance',body:'After a bullish session, a bearish candle opens stronger and closes well into the prior body. Structure and invalidation decide usefulness.'}
+};
+function bind(gridId,detailId){
+var grid=document.getElementById(gridId),detail=document.getElementById(detailId);
+if(!grid||!detail)return;
+grid.addEventListener('click',function(e){
+var card=e.target.closest('.candle-card');if(!card)return;
+grid.querySelectorAll('.candle-card').forEach(function(c){c.classList.remove('active')});
+card.classList.add('active');
+var d=details[card.getAttribute('data-id')];if(!d)return;
+detail.innerHTML='<span class="bias">'+d.bias+'</span><h3>'+d.title+'</h3><p class="body-base">'+d.body+'</p><p class="body-small" style="margin:0;opacity:.7">Educational description only. Not a recommendation to trade.</p>';
+});
+}
+bind('single-patterns','single-detail');
+bind('dual-patterns','dual-detail');
+})();
+</script>
+</body>
+</html>
