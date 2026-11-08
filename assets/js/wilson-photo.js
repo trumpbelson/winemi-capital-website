@@ -1,4 +1,4 @@
-/** Load sharpened Wilson from split b64 assets */
+/** Load sharpened Wilson */
 (function(){
   var img=document.getElementById("founder-photo-wilson");
   if(!img)return;
@@ -8,10 +8,10 @@
     fetch(base+"wilson.b64.b.txt").then(function(r){return r.text()})
   ]).then(function(parts){
     var t=((parts[0]||"")+(parts[1]||"")).replace(/\s+/g,"");
-    if(!t||t.indexOf("PLACEHOLDER")===0)return;
+    if(!t)return;
     img.decoding="async";
     img.loading="eager";
-    img.style.filter="contrast(1.14) saturate(1.1)";
+    img.style.filter="contrast(1.16) saturate(1.12)";
     img.removeAttribute("srcset");
     img.src="data:image/jpeg;base64,"+t;
   }).catch(function(){});
