@@ -3,56 +3,341 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Macro &amp; data desk | WINEMI CAPITAL.</title>
-  <meta name="description" content="Economic calendar and cross-asset macro context for education." />
+  <meta name="theme-color" content="#0a0a0b" />
+  <title>Macro & data desk | WINEMI CAPITAL.</title>
+  <meta name="description" content="Economic calendar, yields, dollar, and cross-asset macro context for education at WINEMI CAPITAL." />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/nav.css" />
   <link rel="stylesheet" href="../assets/css/logo.css" />
   <link rel="stylesheet" href="../assets/css/glass.css" />
   <link rel="stylesheet" href="../assets/css/learn-interactive.css" />
   <link rel="stylesheet" href="../assets/css/footer-rich.css" />
+  <link rel="stylesheet" href="../assets/css/light-theme.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
-  <script src="../assets/js/page-ready.js"></script>
+  <style>
+    .macro-lead { max-width: 42rem; margin: 0 0 1.75rem; }
+    .macro-panel {
+      border: 1px solid rgba(184,149,106,0.28);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0e0e10;
+    }
+    .macro-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.85rem 1.1rem;
+      border-bottom: 1px solid rgba(184,149,106,0.18);
+      background: #121214;
+    }
+    .macro-panel-head h2 {
+      margin: 0;
+      font-family: var(--font-serif, Georgia, serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--color-text-primary, #f7f5f0);
+    }
+    .macro-panel-head .hint {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(184,149,106,0.9);
+      font-weight: 600;
+    }
+    .macro-widget { width: 100%; height: 520px; min-height: 480px; }
+    .macro-widget--tall { height: 560px; min-height: 520px; }
+    .macro-widget--mid { height: 420px; min-height: 380px; }
+    .macro-widget--mini { height: 280px; min-height: 260px; }
+    @media (max-width: 767px) {
+      .macro-widget { height: 420px; min-height: 380px; }
+      .macro-widget--tall { height: 460px; min-height: 420px; }
+      .macro-widget--mid { height: 360px; min-height: 340px; }
+      .macro-widget--mini { height: 240px; min-height: 220px; }
+    }
+    .macro-widget .tradingview-widget-container,
+    .macro-widget .tradingview-widget-container__widget {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    .macro-checklist {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+    .macro-checklist li {
+      position: relative;
+      padding: 0.9rem 1rem 0.9rem 2.35rem;
+      border: 1px solid rgba(184,149,106,0.2);
+      border-radius: 8px;
+      background: var(--surface-elevated, #161618);
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      color: var(--color-text-secondary, rgba(247,245,240,0.78));
+    }
+    .macro-checklist li::before {
+      content: "";
+      position: absolute;
+      left: 0.95rem;
+      top: 1.15rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--color-muted-gold, #b8956a);
+      box-shadow: 0 0 0 3px rgba(184,149,106,0.14);
+    }
+    .macro-pair-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0 2rem;
+    }
+    @media (max-width: 767px) {
+      .macro-pair-grid { grid-template-columns: 1fr; }
+    }
+    .macro-note {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.15rem;
+      border-left: 3px solid rgba(184,149,106,0.55);
+      background: rgba(184,149,106,0.06);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--color-text-secondary, rgba(247,245,240,0.75));
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" role="banner"></header>
+
   <main id="main">
-    <div class="page-header"><div class="container">
-      <p class="label">Education · Macro</p>
-      <h1 class="heading-1">Macro &amp; data desk</h1>
-      <p class="body-large" style="max-width:720px;">Policy paths, growth dispersion, and the data calendar — read next to structure, not instead of it. Educational context only.</p>
-    </div></div>
-    <section class="section"><div class="container">
-      <div class="context-strip"><p class="label">How to use this desk</p><p>Scan the calendar for high-impact releases. Note whether quiet bases sit in front of those events. Cross-check equities against yields, the dollar, and gold.</p></div>
-      <h2 class="heading-2" style="margin-top:1.5rem;">Economic calendar</h2>
-      <div style="margin:1rem 0 2rem;border:1px solid rgba(184,149,106,0.28);border-radius:14px;overflow:hidden;min-height:400px;background:#0e0e10;">
-        <div class="tradingview-widget-container" style="height:420px;">
-          <div class="tradingview-widget-container__widget" style="height:420px;"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
-          {"colorTheme":"dark","isTransparent":true,"width":"100%","height":"100%","locale":"en","importanceFilter":"0,1","countryFilter":"us,eu,gb,jp,cn"}
-          </script>
+    <div class="page-header">
+      <div class="container">
+        <p class="label">Education · Macro</p>
+        <h1 class="heading-1">Macro & data desk</h1>
+        <p class="body-large macro-lead">Policy paths, growth dispersion, and the data calendar — read next to structure, not instead of it. This desk is educational context only; it is not a forecast or a solicitation.</p>
+      </div>
+    </div>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="context-strip">
+          <p class="label">How to use this desk</p>
+          <p>Scan the calendar for high-impact releases. Note whether quiet bases sit in front of those events. Cross-check equities against yields, the dollar, and gold on the overview and mini charts. Invalidation still belongs on the price structure — macro only sets the backdrop.</p>
         </div>
-      </div>
-      <h2 class="heading-2">Cross-asset overview</h2>
-      <div style="margin:1rem 0 2rem;border:1px solid rgba(184,149,106,0.28);border-radius:14px;overflow:hidden;min-height:420px;background:#0e0e10;">
-        <div class="tradingview-widget-container" style="height:450px;">
-          <div class="tradingview-widget-container__widget" style="height:450px;"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-          {"colorTheme":"dark","dateRange":"1M","showChart":true,"locale":"en","width":"100%","height":"100%","isTransparent":true,"showSymbolLogo":true,"tabs":[{"title":"Indices","symbols":[{"s":"FOREXCOM:SPXUSD","d":"S&P 500"},{"s":"FOREXCOM:NSXUSD","d":"NASDAQ 100"}]},{"title":"Rates & FX","symbols":[{"s":"TVC:US10Y","d":"US 10Y"},{"s":"TVC:DXY","d":"DXY"},{"s":"FX:EURUSD","d":"EUR/USD"}]},{"title":"Commodities","symbols":[{"s":"TVC:GOLD","d":"Gold"},{"s":"TVC:USOIL","d":"WTI"}]}]}
-          </script>
+
+        <h2 class="heading-2" style="margin-top:2rem;">Desk workflow</h2>
+        <ol class="macro-checklist" style="margin-top:1rem;">
+          <li><strong>Calendar first.</strong> Identify high-impact releases in the next 1–5 sessions (CPI, labour, PMIs, central banks).</li>
+          <li><strong>Map the backdrop.</strong> Check US 10Y, DXY, and major equity indices for regime — risk-on, risk-off, or mixed.</li>
+          <li><strong>Structure second.</strong> Only then open HTF zones and candles. Event risk is part of zone quality.</li>
+          <li><strong>Write invalidation.</strong> If a base sits into a major print, define what would break the structure before the print, not after.</li>
+        </ol>
+
+        <div class="macro-panel" style="margin-top:2rem;">
+          <div class="macro-panel-head">
+            <h2>Economic calendar</h2>
+            <span class="hint">High & medium impact · US · EU · UK · JP · CN</span>
+          </div>
+          <div class="macro-widget macro-widget--tall" id="macro-calendar">
+            <div class="tradingview-widget-container" style="height:100%;width:100%;">
+              <div class="tradingview-widget-container__widget" style="height:100%;width:100%;"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+              {
+                "colorTheme": "dark",
+                "isTransparent": true,
+                "width": "100%",
+                "height": "100%",
+                "locale": "en",
+                "importanceFilter": "-1,0,1",
+                "countryFilter": "us,eu,gb,jp,cn,au,ca,ch"
+              }
+              </script>
+            </div>
+          </div>
         </div>
+        <p class="macro-note">Filter mentally for central banks, inflation, and labour. Low-impact prints rarely change structure; high-impact prints can expand ranges and invalidate quiet bases.</p>
+
+        <div class="macro-panel" style="margin-top:2.25rem;">
+          <div class="macro-panel-head">
+            <h2>Cross-asset overview</h2>
+            <span class="hint">Indices · rates · FX · commodities</span>
+          </div>
+          <div class="macro-widget macro-widget--tall" id="macro-overview">
+            <div class="tradingview-widget-container" style="height:100%;width:100%;">
+              <div class="tradingview-widget-container__widget" style="height:100%;width:100%;"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+              {
+                "colorTheme": "dark",
+                "dateRange": "1M",
+                "showChart": true,
+                "locale": "en",
+                "width": "100%",
+                "height": "100%",
+                "isTransparent": true,
+                "showSymbolLogo": true,
+                "showFloatingTooltip": true,
+                "tabs": [
+                  {
+                    "title": "Indices",
+                    "symbols": [
+                      { "s": "FOREXCOM:SPXUSD", "d": "S&P 500" },
+                      { "s": "FOREXCOM:NSXUSD", "d": "NASDAQ 100" },
+                      { "s": "INDEX:DEU40", "d": "DAX" },
+                      { "s": "FOREXCOM:UKXGBP", "d": "FTSE 100" },
+                      { "s": "TVC:NI225", "d": "Nikkei 225" }
+                    ]
+                  },
+                  {
+                    "title": "Rates & FX",
+                    "symbols": [
+                      { "s": "TVC:US10Y", "d": "US 10Y" },
+                      { "s": "TVC:US02Y", "d": "US 2Y" },
+                      { "s": "TVC:DXY", "d": "DXY" },
+                      { "s": "FX:EURUSD", "d": "EUR/USD" },
+                      { "s": "FX:USDJPY", "d": "USD/JPY" }
+                    ]
+                  },
+                  {
+                    "title": "Commodities",
+                    "symbols": [
+                      { "s": "TVC:GOLD", "d": "Gold" },
+                      { "s": "TVC:SILVER", "d": "Silver" },
+                      { "s": "TVC:USOIL", "d": "WTI Crude" },
+                      { "s": "TVC:COPPER", "d": "Copper" }
+                    ]
+                  }
+                ]
+              }
+              </script>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="heading-2" style="margin-top:2.5rem;">Key gauges</h2>
+        <p class="body-base" style="max-width:40rem;margin:0.5rem 0 1rem;">Three reference series used as context, not as standalone signals.</p>
+        <div class="macro-pair-grid">
+          <div class="macro-panel">
+            <div class="macro-panel-head"><h2>US 10-year yield</h2><span class="hint">TVC:US10Y</span></div>
+            <div class="macro-widget macro-widget--mini">
+              <div class="tradingview-widget-container" style="height:100%;width:100%;">
+                <div class="tradingview-widget-container__widget" style="height:100%;width:100%;"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                {"symbol":"TVC:US10Y","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true,"largeChartUrl":""}
+                </script>
+              </div>
+            </div>
+          </div>
+          <div class="macro-panel">
+            <div class="macro-panel-head"><h2>US Dollar Index</h2><span class="hint">TVC:DXY</span></div>
+            <div class="macro-widget macro-widget--mini">
+              <div class="tradingview-widget-container" style="height:100%;width:100%;">
+                <div class="tradingview-widget-container__widget" style="height:100%;width:100%;"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                {"symbol":"TVC:DXY","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true,"largeChartUrl":""}
+                </script>
+              </div>
+            </div>
+          </div>
+          <div class="macro-panel">
+            <div class="macro-panel-head"><h2>Gold</h2><span class="hint">TVC:GOLD</span></div>
+            <div class="macro-widget macro-widget--mini">
+              <div class="tradingview-widget-container" style="height:100%;width:100%;">
+                <div class="tradingview-widget-container__widget" style="height:100%;width:100%;"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                {"symbol":"TVC:GOLD","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true,"largeChartUrl":""}
+                </script>
+              </div>
+            </div>
+          </div>
+          <div class="macro-panel">
+            <div class="macro-panel-head"><h2>S&P 500</h2><span class="hint">SPX</span></div>
+            <div class="macro-widget macro-widget--mini">
+              <div class="tradingview-widget-container" style="height:100%;width:100%;">
+                <div class="tradingview-widget-container__widget" style="height:100%;width:100%;"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                {"symbol":"FOREXCOM:SPXUSD","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true,"largeChartUrl":""}
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="macro-panel" style="margin-top:0.5rem;">
+          <div class="macro-panel-head">
+            <h2>Stock heatmap</h2>
+            <span class="hint">Sector rotation snapshot</span>
+          </div>
+          <div class="macro-widget macro-widget--mid" id="macro-heatmap">
+            <div class="tradingview-widget-container" style="height:100%;width:100%;">
+              <div class="tradingview-widget-container__widget" style="height:100%;width:100%;"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+              {
+                "exchanges": [],
+                "dataSource": "SPX500",
+                "grouping": "sector",
+                "blockSize": "market_cap_basic",
+                "blockColor": "change",
+                "locale": "en",
+                "symbolUrl": "",
+                "colorTheme": "dark",
+                "hasTopBar": false,
+                "isDataSetEnabled": false,
+                "isZoomEnabled": true,
+                "hasSymbolTooltip": true,
+                "isMonoSize": false,
+                "width": "100%",
+                "height": "100%"
+              }
+              </script>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="heading-2" style="margin-top:2.5rem;">Study themes</h2>
+        <div class="grid-3" style="margin-top:1rem;">
+          <article class="card">
+            <h3 class="card-title">Policy reaction function</h3>
+            <p class="card-text">How markets price the next moves in rates often matters as much as the level of rates itself. Watch front-end yields and terminal-rate narratives around major prints.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Growth dispersion</h3>
+            <p class="card-text">Regions diverge. Relative growth shows up in FX, equity leadership, and commodity demand. Compare US, Europe, and Asia rather than treating “risk” as one switch.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Event risk</h3>
+            <p class="card-text">Treat major data and central-bank days as part of zone quality — not an afterthought. Quiet bases into those events can fail when liquidity reprices.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Dollar & yields</h3>
+            <p class="card-text">A rising DXY with rising real yields often pressures gold and emerging FX; the reverse can support them. Always confirm with structure on the chart you trade.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Liquidity lens</h3>
+            <p class="card-text">Balance-sheet paths and funding stress change the amplitude of moves. Macro does not replace candle invalidation; it changes how far a failed level may run.</p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Cross-asset check</h3>
+            <p class="card-text">Equities, yields, the dollar, and gold should be read together. Isolated charts invite narrative; the desk prefers convergent context.</p>
+          </article>
+        </div>
+
+        <p class="macro-note">Educational framing only. Nothing on this page is investment advice, a recommendation, or a solicitation to buy or sell any instrument.</p>
+
+        <p style="margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:0.65rem;">
+          <a class="btn btn-primary" href="education-live.html">Structure lab</a>
+          <a class="btn btn-secondary" href="education-candlesticks.html">Candlestick literacy</a>
+          <a class="btn btn-secondary" href="education.html">Education hub</a>
+          <a class="btn btn-secondary" href="insights.html">Insights</a>
+          <a class="btn btn-secondary" href="markets.html">Markets workspace</a>
+        </p>
       </div>
-      <h2 class="heading-2">Study themes</h2>
-      <div class="grid-3" style="margin-top:1rem;">
-        <article class="card"><h3 class="card-title">Policy reaction function</h3><p class="card-text">How markets price the next moves in rates matters as much as the level of rates itself.</p></article>
-        <article class="card"><h3 class="card-title">Growth dispersion</h3><p class="card-text">Regions diverge. Relative growth shows up in FX, equity leadership, and commodity demand.</p></article>
-        <article class="card"><h3 class="card-title">Event risk</h3><p class="card-text">Treat major data and central-bank days as part of zone quality — not an afterthought.</p></article>
-      </div>
-      <p style="margin-top:1.5rem;"><a class="btn btn-primary" href="education-live.html">Structure lab</a> <a class="btn btn-secondary" href="education.html">Education hub</a> <a class="btn btn-secondary" href="insights.html">Insights</a></p>
-    </div></section>
+    </section>
   </main>
+
   <footer class="site-footer" role="contentinfo"></footer>
   <script src="../assets/js/site-nav.js"></script>
   <script src="../assets/js/learn-interactive.js" defer></script>
