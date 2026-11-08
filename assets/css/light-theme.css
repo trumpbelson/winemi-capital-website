@@ -1,45 +1,76 @@
-/* LIGHT THEME READABILITY + FOUNDER IMAGE CLARITY */
+/* ========== DAYLIGHT THEME — readable type on light & dark surfaces ========== */
+
 html[data-theme="light"] {
-  --color-text-primary: #0c0c0e;
-  --color-text-secondary: rgba(12, 12, 14, 0.82);
-  --color-text-muted: rgba(12, 12, 14, 0.58);
+  --color-charcoal: #f3f0e8;
+  --color-ink: #ffffff;
+  --color-ivory: #0c0c0e;
   --color-muted-gold: #7a5f32;
   --color-gold: #9a7340;
-  --surface-elevated: #ffffff;
   --color-border: rgba(12, 12, 14, 0.12);
+  --color-text-primary: #0c0c0e;
+  --color-text-secondary: rgba(12, 12, 14, 0.84);
+  --color-text-muted: rgba(12, 12, 14, 0.58);
+  --surface-elevated: #ffffff;
 }
 
 html[data-theme="light"] body {
-  background: #f4f1ea;
-  color: #0c0c0e;
+  background: #f3f0e8 !important;
+  color: #0c0c0e !important;
 }
 
+html[data-theme="light"] body::before {
+  opacity: 0.4;
+  background: radial-gradient(ellipse 70% 40% at 50% -8%, rgba(184, 149, 106, 0.07), transparent 55%) !important;
+}
+
+/* ---- Light surfaces: force dark, readable type ---- */
 html[data-theme="light"] .body-base,
 html[data-theme="light"] .body-large,
 html[data-theme="light"] .body-lead,
+html[data-theme="light"] .body-small,
 html[data-theme="light"] .card-text,
+html[data-theme="light"] .prose,
 html[data-theme="light"] .prose p,
 html[data-theme="light"] .prose li,
+html[data-theme="light"] .prose td,
+html[data-theme="light"] .prose th,
 html[data-theme="light"] .founder-copy .body-base,
-html[data-theme="light"] .founder-highlights li {
-  color: rgba(12, 12, 14, 0.82) !important;
+html[data-theme="light"] .founder-highlights li,
+html[data-theme="light"] .about-lead-intro,
+html[data-theme="light"] .section p,
+html[data-theme="light"] .section li,
+html[data-theme="light"] .page-header p,
+html[data-theme="light"] main p,
+html[data-theme="light"] main li {
+  color: rgba(12, 12, 14, 0.84) !important;
 }
 
 html[data-theme="light"] .heading-1,
 html[data-theme="light"] .heading-2,
 html[data-theme="light"] .card-title,
 html[data-theme="light"] .founder-name,
-html[data-theme="light"] h1, html[data-theme="light"] h2, html[data-theme="light"] h3 {
+html[data-theme="light"] .founder-plate-name,
+html[data-theme="light"] .section-title,
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4 {
   color: #0c0c0e !important;
   text-shadow: none !important;
 }
 
-html[data-theme="light"] .label {
+html[data-theme="light"] .label,
+html[data-theme="light"] .founder-role,
+html[data-theme="light"] .founder-plate-role {
   color: #7a5f32 !important;
 }
 
 html[data-theme="light"] .card,
 html[data-theme="light"] .about-panel,
+html[data-theme="light"] .about-principle,
+html[data-theme="light"] .about-focus-card,
+html[data-theme="light"] .about-value,
+html[data-theme="light"] .about-partnership-inner,
 html[data-theme="light"] .pair-card,
 html[data-theme="light"] .founder-home-card,
 html[data-theme="light"] .split-visual,
@@ -54,62 +85,204 @@ html[data-theme="light"] .insight-feature,
 html[data-theme="light"] .data-chip,
 html[data-theme="light"] .quiz-block,
 html[data-theme="light"] .pattern-card,
-html[data-theme="light"] .accordion-trigger {
+html[data-theme="light"] .pattern-detail,
+html[data-theme="light"] .accordion-trigger,
+html[data-theme="light"] .accordion-panel,
+html[data-theme="light"] .learn-nav,
+html[data-theme="light"] .context-strip,
+html[data-theme="light"] .edu-subnav a {
   background: #ffffff !important;
   border-color: rgba(122, 95, 50, 0.28) !important;
   color: #0c0c0e !important;
 }
 
 html[data-theme="light"] .candle-card span,
+html[data-theme="light"] .pattern-card span,
 html[data-theme="light"] .insight-card p,
-html[data-theme="light"] .accordion-panel {
-  color: rgba(12, 12, 14, 0.78) !important;
+html[data-theme="light"] .accordion-panel,
+html[data-theme="light"] .accordion-panel p,
+html[data-theme="light"] .pattern-detail p,
+html[data-theme="light"] .quiz-q,
+html[data-theme="light"] .quiz-feedback,
+html[data-theme="light"] .context-strip p {
+  color: rgba(12, 12, 14, 0.8) !important;
 }
 
-html[data-theme="light"] .candle-card strong {
+html[data-theme="light"] .candle-card strong,
+html[data-theme="light"] .pattern-card strong {
   color: #7a5f32 !important;
 }
 
+html[data-theme="light"] .quiz-opt {
+  background: #fff !important;
+  border-color: rgba(122, 95, 50, 0.28) !important;
+  color: rgba(12, 12, 14, 0.88) !important;
+}
+html[data-theme="light"] .quiz-opt:hover {
+  background: rgba(122, 95, 50, 0.08) !important;
+}
+html[data-theme="light"] .quiz-opt.correct {
+  color: #1e5c32 !important;
+  border-color: rgba(30, 92, 50, 0.45) !important;
+  background: rgba(30, 92, 50, 0.08) !important;
+}
+html[data-theme="light"] .quiz-opt.wrong {
+  color: #8a2a2a !important;
+  border-color: rgba(138, 42, 42, 0.4) !important;
+  background: rgba(138, 42, 42, 0.06) !important;
+}
+
+html[data-theme="light"] .edu-subnav a {
+  color: rgba(12, 12, 14, 0.65) !important;
+}
+html[data-theme="light"] .edu-subnav a:hover,
+html[data-theme="light"] .edu-subnav a.active {
+  color: #7a5f32 !important;
+  border-color: rgba(122, 95, 50, 0.5) !important;
+}
+
 html[data-theme="light"] .page-header {
-  background: #f4f1ea;
+  background: #f3f0e8 !important;
+}
+
+html[data-theme="light"] .btn-secondary {
+  color: #0c0c0e !important;
+  border-color: rgba(12, 12, 14, 0.18) !important;
+}
+html[data-theme="light"] .btn-secondary:hover {
+  color: #7a5f32 !important;
+  border-color: rgba(122, 95, 50, 0.55) !important;
+}
+html[data-theme="light"] .btn-primary {
+  color: #0c0c0e !important;
+  background: #c9a87c !important;
+}
+html[data-theme="light"] .btn-primary:hover {
+  background: #b8956a !important;
 }
 
 html[data-theme="light"] .site-header {
   background: #f7f5f0 !important;
   border-bottom: 1px solid rgba(12, 12, 14, 0.1) !important;
 }
-
 html[data-theme="light"] .nav-desktop a,
+html[data-theme="light"] .nav-link,
 html[data-theme="light"] .header-meta,
-html[data-theme="light"] .mobile-toggle {
-  color: rgba(12, 12, 14, 0.78) !important;
+html[data-theme="light"] .mobile-toggle,
+html[data-theme="light"] .theme-toggle {
+  color: rgba(12, 12, 14, 0.8) !important;
 }
-
 html[data-theme="light"] .nav-desktop a:hover,
-html[data-theme="light"] .nav-desktop a.active {
+html[data-theme="light"] .nav-link:hover,
+html[data-theme="light"] .nav-desktop a.active,
+html[data-theme="light"] .nav-link.active {
   color: #7a5f32 !important;
 }
-
-html[data-theme="light"] body::before {
-  opacity: 0.45;
-  background:
-    radial-gradient(ellipse 70% 40% at 50% -8%, rgba(184, 149, 106, 0.06), transparent 55%) !important;
+html[data-theme="light"] .mobile-nav {
+  background: #f7f5f0 !important;
+  color: #0c0c0e !important;
+}
+html[data-theme="light"] .mobile-nav a.nav-link {
+  color: rgba(12, 12, 14, 0.85) !important;
+  border-bottom-color: rgba(12, 12, 14, 0.08) !important;
 }
 
-html[data-theme="light"] .hero::before,
-html[data-theme="light"] .hero::after {
-  opacity: 0.35;
+/* ---- Dark surfaces that stay dark: force light, readable type ---- */
+html[data-theme="light"] .site-footer,
+html[data-theme="light"] .site-footer * {
+  color: rgba(247, 245, 240, 0.82) !important;
 }
-
 html[data-theme="light"] .site-footer {
   background: #0e0e10 !important;
-  color: #f7f5f0 !important;
 }
 html[data-theme="light"] .site-footer a {
-  color: rgba(247, 245, 240, 0.78) !important;
+  color: rgba(247, 245, 240, 0.8) !important;
 }
-html[data-theme="light"] .site-footer .label {
+html[data-theme="light"] .site-footer a:hover {
   color: #c9a87c !important;
+}
+html[data-theme="light"] .site-footer .label,
+html[data-theme="light"] .site-footer h3,
+html[data-theme="light"] .site-footer h4 {
+  color: #c9a87c !important;
+}
+html[data-theme="light"] .site-footer .footer-copy,
+html[data-theme="light"] .site-footer .footer-legal a {
+  color: rgba(247, 245, 240, 0.55) !important;
+}
+
+html[data-theme="light"] .market-ticker,
+html[data-theme="light"] .news-ticker,
+html[data-theme="light"] .top-feed,
+html[data-theme="light"] .ticker-tape {
+  background: #0e0e10 !important;
+  color: rgba(247, 245, 240, 0.88) !important;
+}
+html[data-theme="light"] .market-ticker *,
+html[data-theme="light"] .news-ticker *,
+html[data-theme="light"] .top-feed * {
+  color: rgba(247, 245, 240, 0.85) !important;
+}
+html[data-theme="light"] .news-sep {
+  color: rgba(184, 149, 106, 0.7) !important;
+}
+
+html[data-theme="light"] .wc-map-popup,
+html[data-theme="light"] .wc-map-legend {
+  background: #141416 !important;
+  color: #f7f5f0 !important;
+}
+html[data-theme="light"] .wc-map-popup-desc,
+html[data-theme="light"] .wc-map-popup-hint,
+html[data-theme="light"] .wc-map-legend .leg-btn {
+  color: rgba(247, 245, 240, 0.75) !important;
+}
+
+html[data-theme="light"] .hero .hero-title,
+html[data-theme="light"] .hero .heading-1,
+html[data-theme="light"] .hero h1 {
+  color: #f7f5f0 !important;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45) !important;
+}
+html[data-theme="light"] .hero .hero-sub,
+html[data-theme="light"] .hero .body-large,
+html[data-theme="light"] .hero .body-base,
+html[data-theme="light"] .hero .label {
+  color: rgba(247, 245, 240, 0.88) !important;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4) !important;
+}
+html[data-theme="light"] .hero .label {
+  color: #c9a87c !important;
+}
+html[data-theme="light"] .hero .btn-secondary {
+  color: #f7f5f0 !important;
+  border-color: rgba(247, 245, 240, 0.35) !important;
+}
+
+html[data-theme="light"] .tv-workspace,
+html[data-theme="light"] .tv-panel,
+html[data-theme="light"] .markets-preview,
+html[data-theme="light"] #markets-preview {
+  color: rgba(247, 245, 240, 0.88) !important;
+}
+
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] select {
+  background: #ffffff !important;
+  color: #0c0c0e !important;
+  border-color: rgba(12, 12, 14, 0.16) !important;
+}
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder {
+  color: rgba(12, 12, 14, 0.42) !important;
+}
+
+html[data-theme="light"] main a:not(.btn):not(.nav-link):not(.edu-subnav a) {
+  color: #6b5229 !important;
+}
+html[data-theme="light"] main a:not(.btn):not(.nav-link):hover {
+  color: #7a5f32 !important;
 }
 
 #founder-photo-wilson,
@@ -119,37 +292,19 @@ html[data-theme="light"] .site-footer .label {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0);
-  filter: contrast(1.04) saturate(1.02);
+  filter: contrast(1.05) saturate(1.03);
 }
-
 #founder-photo-wilson {
   object-fit: cover;
   object-position: center 16%;
   min-height: 320px;
 }
-
 .founder-photo-frame::after {
-  background:
-    linear-gradient(
-      165deg,
-      rgba(184, 149, 106, 0.05) 0%,
-      transparent 40%,
-      transparent 70%,
-      rgba(0, 0, 0, 0.12) 100%
-    ) !important;
+  background: linear-gradient(165deg, rgba(184, 149, 106, 0.05) 0%, transparent 40%, transparent 70%, rgba(0, 0, 0, 0.12) 100%) !important;
 }
-
 html[data-theme="light"] .founder-photo-frame::after {
-  background:
-    linear-gradient(
-      165deg,
-      rgba(184, 149, 106, 0.04) 0%,
-      transparent 45%,
-      transparent 75%,
-      rgba(0, 0, 0, 0.04) 100%
-    ) !important;
+  background: linear-gradient(165deg, rgba(184, 149, 106, 0.04) 0%, transparent 45%, transparent 75%, rgba(0, 0, 0, 0.04) 100%) !important;
 }
-
 html[data-theme="light"] .founder-photo-frame {
   background: #fff;
 }
