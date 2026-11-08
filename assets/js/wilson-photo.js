@@ -1,2 +1,14 @@
-/** Wilson sharpened */
-(function(){var i=document.getElementById("founder-photo-wilson");if(!i)return;i.decoding="async";i.loading="eager";i.style.filter="contrast(1.14) saturate(1.1)";i.removeAttribute("srcset");i.src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA4KCw0LCQ4NDA0QDw4RFiQXFhQUFiwgIRokNC43NjMuMjI6QVNGOj1OPjIySGJJTlZYXV5dOEVmbWVabFNbXVn/2wBDAQ8QEBYTFioXFypZOzI7WVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVn/wAARCAF/AUADASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABAECAwUGBwD/xABMEAACAQMDAQYDBQQFCQcEAwEBAgMABBEFEiExBhMiQVFhMnGBFCORobEzQlLBFWJy0fAHFiQ0Q3OSsuElNVNUdILxF0RjwiaDomT/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMABP/EACMRAQEAAgIDAAIDAQEAAAAAAAABAhEhMQMSQTJREyJhcYH/2gAMAwEAAhEDEQA/ANNs96TFS4wOeKbjkDzPlXI6EVyoOmXgwDmM9fka5/2UC/bY+881UfTPNdFmU/YbsHyX9QawPZJe81uOPHSPOPYHB/Sr+JLyJ9VRU7X2hOdrxygcezAVk5Y+71Bx02XAXOenJrd9r4RB2i0cxk8rN19iaxWpME1W73Dwm5D8enJ/nVNcpzp0OGUCygGeiHzpDKMfEa0Ueg2/cCNiOMjj0pf6BsupVh9afgu9MsefI/hTWVicDOfStSvZ3TVGFR8/2zQeraNZWthdTxd6rxIHB3ZHpSepplFCysTx5dc8UgifjjOaqbTUpZjGD1ZQx5q1bvlVySenka3pR9ju5k5wDSmOQDB4PpmqtruVQSZCKl0xp7mV0Q78fEM0vrR94JMoVtpfP0pHkQdHY/Kqu8snW5kCR3JbB6E4/KnpFMLd2eCUEfxNya3rWmUG97GB4nJ980guIBjn/SVHuehpLjkaWM/22QDswwGMiUE+tZe8/wBflIHhKKB74ArX9s3hk7MTCCaNm3DPIPAbnpWPuf8AWx/uhz+NUwlkbewxI3QD+rg+xpg649Wp7/7L60zALJ7tTgjYZik/t0kY23Tf2D+lOmyYrkeffZGPSkix9rH9g/8AKa3QRAARa2X9r++jUP8A2k5H/nYv04oNf9UtPQP/AH0dD/3m3tdwsfw/60uXVPj26ZrmBqOkN5i4I/FTXI4U4ug37pl/ECuua8P9N0k+QuMfiMVyWMHfdH+tP/ymk8P0k/GIx0tTn90Z4prf7b/eHmnLysI/Cmn4Ln5jFWZ1zRWnvNGsJplVp5IvvfI5z1xVF2i7RTx3cWh6IB9ruCFM7Y8IJxwMfn6UfDJPbaVrGmyMI3sIx3DqPFtxkH35oDsLpVy73Gt3UYRrhB9mklwxXruPHQfhxSfUrV/Daix057YP3skcIV3/AIm86w3YxQvaizj5AKTg5+XT36Vq5u0ujRfa1F29w8bfsoozknJGM455PWsl2Ye/btBayWsSI3eShu+6g4OR6jyq3iJ5F7238Gu9nyfNphn5kf31zvVWb7fc5J+MH8q6F2+75L/s9LMUz37A4HTla59rY26rdgdA4H5VSkxjuqSMVJz0kcfTNODcU2P9ln+u347jThVInSpn/BoTVxnSr4kdYM/hnNGKoND6goayuAT/ALCQc9OaDRyDTG/0m0XIwY8Z+WD/ADrXSY2sRgArWP04ZntOP3Qc++FrXsv3Z/snpQOpDwW486P0W+FnLPsZVZ+uVqvbgnPHFE6VEjzOGAJ8lNCtodJqBS9Z+doUdDU7zPeWMk0cYxzjPnQd7GIpEVVOzr0pGnmit+7VSIwa2wkApPMbXeyqpC5Oc8cU/bcytiKHIUFmcnCoB+8zdAPnUtneBUZO/jgER3PKRvbZuxu6cjHNVOp6";})();
+/** Wilson Antwi Amoako — sharpened portrait */
+(function () {
+  var img = document.getElementById("founder-photo-wilson");
+  if (!img) return;
+  var a = window.__WILSON_B64_A || "";
+  var b = window.__WILSON_B64_B || "";
+  if (!a || !b) return;
+  img.decoding = "async";
+  img.loading = "eager";
+  img.style.imageRendering = "auto";
+  img.style.filter = "contrast(1.14) saturate(1.1)";
+  img.removeAttribute("srcset");
+  img.src = "data:image/jpeg;base64," + a + b;
+})();
