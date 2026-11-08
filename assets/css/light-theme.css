@@ -1,0 +1,155 @@
+/* LIGHT THEME READABILITY + FOUNDER IMAGE CLARITY */
+html[data-theme="light"] {
+  --color-text-primary: #0c0c0e;
+  --color-text-secondary: rgba(12, 12, 14, 0.82);
+  --color-text-muted: rgba(12, 12, 14, 0.58);
+  --color-muted-gold: #7a5f32;
+  --color-gold: #9a7340;
+  --surface-elevated: #ffffff;
+  --color-border: rgba(12, 12, 14, 0.12);
+}
+
+html[data-theme="light"] body {
+  background: #f4f1ea;
+  color: #0c0c0e;
+}
+
+html[data-theme="light"] .body-base,
+html[data-theme="light"] .body-large,
+html[data-theme="light"] .body-lead,
+html[data-theme="light"] .card-text,
+html[data-theme="light"] .prose p,
+html[data-theme="light"] .prose li,
+html[data-theme="light"] .founder-copy .body-base,
+html[data-theme="light"] .founder-highlights li {
+  color: rgba(12, 12, 14, 0.82) !important;
+}
+
+html[data-theme="light"] .heading-1,
+html[data-theme="light"] .heading-2,
+html[data-theme="light"] .card-title,
+html[data-theme="light"] .founder-name,
+html[data-theme="light"] h1, html[data-theme="light"] h2, html[data-theme="light"] h3 {
+  color: #0c0c0e !important;
+  text-shadow: none !important;
+}
+
+html[data-theme="light"] .label {
+  color: #7a5f32 !important;
+}
+
+html[data-theme="light"] .card,
+html[data-theme="light"] .about-panel,
+html[data-theme="light"] .pair-card,
+html[data-theme="light"] .founder-home-card,
+html[data-theme="light"] .split-visual,
+html[data-theme="light"] .login-panel,
+html[data-theme="light"] .contact-form,
+html[data-theme="light"] .candle-card,
+html[data-theme="light"] .candle-detail,
+html[data-theme="light"] .context-list article,
+html[data-theme="light"] .anatomy,
+html[data-theme="light"] .insight-card,
+html[data-theme="light"] .insight-feature,
+html[data-theme="light"] .data-chip,
+html[data-theme="light"] .quiz-block,
+html[data-theme="light"] .pattern-card,
+html[data-theme="light"] .accordion-trigger {
+  background: #ffffff !important;
+  border-color: rgba(122, 95, 50, 0.28) !important;
+  color: #0c0c0e !important;
+}
+
+html[data-theme="light"] .candle-card span,
+html[data-theme="light"] .insight-card p,
+html[data-theme="light"] .accordion-panel {
+  color: rgba(12, 12, 14, 0.78) !important;
+}
+
+html[data-theme="light"] .candle-card strong {
+  color: #7a5f32 !important;
+}
+
+html[data-theme="light"] .page-header {
+  background: #f4f1ea;
+}
+
+html[data-theme="light"] .site-header {
+  background: #f7f5f0 !important;
+  border-bottom: 1px solid rgba(12, 12, 14, 0.1) !important;
+}
+
+html[data-theme="light"] .nav-desktop a,
+html[data-theme="light"] .header-meta,
+html[data-theme="light"] .mobile-toggle {
+  color: rgba(12, 12, 14, 0.78) !important;
+}
+
+html[data-theme="light"] .nav-desktop a:hover,
+html[data-theme="light"] .nav-desktop a.active {
+  color: #7a5f32 !important;
+}
+
+html[data-theme="light"] body::before {
+  opacity: 0.45;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% -8%, rgba(184, 149, 106, 0.06), transparent 55%) !important;
+}
+
+html[data-theme="light"] .hero::before,
+html[data-theme="light"] .hero::after {
+  opacity: 0.35;
+}
+
+html[data-theme="light"] .site-footer {
+  background: #0e0e10 !important;
+  color: #f7f5f0 !important;
+}
+html[data-theme="light"] .site-footer a {
+  color: rgba(247, 245, 240, 0.78) !important;
+}
+html[data-theme="light"] .site-footer .label {
+  color: #c9a87c !important;
+}
+
+#founder-photo-wilson,
+#founder-photo-isaac,
+.founder-photo img {
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  filter: contrast(1.04) saturate(1.02);
+}
+
+#founder-photo-wilson {
+  object-fit: cover;
+  object-position: center 16%;
+  min-height: 320px;
+}
+
+.founder-photo-frame::after {
+  background:
+    linear-gradient(
+      165deg,
+      rgba(184, 149, 106, 0.05) 0%,
+      transparent 40%,
+      transparent 70%,
+      rgba(0, 0, 0, 0.12) 100%
+    ) !important;
+}
+
+html[data-theme="light"] .founder-photo-frame::after {
+  background:
+    linear-gradient(
+      165deg,
+      rgba(184, 149, 106, 0.04) 0%,
+      transparent 45%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.04) 100%
+    ) !important;
+}
+
+html[data-theme="light"] .founder-photo-frame {
+  background: #fff;
+}
