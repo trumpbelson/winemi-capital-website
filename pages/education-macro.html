@@ -1,1 +1,229 @@
-PLACEHOLDER_WILL_FAIL
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <title>Macro & data desk | WINEMI CAPITAL.</title>
+  <meta name="description" content="Interactive macro desk — economic calendar, cross-asset board, technicals, and study workflow. Educational context only." />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/nav.css" />
+  <link rel="stylesheet" href="../assets/css/logo.css" />
+  <link rel="stylesheet" href="../assets/css/glass.css" />
+  <link rel="stylesheet" href="../assets/css/learn-interactive.css" />
+  <link rel="stylesheet" href="../assets/css/footer-rich.css" />
+  <link rel="stylesheet" href="../assets/css/light-theme.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+  <style>
+    .macro-lead{max-width:44rem;margin:0 0 1.25rem}
+    .macro-subnav{position:sticky;top:var(--header-height,72px);z-index:40;display:flex;flex-wrap:wrap;gap:.4rem;padding:.65rem 0;margin:0 0 1.25rem;background:rgba(10,10,11,.92);border-bottom:1px solid rgba(184,149,106,.2);backdrop-filter:blur(10px)}
+    html[data-theme=light] .macro-subnav{background:rgba(243,240,232,.94);border-bottom-color:rgba(12,12,14,.1)}
+    .macro-subnav a{display:inline-flex;padding:.4rem .85rem;border-radius:999px;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(247,245,240,.62);border:1px solid transparent;text-decoration:none}
+    html[data-theme=light] .macro-subnav a{color:rgba(12,12,14,.55)}
+    .macro-subnav a:hover,.macro-subnav a.is-active{color:#c9a87c;border-color:rgba(184,149,106,.4);background:rgba(184,149,106,.1)}
+    html[data-theme=light] .macro-subnav a:hover,html[data-theme=light] .macro-subnav a.is-active{color:#7a5f32;border-color:rgba(122,95,50,.4);background:rgba(122,95,50,.08)}
+    .macro-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.85rem;margin:0 0 1.5rem;padding:.9rem 1.15rem;border:1px solid rgba(184,149,106,.28);border-radius:10px;background:#141416}
+    html[data-theme=light] .macro-toolbar{background:#fff;border-color:rgba(122,95,50,.28)}
+    .macro-toolbar-copy{margin:0;font-size:.875rem;line-height:1.5;color:rgba(247,245,240,.72);max-width:36rem}
+    html[data-theme=light] .macro-toolbar-copy{color:rgba(12,12,14,.78)}
+    .macro-toggle{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.15rem;border-radius:999px;border:1px solid rgba(184,149,106,.45);background:rgba(184,149,106,.12);color:#c9a87c;font-size:.75rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+    .macro-toggle[aria-expanded=false]{background:transparent;color:rgba(247,245,240,.78)}
+    html[data-theme=light] .macro-toggle{color:#7a5f32;border-color:rgba(122,95,50,.4);background:rgba(122,95,50,.1)}
+    #macro-data-section.is-hidden{display:none!important}
+    .macro-tabs{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .85rem}
+    .macro-tab{padding:.5rem .95rem;border-radius:999px;cursor:pointer;border:1px solid rgba(184,149,106,.28);background:transparent;color:rgba(247,245,240,.7);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+    .macro-tab.active{background:rgba(184,149,106,.16);border-color:rgba(184,149,106,.65);color:#e0c49a}
+    html[data-theme=light] .macro-tab{color:rgba(12,12,14,.65);border-color:rgba(122,95,50,.25)}
+    html[data-theme=light] .macro-tab.active{color:#7a5f32;background:rgba(122,95,50,.1);border-color:rgba(122,95,50,.5)}
+    .symbol-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 .85rem}
+    .symbol-chip{padding:.45rem .8rem;border-radius:6px;cursor:pointer;border:1px solid rgba(184,149,106,.25);background:#161618;color:rgba(247,245,240,.78);font-size:.75rem;font-weight:600}
+    .symbol-chip.active{background:rgba(184,149,106,.14);border-color:rgba(184,149,106,.65);color:#e0c49a}
+    html[data-theme=light] .symbol-chip{background:#fff;color:rgba(12,12,14,.75);border-color:rgba(122,95,50,.25)}
+    html[data-theme=light] .symbol-chip.active{color:#7a5f32;background:rgba(122,95,50,.1);border-color:rgba(122,95,50,.5)}
+    .macro-panel{border:1px solid rgba(184,149,106,.28);border-radius:12px;overflow:hidden;background:#0e0e10}
+    .macro-panel-head{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.85rem 1.1rem;border-bottom:1px solid rgba(184,149,106,.18);background:#121214}
+    .macro-panel-head h2{margin:0;font-family:var(--font-serif,Georgia,serif);font-size:1.15rem;font-weight:500;color:#f7f5f0}
+    .macro-panel-head .hint{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(201,168,124,.95);font-weight:600}
+    .macro-widget{width:100%;height:520px;min-height:480px;background:#0e0e10}
+    .macro-widget--tall{height:560px;min-height:520px}
+    .macro-widget--mid{height:440px;min-height:400px}
+    .macro-widget--mini{height:280px;min-height:260px}
+    #macro-focus-chart{width:100%;height:500px;min-height:460px;background:#0e0e10}
+    @media(max-width:767px){.macro-widget{height:420px}.macro-widget--tall{height:460px}.macro-widget--mid,#macro-focus-chart{height:380px}.macro-widget--mini{height:240px}.macro-toolbar{flex-direction:column;align-items:stretch}}
+    .macro-widget .tradingview-widget-container,.macro-widget .tradingview-widget-container__widget{width:100%!important;height:100%!important}
+    .macro-pair-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0 2rem}
+    @media(max-width:767px){.macro-pair-grid{grid-template-columns:1fr}}
+    .macro-checklist{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
+    .macro-checklist li{position:relative;padding:.9rem 1rem .9rem 2.35rem;border:1px solid rgba(184,149,106,.22);border-radius:8px;background:#161618;font-size:.9375rem;line-height:1.55;color:rgba(247,245,240,.82)}
+    .macro-checklist li strong{color:#f7f5f0}
+    .macro-checklist li::before{content:"";position:absolute;left:.95rem;top:1.15rem;width:7px;height:7px;border-radius:50%;background:#b8956a;box-shadow:0 0 0 3px rgba(184,149,106,.14)}
+    html[data-theme=light] .macro-checklist li{background:#fff;border-color:rgba(122,95,50,.22);color:rgba(12,12,14,.82)}
+    html[data-theme=light] .macro-checklist li strong{color:#0c0c0e}
+    .macro-note{margin:1.25rem 0 0;padding:1rem 1.15rem;border-left:3px solid rgba(184,149,106,.55);background:rgba(184,149,106,.08);font-size:.9rem;line-height:1.6;color:rgba(247,245,240,.78)}
+    html[data-theme=light] .macro-note{background:rgba(122,95,50,.08);color:rgba(12,12,14,.8)}
+    .impact-legend{display:flex;flex-wrap:wrap;gap:1rem;margin:.75rem 0 0;font-size:.78rem;color:rgba(247,245,240,.65)}
+    html[data-theme=light] .impact-legend{color:rgba(12,12,14,.6)}
+    .impact-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.35rem;vertical-align:middle}
+    .impact-dot.high{background:#c45c5c}.impact-dot.med{background:#c9a87c}.impact-dot.low{background:#6a9e7a}
+    .session-bar{display:flex;flex-wrap:wrap;gap:.65rem;margin:0 0 1.25rem}
+    .session-chip{padding:.45rem .75rem;border-radius:6px;border:1px solid rgba(184,149,106,.2);background:#161618;font-size:.72rem;letter-spacing:.04em;color:rgba(247,245,240,.7)}
+    .session-chip strong{color:#c9a87c;font-weight:600}
+    .session-chip.open{border-color:rgba(106,158,122,.45)}.session-chip.open strong{color:#8fcea0}
+    html[data-theme=light] .session-chip{background:#fff;border-color:rgba(122,95,50,.2);color:rgba(12,12,14,.7)}
+    html[data-theme=light] .session-chip strong{color:#7a5f32}
+    html:not([data-theme=light]) .macro-page .card{background:#161618;border-color:rgba(184,149,106,.22);color:#f7f5f0}
+    html:not([data-theme=light]) .macro-page .card-title{color:#f7f5f0}
+    html:not([data-theme=light]) .macro-page .card-text{color:rgba(247,245,240,.78)}
+    html:not([data-theme=light]) .macro-page .context-strip{background:#141416;border-color:rgba(184,149,106,.22);color:rgba(247,245,240,.8)}
+    html[data-theme=light] .macro-page .card{background:#fff!important;border-color:rgba(122,95,50,.28)!important;color:#0c0c0e!important}
+    html[data-theme=light] .macro-page .card-title{color:#0c0c0e!important}
+    html[data-theme=light] .macro-page .card-text{color:rgba(12,12,14,.8)!important}
+    html[data-theme=light] .macro-page .context-strip{background:#fff!important;border-color:rgba(122,95,50,.22)!important;color:rgba(12,12,14,.82)!important}
+    html[data-theme=light] .macro-page .heading-2{color:#0c0c0e!important}
+    html[data-theme=light] .macro-panel-head h2{color:#f7f5f0!important}
+  </style>
+</head>
+<body class="macro-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner"></header>
+  <main id="main">
+    <div class="page-header"><div class="container">
+      <p class="label">Education · Macro</p>
+      <h1 class="heading-1">Macro & data desk</h1>
+      <p class="body-large macro-lead">Interactive cross-asset context — calendar, board, focus chart, and technicals — read next to structure, not instead of it. Educational use only.</p>
+    </div></div>
+    <section class="section" style="padding-top:0"><div class="container">
+      <nav class="macro-subnav" aria-label="Macro sections">
+        <a href="#workflow">Workflow</a>
+        <a href="#live-data">Live data</a>
+        <a href="#board">Markets board</a>
+        <a href="#focus">Focus chart</a>
+        <a href="#calendar">Calendar</a>
+        <a href="#technicals">Technicals</a>
+        <a href="#themes">Study themes</a>
+      </nav>
+      <div class="session-bar" id="session-bar" aria-live="polite">
+        <span class="session-chip"><strong>UTC</strong> <span id="clock-utc">--:--</span></span>
+        <span class="session-chip" id="sess-asia"><strong>Asia</strong> <span class="sess-state">—</span></span>
+        <span class="session-chip" id="sess-london"><strong>London</strong> <span class="sess-state">—</span></span>
+        <span class="session-chip" id="sess-ny"><strong>New York</strong> <span class="sess-state">—</span></span>
+      </div>
+      <div class="context-strip" id="workflow">
+        <p class="label">How to use this desk</p>
+        <p>Scan the calendar for high-impact releases. Check the markets board and focus chart for regime. Cross-check equities against yields, the dollar, and gold. Invalidation still belongs on price structure.</p>
+      </div>
+      <h2 class="heading-2" style="margin-top:2rem">Desk workflow</h2>
+      <ol class="macro-checklist" style="margin-top:1rem">
+        <li><strong>Calendar first.</strong> Identify high-impact releases in the next 1–5 sessions.</li>
+        <li><strong>Map the backdrop.</strong> Check US 10Y, DXY, and major equity indices for regime.</li>
+        <li><strong>Structure second.</strong> Only then open HTF zones and candles.</li>
+        <li><strong>Write invalidation.</strong> Define what would break the structure before a major print.</li>
+      </ol>
+      <div class="macro-toolbar" style="margin-top:2rem" id="live-data">
+        <p class="macro-toolbar-copy">Live data stack: markets board, focus chart, calendar, technicals, and gauges. Hide to focus on the study framework.</p>
+        <button type="button" class="macro-toggle" id="macro-data-toggle" aria-controls="macro-data-section" aria-expanded="true"><span class="macro-toggle-label">Hide live data</span></button>
+      </div>
+      <div id="macro-data-section">
+        <h2 class="heading-2" id="board">Markets board</h2>
+        <p class="body-base" style="max-width:40rem;margin:.4rem 0 .85rem">Tab through overview, forex cross rates, and sector heatmap — cross-asset scan pattern framed for education.</p>
+        <div class="macro-tabs" role="tablist">
+          <button type="button" class="macro-tab active" data-board="overview" role="tab" aria-selected="true">Overview</button>
+          <button type="button" class="macro-tab" data-board="forex" role="tab" aria-selected="false">Forex cross</button>
+          <button type="button" class="macro-tab" data-board="heatmap" role="tab" aria-selected="false">Heatmap</button>
+        </div>
+        <div class="macro-panel">
+          <div class="macro-panel-head"><h2 id="board-title">Cross-asset overview</h2><span class="hint" id="board-hint">Indices · rates · FX · commodities</span></div>
+          <div class="macro-widget macro-widget--tall" id="board-host"></div>
+        </div>
+        <h2 class="heading-2" id="focus" style="margin-top:2.5rem">Focus chart</h2>
+        <p class="body-base" style="max-width:40rem;margin:.4rem 0 .85rem">Select a reference series. Context for structure study — not a signal by itself.</p>
+        <div class="symbol-chips" id="focus-chips">
+          <button type="button" class="symbol-chip active" data-symbol="TVC:US10Y">US 10Y</button>
+          <button type="button" class="symbol-chip" data-symbol="TVC:DXY">DXY</button>
+          <button type="button" class="symbol-chip" data-symbol="TVC:GOLD">Gold</button>
+          <button type="button" class="symbol-chip" data-symbol="FOREXCOM:SPXUSD">S&P 500</button>
+          <button type="button" class="symbol-chip" data-symbol="FX:EURUSD">EUR/USD</button>
+          <button type="button" class="symbol-chip" data-symbol="TVC:USOIL">WTI</button>
+          <button type="button" class="symbol-chip" data-symbol="BINANCE:BTCUSDT">BTC</button>
+          <button type="button" class="symbol-chip" data-symbol="TVC:VIX">VIX</button>
+        </div>
+        <div class="macro-panel">
+          <div class="macro-panel-head"><h2 id="focus-title">US 10-year yield</h2><span class="hint" id="focus-hint">TVC:US10Y · daily</span></div>
+          <div id="macro-focus-chart"></div>
+        </div>
+        <div class="macro-panel" style="margin-top:2.5rem" id="calendar">
+          <div class="macro-panel-head"><h2>Economic calendar</h2><span class="hint">High & medium impact</span></div>
+          <div class="macro-widget macro-widget--tall">
+            <div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+            {"colorTheme":"dark","isTransparent":true,"width":"100%","height":"100%","locale":"en","importanceFilter":"-1,0,1","countryFilter":"us,eu,gb,jp,cn,au,ca,ch"}
+            </script></div>
+          </div>
+        </div>
+        <div class="impact-legend">
+          <span><span class="impact-dot high"></span> High — zone quality input</span>
+          <span><span class="impact-dot med"></span> Medium — range context</span>
+          <span><span class="impact-dot low"></span> Low — rarely changes structure alone</span>
+        </div>
+        <p class="macro-note">Prioritise central banks, inflation, and labour. Quiet bases into high-impact prints can fail when liquidity reprices.</p>
+        <h2 class="heading-2" id="technicals" style="margin-top:2.5rem">Technicals snapshot</h2>
+        <p class="body-base" style="max-width:40rem;margin:.4rem 0 .85rem">Multi-timeframe technical summary for EUR/USD — educational snapshot only.</p>
+        <div class="macro-panel">
+          <div class="macro-panel-head"><h2>EUR/USD technicals</h2><span class="hint">TradingView summary</span></div>
+          <div class="macro-widget macro-widget--mid">
+            <div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+            {"interval":"1D","width":"100%","isTransparent":true,"height":"100%","symbol":"FX:EURUSD","showIntervalTabs":true,"displayMode":"single","locale":"en","colorTheme":"dark"}
+            </script></div>
+          </div>
+        </div>
+        <h2 class="heading-2" style="margin-top:2.5rem">Key gauges</h2>
+        <div class="macro-pair-grid">
+          <div class="macro-panel"><div class="macro-panel-head"><h2>US 10Y</h2><span class="hint">12M</span></div>
+            <div class="macro-widget macro-widget--mini"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"TVC:US10Y","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true}
+            </script></div></div></div>
+          <div class="macro-panel"><div class="macro-panel-head"><h2>DXY</h2><span class="hint">12M</span></div>
+            <div class="macro-widget macro-widget--mini"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"TVC:DXY","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true}
+            </script></div></div></div>
+          <div class="macro-panel"><div class="macro-panel-head"><h2>Gold</h2><span class="hint">12M</span></div>
+            <div class="macro-widget macro-widget--mini"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"TVC:GOLD","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true}
+            </script></div></div></div>
+          <div class="macro-panel"><div class="macro-panel-head"><h2>S&P 500</h2><span class="hint">12M</span></div>
+            <div class="macro-widget macro-widget--mini"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"FOREXCOM:SPXUSD","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true}
+            </script></div></div></div>
+        </div>
+      </div>
+      <h2 class="heading-2" id="themes" style="margin-top:2.5rem">Study themes</h2>
+      <div class="grid-3" style="margin-top:1rem">
+        <article class="card"><h3 class="card-title">Policy reaction function</h3><p class="card-text">How markets price the next moves in rates often matters as much as the level of rates itself.</p></article>
+        <article class="card"><h3 class="card-title">Growth dispersion</h3><p class="card-text">Regions diverge. Relative growth shows up in FX, equity leadership, and commodity demand.</p></article>
+        <article class="card"><h3 class="card-title">Event risk</h3><p class="card-text">Treat major data and central-bank days as part of zone quality.</p></article>
+        <article class="card"><h3 class="card-title">Dollar & yields</h3><p class="card-text">Rising DXY with rising real yields often pressures gold and emerging FX; confirm with structure.</p></article>
+        <article class="card"><h3 class="card-title">Liquidity lens</h3><p class="card-text">Balance-sheet paths change move amplitude. Macro does not replace candle invalidation.</p></article>
+        <article class="card"><h3 class="card-title">Cross-asset check</h3><p class="card-text">Equities, yields, the dollar, and gold should be read together.</p></article>
+      </div>
+      <p class="macro-note">Educational framing only. Not investment advice. Market data via TradingView embeds.</p>
+      <p style="margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:.65rem">
+        <a class="btn btn-primary" href="education-live.html">Structure lab</a>
+        <a class="btn btn-secondary" href="education-candlesticks.html">Candlestick literacy</a>
+        <a class="btn btn-secondary" href="education.html">Education hub</a>
+        <a class="btn btn-secondary" href="insights.html">Insights</a>
+        <a class="btn btn-secondary" href="markets.html">Markets workspace</a>
+      </p>
+    </div></section>
+  </main>
+  <footer class="site-footer" role="contentinfo"></footer>
+  <script src="../assets/js/site-nav.js"></script>
+  <script src="https://s3.tradingview.com/tv.js"></script>
+  <script src="../assets/js/macro-desk.js" defer></script>
+</body>
+</html>
