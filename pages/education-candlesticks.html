@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#0a0a0b" />
 <title>Candlestick Literacy | Education | WINEMI CAPITAL.</title>
-<meta name="description" content="Original candlestick literacy: anatomy, single dual and triple patterns, SVG guides, structure context, self-check." />
+<meta name="description" content="Original candlestick literacy: anatomy, patterns, live chart lab, structure context." />
 <link rel="stylesheet" href="../assets/css/main.css" />
 <link rel="stylesheet" href="../assets/css/nav.css" />
 <link rel="stylesheet" href="../assets/css/logo.css" />
@@ -42,7 +42,7 @@
 <div class="page-header"><div class="container">
 <p class="label">Education · Literacy</p>
 <h1 class="heading-1">Candlestick literacy</h1>
-<p class="body-large" style="max-width:720px">How a candle is built, how common single, dual, and triple patterns are read, and why structure and invalidation come before any label. Original educational material — not investment advice.</p>
+<p class="body-large" style="max-width:720px">How a candle is built, how common single, dual, and triple patterns are read, and why structure and invalidation come before any label. Includes a live chart lab. Original educational material — not investment advice.</p>
 </div></div>
 <section class="section"><div class="container prose">
 <nav class="edu-subnav" aria-label="Education modules">
@@ -106,9 +106,9 @@
 
 <h2>How this ties to WINEMI structure work</h2>
 <ul>
-<li>Inside a <strong>demand base</strong> (DBR / RBR), rejection of lows (hammers, dragonfly, bullish engulfing, morning star) is timing detail — not a substitute for the base.</li>
-<li>Inside a <strong>supply base</strong> (RBD / DBD), rejection of highs (shooting star, gravestone, bearish engulfing, evening star) plays the same role.</li>
-<li>After an <strong>impulsive departure</strong>, marubozu-type bodies and three soldiers/crows often describe the impulse leg; doji clusters may describe pause.</li>
+<li>Inside a <strong>demand base</strong> (DBR / RBR), rejection of lows is timing detail — not a substitute for the base.</li>
+<li>Inside a <strong>supply base</strong> (RBD / DBD), rejection of highs plays the same role.</li>
+<li>After an <strong>impulsive departure</strong>, marubozu-type bodies often describe the impulse leg; doji clusters may describe pause.</li>
 <li>Always write <strong>invalidation</strong> and check the <strong>calendar</strong> before treating any pattern as high quality.</li>
 </ul>
 
@@ -123,22 +123,12 @@
 </div>
 <p class="quiz-feedback"></p>
 </div>
-<div class="quiz-question" data-answered="0" style="margin-top:1.15rem">
-<p class="quiz-q">Bullish engulfing is best described as:</p>
-<div class="quiz-options">
-<button type="button" class="quiz-opt" data-correct="false">A guaranteed long entry on any timeframe</button>
-<button type="button" class="quiz-opt" data-correct="true">A two-candle sequence where the second body fully covers the first — still filtered by structure</button>
-<button type="button" class="quiz-opt" data-correct="false">The same as a doji</button>
-</div>
-<p class="quiz-feedback"></p>
-</div>
 </div>
 
 <p style="margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:.7rem">
 <a class="btn btn-primary" href="education-live.html">Practise on live charts</a>
 <a class="btn btn-secondary" href="education.html">Education hub</a>
 <a class="btn btn-secondary" href="education-risk.html">Risk lab</a>
-<a class="btn btn-secondary" href="insights.html">Insights</a>
 </p>
 </div></section>
 </main>
@@ -146,26 +136,27 @@
 <script src="../assets/js/site-nav.js"></script>
 <script src="../assets/js/learn-interactive.js" defer></script>
 <script src="../assets/js/candles-extra.js"></script>
+<script src="../assets/js/candles-charts.js"></script>
 <script>
 (function(){
 var details={
-'marubozu-bull':{title:'Bullish Marubozu',bias:'Bullish context cue',body:'A long bullish body with little or no wick. Buyers controlled the session from open to close. Educational use: evidence of directional commitment — still require HTF alignment and a place where the idea is wrong.'},
-'marubozu-bear':{title:'Bearish Marubozu',bias:'Bearish context cue',body:'A long bearish body with minimal wicks. Sellers dominated the period. Useful as a description of impulse, not as a standalone short signal.'},
-hammer:{title:'Hammer',bias:'Potential demand cue after decline',body:'Small body near the top of the range with a long lower wick. Price traded lower and was rejected. Quality improves when it appears after a decline at a defined support or demand zone.'},
-hanging:{title:'Hanging Man',bias:'Potential supply warning after advance',body:'Same geometry as a hammer, but after a rally. The long lower wick shows a temporary sell-off that recovered into the close — a possible early sign of supply if confirmed by structure.'},
-'inv-hammer':{title:'Inverted Hammer',bias:'Probe higher after decline',body:'Small body with a long upper wick after a down-move. Buyers pushed higher but did not hold the extreme. Often a watch-list cue pending confirmation.'},
-shooting:{title:'Shooting Star',bias:'Rejection of highs after advance',body:'Small body with a long upper wick after a rally. Price explored higher and failed. Stronger at HTF premium or defined supply with invalidation above the high.'},
-doji:{title:'Standard Doji',bias:'Indecision',body:'Open and close are nearly equal. Balance for that session. Meaning depends on prior trend, location, and the next session.'},
-dragonfly:{title:'Dragonfly Doji',bias:'Rejection of lows',body:'Open and close near the high with a long lower wick. Aggressive rejection of lower prices. Context still decides whether this is meaningful.'},
-gravestone:{title:'Gravestone Doji',bias:'Rejection of highs',body:'Open and close near the low with a long upper wick. Rejection of higher prices. Pair with supply location and invalidation above the wick.'},
-'engulf-bull':{title:'Bullish Engulfing',bias:'Shift toward buy-side control',body:'A bullish candle whose body fully covers the prior bearish body. Describes a clear shift in session control. Best read after a decline or at demand, with invalidation below the two-candle structure.'},
-'engulf-bear':{title:'Bearish Engulfing',bias:'Shift toward sell-side control',body:'A bearish candle whose body fully covers the prior bullish body. Filter with HTF premium/supply and invalidation above the structure.'},
-'harami-bull':{title:'Bullish Harami',bias:'Selling may be slowing',body:'A small body inside a prior large bearish body. Suggests reduced sell pressure. Weaker than engulfing; wait for confirmation.'},
-'harami-bear':{title:'Bearish Harami',bias:'Buying may be slowing',body:'A small body inside a prior large bullish body. Suggests reduced buy pressure. Treat as a caution flag inside a supply thesis.'},
-piercing:{title:'Piercing Line',bias:'Buyers reclaim into prior sell body',body:'After a decline, a bullish candle opens weaker and closes well into the prior bearish body. Intermediate strength between a weak recovery and full engulfing.'},
-'dark-cloud':{title:'Dark Cloud Cover',bias:'Sellers reclaim into prior buy body',body:'After an advance, a bearish candle opens stronger and closes well into the prior bullish body. Mirror of the piercing line on the supply side.'}
+'marubozu-bull':{title:'Bullish Marubozu',bias:'Bullish context cue',body:'A long bullish body with little or no wick. Buyers controlled the session from open to close. Still require HTF alignment and invalidation.'},
+'marubozu-bear':{title:'Bearish Marubozu',bias:'Bearish context cue',body:'A long bearish body with minimal wicks. Sellers dominated the period. Useful as a description of impulse, not a standalone short.'},
+hammer:{title:'Hammer',bias:'Potential demand cue after decline',body:'Small body near the top of the range with a long lower wick. Quality improves after a decline at defined support or demand.'},
+hanging:{title:'Hanging Man',bias:'Potential supply warning after advance',body:'Same geometry as a hammer, but after a rally. Possible early sign of supply if confirmed by structure.'},
+'inv-hammer':{title:'Inverted Hammer',bias:'Probe higher after decline',body:'Small body with a long upper wick after a down-move. Often a watch-list cue pending confirmation.'},
+shooting:{title:'Shooting Star',bias:'Rejection of highs after advance',body:'Small body with a long upper wick after a rally. Stronger at HTF premium or defined supply.'},
+doji:{title:'Standard Doji',bias:'Indecision',body:'Open and close nearly equal. Meaning depends on prior trend, location, and the next session.'},
+dragonfly:{title:'Dragonfly Doji',bias:'Rejection of lows',body:'Open and close near the high with a long lower wick. Context decides whether this is meaningful.'},
+gravestone:{title:'Gravestone Doji',bias:'Rejection of highs',body:'Open and close near the low with a long upper wick. Pair with supply location and invalidation above the wick.'},
+'engulf-bull':{title:'Bullish Engulfing',bias:'Shift toward buy-side control',body:'A bullish candle whose body fully covers the prior bearish body. Best read after a decline or at demand.'},
+'engulf-bear':{title:'Bearish Engulfing',bias:'Shift toward sell-side control',body:'A bearish candle whose body fully covers the prior bullish body. Filter with HTF premium/supply.'},
+'harami-bull':{title:'Bullish Harami',bias:'Selling may be slowing',body:'A small body inside a prior large bearish body. Weaker than engulfing; wait for confirmation.'},
+'harami-bear':{title:'Bearish Harami',bias:'Buying may be slowing',body:'A small body inside a prior large bullish body. Caution flag inside a supply thesis.'},
+piercing:{title:'Piercing Line',bias:'Buyers reclaim into prior sell body',body:'After a decline, a bullish candle closes well into the prior bearish body.'},
+'dark-cloud':{title:'Dark Cloud Cover',bias:'Sellers reclaim into prior buy body',body:'After an advance, a bearish candle closes well into the prior bullish body.'}
 };
-function bind(gridId,detailId){var grid=document.getElementById(gridId),detail=document.getElementById(detailId);if(!grid||!detail)return;grid.querySelectorAll('.candle-card').forEach(function(card){card.addEventListener('click',function(){grid.querySelectorAll('.candle-card').forEach(function(c){c.classList.remove('active')});card.classList.add('active');var d=details[card.getAttribute('data-id')];if(!d)return;detail.innerHTML='<span class="bias">'+d.bias+'</span><h3>'+d.title+'</h3><p class="body-base" style="margin:0">'+d.body+'</p>'})})}
+function bind(g,d){var grid=document.getElementById(g),detail=document.getElementById(d);if(!grid||!detail)return;grid.querySelectorAll('.candle-card').forEach(function(card){card.addEventListener('click',function(){grid.querySelectorAll('.candle-card').forEach(function(c){c.classList.remove('active')});card.classList.add('active');var x=details[card.getAttribute('data-id')];if(!x)return;detail.innerHTML='<span class="bias">'+x.bias+'</span><h3>'+x.title+'</h3><p class="body-base" style="margin:0">'+x.body+'</p>'})})}
 bind('single-patterns','single-detail');
 bind('dual-patterns','dual-detail');
 })();
