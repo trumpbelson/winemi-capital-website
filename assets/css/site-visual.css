@@ -1,0 +1,224 @@
+/* WINEMI CAPITAL — visual appeal layer */
+
+/* Ambient background orbs */
+.visual-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.visual-ambient .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(64px);
+  opacity: 0.18;
+  will-change: transform;
+  animation: orb-drift 28s ease-in-out infinite alternate;
+}
+.visual-ambient .orb-a {
+  width: 42vw;
+  height: 42vw;
+  max-width: 520px;
+  max-height: 520px;
+  top: -10%;
+  right: -8%;
+  background: radial-gradient(circle, rgba(201, 168, 124, 0.55), transparent 70%);
+}
+.visual-ambient .orb-b {
+  width: 36vw;
+  height: 36vw;
+  max-width: 420px;
+  max-height: 420px;
+  bottom: 10%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(106, 158, 122, 0.28), transparent 70%);
+  animation-delay: -8s;
+  animation-duration: 34s;
+}
+.visual-ambient .orb-c {
+  width: 28vw;
+  height: 28vw;
+  max-width: 320px;
+  max-height: 320px;
+  top: 45%;
+  left: 40%;
+  background: radial-gradient(circle, rgba(184, 149, 106, 0.22), transparent 70%);
+  animation-delay: -14s;
+  animation-duration: 40s;
+}
+@keyframes orb-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(3%, -4%) scale(1.06); }
+  100% { transform: translate(-2%, 3%) scale(0.96); }
+}
+html[data-theme='light'] .visual-ambient .orb {
+  opacity: 0.12;
+}
+
+/* Keep content above ambient */
+body > header,
+body > main,
+body > footer,
+body > .top-feed,
+body > .mobile-nav,
+body > .study-dock,
+body > .back-top,
+body > .scroll-progress,
+body > .ix-help-backdrop,
+body > .home-cmd-backdrop {
+  position: relative;
+  z-index: 1;
+}
+body > .scroll-progress { z-index: 120; }
+body > .study-dock,
+body > .back-top { z-index: 95; }
+
+/* Hero / page-header glow */
+.hero,
+.page-header {
+  position: relative;
+  isolation: isolate;
+}
+.hero::before,
+.page-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201, 168, 124, 0.12), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(106, 158, 122, 0.06), transparent 60%);
+  pointer-events: none;
+}
+html[data-theme='light'] .hero::before,
+html[data-theme='light'] .page-header::before {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(122, 95, 50, 0.08), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(106, 158, 122, 0.05), transparent 60%);
+}
+
+/* Elevated surfaces */
+.card,
+.desk-quick a,
+.home-regime a,
+.pulse-card,
+.digest-panel {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Button shimmer */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: skewX(-18deg);
+  transition: none;
+  pointer-events: none;
+}
+.btn-primary:hover::after {
+  animation: btn-shimmer 0.85s ease;
+}
+@keyframes btn-shimmer {
+  from { left: -120%; }
+  to { left: 140%; }
+}
+
+/* Magnetic / press feedback */
+.btn,
+.desk-quick a,
+.study-dock-toggle,
+.home-cmd-btn {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.btn:active,
+.desk-quick a:active {
+  transform: scale(0.98);
+}
+
+/* Interactive chip pulse */
+.ix-chip-live {
+  position: relative;
+}
+.ix-chip-live::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8fcea0;
+  margin-right: 0.4rem;
+  box-shadow: 0 0 0 0 rgba(143, 206, 160, 0.5);
+  animation: live-pulse 2s ease infinite;
+  vertical-align: middle;
+}
+@keyframes live-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(143, 206, 160, 0.45); }
+  70% { box-shadow: 0 0 0 8px rgba(143, 206, 160, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(143, 206, 160, 0); }
+}
+
+/* Stat counters */
+.ix-stat {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #e0c49a;
+}
+html[data-theme='light'] .ix-stat {
+  color: #7a5f32;
+}
+
+/* Section divider accent */
+.section > .container > .heading-2 {
+  position: relative;
+}
+.section > .container > .heading-2::after {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  margin-top: 0.55rem;
+  background: linear-gradient(90deg, #c9a87c, transparent);
+  border-radius: 2px;
+}
+
+/* Tilt-ready cards */
+.ix-tilt {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Ripple */
+.ix-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(201, 168, 124, 0.35);
+  transform: scale(0);
+  animation: ix-ripple 0.6s ease-out;
+  pointer-events: none;
+}
+@keyframes ix-ripple {
+  to { transform: scale(2.4); opacity: 0; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .visual-ambient .orb,
+  .btn-primary::after,
+  .ix-chip-live::before {
+    animation: none !important;
+  }
+  .ix-tilt {
+    transform: none !important;
+  }
+}
