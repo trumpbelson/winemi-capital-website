@@ -7,7 +7,9 @@
     journal: 'winemi-macro-journal',
     workflow: 'winemi-macro-workflow',
     interval: 'winemi-macro-interval',
-    compare: 'winemi-macro-compare'
+    compare: 'winemi-macro-compare',
+    levels: 'winemi-macro-levels',
+    layout: 'winemi-macro-layout'
   };
 
   function loadJSON(key, fallback) {
@@ -20,6 +22,25 @@
   function saveJSON(key, val) {
     try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {}
   }
+
+  var focusNames = {
+    'TVC:US10Y': 'US 10-year yield', 'TVC:DXY': 'US Dollar Index', 'TVC:GOLD': 'Gold',
+    'FOREXCOM:SPXUSD': 'S&P 500', 'FX:EURUSD': 'EUR/USD', 'TVC:USOIL': 'WTI Crude',
+    'BINANCE:BTCUSDT': 'Bitcoin', 'TVC:VIX': 'VIX', 'FX:GBPUSD': 'GBP/USD',
+    'FX:USDJPY': 'USD/JPY', 'TVC:SILVER': 'Silver', 'BINANCE:ETHUSDT': 'Ethereum'
+  };
+  var CATALOG = Object.keys(focusNames).map(function (s) {
+    return { s: s, n: focusNames[s] };
+  });
+
+  var currentSymbol = 'TVC:US10Y';
+  var currentInterval = (function () {
+    try { return localStorage.getItem(STORAGE.interval) || 'D'; } catch (e) { return 'D'; }
+  })();
+  var compareOn = (function () {
+    try { return localStorage.getItem(STORAGE.compare) === '1'; } catch (e) { return false; }
+  })();
+  var compareSymbol = 'TVC:DXY';
 
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
   function updateClock() {
@@ -41,6 +62,24 @@
   }
   updateClock();
   setInterval(updateClock, 30000);
+
+  function applyLayout(key) {
+    document.body.classList.remove('desk-layout-focus', 'desk-layout-calendar', 'desk-layout-tools');
+    if (key === 'focus') document.body.classList.add('desk-layout-focus');
+    if (key === 'calendar') document.body.classList.add('desk-layout-calendar');
+    if (key === 'tools') document.body.classList.add('desk-layout-tools');
+    document.querySelectorAll('.layout-chip').forEach(function (c) {
+      c.classList.toggle('active', c.getAttribute('data-layout') === key);
+    });
+    try { localStorage.setItem(STORAGE.layout, key); } catch (e) {}
+  }
+  document.querySelectorAll('.layout-chip').forEach(function (c) {
+    c.addEventListener('click', function () { applyLayout(c.getAttribute('data-layout')); });
+  });
+  try {
+    var savedLayout = localStorage.getItem(STORAGE.layout);
+    if (savedLayout && savedLayout !== 'full') applyLayout(savedLayout);
+  } catch (e) {}
 
   var btn = document.getElementById('macro-data-toggle');
   var panel = document.getElementById('macro-data-section');
@@ -96,6 +135,18 @@
       title: 'Stock heatmap', hint: 'SPX sector rotation',
       src: 'https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js',
       cfg: { dataSource: 'SPX500', grouping: 'sector', blockSize: 'market_cap_basic', blockColor: 'change', locale: 'en', colorTheme: 'dark', hasTopBar: false, isZoomEnabled: true, hasSymbolTooltip: true, width: '100%', height: '100%' }
+    },
+    crypto: {
+      title: 'Crypto overview', hint: 'BTC · ETH · majors',
+      src: 'https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js',
+      cfg: {
+        colorTheme: 'dark', dateRange: '1M', showChart: true, locale: 'en',
+        width: '100%', height: '100%', isTransparent: true, showSymbolLogo: true,
+        tabs: [{ title: 'Crypto', symbols: [
+          { s: 'BINANCE:BTCUSDT', d: 'Bitcoin' }, { s: 'BINANCE:ETHUSDT', d: 'Ethereum' },
+          { s: 'BINANCE:SOLUSDT', d: 'Solana' }, { s: 'BINANCE:BNBUSDT', d: 'BNB' }
+        ]}]
+      }
     }
   };
 
@@ -129,15 +180,14 @@
   });
   loadBoard('overview');
 
-  var focusNames = {
-    'TVC:US10Y': 'US 10-year yield', 'TVC:DXY': 'US Dollar Index', 'TVC:GOLD': 'Gold',
-    'FOREXCOM:SPXUSD': 'S&P 500', 'FX:EURUSD': 'EUR/USD', 'TVC:USOIL': 'WTI Crude',
-    'BINANCE:BTCUSDT': 'Bitcoin', 'TVC:VIX': 'VIX'
-  };
-  var currentSymbol = 'TVC:US10Y';
-  var currentInterval = (function () { try { return localStorage.getItem(STORAGE.interval) || 'D'; } catch (e) { return 'D'; } })();
-  var compareOn = (function () { try { return localStorage.getItem(STORAGE.compare) === '1'; } catch (e) { return false; } })();
-  var compareSymbol = 'TVC:DXY';
+  function setActiveSymbolUI(symbol) {
+    document.querySelectorAll('.symbol-chip').forEach(function (c) {
+      c.classList.toggle('active', c.getAttribute('data-symbol') === symbol);
+    });
+    document.querySelectorAll('.regime-chip').forEach(function (c) {
+      c.classList.toggle('active', c.getAttribute('data-symbol') === symbol);
+    });
+  }
 
   function loadFocus(symbol, interval) {
     if (symbol) currentSymbol = symbol;
@@ -148,7 +198,11 @@
     if (!host || typeof TradingView === 'undefined') return;
     host.innerHTML = '';
     var name = focusNames[currentSymbol] || currentSymbol;
-    if (title) title.textContent = compareOn ? name + ' vs ' + (focusNames[compareSymbol] || compareSymbol) : name;
+    if (title) {
+      title.textContent = compareOn
+        ? name + ' vs ' + (focusNames[compareSymbol] || compareSymbol)
+        : name;
+    }
     if (hint) hint.textContent = currentSymbol + ' · ' + currentInterval + (compareOn ? ' · compare' : '');
     var studies = ['STD;SMA'];
     if (compareOn && compareSymbol && compareSymbol !== currentSymbol) {
@@ -161,32 +215,40 @@
       allow_symbol_change: true, height: host.clientHeight || 500, width: '100%', studies: studies
     });
     try { localStorage.setItem(STORAGE.interval, currentInterval); } catch (e) {}
-    syncIntervalUI(); syncCompareUI();
-  }
-
-  function syncIntervalUI() {
+    setActiveSymbolUI(currentSymbol);
     document.querySelectorAll('.tf-chip').forEach(function (c) {
       c.classList.toggle('active', c.getAttribute('data-tf') === currentInterval);
     });
-  }
-  function syncCompareUI() {
-    var b = document.getElementById('compare-toggle');
-    if (b) {
-      b.classList.toggle('active', compareOn);
-      b.setAttribute('aria-pressed', compareOn ? 'true' : 'false');
-      b.textContent = compareOn ? 'Compare on' : 'Compare off';
+    var cb = document.getElementById('compare-toggle');
+    if (cb) {
+      cb.classList.toggle('active', compareOn);
+      cb.setAttribute('aria-pressed', compareOn ? 'true' : 'false');
+      cb.textContent = compareOn ? 'Compare on' : 'Compare off';
     }
   }
 
+  function bootFocus() {
+    if (typeof TradingView !== 'undefined') loadFocus(currentSymbol, currentInterval);
+    else setTimeout(bootFocus, 200);
+  }
+  bootFocus();
+
   document.querySelectorAll('.symbol-chip').forEach(function (chip) {
     chip.addEventListener('click', function () {
-      document.querySelectorAll('.symbol-chip').forEach(function (c) { c.classList.remove('active'); });
-      chip.classList.add('active');
       loadFocus(chip.getAttribute('data-symbol'), currentInterval);
     });
   });
+  document.querySelectorAll('.regime-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      loadFocus(chip.getAttribute('data-symbol'), currentInterval);
+      var focus = document.getElementById('focus');
+      if (focus) focus.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
   document.querySelectorAll('.tf-chip').forEach(function (chip) {
-    chip.addEventListener('click', function () { loadFocus(currentSymbol, chip.getAttribute('data-tf')); });
+    chip.addEventListener('click', function () {
+      loadFocus(currentSymbol, chip.getAttribute('data-tf'));
+    });
   });
 
   var compareBtn = document.getElementById('compare-toggle');
@@ -206,37 +268,60 @@
     });
   }
 
-  function bootFocus() {
-    if (typeof TradingView !== 'undefined') loadFocus(currentSymbol, currentInterval);
-    else setTimeout(bootFocus, 200);
+  var searchInput = document.getElementById('symbol-search');
+  var searchResults = document.getElementById('symbol-search-results');
+  if (searchInput && searchResults) {
+    function renderSearch(q) {
+      q = (q || '').trim().toLowerCase();
+      if (!q) { searchResults.hidden = true; searchResults.innerHTML = ''; return; }
+      var hits = CATALOG.filter(function (c) {
+        return c.n.toLowerCase().indexOf(q) !== -1 || c.s.toLowerCase().indexOf(q) !== -1;
+      }).slice(0, 8);
+      if (!hits.length) { searchResults.hidden = true; return; }
+      searchResults.innerHTML = hits.map(function (h) {
+        return '<button type="button" role="option" data-symbol="' + h.s + '">' + h.n +
+          ' <span style="opacity:.5">' + h.s + '</span></button>';
+      }).join('');
+      searchResults.hidden = false;
+      searchResults.querySelectorAll('button').forEach(function (b) {
+        b.addEventListener('click', function () {
+          loadFocus(b.getAttribute('data-symbol'), currentInterval);
+          searchInput.value = '';
+          searchResults.hidden = true;
+        });
+      });
+    }
+    searchInput.addEventListener('input', function () { renderSearch(searchInput.value); });
+    searchInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { searchResults.hidden = true; searchInput.blur(); }
+    });
+    document.addEventListener('click', function (e) {
+      if (!searchInput.parentNode.contains(e.target)) searchResults.hidden = true;
+    });
   }
-  bootFocus();
 
   var defaultWatch = ['TVC:US10Y', 'TVC:DXY', 'TVC:GOLD', 'FOREXCOM:SPXUSD'];
   var watchlist = loadJSON(STORAGE.watchlist, defaultWatch);
+
   function renderWatchlist() {
     var host = document.getElementById('watchlist-host');
     if (!host) return;
     host.innerHTML = '';
     if (!watchlist.length) {
-      host.innerHTML = '<p class="body-small" style="margin:0;opacity:.7">Empty — add symbols from the focus chips.</p>';
+      host.innerHTML = '<p class="body-small" style="margin:0;opacity:.7">Empty — add the current focus symbol.</p>';
       return;
     }
     watchlist.forEach(function (sym) {
       var row = document.createElement('div');
       row.className = 'watch-row';
-      var name = focusNames[sym] || sym;
-      row.innerHTML = '<button type="button" class="watch-sym" data-symbol="' + sym + '">' + name + '</button>' +
+      row.innerHTML =
+        '<button type="button" class="watch-sym" data-symbol="' + sym + '">' + (focusNames[sym] || sym) + '</button>' +
         '<button type="button" class="watch-remove" data-symbol="' + sym + '" aria-label="Remove">×</button>';
       host.appendChild(row);
     });
     host.querySelectorAll('.watch-sym').forEach(function (b) {
       b.addEventListener('click', function () {
-        var sym = b.getAttribute('data-symbol');
-        document.querySelectorAll('.symbol-chip').forEach(function (c) {
-          c.classList.toggle('active', c.getAttribute('data-symbol') === sym);
-        });
-        loadFocus(sym, currentInterval);
+        loadFocus(b.getAttribute('data-symbol'), currentInterval);
       });
     });
     host.querySelectorAll('.watch-remove').forEach(function (b) {
@@ -275,8 +360,7 @@
     var bar = document.getElementById('workflow-progress-bar');
     var labelEl = document.getElementById('workflow-progress-label');
     var total = items.length || 4;
-    var pct = Math.round((done / total) * 100);
-    if (bar) bar.style.width = pct + '%';
+    if (bar) bar.style.width = Math.round((done / total) * 100) + '%';
     if (labelEl) labelEl.textContent = done + ' / ' + total + ' steps';
   }
   document.querySelectorAll('.macro-checklist [data-step] input[type="checkbox"]').forEach(function (cb) {
@@ -291,22 +375,26 @@
   renderWorkflow();
 
   var journal = document.getElementById('macro-journal');
-  var journalSave = document.getElementById('journal-save');
-  var journalClear = document.getElementById('journal-clear');
   var journalStatus = document.getElementById('journal-status');
-  if (journal) { try { journal.value = localStorage.getItem(STORAGE.journal) || ''; } catch (e) {} }
+  if (journal) {
+    try { journal.value = localStorage.getItem(STORAGE.journal) || ''; } catch (e) {}
+  }
   function setJournalStatus(msg) {
     if (journalStatus) {
       journalStatus.textContent = msg;
       setTimeout(function () { if (journalStatus) journalStatus.textContent = ''; }, 2000);
     }
   }
+  var journalSave = document.getElementById('journal-save');
   if (journalSave && journal) {
     journalSave.addEventListener('click', function () {
-      try { localStorage.setItem(STORAGE.journal, journal.value || ''); setJournalStatus('Saved locally'); }
-      catch (e) { setJournalStatus('Save failed'); }
+      try {
+        localStorage.setItem(STORAGE.journal, journal.value || '');
+        setJournalStatus('Saved');
+      } catch (e) { setJournalStatus('Save failed'); }
     });
   }
+  var journalClear = document.getElementById('journal-clear');
   if (journalClear && journal) {
     journalClear.addEventListener('click', function () {
       journal.value = '';
@@ -314,6 +402,61 @@
       setJournalStatus('Cleared');
     });
   }
+
+  var levels = loadJSON(STORAGE.levels, []);
+  function renderLevels() {
+    var h = document.getElementById('levels-host');
+    if (!h) return;
+    if (!levels.length) {
+      h.innerHTML = '<p class="body-small" style="margin:0;opacity:.65">No levels yet — record invalidation before high-impact prints.</p>';
+      return;
+    }
+    h.innerHTML = levels.map(function (L, i) {
+      return '<div class="level-row"><div><strong>' + (L.symbol || '—') + '</strong> @ ' + (L.level || '—') +
+        (L.note ? '<div style="opacity:.75;margin-top:.2rem">' + L.note + '</div>' : '') +
+        '</div><button type="button" class="level-remove" data-i="' + i + '" aria-label="Remove">×</button></div>';
+    }).join('');
+    h.querySelectorAll('.level-remove').forEach(function (b) {
+      b.addEventListener('click', function () {
+        levels.splice(parseInt(b.getAttribute('data-i'), 10), 1);
+        saveJSON(STORAGE.levels, levels);
+        renderLevels();
+      });
+    });
+  }
+  renderLevels();
+  var levelAdd = document.getElementById('level-add');
+  if (levelAdd) {
+    levelAdd.addEventListener('click', function () {
+      var sym = (document.getElementById('level-symbol') || {}).value || '';
+      var val = (document.getElementById('level-value') || {}).value || '';
+      var note = (document.getElementById('level-note') || {}).value || '';
+      if (!sym.trim() && !val.trim()) return;
+      levels.unshift({ symbol: sym.trim(), level: val.trim(), note: note.trim(), ts: Date.now() });
+      saveJSON(STORAGE.levels, levels);
+      if (document.getElementById('level-note')) document.getElementById('level-note').value = '';
+      if (document.getElementById('level-value')) document.getElementById('level-value').value = '';
+      renderLevels();
+    });
+  }
+
+  function exportJournal() {
+    var j = '';
+    try { j = localStorage.getItem(STORAGE.journal) || ''; } catch (e) {}
+    var md = '# WINEMI CAPITAL — Study export\n\n## Journal\n\n' + j + '\n\n## Levels\n\n';
+    levels.forEach(function (L) {
+      md += '- **' + (L.symbol || '—') + '** @ ' + (L.level || '—') + (L.note ? ' — ' + L.note : '') + '\n';
+    });
+    md += '\n_Educational notes only. Not investment advice._\n';
+    var blob = new Blob([md], { type: 'text/markdown' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'winemi-study-' + new Date().toISOString().slice(0, 10) + '.md';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+  var journalExport = document.getElementById('journal-export');
+  if (journalExport) journalExport.addEventListener('click', exportJournal);
 
   var fsBtn = document.getElementById('focus-fullscreen');
   var focusPanel = document.getElementById('focus-panel');
@@ -325,6 +468,10 @@
   }
 
   var help = document.getElementById('shortcut-help');
+  var helpOpen = document.getElementById('shortcut-open');
+  if (helpOpen && help) {
+    helpOpen.addEventListener('click', function () { help.classList.toggle('is-open'); });
+  }
   document.addEventListener('keydown', function (e) {
     if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable)) return;
     var k = e.key.toLowerCase();
@@ -335,10 +482,25 @@
       var map = { '1': 'D', '2': '240', '3': '60', '4': 'W' };
       loadFocus(currentSymbol, map[k]); e.preventDefault();
     }
+    if (k === '/') {
+      if (searchInput) { searchInput.focus(); e.preventDefault(); }
+    }
+    if (k === 'e') { exportJournal(); e.preventDefault(); }
+    if (k === 'l') {
+      var chips = document.querySelectorAll('.layout-chip');
+      if (!chips.length) return;
+      var idx = 0;
+      chips.forEach(function (c, i) { if (c.classList.contains('active')) idx = i; });
+      var next = chips[(idx + 1) % chips.length];
+      if (next) next.click();
+      e.preventDefault();
+    }
     if (k === 'escape' && help) help.classList.remove('is-open');
   });
   var helpClose = document.getElementById('shortcut-help-close');
-  if (helpClose && help) helpClose.addEventListener('click', function () { help.classList.remove('is-open'); });
+  if (helpClose && help) {
+    helpClose.addEventListener('click', function () { help.classList.remove('is-open'); });
+  }
 
   var links = document.querySelectorAll('.macro-subnav a');
   function syncSubnav() {
