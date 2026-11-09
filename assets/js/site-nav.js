@@ -265,3 +265,14 @@
   s.defer = true;
   document.head.appendChild(s);
 })();
+
+/* Visual appeal: ambient orbs, tilt, ripple, counters */
+(function loadSiteVisual() {
+  if (document.querySelector('script[src*="site-visual.js"]')) return;
+  var path = (window.location.pathname || '');
+  var inPages = /\/pages\//.test(path);
+  var s = document.createElement('script');
+  s.src = (inPages ? '../' : '') + 'assets/js/site-visual.js';
+  s.defer = true;
+  document.head.appendChild(s);
+})();
