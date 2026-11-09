@@ -116,13 +116,12 @@
 
     var resourceLinks = [
       { label: 'Education', href: prefix + 'education.html' },
+      { label: 'Macro desk', href: prefix + 'education-macro.html' },
       { label: 'Research', href: prefix + 'research.html' },
       { label: 'Resources', href: prefix + 'resources.html' },
       { label: 'Glossary', href: prefix + 'glossary.html' },
       { label: 'FAQ', href: prefix + 'faq.html' },
       { label: 'Insights', href: prefix + 'insights.html' },
-      { label: 'Media', href: prefix + 'media.html' },
-      { label: 'Compliance', href: prefix + 'compliance.html' },
       { label: 'Risk Disclosure', href: prefix + 'risk-disclosure.html' }
     ].map(function (l) { return '<a href="' + l.href + '">' + l.label + '</a>'; }).join('');
 
@@ -243,4 +242,15 @@
   } else {
     mount();
   }
+})();
+
+/* Site-wide polish: light-theme ensure, reveal, progress, back-to-top */
+(function loadSitePolish() {
+  if (document.querySelector('script[src*="site-polish.js"]')) return;
+  var path = (window.location.pathname || '');
+  var inPages = /\/pages\//.test(path);
+  var s = document.createElement('script');
+  s.src = (inPages ? '../' : '') + 'assets/js/site-polish.js';
+  s.defer = true;
+  document.head.appendChild(s);
 })();
