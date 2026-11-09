@@ -1,113 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>/* Hard visibility boot */document.documentElement.style.backgroundColor='#0a0a0b';document.documentElement.style.color='#f7f5f0';</script>
+  <script>/* Hard visibility boot */document.documentElement.style.opacity='1';document.documentElement.style.visibility='visible';if(document.body){document.body.style.opacity='1';document.body.style.visibility='visible';}</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WINEMI CAPITAL. | Capital. Discipline. Growth.</title>
-  <meta name="description" content="WINEMI CAPITAL. — Building wealth through intelligent capital allocation. Institutional perspective on markets, research, and financial education." />
   <meta name="theme-color" content="#0a0a0b" />
-  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <title>WINEMI CAPITAL. | Building wealth through intelligent capital allocation</title>
+  <meta name="description" content="WINEMI CAPITAL. — Building wealth through intelligent capital allocation. Institutional perspective on markets, asset management, research, and financial education." />
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="assets/css/nav.css" />
   <link rel="stylesheet" href="assets/css/logo.css" />
   <link rel="stylesheet" href="assets/css/glass.css" />
   <link rel="stylesheet" href="assets/css/footer-rich.css" />
-  <link rel="stylesheet" href="assets/css/diagrams.css" />
+  <link rel="stylesheet" href="assets/css/light-theme.css" />
   <link rel="stylesheet" href="assets/css/ticker-fix.css" />
   <link rel="stylesheet" href="assets/css/tv-workspace.css" />
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('winemi-theme');
-        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-        else document.documentElement.setAttribute('data-theme', 'dark');
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
-  <script src="assets/js/page-ready.js"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
   <style>
-    .tv-workspace { margin-top: 1.25rem; }
-    .tv-tool-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1rem; border-bottom: 1px solid rgba(184,149,106,0.22); padding-bottom: 0.85rem; }
-    .tv-tool-tab { border: 1px solid rgba(184,149,106,0.28); background: transparent; color: rgba(247,245,240,0.72); border-radius: 999px; padding: 0.42rem 0.9rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; }
-    .tv-tool-tab:hover, .tv-tool-tab.active { background: rgba(184,149,106,0.14); color: var(--color-muted-gold,#b8956a); border-color: rgba(184,149,106,0.55); }
-    .tv-panel-host { border: 1px solid rgba(184,149,106,0.28); border-radius: 14px; overflow: hidden; background: #0e0e10; min-height: 520px; }
-    .tv-panel { display: none; width: 100%; min-height: 520px; }
-    .tv-panel.active { display: block; }
-    .tv-panel iframe, .tv-panel .tradingview-widget-container, .tv-panel .tradingview-widget-container__widget { width: 100% !important; min-height: 520px; height: 520px; }
-    .instrument-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.75rem; }
-    .instrument-tab { border: 1px solid rgba(184,149,106,0.22); background: transparent; color: rgba(247,245,240,0.65); border-radius: 999px; padding: 0.35rem 0.75rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; }
-    .instrument-tab.active, .instrument-tab:hover { background: rgba(184,149,106,0.12); color: var(--color-muted-gold,#b8956a); border-color: rgba(184,149,106,0.5); }
-    .home-session-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin: 0 0 1.25rem; }
-    .home-sess { padding: 0.4rem 0.75rem; border-radius: 6px; border: 1px solid rgba(184,149,106,0.22); background: #161618; font-size: 0.72rem; letter-spacing: 0.04em; color: rgba(247,245,240,0.7); }
-    .home-sess strong { color: #c9a87c; font-weight: 600; }
-    .home-sess.is-open { border-color: rgba(106,158,122,0.45); }
-    .home-sess.is-open strong { color: #8fcea0; }
-    html[data-theme=light] .home-sess { background: #fff; border-color: rgba(122,95,50,0.22); color: rgba(12,12,14,0.7); }
-    html[data-theme=light] .home-sess strong { color: #7a5f32; }
-    .desk-quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem; margin: 0 0 2rem; }
-    @media (max-width: 900px) { .desk-quick { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 520px) { .desk-quick { grid-template-columns: 1fr; } }
-    .desk-quick a { display: block; padding: 1rem 1.1rem; border-radius: 12px; border: 1px solid rgba(184,149,106,0.28); background: #141416; text-decoration: none; transition: border-color 150ms ease, transform 150ms ease, background 150ms ease; }
-    .desk-quick a:hover { border-color: rgba(184,149,106,0.55); background: rgba(184,149,106,0.08); transform: translateY(-2px); }
-    .desk-quick .dq-label { display: block; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(201,168,124,0.95); font-weight: 600; margin-bottom: 0.35rem; }
-    .desk-quick .dq-title { display: block; font-size: 1rem; font-weight: 600; color: #f7f5f0; margin-bottom: 0.25rem; }
-    .desk-quick .dq-copy { display: block; font-size: 0.8125rem; line-height: 1.45; color: rgba(247,245,240,0.65); }
-    html[data-theme=light] .desk-quick a { background: #fff; border-color: rgba(122,95,50,0.25); }
-    html[data-theme=light] .desk-quick .dq-title { color: #0c0c0e; }
-    html[data-theme=light] .desk-quick .dq-copy { color: rgba(12,12,14,0.7); }
-    html[data-theme=light] .desk-quick .dq-label { color: #7a5f32; }
-    .home-regime { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.65rem; margin: 0 0 1.5rem; }
-    @media (max-width: 900px) { .home-regime { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 520px) { .home-regime { grid-template-columns: repeat(2, 1fr); } }
-    .home-regime a { display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem; padding: 0.75rem 0.85rem; border-radius: 10px; border: 1px solid rgba(184,149,106,0.22); background: #161618; text-decoration: none; transition: border-color 120ms ease, background 120ms ease; }
-    .home-regime a:hover { border-color: rgba(184,149,106,0.55); background: rgba(184,149,106,0.1); }
-    .home-regime .rg-sym { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; color: #e0c49a; }
-    .home-regime .rg-name { font-size: 0.7rem; color: rgba(247,245,240,0.55); }
-    html[data-theme=light] .home-regime a { background: #fff; border-color: rgba(122,95,50,0.22); }
-    html[data-theme=light] .home-regime .rg-sym { color: #7a5f32; }
-    html[data-theme=light] .home-regime .rg-name { color: rgba(12,12,14,0.55); }
-    @media (max-width: 767px) { .tv-panel-host, .tv-panel, .tv-panel .tradingview-widget-container, .tv-panel .tradingview-widget-container__widget { min-height: 400px; height: 400px; } }
+    .home-session-bar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:0 0 1.25rem;padding:.65rem 0}
+    .home-sess{padding:.4rem .75rem;border-radius:6px;border:1px solid rgba(184,149,106,.22);background:#161618;font-size:.72rem;letter-spacing:.04em;color:rgba(247,245,240,.7)}
+    .home-sess strong{color:#c9a87c;font-weight:600}
+    .home-sess.is-open{border-color:rgba(106,158,122,.45)}
+    .home-sess.is-open strong{color:#8fcea0}
+    html[data-theme=light] .home-sess{background:#fff;border-color:rgba(122,95,50,.22);color:rgba(12,12,14,.7)}
+    html[data-theme=light] .home-sess strong{color:#7a5f32}
+    .desk-quick{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem;margin:0 0 2rem}
+    @media (max-width:900px){.desk-quick{grid-template-columns:1fr 1fr}}
+    @media (max-width:520px){.desk-quick{grid-template-columns:1fr}}
+    .desk-quick a{display:block;padding:1rem 1.1rem;border-radius:12px;border:1px solid rgba(184,149,106,.28);background:#141416;text-decoration:none;transition:border-color .15s,transform .15s,background .15s}
+    .desk-quick a:hover{border-color:rgba(184,149,106,.55);background:rgba(184,149,106,.08);transform:translateY(-2px)}
+    .desk-quick .dq-label{display:block;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,168,124,.95);font-weight:600;margin-bottom:.35rem}
+    .desk-quick .dq-title{display:block;font-size:1rem;font-weight:600;color:#f7f5f0;margin-bottom:.25rem}
+    .desk-quick .dq-copy{display:block;font-size:.8125rem;line-height:1.45;color:rgba(247,245,240,.65)}
+    html[data-theme=light] .desk-quick a{background:#fff;border-color:rgba(122,95,50,.25)}
+    html[data-theme=light] .desk-quick .dq-title{color:#0c0c0e}
+    html[data-theme=light] .desk-quick .dq-copy{color:rgba(12,12,14,.7)}
+    html[data-theme=light] .desk-quick .dq-label{color:#7a5f32}
+    .home-regime{display:grid;grid-template-columns:repeat(6,1fr);gap:.65rem;margin:0 0 1.5rem}
+    @media (max-width:900px){.home-regime{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:520px){.home-regime{grid-template-columns:repeat(2,1fr)}}
+    .home-regime a{display:flex;flex-direction:column;align-items:flex-start;gap:.2rem;padding:.75rem .85rem;border-radius:10px;border:1px solid rgba(184,149,106,.22);background:#161618;text-decoration:none;transition:border-color .12s,background .12s}
+    .home-regime a:hover{border-color:rgba(184,149,106,.55);background:rgba(184,149,106,.1)}
+    .home-regime .rg-sym{font-size:.75rem;font-weight:700;letter-spacing:.04em;color:#e0c49a}
+    .home-regime .rg-name{font-size:.7rem;color:rgba(247,245,240,.55)}
+    html[data-theme=light] .home-regime a{background:#fff;border-color:rgba(122,95,50,.22)}
+    html[data-theme=light] .home-regime .rg-sym{color:#7a5f32}
+    html[data-theme=light] .home-regime .rg-name{color:rgba(12,12,14,.55)}
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" role="banner"></header>
 
-  <div class="top-feed" aria-label="Live markets and news">
-    <div class="market-ticker" role="region" aria-label="Live market data ticker">
-      <div class="market-ticker-inner">
-        <span class="market-ticker-label">Live Markets</span>
-        <div class="tradingview-widget-container market-ticker-widget">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-          {"symbols":[{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"FOREXCOM:NSXUSD","title":"NASDAQ 100"},{"proName":"FOREXCOM:DJI","title":"Dow 30"},{"proName":"TVC:GOLD","title":"Gold"},{"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},{"proName":"FX:EURUSD","title":"EUR/USD"},{"proName":"TVC:USOIL","title":"Crude Oil"},{"proName":"TVC:DXY","title":"US Dollar Index"},{"proName":"TVC:VIX","title":"VIX"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
-          </script>
-        </div>
-      </div>
-    </div>
-    <div class="news-ticker" role="region" aria-label="Market context headlines">
-      <div class="news-ticker-inner">
-        <span class="news-ticker-label">Live News</span>
-        <div class="news-ticker-track"><div class="news-ticker-content">
-          <span>Global equity markets remain sensitive to central bank policy signals and liquidity conditions.</span><span class="news-sep">·</span>
-          <span>Gold continues to serve as a strategic allocation for portfolio diversification.</span><span class="news-sep">·</span>
-          <span>FX volatility reflects divergent growth and interest-rate paths across major economies.</span><span class="news-sep">·</span>
-          <span>Structure-first analysis prioritises bases, impulsive departures, and defined invalidation.</span><span class="news-sep">·</span>
-          <span>Global equity markets remain sensitive to central bank policy signals and liquidity conditions.</span><span class="news-sep">·</span>
-          <span>Gold continues to serve as a strategic allocation for portfolio diversification.</span><span class="news-sep">·</span>
-          <span>FX volatility reflects divergent growth and interest-rate paths across major economies.</span><span class="news-sep">·</span>
-          <span>Structure-first analysis prioritises bases, impulsive departures, and defined invalidation.</span>
-        </div></div>
-      </div>
-    </div>
-  </div>
-
   <main id="main">
     <section class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
       <div class="container hero-content">
         <p class="label">Institutional Perspective</p>
         <h1 class="heading-1">CAPITAL.<br />DISCIPLINE.<br />GROWTH.</h1>
@@ -128,9 +75,11 @@
           <span class="home-sess" id="home-sess-london"><strong>London</strong> <span class="hs-state">—</span></span>
           <span class="home-sess" id="home-sess-ny"><strong>New York</strong> <span class="hs-state">—</span></span>
         </div>
+
         <p class="label section-label">Research desks</p>
         <h2 class="heading-2 section-title" style="margin-bottom:0.75rem;">OPEN A WORKSPACE</h2>
         <p class="body-base" style="max-width:40rem;margin-bottom:1.25rem;">Structure, macro context, and literacy tools — framed for education, not as trade recommendations.</p>
+
         <div class="desk-quick">
           <a href="pages/education-macro.html">
             <span class="dq-label">Macro</span>
@@ -153,6 +102,7 @@
             <span class="dq-copy">Structure-first curriculum, risk framing, and study themes.</span>
           </a>
         </div>
+
         <p class="label section-label" style="margin-top:0.5rem;">Regime references</p>
         <div class="home-regime" aria-label="Regime quick links">
           <a href="pages/education-macro.html#focus"><span class="rg-sym">DXY</span><span class="rg-name">Dollar index</span></a>
@@ -168,74 +118,20 @@
     <section class="section" id="markets-preview">
       <div class="container">
         <p class="label section-label">TradingView</p>
-        <h2 class="heading-2 section-title">TRADINGVIEW WORKSPACE</h2>
-        <p class="body-base" style="max-width:42rem;">One integrated desk — chart, overview, calendar, technicals, FX, crypto, and heatmap. Educational use only.</p>
-        <div class="tv-workspace">
-          <div class="tv-tool-tabs" role="tablist" aria-label="TradingView tools">
-            <button type="button" class="tv-tool-tab active" data-tv-panel="chart">Chart</button>
-            <button type="button" class="tv-tool-tab" data-tv-panel="overview">Overview</button>
-            <button type="button" class="tv-tool-tab" data-tv-panel="calendar">Calendar</button>
-            <button type="button" class="tv-tool-tab" data-tv-panel="technicals">Technicals</button>
-            <button type="button" class="tv-tool-tab" data-tv-panel="forex">Forex</button>
-            <button type="button" class="tv-tool-tab" data-tv-panel="crypto">Crypto</button>
-            <button type="button" class="tv-tool-tab" data-tv-panel="heatmap">Heatmap</button>
-          </div>
-          <div class="instrument-tabs" id="tv-symbol-tabs" role="tablist" aria-label="Instruments">
-            <button type="button" class="instrument-tab active" data-symbol="FOREXCOM:SPXUSD">S&P 500</button>
-            <button type="button" class="instrument-tab" data-symbol="NASDAQ:NDX">NASDAQ-100</button>
-            <button type="button" class="instrument-tab" data-symbol="TVC:GOLD">Gold</button>
-            <button type="button" class="instrument-tab" data-symbol="TVC:USOIL">Crude</button>
-            <button type="button" class="instrument-tab" data-symbol="FX:EURUSD">EUR/USD</button>
-            <button type="button" class="instrument-tab" data-symbol="BINANCE:BTCUSDT">Bitcoin</button>
-            <button type="button" class="instrument-tab" data-symbol="TVC:DXY">DXY</button>
-            <button type="button" class="instrument-tab" data-symbol="TVC:VIX">VIX</button>
-          </div>
-          <div class="tv-panel-host">
-            <div class="tv-panel active" data-panel="chart"><div id="tradingview-widget" style="height:540px;width:100%;"></div></div>
-            <div class="tv-panel" data-panel="overview"><div class="tradingview-widget-container" style="height:540px;"><div class="tradingview-widget-container__widget" style="height:540px;"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>{"colorTheme":"dark","dateRange":"1M","showChart":true,"locale":"en","width":"100%","height":"100%","isTransparent":true,"showSymbolLogo":true,"tabs":[{"title":"Indices","symbols":[{"s":"FOREXCOM:SPXUSD","d":"S&P 500"},{"s":"FOREXCOM:NSXUSD","d":"NASDAQ 100"},{"s":"FOREXCOM:DJI","d":"Dow 30"}]},{"title":"Rates & FX","symbols":[{"s":"TVC:US10Y","d":"US 10Y"},{"s":"TVC:DXY","d":"DXY"},{"s":"FX:EURUSD","d":"EUR/USD"}]},{"title":"Commodities","symbols":[{"s":"TVC:GOLD","d":"Gold"},{"s":"TVC:USOIL","d":"WTI"}]}]}</script></div></div>
-            <div class="tv-panel" data-panel="calendar"><div class="tradingview-widget-container" style="height:540px;"><div class="tradingview-widget-container__widget" style="height:540px;"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>{"colorTheme":"dark","isTransparent":true,"width":"100%","height":"100%","locale":"en","importanceFilter":"0,1","countryFilter":"us,eu,gb,jp,cn"}</script></div></div>
-            <div class="tv-panel" data-panel="technicals"><div class="tradingview-widget-container" style="height:540px;"><div class="tradingview-widget-container__widget" style="height:540px;"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>{"interval":"1h","width":"100%","isTransparent":true,"height":"100%","symbol":"FOREXCOM:SPXUSD","showIntervalTabs":true,"displayMode":"single","locale":"en","colorTheme":"dark"}</script></div></div>
-            <div class="tv-panel" data-panel="forex"><div class="tradingview-widget-container" style="height:540px;"><div class="tradingview-widget-container__widget" style="height:540px;"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>{"width":"100%","height":"100%","currencies":["EUR","USD","GBP","JPY","CHF","AUD","CAD","CNY"],"isTransparent":true,"colorTheme":"dark","locale":"en"}</script></div></div>
-            <div class="tv-panel" data-panel="crypto"><div class="tradingview-widget-container" style="height:540px;"><div class="tradingview-widget-container__widget" style="height:540px;"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>{"width":"100%","height":"100%","defaultColumn":"overview","screener_type":"crypto_mkt","displayCurrency":"USD","colorTheme":"dark","locale":"en","isTransparent":true}</script></div></div>
-            <div class="tv-panel" data-panel="heatmap"><div class="tradingview-widget-container" style="height:540px;"><div class="tradingview-widget-container__widget" style="height:540px;"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>{"exchanges":[],"dataSource":"SPX500","grouping":"sector","blockSize":"market_cap_basic","blockColor":"change","locale":"en","colorTheme":"dark","hasTopBar":true,"isZoomEnabled":true,"hasSymbolTooltip":true,"width":"100%","height":"100%"}</script></div></div>
-          </div>
-        </div>
-        <p class="body-small" style="margin-top:1rem;">TradingView · Educational use only · <a href="pages/markets.html">Open Markets desk</a></p>
-      </div>
-    </section>
-
-    <section class="section" id="pathways">
-      <div class="container">
-        <p class="label section-label">Firm pathways</p>
-        <h2 class="heading-2 section-title">HOW THE FIRM SHOWS UP</h2>
-        <div class="grid-3" style="margin-top:2rem;">
-          <a href="pages/approach.html" class="card" style="text-decoration:none;color:inherit;"><h3 class="card-title">Our approach</h3><p class="card-text">Structure first, macro as context, invalidation before narrative.</p></a>
-          <a href="pages/education.html" class="card" style="text-decoration:none;color:inherit;"><h3 class="card-title">Education</h3><p class="card-text">Patterns, zones, order flow, and risk framing.</p></a>
-          <a href="pages/insights.html" class="card" style="text-decoration:none;color:inherit;"><h3 class="card-title">Insights</h3><p class="card-text">Research notes on structure, liquidity, and macro.</p></a>
-          <a href="pages/markets.html" class="card" style="text-decoration:none;color:inherit;"><h3 class="card-title">Markets desk</h3><p class="card-text">Full TradingView workspace.</p></a>
-          <a href="pages/about.html" class="card" style="text-decoration:none;color:inherit;"><h3 class="card-title">About</h3><p class="card-text">Founding leadership and firm perspective.</p></a>
-          <a href="pages/contact.html" class="card" style="text-decoration:none;color:inherit;"><h3 class="card-title">Contact</h3><p class="card-text">Reach the firm in Accra.</p></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="map">
-      <div class="container">
-        <p class="label section-label">Global presence</p>
-        <h2 class="heading-2 section-title">MARKETS WE WATCH</h2>
-        <div id="wc-map" class="map-frame" style="min-height:420px;"></div>
+        <h2 class="heading-2 section-title">MARKETS AT A GLANCE</h2>
+        <p class="body-base" style="max-width:42rem;">Cross-asset overview for educational context. Open the full markets workspace or macro desk for interactive study tools.</p>
+        <p style="margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.65rem">
+          <a class="btn btn-primary" href="pages/education-macro.html">Open macro desk</a>
+          <a class="btn btn-secondary" href="pages/markets.html">Markets workspace</a>
+        </p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer" role="contentinfo"></footer>
   <script src="assets/js/site-nav.js"></script>
+  <script src="assets/js/page-ready.js"></script>
   <script src="assets/js/home-sections.js"></script>
-  <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/map-redesign.js" defer></script>
-  <script src="assets/js/founder-photo.js" defer></script>
-  <script src="assets/js/wilson-photo.js" defer></script>
-  <script src="https://s3.tradingview.com/tv.js"></script>
   <script>
     (function () {
       function pad(n) { return n < 10 ? '0' + n : '' + n; }
@@ -258,39 +154,7 @@
       tick();
       setInterval(tick, 30000);
     })();
-    (function () {
-      var panels = document.querySelectorAll('.tv-panel');
-      var tabs = document.querySelectorAll('.tv-tool-tab');
-      var symbolTabs = document.querySelectorAll('.instrument-tab');
-      var chartEl = document.getElementById('tradingview-widget');
-      var current = 'FOREXCOM:SPXUSD';
-      var chartMounted = false;
-      function theme() { return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
-      function mountChart(symbol) {
-        if (!chartEl || typeof TradingView === 'undefined') return;
-        current = symbol || current;
-        chartEl.innerHTML = '';
-        new TradingView.widget({ autosize: true, symbol: current, interval: '60', timezone: 'Etc/UTC', theme: theme(), style: '1', locale: 'en', toolbar_bg: '#1c1c1f', enable_publishing: false, allow_symbol_change: true, hide_side_toolbar: false, container_id: 'tradingview-widget', backgroundColor: theme() === 'light' ? '#f7f5f0' : '#0e0e10', gridColor: 'rgba(184,149,106,0.08)' });
-        chartMounted = true;
-      }
-      function showPanel(id) {
-        panels.forEach(function (p) { p.classList.toggle('active', p.getAttribute('data-panel') === id); });
-        tabs.forEach(function (t) { t.classList.toggle('active', t.getAttribute('data-tv-panel') === id); });
-        var symRow = document.getElementById('tv-symbol-tabs');
-        if (symRow) symRow.style.display = (id === 'chart' || id === 'technicals') ? 'flex' : 'none';
-        if (id === 'chart') { if (!chartMounted) mountChart(current); else { try { window.dispatchEvent(new Event('resize')); } catch (e) {} } }
-      }
-      tabs.forEach(function (tab) { tab.addEventListener('click', function () { showPanel(tab.getAttribute('data-tv-panel')); }); });
-      symbolTabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          symbolTabs.forEach(function (t) { t.classList.remove('active'); });
-          tab.classList.add('active');
-          mountChart(tab.getAttribute('data-symbol'));
-        });
-      });
-      function boot() { if (typeof TradingView !== 'undefined') mountChart(current); else setTimeout(boot, 200); }
-      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
-    })();
   </script>
+  <script src="assets/js/home-advanced.js" defer></script>
 </body>
 </html>
