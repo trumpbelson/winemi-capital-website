@@ -2,7 +2,586 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Macro desk restore marker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <title>Macro & data desk | WINEMI CAPITAL.</title>
+  <meta name="description" content="Unified macro desk — regime, board, focus chart, calendar, watchlist, levels, and study workflow in one workspace. Educational context only." />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/nav.css" />
+  <link rel="stylesheet" href="../assets/css/logo.css" />
+  <link rel="stylesheet" href="../assets/css/glass.css" />
+  <link rel="stylesheet" href="../assets/css/learn-interactive.css" />
+  <link rel="stylesheet" href="../assets/css/footer-rich.css" />
+  <link rel="stylesheet" href="../assets/css/light-theme.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+  <style>
+    /* ===== Unified desk topography ===== */
+    .macro-page .page-header{padding-bottom:.75rem}
+    .macro-lead{max-width:42rem;margin:0 0 .5rem;font-size:.95rem;opacity:.9}
+
+    /* Sticky command surface */
+    .desk-shell{
+      --desk-rail:280px;
+      --desk-gap:.75rem;
+      display:flex;flex-direction:column;gap:.85rem;
+    }
+    .desk-command{
+      position:sticky;top:var(--header-height,72px);z-index:45;
+      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.65rem;
+      padding:.7rem 1rem;border:1px solid rgba(184,149,106,.3);border-radius:12px;
+      background:rgba(14,14,16,.96);backdrop-filter:blur(12px);
+      box-shadow:0 8px 28px rgba(0,0,0,.35);
+    }
+    html[data-theme=light] .desk-command{
+      background:rgba(255,255,255,.97);border-color:rgba(122,95,50,.28);
+      box-shadow:0 8px 24px rgba(12,12,14,.08);
+    }
+    .session-bar{display:flex;flex-wrap:wrap;gap:.4rem;margin:0}
+    .session-chip{
+      padding:.35rem .65rem;border-radius:6px;border:1px solid rgba(184,149,106,.22);
+      background:#161618;font-size:.7rem;letter-spacing:.04em;color:rgba(247,245,240,.72);
+    }
+    .session-chip strong{color:#c9a87c;font-weight:600}
+    .session-chip.open{border-color:rgba(106,158,122,.5)}.session-chip.open strong{color:#8fcea0}
+    html[data-theme=light] .session-chip{background:#f4f1ea;border-color:rgba(122,95,50,.2);color:rgba(12,12,14,.72)}
+    html[data-theme=light] .session-chip strong{color:#7a5f32}
+
+    .cmd-group{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem}
+    .cmd-sep{width:1px;height:1.4rem;background:rgba(184,149,106,.25);margin:0 .25rem}
+    html[data-theme=light] .cmd-sep{background:rgba(122,95,50,.2)}
+
+    .layout-chip,.tool-chip,.tf-chip,.macro-tab,.symbol-chip,.regime-chip,.macro-toggle,.desk-tab{
+      padding:.4rem .75rem;border-radius:999px;cursor:pointer;
+      border:1px solid rgba(184,149,106,.28);background:transparent;
+      color:rgba(247,245,240,.78);font-size:.7rem;font-weight:600;
+      letter-spacing:.05em;text-transform:uppercase;transition:border-color .15s,background .15s,color .15s;
+    }
+    .layout-chip.active,.tool-chip.active,.tf-chip.active,.macro-tab.active,.symbol-chip.active,
+    .regime-chip.active,.desk-tab.active{
+      background:rgba(184,149,106,.16);border-color:rgba(184,149,106,.65);color:#e0c49a;
+    }
+    .layout-chip:hover,.tool-chip:hover,.tf-chip:hover,.macro-tab:hover,.symbol-chip:hover,
+    .regime-chip:hover,.desk-tab:hover{border-color:rgba(184,149,106,.55);color:#c9a87c}
+    html[data-theme=light] .layout-chip,html[data-theme=light] .tool-chip,html[data-theme=light] .tf-chip,
+    html[data-theme=light] .macro-tab,html[data-theme=light] .symbol-chip,html[data-theme=light] .regime-chip,
+    html[data-theme=light] .desk-tab{color:rgba(12,12,14,.68);border-color:rgba(122,95,50,.25)}
+    html[data-theme=light] .layout-chip.active,html[data-theme=light] .tool-chip.active,
+    html[data-theme=light] .tf-chip.active,html[data-theme=light] .macro-tab.active,
+    html[data-theme=light] .symbol-chip.active,html[data-theme=light] .regime-chip.active,
+    html[data-theme=light] .desk-tab.active{color:#7a5f32;background:rgba(122,95,50,.1);border-color:rgba(122,95,50,.5)}
+
+    .macro-toggle{background:rgba(184,149,106,.12);color:#c9a87c;border-color:rgba(184,149,106,.45)}
+    .macro-toggle[aria-expanded=false]{background:transparent;color:rgba(247,245,240,.78)}
+    html[data-theme=light] .macro-toggle{color:#7a5f32;border-color:rgba(122,95,50,.4);background:rgba(122,95,50,.1)}
+
+    /* Regime strip */
+    .regime-strip{display:flex;flex-wrap:wrap;gap:.4rem}
+    .regime-chip{border-radius:8px;background:#161618}
+    html[data-theme=light] .regime-chip{background:#f7f5f0}
+
+    /* Main topography grid */
+    .desk-grid{
+      display:grid;
+      grid-template-columns:var(--desk-rail) minmax(0,1fr);
+      grid-template-rows:auto auto;
+      gap:var(--desk-gap);
+      align-items:start;
+    }
+    .desk-rail{
+      grid-row:1 / span 2;
+      display:flex;flex-direction:column;gap:.65rem;
+      position:sticky;top:calc(var(--header-height,72px) + 64px);max-height:calc(100vh - 140px);overflow-y:auto;
+      padding-right:2px;
+    }
+    .desk-stage{min-width:0}
+    .desk-secondary{min-width:0}
+
+    .tool-panel{
+      border:1px solid rgba(184,149,106,.22);border-radius:12px;padding:.85rem;
+      background:#121214;
+    }
+    html[data-theme=light] .tool-panel{background:#fff;border-color:rgba(122,95,50,.22)}
+    .tool-panel h3{
+      margin:0 0 .15rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;
+      text-transform:uppercase;color:#c9a87c;
+    }
+    html[data-theme=light] .tool-panel h3{color:#7a5f32}
+    .tool-panel .hint{display:block;font-size:.68rem;color:rgba(247,245,240,.45);margin-bottom:.55rem}
+    html[data-theme=light] .tool-panel .hint{color:rgba(12,12,14,.45)}
+
+    .workflow-progress{display:flex;align-items:center;gap:.55rem;margin-bottom:.55rem}
+    .workflow-progress-track{flex:1;height:4px;border-radius:99px;background:rgba(184,149,106,.15);overflow:hidden}
+    #workflow-progress-bar{height:100%;width:0;background:linear-gradient(90deg,#9a7b4f,#c9a87c);transition:width .25s ease}
+    #workflow-progress-label{font-size:.68rem;color:rgba(247,245,240,.55);white-space:nowrap}
+    html[data-theme=light] #workflow-progress-label{color:rgba(12,12,14,.55)}
+    .macro-checklist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem}
+    .macro-checklist li{font-size:.78rem;line-height:1.35;color:rgba(247,245,240,.8)}
+    html[data-theme=light] .macro-checklist li{color:rgba(12,12,14,.8)}
+    .macro-checklist label{display:flex;gap:.45rem;cursor:pointer;align-items:flex-start}
+    .macro-checklist input{margin-top:.15rem;accent-color:#c9a87c}
+
+    #watchlist-host{display:flex;flex-direction:column;gap:.3rem;min-height:2rem}
+    .watch-row{
+      display:flex;align-items:center;justify-content:space-between;gap:.4rem;
+      padding:.35rem .5rem;border-radius:6px;border:1px solid rgba(184,149,106,.18);
+      background:rgba(184,149,106,.04);font-size:.75rem;cursor:pointer;
+    }
+    .watch-row:hover{border-color:rgba(184,149,106,.45);background:rgba(184,149,106,.1)}
+    .watch-row .rm{border:none;background:transparent;color:rgba(247,245,240,.4);cursor:pointer;font-size:.85rem;padding:0 .2rem}
+    .watch-row .rm:hover{color:#e07a7a}
+    html[data-theme=light] .watch-row{background:rgba(122,95,50,.04);border-color:rgba(122,95,50,.15);color:#0c0c0e}
+    html[data-theme=light] .watch-row .rm{color:rgba(12,12,14,.35)}
+
+    #macro-journal,.level-note-input,.level-field{
+      width:100%;box-sizing:border-box;border-radius:8px;border:1px solid rgba(184,149,106,.25);
+      background:#0e0e10;color:rgba(247,245,240,.9);padding:.55rem .65rem;font-size:.8rem;
+      font-family:inherit;resize:vertical;
+    }
+    #macro-journal{min-height:88px}
+    html[data-theme=light] #macro-journal,html[data-theme=light] .level-note-input,html[data-theme=light] .level-field{
+      background:#faf8f4;color:#0c0c0e;border-color:rgba(122,95,50,.25);
+    }
+    .journal-actions,.level-form{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.45rem;align-items:center}
+    .level-form{margin-bottom:.35rem}
+    .level-field{flex:1;min-width:70px}
+    #levels-host{display:flex;flex-direction:column;gap:.3rem}
+    .level-row{font-size:.74rem;padding:.35rem .5rem;border-radius:6px;border:1px solid rgba(184,149,106,.15);background:rgba(0,0,0,.2)}
+    html[data-theme=light] .level-row{background:rgba(122,95,50,.04);border-color:rgba(122,95,50,.15);color:#0c0c0e}
+
+    /* Stage — focus chart */
+    .macro-panel{
+      border:1px solid rgba(184,149,106,.25);border-radius:12px;overflow:hidden;background:#0e0e10;
+    }
+    html[data-theme=light] .macro-panel{background:#0e0e10;border-color:rgba(122,95,50,.3)}
+    .macro-panel-head{
+      display:flex;align-items:center;justify-content:space-between;gap:.5rem;
+      padding:.55rem .85rem;border-bottom:1px solid rgba(184,149,106,.15);background:#141416;
+    }
+    .macro-panel-head h2{margin:0;font-size:.85rem;font-weight:650;color:#e8e4dc;letter-spacing:.02em}
+    .macro-panel-head .hint{font-size:.68rem;color:rgba(247,245,240,.45)}
+    #focus-panel:fullscreen{padding:1rem;background:#0a0a0b}
+    #macro-focus-chart{height:420px;width:100%}
+    .macro-widget{width:100%}
+    .macro-widget--tall{height:420px}
+    .macro-widget--mid{height:380px}
+    .macro-widget--mini{height:160px}
+
+    .focus-toolbar{
+      display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;
+      margin:0 0 .65rem;
+    }
+    .symbol-search-wrap{position:relative;flex:1;min-width:160px;max-width:260px}
+    .symbol-search{
+      width:100%;box-sizing:border-box;padding:.45rem .7rem;border-radius:8px;
+      border:1px solid rgba(184,149,106,.3);background:#121214;color:rgba(247,245,240,.9);
+      font-size:.8rem;
+    }
+    html[data-theme=light] .symbol-search{background:#fff;color:#0c0c0e;border-color:rgba(122,95,50,.3)}
+    .symbol-search-results{
+      position:absolute;left:0;right:0;top:100%;z-index:20;margin-top:2px;
+      border:1px solid rgba(184,149,106,.3);border-radius:8px;background:#161618;
+      max-height:200px;overflow:auto;
+    }
+    html[data-theme=light] .symbol-search-results{background:#fff;border-color:rgba(122,95,50,.3)}
+    .symbol-search-results button{
+      display:block;width:100%;text-align:left;padding:.45rem .7rem;border:none;background:transparent;
+      color:rgba(247,245,240,.85);font-size:.78rem;cursor:pointer;
+    }
+    .symbol-search-results button:hover{background:rgba(184,149,106,.12)}
+    html[data-theme=light] .symbol-search-results button{color:#0c0c0e}
+    .symbol-chips{display:flex;flex-wrap:wrap;gap:.35rem}
+    .tf-chips{display:flex;flex-wrap:wrap;gap:.3rem}
+    .compare-select{
+      padding:.4rem .55rem;border-radius:8px;border:1px solid rgba(184,149,106,.28);
+      background:#121214;color:rgba(247,245,240,.85);font-size:.72rem;
+    }
+    html[data-theme=light] .compare-select{background:#fff;color:#0c0c0e;border-color:rgba(122,95,50,.28)}
+
+    /* Secondary tabbed area */
+    .desk-tabs{
+      display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .65rem;
+      padding:.15rem;border-radius:10px;background:rgba(184,149,106,.06);
+      border:1px solid rgba(184,149,106,.15);
+    }
+    html[data-theme=light] .desk-tabs{background:rgba(122,95,50,.05);border-color:rgba(122,95,50,.15)}
+    .desk-tab-panel{display:none}
+    .desk-tab-panel.is-active{display:block}
+    .macro-tabs{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .55rem}
+    .macro-pair-grid{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;
+    }
+    @media (min-width:900px){
+      .macro-pair-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+    }
+
+    .impact-legend{display:flex;flex-wrap:wrap;gap:.85rem;margin:.65rem 0 .35rem;font-size:.72rem;color:rgba(247,245,240,.6)}
+    html[data-theme=light] .impact-legend{color:rgba(12,12,14,.6)}
+    .impact-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.3rem;vertical-align:middle}
+    .impact-dot.high{background:#c96b6b}.impact-dot.med{background:#c9a87c}.impact-dot.low{background:#6b8fc9}
+    .macro-note{font-size:.78rem;color:rgba(247,245,240,.55);margin:.5rem 0 0;max-width:48rem}
+    html[data-theme=light] .macro-note{color:rgba(12,12,14,.55)}
+
+    .context-strip{
+      padding:.75rem 1rem;border-radius:10px;border:1px solid rgba(184,149,106,.2);
+      background:rgba(184,149,106,.06);margin:0;
+    }
+    html[data-theme=light] .context-strip{background:rgba(122,95,50,.06);border-color:rgba(122,95,50,.2)}
+    .context-strip .label{margin:0 0 .25rem;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#c9a87c}
+    html[data-theme=light] .context-strip .label{color:#7a5f32}
+    .context-strip p{margin:0;font-size:.82rem;line-height:1.45;color:rgba(247,245,240,.8)}
+    html[data-theme=light] .context-strip p{color:rgba(12,12,14,.8)}
+
+    .themes-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.65rem;margin-top:.5rem}
+    .themes-row .card{margin:0}
+    html[data-theme=light] .macro-page .card{background:#fff!important;border-color:rgba(122,95,50,.28)!important;color:#0c0c0e!important}
+    html[data-theme=light] .macro-page .card-title{color:#0c0c0e!important}
+    html[data-theme=light] .macro-page .card-text{color:rgba(12,12,14,.8)!important}
+
+    /* Layout presets — collapse regions */
+    .desk-layout-focus .desk-secondary,
+    .desk-layout-focus .desk-rail{display:none}
+    .desk-layout-focus .desk-grid{grid-template-columns:1fr}
+    .desk-layout-calendar .desk-stage .focus-toolbar,
+    .desk-layout-calendar #focus-panel,
+    .desk-layout-calendar .desk-rail{display:none}
+    .desk-layout-calendar .desk-grid{grid-template-columns:1fr}
+    .desk-layout-calendar .desk-secondary{grid-column:1}
+    .desk-layout-tools .desk-stage,
+    .desk-layout-tools .desk-secondary{display:none}
+    .desk-layout-tools .desk-grid{grid-template-columns:1fr;max-width:420px}
+    .desk-layout-tools .desk-rail{position:static;max-height:none}
+
+    #macro-data-section.is-hidden{display:none!important}
+
+    /* Shortcuts dialog */
+    .shortcut-help{
+      position:fixed;right:1.25rem;bottom:1.25rem;z-index:80;width:min(280px,92vw);
+      padding:1rem 1.1rem;border-radius:12px;border:1px solid rgba(184,149,106,.35);
+      background:rgba(16,16,18,.98);box-shadow:0 16px 48px rgba(0,0,0,.45);
+      display:none;
+    }
+    .shortcut-help.is-open{display:block}
+    .shortcut-help h3{margin:0 0 .65rem;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#c9a87c}
+    .shortcut-help dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.3rem .75rem;font-size:.78rem}
+    .shortcut-help dt{font-weight:700;color:#e0c49a}
+    .shortcut-help dd{margin:0;color:rgba(247,245,240,.7)}
+    html[data-theme=light] .shortcut-help{background:rgba(255,255,255,.98);border-color:rgba(122,95,50,.3)}
+    html[data-theme=light] .shortcut-help dd{color:rgba(12,12,14,.7)}
+
+    @media (max-width:960px){
+      .desk-grid{grid-template-columns:1fr}
+      .desk-rail{grid-row:auto;position:static;max-height:none;order:3}
+      .desk-stage{order:1}
+      .desk-secondary{order:2}
+      #macro-focus-chart{height:360px}
+      .macro-widget--tall{height:360px}
+    }
+  </style>
 </head>
-<body>placeholder - will replace</body>
+<body class="macro-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner"></header>
+  <main id="main">
+    <div class="page-header"><div class="container">
+      <p class="label">Education · Macro</p>
+      <h1 class="heading-1">Macro & data desk</h1>
+      <p class="body-large macro-lead">Single workspace: regime, focus chart, board, calendar, watchlist, levels, and study workflow. Macro sets the backdrop; structure keeps the rules. Educational use only.</p>
+    </div></div>
+
+    <section class="section" style="padding-top:0"><div class="container">
+      <div class="desk-shell">
+
+        <!-- COMMAND SURFACE -->
+        <div class="desk-command" id="live-data">
+          <div class="session-bar" id="session-bar" aria-live="polite">
+            <span class="session-chip"><strong>UTC</strong> <span id="clock-utc">--:--</span></span>
+            <span class="session-chip" id="sess-asia"><strong>Asia</strong> <span class="sess-state">—</span></span>
+            <span class="session-chip" id="sess-london"><strong>London</strong> <span class="sess-state">—</span></span>
+            <span class="session-chip" id="sess-ny"><strong>New York</strong> <span class="sess-state">—</span></span>
+          </div>
+          <div class="cmd-group">
+            <button type="button" class="layout-chip active" data-layout="full" title="Full desk">Full</button>
+            <button type="button" class="layout-chip" data-layout="focus" title="Focus chart only">Focus</button>
+            <button type="button" class="layout-chip" data-layout="calendar" title="Calendar view">Calendar</button>
+            <button type="button" class="layout-chip" data-layout="tools" title="Tools rail">Tools</button>
+            <span class="cmd-sep" aria-hidden="true"></span>
+            <button type="button" class="macro-toggle" id="macro-data-toggle" aria-controls="macro-data-section" aria-expanded="true">
+              <span class="macro-toggle-label">Hide live data</span>
+            </button>
+            <button type="button" class="tool-chip" id="shortcut-open" title="Keyboard shortcuts">?</button>
+          </div>
+        </div>
+
+        <!-- REGIME -->
+        <div class="regime-strip" id="regime-strip" role="group" aria-label="Regime quick focus">
+          <button type="button" class="regime-chip" data-symbol="TVC:DXY">DXY</button>
+          <button type="button" class="regime-chip" data-symbol="TVC:US10Y">US 10Y</button>
+          <button type="button" class="regime-chip" data-symbol="TVC:VIX">VIX</button>
+          <button type="button" class="regime-chip" data-symbol="FOREXCOM:SPXUSD">S&P 500</button>
+          <button type="button" class="regime-chip" data-symbol="TVC:GOLD">Gold</button>
+          <button type="button" class="regime-chip" data-symbol="TVC:USOIL">WTI</button>
+        </div>
+
+        <div class="context-strip" id="workflow">
+          <p class="label">How to use this desk</p>
+          <p>Calendar first → map regime on the board and focus chart → confirm with yields, the dollar, and gold → write invalidation before a major print.</p>
+        </div>
+
+        <!-- UNIFIED TOPOGRAPHY -->
+        <div id="macro-data-section">
+          <div class="desk-grid">
+
+            <!-- LEFT RAIL: tools -->
+            <aside class="desk-rail" id="desk-tools" aria-label="Study tools">
+              <div class="tool-panel">
+                <h3>Workflow</h3>
+                <span class="hint">Structure-first checklist</span>
+                <div class="workflow-progress">
+                  <div class="workflow-progress-track"><div id="workflow-progress-bar"></div></div>
+                  <span id="workflow-progress-label">0 / 4</span>
+                </div>
+                <ol class="macro-checklist">
+                  <li data-step="calendar"><label><input type="checkbox" /> <strong>Calendar first.</strong> High-impact releases next 1–5 sessions.</label></li>
+                  <li data-step="backdrop"><label><input type="checkbox" /> <strong>Map backdrop.</strong> US 10Y, DXY, major indices.</label></li>
+                  <li data-step="structure"><label><input type="checkbox" /> <strong>Structure second.</strong> HTF zones and candles.</label></li>
+                  <li data-step="invalidation"><label><input type="checkbox" /> <strong>Write invalidation.</strong> What breaks structure before the print.</label></li>
+                </ol>
+              </div>
+
+              <div class="tool-panel">
+                <h3>Watchlist</h3>
+                <span class="hint">Local · click to focus</span>
+                <div id="watchlist-host"></div>
+                <div class="journal-actions">
+                  <button type="button" class="tool-chip" id="watchlist-add">+ Add focus symbol</button>
+                </div>
+              </div>
+
+              <div class="tool-panel">
+                <h3>Study journal</h3>
+                <span class="hint">Saved in this browser</span>
+                <textarea id="macro-journal" placeholder="Event risk, invalidation, regime read…"></textarea>
+                <div class="journal-actions">
+                  <button type="button" class="tool-chip" id="journal-save">Save</button>
+                  <button type="button" class="tool-chip" id="journal-clear">Clear</button>
+                  <button type="button" class="tool-chip" id="journal-export">Export</button>
+                  <span id="journal-status" class="body-small"></span>
+                </div>
+              </div>
+
+              <div class="tool-panel">
+                <h3>Study levels</h3>
+                <span class="hint">Local invalidation notes</span>
+                <div class="level-form">
+                  <input type="text" class="level-field" id="level-symbol" placeholder="Symbol" />
+                  <input type="text" class="level-field" id="level-value" placeholder="Level" />
+                  <button type="button" class="tool-chip" id="level-add">Add</button>
+                </div>
+                <textarea class="level-note-input" id="level-note" placeholder="Invalidation / zone note…" rows="2"></textarea>
+                <div id="levels-host"></div>
+              </div>
+            </aside>
+
+            <!-- CENTER STAGE: focus -->
+            <div class="desk-stage" id="focus">
+              <div class="focus-toolbar">
+                <div class="symbol-search-wrap">
+                  <input type="search" id="symbol-search" class="symbol-search" placeholder="Search symbol…" autocomplete="off" aria-label="Search focus symbol" />
+                  <div id="symbol-search-results" class="symbol-search-results" role="listbox" hidden></div>
+                </div>
+                <div class="symbol-chips" id="focus-chips" role="group">
+                  <button type="button" class="symbol-chip active" data-symbol="TVC:US10Y">US 10Y</button>
+                  <button type="button" class="symbol-chip" data-symbol="TVC:DXY">DXY</button>
+                  <button type="button" class="symbol-chip" data-symbol="TVC:GOLD">Gold</button>
+                  <button type="button" class="symbol-chip" data-symbol="FOREXCOM:SPXUSD">S&P 500</button>
+                  <button type="button" class="symbol-chip" data-symbol="FX:EURUSD">EUR/USD</button>
+                  <button type="button" class="symbol-chip" data-symbol="TVC:USOIL">WTI</button>
+                  <button type="button" class="symbol-chip" data-symbol="BINANCE:BTCUSDT">BTC</button>
+                  <button type="button" class="symbol-chip" data-symbol="TVC:VIX">VIX</button>
+                </div>
+                <div class="tf-chips" role="group" aria-label="Timeframe">
+                  <button type="button" class="tf-chip active" data-tf="D">1D</button>
+                  <button type="button" class="tf-chip" data-tf="240">4H</button>
+                  <button type="button" class="tf-chip" data-tf="60">1H</button>
+                  <button type="button" class="tf-chip" data-tf="W">1W</button>
+                </div>
+                <button type="button" class="tool-chip" id="compare-toggle" aria-pressed="false">Compare off</button>
+                <select id="compare-symbol" class="compare-select" aria-label="Compare symbol">
+                  <option value="TVC:DXY">vs DXY</option>
+                  <option value="TVC:US10Y">vs US 10Y</option>
+                  <option value="TVC:GOLD">vs Gold</option>
+                  <option value="FOREXCOM:SPXUSD">vs S&P 500</option>
+                  <option value="TVC:VIX">vs VIX</option>
+                </select>
+                <button type="button" class="tool-chip" id="focus-fullscreen">Fullscreen</button>
+              </div>
+              <div class="macro-panel" id="focus-panel">
+                <div class="macro-panel-head">
+                  <h2 id="focus-title">US 10-year yield</h2>
+                  <span class="hint" id="focus-hint">TVC:US10Y · D</span>
+                </div>
+                <div id="macro-focus-chart"></div>
+              </div>
+            </div>
+
+            <!-- SECONDARY: tabbed board / calendar / technicals / gauges -->
+            <div class="desk-secondary">
+              <div class="desk-tabs" role="tablist" aria-label="Desk panels">
+                <button type="button" class="desk-tab active" data-panel="board" role="tab" aria-selected="true">Board</button>
+                <button type="button" class="desk-tab" data-panel="calendar" role="tab" aria-selected="false">Calendar</button>
+                <button type="button" class="desk-tab" data-panel="technicals" role="tab" aria-selected="false">Technicals</button>
+                <button type="button" class="desk-tab" data-panel="gauges" role="tab" aria-selected="false">Gauges</button>
+              </div>
+
+              <div class="desk-tab-panel is-active" id="panel-board" data-panel="board">
+                <div class="macro-tabs" role="tablist">
+                  <button type="button" class="macro-tab active" data-board="overview" role="tab" aria-selected="true">Overview</button>
+                  <button type="button" class="macro-tab" data-board="forex" role="tab" aria-selected="false">Forex cross</button>
+                  <button type="button" class="macro-tab" data-board="heatmap" role="tab" aria-selected="false">Heatmap</button>
+                  <button type="button" class="macro-tab" data-board="crypto" role="tab" aria-selected="false">Crypto</button>
+                </div>
+                <div class="macro-panel">
+                  <div class="macro-panel-head">
+                    <h2 id="board-title">Cross-asset overview</h2>
+                    <span class="hint" id="board-hint">Indices · rates · FX · commodities</span>
+                  </div>
+                  <div class="macro-widget macro-widget--tall" id="board-host"></div>
+                </div>
+              </div>
+
+              <div class="desk-tab-panel" id="panel-calendar" data-panel="calendar">
+                <div class="macro-panel" id="calendar">
+                  <div class="macro-panel-head">
+                    <h2>Economic calendar</h2>
+                    <span class="hint">High & medium impact</span>
+                  </div>
+                  <div class="macro-widget macro-widget--tall">
+                    <div class="tradingview-widget-container" style="height:100%;width:100%">
+                      <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+                      {"colorTheme":"dark","isTransparent":true,"width":"100%","height":"100%","locale":"en","importanceFilter":"-1,0,1","countryFilter":"us,eu,gb,jp,cn,au,ca,ch"}
+                      </script>
+                    </div>
+                  </div>
+                </div>
+                <div class="impact-legend">
+                  <span><span class="impact-dot high"></span> High — zone quality input</span>
+                  <span><span class="impact-dot med"></span> Medium — range context</span>
+                  <span><span class="impact-dot low"></span> Low — rarely changes structure alone</span>
+                </div>
+                <p class="macro-note">Prioritise central banks, inflation, and labour. Quiet bases into high-impact prints can fail when liquidity reprices.</p>
+              </div>
+
+              <div class="desk-tab-panel" id="panel-technicals" data-panel="technicals">
+                <div class="macro-panel" id="technicals">
+                  <div class="macro-panel-head">
+                    <h2 id="ta-title">EUR/USD technicals</h2>
+                    <span class="hint">TradingView summary</span>
+                  </div>
+                  <div class="macro-widget macro-widget--mid" id="ta-host">
+                    <div class="tradingview-widget-container" style="height:100%;width:100%">
+                      <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                      {"interval":"1D","width":"100%","isTransparent":true,"height":"100%","symbol":"FX:EURUSD","showIntervalTabs":true,"displayMode":"single","locale":"en","colorTheme":"dark"}
+                      </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="desk-tab-panel" id="panel-gauges" data-panel="gauges">
+                <div class="macro-pair-grid">
+                  <div class="macro-panel">
+                    <div class="macro-panel-head"><h2>US 10Y</h2><span class="hint">12M</span></div>
+                    <div class="macro-widget macro-widget--mini">
+                      <div class="tradingview-widget-container" style="height:100%;width:100%">
+                        <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                        {"symbol":"TVC:US10Y","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true}
+                        </script>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="macro-panel">
+                    <div class="macro-panel-head"><h2>DXY</h2><span class="hint">12M</span></div>
+                    <div class="macro-widget macro-widget--mini">
+                      <div class="tradingview-widget-container" style="height:100%;width:100%">
+                        <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                        {"symbol":"TVC:DXY","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true}
+                        </script>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="macro-panel">
+                    <div class="macro-panel-head"><h2>Gold</h2><span class="hint">12M</span></div>
+                    <div class="macro-widget macro-widget--mini">
+                      <div class="tradingview-widget-container" style="height:100%;width:100%">
+                        <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                        {"symbol":"TVC:GOLD","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true}
+                        </script>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="macro-panel">
+                    <div class="macro-panel-head"><h2>S&P 500</h2><span class="hint">12M</span></div>
+                    <div class="macro-widget macro-widget--mini">
+                      <div class="tradingview-widget-container" style="height:100%;width:100%">
+                        <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                        {"symbol":"FOREXCOM:SPXUSD","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true}
+                        </script>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Themes remain below the desk -->
+        <div id="themes">
+          <h2 class="heading-2" style="margin-top:.5rem">Study themes</h2>
+          <div class="themes-row">
+            <article class="card"><h3 class="card-title">Policy reaction function</h3><p class="card-text">How markets price the next moves in rates often matters as much as the level of rates itself.</p></article>
+            <article class="card"><h3 class="card-title">Growth dispersion</h3><p class="card-text">Regions diverge. Relative growth shows up in FX, equity leadership, and commodity demand.</p></article>
+            <article class="card"><h3 class="card-title">Event risk</h3><p class="card-text">Treat major data and central-bank days as part of zone quality — not an afterthought.</p></article>
+            <article class="card"><h3 class="card-title">Dollar & yields</h3><p class="card-text">Rising DXY with rising real yields often pressures gold and emerging FX; confirm with structure.</p></article>
+            <article class="card"><h3 class="card-title">Liquidity lens</h3><p class="card-text">Balance-sheet paths change move amplitude. Macro does not replace candle invalidation.</p></article>
+            <article class="card"><h3 class="card-title">Cross-asset check</h3><p class="card-text">Equities, yields, the dollar, and gold should be read together — not as isolated charts.</p></article>
+          </div>
+          <p class="macro-note">Educational framing only. Not investment advice or a solicitation. Market data via TradingView embeds.</p>
+          <p style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.65rem">
+            <a class="btn btn-primary" href="education-live.html">Structure lab</a>
+            <a class="btn btn-secondary" href="education-candlesticks.html">Candlestick literacy</a>
+            <a class="btn btn-secondary" href="education.html">Education hub</a>
+            <a class="btn btn-secondary" href="markets.html">Markets workspace</a>
+          </p>
+        </div>
+      </div>
+    </div></section>
+  </main>
+
+  <div class="shortcut-help" id="shortcut-help" role="dialog" aria-label="Keyboard shortcuts">
+    <h3>Shortcuts</h3>
+    <dl>
+      <dt>?</dt><dd>Toggle this help</dd>
+      <dt>H</dt><dd>Hide / show live data</dd>
+      <dt>C</dt><dd>Toggle compare</dd>
+      <dt>1–4</dt><dd>Timeframe D / 4H / 1H / W</dd>
+      <dt>/</dt><dd>Focus symbol search</dd>
+      <dt>E</dt><dd>Export journal</dd>
+      <dt>L</dt><dd>Cycle layout</dd>
+      <dt>Esc</dt><dd>Close help</dd>
+    </dl>
+    <button type="button" class="tool-chip" id="shortcut-help-close" style="margin-top:.75rem">Close</button>
+  </div>
+  <footer class="site-footer" role="contentinfo"></footer>
+  <script src="../assets/js/site-nav.js"></script>
+  <script src="https://s3.tradingview.com/tv.js"></script>
+  <script src="../assets/js/macro-desk.js" defer></script>
+</body>
 </html>
