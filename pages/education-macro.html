@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0a0b" />
   <title>Macro & data desk | WINEMI CAPITAL.</title>
-  <meta name="description" content="Unified macro desk — regime, board, focus chart, calendar, watchlist, levels, and study workflow in one workspace. Educational context only." />
+  <meta name="description" content="Advanced macro desk — command palette, regime baskets, focus history, calendar, watchlist, levels, and structure-first workflow. Educational context only." />
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/nav.css" />
   <link rel="stylesheet" href="../assets/css/logo.css" />
@@ -15,9 +15,7 @@
   <link rel="stylesheet" href="../assets/css/light-theme.css" />
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
-  <style>
-    /* placeholder - full styles remain from previous deploy; advanced chrome injected by macro-desk-adv.js */
-  </style>
+  <link rel="stylesheet" href="../assets/css/macro-desk.css" />
 </head>
 <body class="macro-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -26,13 +24,292 @@
     <div class="page-header"><div class="container">
       <p class="label">Education · Macro</p>
       <h1 class="heading-1">Macro & data desk</h1>
-      <p class="body-large macro-lead">Advanced workspace: regime baskets, command palette, focus history, board, calendar, technicals, watchlist, levels, and structure-first workflow. Educational use only.</p>
+      <p class="body-large macro-lead">Advanced single workspace: regime baskets, command palette, focus history, board, calendar, technicals, watchlist, and structure-first workflow. Educational use only.</p>
     </div></div>
+
     <section class="section" style="padding-top:0"><div class="container">
-      <p class="body-base">Loading advanced desk… If this message persists, hard-refresh the page.</p>
-      <p style="margin-top:1rem"><a class="btn btn-primary" href="education.html">Education hub</a></p>
+      <div class="desk-shell">
+
+        <div class="desk-command" id="live-data">
+          <div class="session-bar" id="session-bar" aria-live="polite">
+            <span class="status-pill" title="Educational desk status"><span class="dot" aria-hidden="true"></span> Desk live</span>
+            <span class="session-chip"><strong>UTC</strong> <span id="clock-utc">--:--</span></span>
+            <span class="session-chip" id="sess-asia"><strong>Asia</strong> <span class="sess-state">—</span><span class="sess-eta" id="eta-asia"></span></span>
+            <span class="session-chip" id="sess-london"><strong>London</strong> <span class="sess-state">—</span><span class="sess-eta" id="eta-london"></span></span>
+            <span class="session-chip" id="sess-ny"><strong>New York</strong> <span class="sess-state">—</span><span class="sess-eta" id="eta-ny"></span></span>
+          </div>
+          <div class="cmd-group">
+            <button type="button" class="layout-chip active" data-layout="full" title="Full desk">Full</button>
+            <button type="button" class="layout-chip" data-layout="focus" title="Focus chart only">Focus</button>
+            <button type="button" class="layout-chip" data-layout="calendar" title="Calendar view">Calendar</button>
+            <button type="button" class="layout-chip" data-layout="tools" title="Tools rail">Tools</button>
+            <span class="cmd-sep" aria-hidden="true"></span>
+            <button type="button" class="density-chip active" data-density="comfortable" title="Comfortable spacing">Comfort</button>
+            <button type="button" class="density-chip" data-density="compact" title="Compact density">Compact</button>
+            <span class="cmd-sep" aria-hidden="true"></span>
+            <button type="button" class="macro-toggle" id="macro-data-toggle" aria-controls="macro-data-section" aria-expanded="true">
+              <span class="macro-toggle-label">Hide live data</span>
+            </button>
+            <button type="button" class="tool-chip" id="cmd-palette-open" title="Command palette (Ctrl+K)">Ctrl+K</button>
+            <button type="button" class="tool-chip" id="shortcut-open" title="Keyboard shortcuts">?</button>
+          </div>
+        </div>
+
+        <div class="regime-row">
+          <div class="regime-strip" id="regime-strip" role="group" aria-label="Regime quick focus">
+            <button type="button" class="regime-chip" data-symbol="TVC:DXY">DXY</button>
+            <button type="button" class="regime-chip" data-symbol="TVC:US10Y">US 10Y</button>
+            <button type="button" class="regime-chip" data-symbol="TVC:VIX">VIX</button>
+            <button type="button" class="regime-chip" data-symbol="FOREXCOM:SPXUSD">S&P 500</button>
+            <button type="button" class="regime-chip" data-symbol="TVC:GOLD">Gold</button>
+            <button type="button" class="regime-chip" data-symbol="TVC:USOIL">WTI</button>
+          </div>
+          <div class="basket-strip" role="group" aria-label="Regime baskets">
+            <button type="button" class="basket-chip" data-basket="riskon" title="Equities risk-on lens">Risk-on</button>
+            <button type="button" class="basket-chip" data-basket="riskoff" title="Defensive / risk-off lens">Risk-off</button>
+            <button type="button" class="basket-chip" data-basket="rates" title="Rates & dollar">Rates</button>
+            <button type="button" class="basket-chip" data-basket="commod" title="Commodities">Commod</button>
+            <button type="button" class="basket-chip" data-basket="fx" title="Major FX">FX</button>
+          </div>
+        </div>
+
+        <div class="context-strip" id="workflow">
+          <p class="label">How to use this desk</p>
+          <p>Calendar first → map regime (board + focus) → confirm with yields, dollar, and gold → write invalidation before a major print. Macro sets the backdrop; structure keeps the rules.</p>
+        </div>
+
+        <div id="macro-data-section">
+          <div class="desk-grid">
+
+            <aside class="desk-rail" id="desk-tools" aria-label="Study tools">
+              <div class="tool-panel">
+                <h3>Workflow</h3>
+                <span class="hint">Structure-first checklist</span>
+                <div class="workflow-progress">
+                  <div class="workflow-progress-track"><div id="workflow-progress-bar"></div></div>
+                  <span id="workflow-progress-label">0 / 4</span>
+                </div>
+                <ol class="macro-checklist">
+                  <li data-step="calendar"><label><input type="checkbox" /> <strong>Calendar first.</strong> High-impact releases next 1–5 sessions.</label></li>
+                  <li data-step="backdrop"><label><input type="checkbox" /> <strong>Map backdrop.</strong> US 10Y, DXY, major indices.</label></li>
+                  <li data-step="structure"><label><input type="checkbox" /> <strong>Structure second.</strong> HTF zones and candles.</label></li>
+                  <li data-step="invalidation"><label><input type="checkbox" /> <strong>Write invalidation.</strong> What breaks structure before the print.</label></li>
+                </ol>
+              </div>
+
+              <div class="tool-panel">
+                <h3>Watchlist</h3>
+                <span class="hint">Local · click to focus</span>
+                <div id="watchlist-host"></div>
+                <div class="journal-actions">
+                  <button type="button" class="tool-chip" id="watchlist-add">+ Add focus symbol</button>
+                </div>
+              </div>
+
+              <div class="tool-panel">
+                <h3>Study journal</h3>
+                <span class="hint">Saved in this browser</span>
+                <div class="template-row" id="journal-templates">
+                  <button type="button" class="template-chip" data-tpl="event">Event risk</button>
+                  <button type="button" class="template-chip" data-tpl="regime">Regime</button>
+                  <button type="button" class="template-chip" data-tpl="invalidation">Invalidation</button>
+                </div>
+                <textarea id="macro-journal" placeholder="Event risk, invalidation, regime read…"></textarea>
+                <div class="journal-actions">
+                  <button type="button" class="tool-chip" id="journal-save">Save</button>
+                  <button type="button" class="tool-chip" id="journal-clear">Clear</button>
+                  <button type="button" class="tool-chip" id="journal-export">Export</button>
+                  <span id="journal-status" class="body-small"></span>
+                </div>
+              </div>
+
+              <div class="tool-panel">
+                <h3>Study levels</h3>
+                <span class="hint">Local invalidation notes</span>
+                <div class="level-form">
+                  <input type="text" class="level-field" id="level-symbol" placeholder="Symbol" />
+                  <input type="text" class="level-field" id="level-value" placeholder="Level" />
+                  <button type="button" class="tool-chip" id="level-add">Add</button>
+                </div>
+                <textarea class="level-note-input" id="level-note" placeholder="Invalidation / zone note…" rows="2"></textarea>
+                <div id="levels-host"></div>
+              </div>
+            </aside>
+
+            <div class="desk-stage" id="focus">
+              <div class="focus-toolbar">
+                <div class="symbol-search-wrap">
+                  <input type="search" id="symbol-search" class="symbol-search" placeholder="Search symbol… (/)" autocomplete="off" aria-label="Search focus symbol" />
+                  <div id="symbol-search-results" class="symbol-search-results" role="listbox" hidden></div>
+                </div>
+                <div class="symbol-chips" id="focus-chips" role="group">
+                  <button type="button" class="symbol-chip active" data-symbol="TVC:US10Y">US 10Y</button>
+                  <button type="button" class="symbol-chip" data-symbol="TVC:DXY">DXY</button>
+                  <button type="button" class="symbol-chip" data-symbol="TVC:GOLD">Gold</button>
+                  <button type="button" class="symbol-chip" data-symbol="FOREXCOM:SPXUSD">S&P 500</button>
+                  <button type="button" class="symbol-chip" data-symbol="FX:EURUSD">EUR/USD</button>
+                  <button type="button" class="symbol-chip" data-symbol="TVC:USOIL">WTI</button>
+                  <button type="button" class="symbol-chip" data-symbol="BINANCE:BTCUSDT">BTC</button>
+                  <button type="button" class="symbol-chip" data-symbol="TVC:VIX">VIX</button>
+                </div>
+                <div class="tf-chips" role="group" aria-label="Timeframe">
+                  <button type="button" class="tf-chip active" data-tf="D">1D</button>
+                  <button type="button" class="tf-chip" data-tf="240">4H</button>
+                  <button type="button" class="tf-chip" data-tf="60">1H</button>
+                  <button type="button" class="tf-chip" data-tf="W">1W</button>
+                </div>
+                <button type="button" class="tool-chip" id="compare-toggle" aria-pressed="false">Compare off</button>
+                <select id="compare-symbol" class="compare-select" aria-label="Compare symbol">
+                  <option value="TVC:DXY">vs DXY</option>
+                  <option value="TVC:US10Y">vs US 10Y</option>
+                  <option value="TVC:GOLD">vs Gold</option>
+                  <option value="FOREXCOM:SPXUSD">vs S&P 500</option>
+                  <option value="TVC:VIX">vs VIX</option>
+                </select>
+                <button type="button" class="tool-chip" id="focus-fullscreen">Fullscreen</button>
+              </div>
+              <div class="history-strip" id="focus-history" aria-label="Recent focus symbols"></div>
+              <div class="macro-panel" id="focus-panel">
+                <div class="macro-panel-head">
+                  <h2 id="focus-title">US 10-year yield</h2>
+                  <span class="hint" id="focus-hint">TVC:US10Y · D</span>
+                </div>
+                <div id="macro-focus-chart"></div>
+              </div>
+            </div>
+
+            <div class="desk-secondary">
+              <div class="desk-tabs" role="tablist" aria-label="Desk panels">
+                <button type="button" class="desk-tab active" data-panel="board" role="tab" aria-selected="true">Board</button>
+                <button type="button" class="desk-tab" data-panel="calendar" role="tab" aria-selected="false">Calendar</button>
+                <button type="button" class="desk-tab" data-panel="technicals" role="tab" aria-selected="false">Technicals</button>
+                <button type="button" class="desk-tab" data-panel="gauges" role="tab" aria-selected="false">Gauges</button>
+              </div>
+
+              <div class="desk-tab-panel is-active" id="panel-board" data-panel="board">
+                <div class="macro-tabs" role="tablist">
+                  <button type="button" class="macro-tab active" data-board="overview" role="tab" aria-selected="true">Overview</button>
+                  <button type="button" class="macro-tab" data-board="forex" role="tab" aria-selected="false">Forex cross</button>
+                  <button type="button" class="macro-tab" data-board="heatmap" role="tab" aria-selected="false">Heatmap</button>
+                  <button type="button" class="macro-tab" data-board="crypto" role="tab" aria-selected="false">Crypto</button>
+                </div>
+                <div class="macro-panel">
+                  <div class="macro-panel-head">
+                    <h2 id="board-title">Cross-asset overview</h2>
+                    <span class="hint" id="board-hint">Indices · rates · FX · commodities</span>
+                  </div>
+                  <div class="macro-widget macro-widget--tall" id="board-host"></div>
+                </div>
+              </div>
+
+              <div class="desk-tab-panel" id="panel-calendar" data-panel="calendar">
+                <div class="macro-panel">
+                  <div class="macro-panel-head">
+                    <h2>Economic calendar</h2>
+                    <span class="hint">High & medium impact</span>
+                  </div>
+                  <div class="macro-widget macro-widget--tall">
+                    <div class="tradingview-widget-container" style="height:100%;width:100%">
+                      <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+                      {"colorTheme":"dark","isTransparent":true,"width":"100%","height":"100%","locale":"en","importanceFilter":"-1,0,1","countryFilter":"us,eu,gb,jp,cn,au,ca,ch"}
+                      </script>
+                    </div>
+                  </div>
+                </div>
+                <div class="impact-legend">
+                  <span><span class="impact-dot high"></span> High — zone quality input</span>
+                  <span><span class="impact-dot med"></span> Medium — range context</span>
+                  <span><span class="impact-dot low"></span> Low — rarely changes structure alone</span>
+                </div>
+                <p class="macro-note">Prioritise central banks, inflation, and labour. Quiet bases into high-impact prints can fail when liquidity reprices.</p>
+              </div>
+
+              <div class="desk-tab-panel" id="panel-technicals" data-panel="technicals">
+                <div class="macro-panel">
+                  <div class="macro-panel-head">
+                    <h2 id="ta-title">Technicals snapshot</h2>
+                    <span class="hint" id="ta-hint">Syncs with focus symbol</span>
+                  </div>
+                  <div class="macro-widget macro-widget--mid" id="ta-host"></div>
+                </div>
+                <p class="macro-note">Multi-timeframe technical summary — educational snapshot only. Not a signal.</p>
+              </div>
+
+              <div class="desk-tab-panel" id="panel-gauges" data-panel="gauges">
+                <div class="macro-pair-grid" id="gauges-host">
+                  <div class="macro-panel"><div class="macro-panel-head"><h2>US 10Y</h2><span class="hint">12M</span></div>
+                    <div class="macro-widget macro-widget--mini"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                    {"symbol":"TVC:US10Y","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true}
+                    </script></div></div></div>
+                  <div class="macro-panel"><div class="macro-panel-head"><h2>DXY</h2><span class="hint">12M</span></div>
+                    <div class="macro-widget macro-widget--mini"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                    {"symbol":"TVC:DXY","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true}
+                    </script></div></div></div>
+                  <div class="macro-panel"><div class="macro-panel-head"><h2>Gold</h2><span class="hint">12M</span></div>
+                    <div class="macro-widget macro-widget--mini"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                    {"symbol":"TVC:GOLD","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true}
+                    </script></div></div></div>
+                  <div class="macro-panel"><div class="macro-panel-head"><h2>S&P 500</h2><span class="hint">12M</span></div>
+                    <div class="macro-widget macro-widget--mini"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                    {"symbol":"FOREXCOM:SPXUSD","width":"100%","height":"100%","locale":"en","dateRange":"12M","colorTheme":"dark","isTransparent":true,"autosize":true}
+                    </script></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="heading-2" id="themes" style="margin-top:2.5rem">Study themes</h2>
+        <div class="grid-3" style="margin-top:1rem">
+          <article class="card"><h3 class="card-title">Policy reaction function</h3><p class="card-text">How markets price the next moves in rates often matters as much as the level of rates itself.</p></article>
+          <article class="card"><h3 class="card-title">Growth dispersion</h3><p class="card-text">Regions diverge. Relative growth shows up in FX, equity leadership, and commodity demand.</p></article>
+          <article class="card"><h3 class="card-title">Event risk</h3><p class="card-text">Treat major data and central-bank days as part of zone quality — not an afterthought.</p></article>
+          <article class="card"><h3 class="card-title">Dollar & yields</h3><p class="card-text">Rising DXY with rising real yields often pressures gold and emerging FX; confirm with structure.</p></article>
+          <article class="card"><h3 class="card-title">Liquidity lens</h3><p class="card-text">Balance-sheet paths change move amplitude. Macro does not replace candle invalidation.</p></article>
+          <article class="card"><h3 class="card-title">Cross-asset check</h3><p class="card-text">Equities, yields, the dollar, and gold should be read together — not as isolated charts.</p></article>
+        </div>
+        <p class="macro-note">Educational framing only. Not investment advice or a solicitation. Market data via TradingView embeds.</p>
+        <p style="margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:.65rem">
+          <a class="btn btn-primary" href="education-live.html">Structure lab</a>
+          <a class="btn btn-secondary" href="education-candlesticks.html">Candlestick literacy</a>
+          <a class="btn btn-secondary" href="education.html">Education hub</a>
+          <a class="btn btn-secondary" href="markets.html">Markets workspace</a>
+        </p>
+      </div>
     </div></section>
   </main>
+
+  <div class="cmd-palette-backdrop" id="cmd-palette" aria-hidden="true">
+    <div class="cmd-palette" role="dialog" aria-label="Command palette">
+      <input type="text" id="cmd-palette-input" placeholder="Jump to symbol, layout, panel…" autocomplete="off" />
+      <div class="cmd-palette-list" id="cmd-palette-list"></div>
+    </div>
+  </div>
+
+  <div class="desk-toast" id="desk-toast" role="status" aria-live="polite"></div>
+
+  <div class="shortcut-help" id="shortcut-help" role="dialog" aria-label="Keyboard shortcuts">
+    <h3>Shortcuts</h3>
+    <dl>
+      <dt>Ctrl+K</dt><dd>Command palette</dd>
+      <dt>?</dt><dd>Toggle this help</dd>
+      <dt>H</dt><dd>Hide / show live data</dd>
+      <dt>C</dt><dd>Toggle compare</dd>
+      <dt>1–4</dt><dd>Timeframe D / 4H / 1H / W</dd>
+      <dt>/</dt><dd>Focus symbol search</dd>
+      <dt>E</dt><dd>Export journal</dd>
+      <dt>L</dt><dd>Cycle layout</dd>
+      <dt>D</dt><dd>Toggle density</dd>
+      <dt>Esc</dt><dd>Close overlays</dd>
+    </dl>
+    <button type="button" class="tool-chip" id="shortcut-help-close" style="margin-top:.75rem">Close</button>
+  </div>
+
   <footer class="site-footer" role="contentinfo"></footer>
   <script src="../assets/js/site-nav.js"></script>
   <script src="https://s3.tradingview.com/tv.js"></script>
