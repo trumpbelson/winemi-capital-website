@@ -194,6 +194,7 @@
       var dest = a.href;
 
       document.documentElement.classList.add('is-page-exit');
+      document.body.classList.add('page-exit');
       window.setTimeout(function () {
         window.location.href = dest;
       }, 280);
@@ -201,6 +202,7 @@
 
     window.addEventListener('pageshow', function (ev) {
       document.documentElement.classList.remove('is-page-exit');
+      document.body.classList.remove('page-exit');
       if (ev.persisted) {
         document.documentElement.classList.remove('motion-ready');
         requestAnimationFrame(function () {
