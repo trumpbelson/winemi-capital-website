@@ -1,0 +1,192 @@
+/* WINEMI CAPITAL — Homepage glassmorphism
+   Frosted surfaces over the classical hero / dark field.
+   Scoped to body.is-home so other pages keep solid institutional panels. */
+
+/* ---------- Hero glass panel ---------- */
+body.is-home .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 42rem;
+  padding: 2.25rem 2rem 2.5rem !important;
+  border-radius: 20px;
+  background: rgba(12, 12, 14, 0.42) !important;
+  border: 1px solid rgba(201, 168, 124, 0.22);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(22px) saturate(1.25);
+  -webkit-backdrop-filter: blur(22px) saturate(1.25);
+}
+html[data-theme='light'] body.is-home .hero-content {
+  background: rgba(247, 245, 240, 0.55) !important;
+  border-color: rgba(122, 95, 50, 0.2);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+body.is-home .hero-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 42%,
+    transparent 58%,
+    rgba(201, 168, 124, 0.06) 100%
+  );
+}
+
+/* ---------- Core glass surface recipe ---------- */
+body.is-home .card,
+body.is-home .desk-quick a,
+body.is-home .home-regime a,
+body.is-home .pulse-card,
+body.is-home .digest-panel,
+body.is-home .founder-home-card,
+body.is-home .pair-card,
+body.is-home .split-visual,
+body.is-home .tv-workspace,
+body.is-home .home-session-bar,
+body.is-home #ix-home-stats > .card,
+body.is-home .context-strip {
+  background: rgba(20, 20, 22, 0.52) !important;
+  border: 1px solid rgba(184, 149, 106, 0.26) !important;
+  border-radius: 14px !important;
+  box-shadow:
+    0 10px 32px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(16px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.2) !important;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.2s ease,
+    background 0.25s ease !important;
+}
+
+html[data-theme='light'] body.is-home .card,
+html[data-theme='light'] body.is-home .desk-quick a,
+html[data-theme='light'] body.is-home .home-regime a,
+html[data-theme='light'] body.is-home .pulse-card,
+html[data-theme='light'] body.is-home .digest-panel,
+html[data-theme='light'] body.is-home .founder-home-card,
+html[data-theme='light'] body.is-home .pair-card,
+html[data-theme='light'] body.is-home .split-visual,
+html[data-theme='light'] body.is-home .tv-workspace,
+html[data-theme='light'] body.is-home .home-session-bar,
+html[data-theme='light'] body.is-home #ix-home-stats > .card,
+html[data-theme='light'] body.is-home .context-strip {
+  background: rgba(255, 255, 255, 0.62) !important;
+  border-color: rgba(122, 95, 50, 0.22) !important;
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+}
+
+body.is-home .card:hover,
+body.is-home .desk-quick a:hover,
+body.is-home .home-regime a:hover,
+body.is-home .pulse-card:hover,
+body.is-home .founder-home-card:hover,
+body.is-home .pair-card:hover {
+  background: rgba(28, 28, 32, 0.62) !important;
+  border-color: rgba(201, 168, 124, 0.48) !important;
+  box-shadow:
+    0 16px 44px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(201, 168, 124, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  transform: translateY(-3px);
+}
+html[data-theme='light'] body.is-home .card:hover,
+html[data-theme='light'] body.is-home .desk-quick a:hover,
+html[data-theme='light'] body.is-home .home-regime a:hover {
+  background: rgba(255, 255, 255, 0.82) !important;
+  border-color: rgba(122, 95, 50, 0.4) !important;
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(122, 95, 50, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+}
+
+body.is-home .home-session-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  border-radius: 12px !important;
+}
+
+body.is-home .home-regime a {
+  border-radius: 12px !important;
+  padding: 0.7rem 0.85rem;
+}
+
+body.is-home .tv-workspace {
+  padding: 0.65rem;
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+body.is-home #desk-access { position: relative; }
+body.is-home #desk-access::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 120%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 0%, rgba(201, 168, 124, 0.07), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 90% 30%, rgba(106, 158, 122, 0.05), transparent 55%);
+}
+body.is-home #desk-access > .container { position: relative; z-index: 1; }
+
+body.is-home .hero .btn-secondary {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(184, 149, 106, 0.4) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+body.is-home .hero .btn-secondary:hover {
+  background: rgba(184, 149, 106, 0.14) !important;
+  border-color: rgba(201, 168, 124, 0.6) !important;
+}
+
+body.is-home .home-sess.is-open {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 0 1px rgba(143, 206, 160, 0.25);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  body.is-home .hero-content,
+  body.is-home .card,
+  body.is-home .desk-quick a,
+  body.is-home .home-regime a,
+  body.is-home .tv-workspace,
+  body.is-home .home-session-bar {
+    background: rgba(18, 18, 20, 0.92) !important;
+  }
+  html[data-theme='light'] body.is-home .hero-content,
+  html[data-theme='light'] body.is-home .card,
+  html[data-theme='light'] body.is-home .desk-quick a {
+    background: rgba(247, 245, 240, 0.95) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.is-home .card,
+  body.is-home .desk-quick a,
+  body.is-home .home-regime a {
+    transition: border-color 0.15s ease, background 0.15s ease !important;
+  }
+  body.is-home .card:hover,
+  body.is-home .desk-quick a:hover {
+    transform: none;
+  }
+}
