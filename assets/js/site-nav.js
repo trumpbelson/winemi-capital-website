@@ -287,3 +287,14 @@
   s.defer = true;
   document.head.appendChild(s);
 })();
+
+/* Site-wide glassmorphism + surface motion */
+(function loadSiteMorphism() {
+  if (document.querySelector('script[src*="site-morphism.js"]')) return;
+  var path = (window.location.pathname || '');
+  var inPages = /\/pages\//.test(path);
+  var s = document.createElement('script');
+  s.src = (inPages ? '../' : '') + 'assets/js/site-morphism.js';
+  s.defer = true;
+  document.head.appendChild(s);
+})();
