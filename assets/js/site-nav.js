@@ -244,7 +244,7 @@
   }
 })();
 
-/* Site-wide polish: light-theme ensure, reveal, progress, back-to-top */
+/* Site-wide polish */
 (function loadSitePolish() {
   if (document.querySelector('script[src*="site-polish.js"]')) return;
   var path = (window.location.pathname || '');
@@ -255,7 +255,7 @@
   document.head.appendChild(s);
 })();
 
-/* Site-wide interactivity: tooltips, study dock, shortcuts, accordion */
+/* Site-wide interactivity */
 (function loadSiteInteractive() {
   if (document.querySelector('script[src*="site-interactive.js"]')) return;
   var path = (window.location.pathname || '');
@@ -266,13 +266,24 @@
   document.head.appendChild(s);
 })();
 
-/* Visual appeal: ambient orbs, tilt, ripple, counters */
+/* Visual appeal */
 (function loadSiteVisual() {
   if (document.querySelector('script[src*="site-visual.js"]')) return;
   var path = (window.location.pathname || '');
   var inPages = /\/pages\//.test(path);
   var s = document.createElement('script');
   s.src = (inPages ? '../' : '') + 'assets/js/site-visual.js';
+  s.defer = true;
+  document.head.appendChild(s);
+})();
+
+/* Professional motion system */
+(function loadSiteMotion() {
+  if (document.querySelector('script[src*="site-motion.js"]')) return;
+  var path = (window.location.pathname || '');
+  var inPages = /\/pages\//.test(path);
+  var s = document.createElement('script');
+  s.src = (inPages ? '../' : '') + 'assets/js/site-motion.js';
   s.defer = true;
   document.head.appendChild(s);
 })();
