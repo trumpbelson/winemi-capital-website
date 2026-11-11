@@ -1,5 +1,5 @@
 /*! WINEMI CAPITAL — professional motion controller
- * Loads site-motion.css, staggers reveals, header scroll state, smooth scroll.
+ * Page enter/exit transitions, staggered reveals, smooth scroll, header scroll state.
  */
 (function () {
   'use strict';
@@ -152,6 +152,64 @@
     }
   }
 
+  function mountVeil() {
+    if (document.querySelector('.page-transition-veil')) return;
+    var v = document.createElement('div');
+    v.className = 'page-transition-veil';
+    v.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(v);
+  }
+
+  function isInternalNav(a, href) {
+    if (!a || !href) return false;
+    if (a.target === '_blank' || a.hasAttribute('download')) return false;
+    if (href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return false;
+    if (href.charAt(0) === '#') return false;
+    try {
+      var url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin) return false;
+      var samePath = url.pathname.replace(/\/$/, '') === window.location.pathname.replace(/\/$/, '');
+      if (samePath) return false;
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function wirePageTransitions() {
+    if (reduce) return;
+    mountVeil();
+
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (e.button !== 0) return;
+
+      var a = e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href');
+      if (!isInternalNav(a, href)) return;
+
+      e.preventDefault();
+      var dest = a.href;
+
+      document.documentElement.classList.add('is-page-exit');
+      window.setTimeout(function () {
+        window.location.href = dest;
+      }, 280);
+    });
+
+    window.addEventListener('pageshow', function (ev) {
+      document.documentElement.classList.remove('is-page-exit');
+      if (ev.persisted) {
+        document.documentElement.classList.remove('motion-ready');
+        requestAnimationFrame(function () {
+          document.documentElement.classList.add('motion-ready');
+        });
+      }
+    });
+  }
+
   function boot() {
     injectCss();
     markReady();
@@ -159,6 +217,7 @@
     staggerGrids();
     polishHero();
     wireSmoothScroll();
+    wirePageTransitions();
     setTimeout(function () {
       staggerGrids();
       observeReveals();
