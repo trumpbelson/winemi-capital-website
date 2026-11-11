@@ -20,7 +20,7 @@ html.motion-ready body {
   to { opacity: 1; }
 }
 
-/* ---------- Professional reveal (upgrades .reveal) ---------- */
+/* ---------- Professional reveal ---------- */
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -37,7 +37,6 @@ html.motion-ready body {
   filter: none;
 }
 
-/* Stagger children inside grids */
 .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
 .reveal-stagger > .reveal:nth-child(2) { transition-delay: 60ms; }
 .reveal-stagger > .reveal:nth-child(3) { transition-delay: 120ms; }
@@ -114,7 +113,7 @@ html.motion-ready body {
   transform: scaleX(1);
 }
 
-/* ---------- Card elevation system ---------- */
+/* ---------- Card elevation ---------- */
 .card,
 .desk-quick a,
 .pulse-card,
@@ -140,8 +139,6 @@ html[data-theme='light'] .desk-quick a:hover {
     0 14px 36px rgba(0, 0, 0, 0.08),
     0 0 0 1px rgba(122, 95, 50, 0.16);
 }
-
-/* Soft border glow on focus-within */
 .card:focus-within {
   border-color: rgba(201, 168, 124, 0.55);
   box-shadow: 0 0 0 3px rgba(201, 168, 124, 0.12);
@@ -171,13 +168,11 @@ html[data-theme='light'] .desk-quick a:hover {
   transform: translateY(-1px);
 }
 
-/* ---------- Label / eyebrow ---------- */
 .label,
 .section-label {
   letter-spacing: 0.1em;
 }
 
-/* ---------- Context strip ---------- */
 .reveal.context-strip.is-in {
   animation: strip-settle 0.6s var(--ease-out-expo) both;
 }
@@ -186,13 +181,11 @@ html[data-theme='light'] .desk-quick a:hover {
   to { border-left-color: rgba(184, 149, 106, 0.55); }
 }
 
-/* ---------- Scroll progress refined ---------- */
 .scroll-progress {
   transition: width 80ms linear;
   box-shadow: 0 0 12px rgba(201, 168, 124, 0.35);
 }
 
-/* ---------- Back to top ---------- */
 .back-top {
   transition:
     opacity var(--motion-med) var(--ease-out-expo),
@@ -204,7 +197,6 @@ html[data-theme='light'] .desk-quick a:hover {
   transform: translateY(-2px);
 }
 
-/* ---------- Study dock ---------- */
 .study-dock.is-open .study-dock-panel {
   animation: dock-in 0.28s var(--ease-out-expo) both;
 }
@@ -213,7 +205,6 @@ html[data-theme='light'] .desk-quick a:hover {
   to { opacity: 1; transform: none; }
 }
 
-/* ---------- Accordion panels ---------- */
 .accordion-panel {
   overflow: hidden;
   transition: max-height 0.4s var(--ease-out-expo), opacity 0.35s ease;
@@ -233,7 +224,6 @@ html[data-theme='light'] .desk-quick a:hover {
   opacity: 1;
 }
 
-/* ---------- Heading underline draw ---------- */
 .section > .container > .heading-2.reveal.is-in::after,
 .section > .container > .heading-2.is-in::after {
   animation: line-draw 0.7s var(--ease-out-expo) 0.15s both;
@@ -243,7 +233,6 @@ html[data-theme='light'] .desk-quick a:hover {
   to { transform: scaleX(1); opacity: 1; }
 }
 
-/* ---------- Status breath ---------- */
 .status-dot,
 .ix-chip-live::before {
   animation: status-breathe 2.4s var(--ease-in-out-soft) infinite;
@@ -253,7 +242,6 @@ html[data-theme='light'] .desk-quick a:hover {
   50% { opacity: 0.85; transform: scale(0.92); box-shadow: 0 0 0 6px rgba(143, 206, 160, 0); }
 }
 
-/* ---------- Modal / command overlays ---------- */
 .home-cmd-backdrop.is-open,
 .ix-help-backdrop.is-open {
   animation: overlay-fade 0.22s var(--ease-out-quart) both;
@@ -271,7 +259,6 @@ html[data-theme='light'] .desk-quick a:hover {
   to { opacity: 1; transform: none; }
 }
 
-/* ---------- Toast ---------- */
 .ix-toast.is-show,
 .home-toast.is-show {
   animation: toast-in 0.35s var(--ease-out-expo) both;
@@ -279,6 +266,125 @@ html[data-theme='light'] .desk-quick a:hover {
 @keyframes toast-in {
   from { opacity: 0; transform: translateX(-50%) translateY(10px); }
   to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ========== Smooth scroll & navigation motion ========== */
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+:target,
+[id] {
+  scroll-margin-top: calc(var(--header-height, 72px) + 12px);
+}
+
+.nav-desktop .nav-link {
+  transition:
+    color var(--motion-fast) var(--ease-out-quart),
+    background var(--motion-fast) ease,
+    transform var(--motion-fast) var(--ease-out-quart);
+}
+.nav-desktop .nav-link:hover {
+  transform: translateY(-1px);
+}
+.nav-desktop .nav-link.active {
+  transform: none;
+}
+
+.site-header .logo {
+  transition: transform var(--motion-med) var(--ease-out-expo), opacity 180ms ease;
+}
+.site-header .logo:hover {
+  transform: scale(1.03);
+}
+
+.nav-cta {
+  transition:
+    transform var(--motion-fast) var(--ease-out-quart),
+    box-shadow var(--motion-med) var(--ease-out-expo),
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(184, 149, 106, 0.22);
+}
+
+.mobile-nav {
+  transition:
+    opacity 280ms var(--ease-out-quart),
+    visibility 280ms var(--ease-out-quart) !important;
+}
+.mobile-nav.open .mobile-nav-inner,
+.mobile-nav.is-open .mobile-nav-inner {
+  animation: mobile-panel-in 0.38s var(--ease-out-expo) both;
+}
+@keyframes mobile-panel-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.mobile-nav.open a.nav-link,
+.mobile-nav.is-open a.nav-link {
+  opacity: 0;
+  animation: mobile-link-in 0.42s var(--ease-out-expo) forwards;
+}
+.mobile-nav.open a.nav-link:nth-child(1),
+.mobile-nav.is-open a.nav-link:nth-child(1) { animation-delay: 0.04s; }
+.mobile-nav.open a.nav-link:nth-child(2),
+.mobile-nav.is-open a.nav-link:nth-child(2) { animation-delay: 0.08s; }
+.mobile-nav.open a.nav-link:nth-child(3),
+.mobile-nav.is-open a.nav-link:nth-child(3) { animation-delay: 0.12s; }
+.mobile-nav.open a.nav-link:nth-child(4),
+.mobile-nav.is-open a.nav-link:nth-child(4) { animation-delay: 0.16s; }
+.mobile-nav.open a.nav-link:nth-child(5),
+.mobile-nav.is-open a.nav-link:nth-child(5) { animation-delay: 0.2s; }
+.mobile-nav.open a.nav-link:nth-child(6),
+.mobile-nav.is-open a.nav-link:nth-child(6) { animation-delay: 0.24s; }
+.mobile-nav.open a.nav-link:nth-child(7),
+.mobile-nav.is-open a.nav-link:nth-child(7) { animation-delay: 0.28s; }
+.mobile-nav.open a.nav-link:nth-child(8),
+.mobile-nav.is-open a.nav-link:nth-child(8) { animation-delay: 0.32s; }
+.mobile-nav.open a.nav-link:nth-child(9),
+.mobile-nav.is-open a.nav-link:nth-child(9) { animation-delay: 0.36s; }
+
+@keyframes mobile-link-in {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: none; }
+}
+
+.mobile-nav.open .mobile-nav-label,
+.mobile-nav.is-open .mobile-nav-label,
+.mobile-nav.open .mobile-nav-footer,
+.mobile-nav.is-open .mobile-nav-footer {
+  opacity: 0;
+  animation: mobile-link-in 0.4s var(--ease-out-expo) 0.08s forwards;
+}
+.mobile-nav.open .mobile-nav-footer,
+.mobile-nav.is-open .mobile-nav-footer {
+  animation-delay: 0.38s;
+}
+
+.mobile-toggle {
+  transition: transform 180ms var(--ease-out-quart), border-color 160ms ease, background 160ms ease;
+}
+.mobile-toggle:active {
+  transform: scale(0.96);
+}
+.mobile-toggle[aria-expanded="true"] {
+  border-color: rgba(184, 149, 106, 0.55);
+}
+
+.theme-toggle {
+  transition: transform 200ms var(--ease-out-quart), background 160ms ease, border-color 160ms ease;
+}
+.theme-toggle:hover {
+  transform: rotate(-12deg) scale(1.06);
 }
 
 /* ---------- Reduced motion ---------- */
@@ -296,7 +402,15 @@ html[data-theme='light'] .desk-quick a:hover {
   .home-cmd-backdrop.is-open,
   .ix-help-backdrop.is-open,
   .home-cmd-backdrop.is-open .home-cmd,
-  .ix-help-backdrop.is-open .ix-help {
+  .ix-help-backdrop.is-open .ix-help,
+  .mobile-nav.open .mobile-nav-inner,
+  .mobile-nav.is-open .mobile-nav-inner,
+  .mobile-nav.open a.nav-link,
+  .mobile-nav.is-open a.nav-link,
+  .mobile-nav.open .mobile-nav-label,
+  .mobile-nav.is-open .mobile-nav-label,
+  .mobile-nav.open .mobile-nav-footer,
+  .mobile-nav.is-open .mobile-nav-footer {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;
@@ -309,5 +423,11 @@ html[data-theme='light'] .desk-quick a:hover {
   }
   .nav-desktop .nav-link::after {
     transition: none;
+  }
+  .nav-desktop .nav-link:hover,
+  .site-header .logo:hover,
+  .nav-cta:hover,
+  .theme-toggle:hover {
+    transform: none !important;
   }
 }
