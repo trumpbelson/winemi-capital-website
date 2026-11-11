@@ -1,5 +1,5 @@
 /*! WINEMI CAPITAL — professional motion controller
- * Loads site-motion.css, staggers reveals, header scroll state.
+ * Loads site-motion.css, staggers reveals, header scroll state, smooth scroll.
  */
 (function () {
   'use strict';
@@ -85,12 +85,80 @@
     if (hero) hero.classList.add('motion-hero');
   }
 
+  function headerOffset() {
+    var header = document.querySelector('.site-header');
+    var h = header ? header.offsetHeight : 72;
+    return h + 12;
+  }
+
+  function scrollToEl(el, replaceHash) {
+    if (!el) return;
+    var top = el.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - headerOffset();
+    if (reduce) {
+      window.scrollTo(0, Math.max(0, top));
+    } else {
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    }
+    if (replaceHash && el.id) {
+      try { history.pushState(null, '', '#' + el.id); } catch (e) {}
+    }
+  }
+
+  function wireSmoothScroll() {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href');
+      if (!href || href === '#' || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+      if (a.target === '_blank' || a.hasAttribute('download')) return;
+
+      if (href.charAt(0) === '#') {
+        var target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        scrollToEl(target, true);
+        var mobile = document.querySelector('.mobile-nav');
+        var toggle = document.querySelector('.mobile-toggle');
+        if (mobile && (mobile.classList.contains('is-open') || mobile.classList.contains('open'))) {
+          mobile.classList.remove('is-open', 'open');
+          document.body.classList.remove('nav-open');
+          if (toggle) {
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Open menu');
+          }
+        }
+        return;
+      }
+
+      try {
+        var url = new URL(href, window.location.href);
+        if (url.origin === window.location.origin &&
+            url.pathname.replace(/\/$/, '') === window.location.pathname.replace(/\/$/, '') &&
+            url.hash && url.hash.length > 1) {
+          var el = document.querySelector(url.hash);
+          if (el) {
+            e.preventDefault();
+            scrollToEl(el, true);
+          }
+        }
+      } catch (err) {}
+    });
+
+    if (window.location.hash && window.location.hash.length > 1) {
+      var initial = document.querySelector(window.location.hash);
+      if (initial) {
+        setTimeout(function () { scrollToEl(initial, false); }, 80);
+      }
+    }
+  }
+
   function boot() {
     injectCss();
     markReady();
     headerScroll();
     staggerGrids();
     polishHero();
+    wireSmoothScroll();
     setTimeout(function () {
       staggerGrids();
       observeReveals();
