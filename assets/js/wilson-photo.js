@@ -1,30 +1,41 @@
-/** Wilson portrait combiner — clearer HD image */
+/** Wilson Antwi Amoako — clearer presentation */
 (function () {
   var img = document.getElementById('founder-photo-wilson');
   if (!img) return;
-  function paint() {
-    var a = window.__WC_WILSON_A || [];
-    var b = window.__WC_WILSON_B || [];
-    if (!a.length || !b.length) return;
-    var uri = 'data:image/jpeg;base64,' + a.join('') + b.join('');
-    img.src = uri;
-    img.removeAttribute('srcset');
+
+  var base = (location.pathname || '').indexOf('/pages/') !== -1
+    ? '../assets/images/team/'
+    : 'assets/images/team/';
+
+  function style() {
     img.style.objectFit = 'cover';
-    img.style.objectPosition = 'center 14%';
-    img.style.filter = 'contrast(1.12) saturate(1.06) brightness(1.03)';
+    img.style.objectPosition = 'center 12%';
+    img.style.filter = 'contrast(1.18) saturate(1.1) brightness(1.05)';
+    img.style.imageRendering = 'auto';
+    img.setAttribute('width', '400');
+    img.setAttribute('height', '520');
   }
-  var base = (location.pathname || '').indexOf('/pages/') !== -1 ? '../assets/js/' : 'assets/js/';
-  function load(src) {
-    return new Promise(function (res, rej) {
-      var s = document.createElement('script');
-      s.src = src;
-      s.onload = res;
-      s.onerror = rej;
-      document.head.appendChild(s);
+
+  function trySrc(src, next) {
+    var probe = new Image();
+    probe.onload = function () {
+      img.src = src;
+      img.removeAttribute('srcset');
+      style();
+    };
+    probe.onerror = function () {
+      if (typeof next === 'function') next();
+      else style();
+    };
+    probe.src = src;
+  }
+
+  // Prefer local team assets (clearer when present on CDN)
+  trySrc(base + 'wilson-antwi-amoako.jpg', function () {
+    trySrc(base + 'wilson-antwi-amoako@2x.jpg', function () {
+      trySrc(base + 'wilson-antwi-amoako.webp', function () {
+        style();
+      });
     });
-  }
-  Promise.all([
-    load(base + 'wilson-photo-a.js'),
-    load(base + 'wilson-photo-b.js')
-  ]).then(paint).catch(function () {});
+  });
 })();
