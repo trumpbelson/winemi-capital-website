@@ -1,17 +1,43 @@
-/** Wilson Antwi Amoako — clear embedded portrait */
+/** Wilson Antwi Amoako — clarity filter + multi-source portrait */
 (function () {
   var img = document.getElementById('founder-photo-wilson');
   if (!img) return;
-  var uri = 'data:image/jpeg;base64,' +
-    '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';
-  function apply() {
+  var base = (location.pathname || '').indexOf('/pages/') !== -1 ? '../assets/images/team/' : 'assets/images/team/';
+  function paint(uri) {
     img.src = uri;
     img.removeAttribute('srcset');
     img.width = 400; img.height = 520;
     img.style.objectFit = 'cover';
-    img.style.objectPosition = 'center 12%';
-    img.style.filter = 'contrast(1.1) saturate(1.05) brightness(1.02)';
+    img.style.objectPosition = 'center 14%';
+    img.style.filter = 'contrast(1.14) saturate(1.08) brightness(1.04)';
+    img.style.imageRendering = 'auto';
   }
-  apply();
-  img.addEventListener('error', apply, { once: true });
+  img.style.filter = 'contrast(1.14) saturate(1.08) brightness(1.04)';
+  img.style.objectPosition = 'center 14%';
+  var candidates = [
+    base + 'wilson-antwi-amoako.jpg?v=20261115d',
+    base + 'wilson-antwi-amoako.webp?v=20261115d',
+    base + 'wilson-antwi-amoako@2x.jpg?v=20261115d'
+  ];
+  var i = 0;
+  function next() {
+    if (i >= candidates.length) {
+      Promise.all([0,1,2,3].map(function (n) {
+        return fetch(base + 'wilson.b64.' + n + '.txt?v=20261115d').then(function (r) { return r.ok ? r.text() : ''; });
+      })).then(function (parts) {
+        var t = parts.join('').replace(/\s+/g, '');
+        if (t.length > 500) paint('data:image/jpeg;base64,' + t);
+      }).catch(function () {});
+      return;
+    }
+    var test = new Image();
+    var src = candidates[i++];
+    test.onload = function () {
+      if (test.naturalWidth > 80) paint(src);
+      else next();
+    };
+    test.onerror = next;
+    test.src = src;
+  }
+  next();
 })();

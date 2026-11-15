@@ -27,7 +27,6 @@
   }
 }
 
-/* Profile grid — photo + copy side by side */
 .founder-profile {
   display: grid;
   gap: 1.75rem;
@@ -90,7 +89,10 @@
   background: #0a0a0b;
 }
 #founder-photo-wilson {
-  object-position: center 18%;
+  object-position: center 14%;
+  filter: contrast(1.12) saturate(1.06) brightness(1.03);
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
 }
 .founder-photo-frame::after {
   content: "";
@@ -196,92 +198,25 @@
   line-height: 1.7;
 }
 
-/* Principles grid */
-.about-principles-grid {
-  display: grid;
-  gap: 1.15rem;
-  margin-top: 1.75rem;
-}
-@media (min-width: 640px) {
-  .about-principles-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (min-width: 1024px) {
-  .about-principles-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-.about-principle {
-  padding: 1.4rem 1.25rem;
-  border-radius: 12px;
-  background: #141416;
-  border: 1px solid rgba(184, 149, 106, 0.18);
-}
-.about-principle h3,
-.about-principle .about-principle-title {
-  font-family: var(--font-serif, Georgia, serif);
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin: 0 0 0.5rem;
-  color: var(--color-text-primary, #f7f5f0);
-}
-.about-principle p {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: var(--color-text-secondary, rgba(247,245,240,0.72));
-}
-
-/* Focus grid */
-.about-focus-grid {
-  display: grid;
-  gap: 1.15rem;
-  margin-top: 1.75rem;
-}
-@media (min-width: 640px) {
-  .about-focus-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (min-width: 1024px) {
-  .about-focus-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-.about-focus-card {
-  padding: 1.5rem 1.25rem;
-  border-radius: 12px;
-  background: #141416;
-  border: 1px solid rgba(184, 149, 106, 0.18);
-}
-.about-focus-icon {
-  width: 36px;
-  height: 36px;
-  margin-bottom: 0.85rem;
-  color: var(--color-muted-gold, #b8956a);
-}
-.about-focus-title {
-  font-family: var(--font-serif, Georgia, serif);
-  font-size: 1.05rem;
-  font-weight: 500;
-  margin: 0 0 0.45rem;
-  color: var(--color-text-primary, #f7f5f0);
-}
-.about-focus-card .body-small {
-  margin: 0;
-  color: var(--color-text-secondary, rgba(247,245,240,0.72));
-}
-
-/* Values grid */
+/* Principles / focus / values grids kept */
+.about-principles-grid,
+.about-focus-grid,
 .about-values-grid {
   display: grid;
   gap: 1.15rem;
   margin-top: 1.75rem;
 }
 @media (min-width: 640px) {
+  .about-principles-grid,
+  .about-focus-grid,
   .about-values-grid {
     grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .about-principles-grid,
+  .about-focus-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 @media (min-width: 960px) {
@@ -289,29 +224,40 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+.about-principle,
+.about-focus-card,
 .about-value {
-  padding: 1.35rem 1.2rem;
+  padding: 1.4rem 1.25rem;
   border-radius: 12px;
   background: #141416;
-  border: 1px solid rgba(184, 149, 106, 0.16);
+  border: 1px solid rgba(184, 149, 106, 0.18);
 }
+.about-principle h3,
+.about-principle .about-principle-title,
+.about-focus-title,
 .about-value h3 {
   font-family: var(--font-serif, Georgia, serif);
-  font-size: 1.05rem;
-  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
   color: var(--color-text-primary, #f7f5f0);
 }
+.about-principle p,
+.about-focus-card .body-small,
 .about-value p {
   margin: 0;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   color: var(--color-text-secondary, rgba(247,245,240,0.72));
 }
-
-/* Partnership panel */
-.about-partnership-panel {
-  margin-top: 3rem;
+.about-focus-icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 0.85rem;
+  color: var(--color-muted-gold, #b8956a);
 }
+
+.about-partnership-panel { margin-top: 3rem; }
 .about-partnership-inner {
   padding: 2rem 1.75rem;
   border-radius: 14px;
@@ -343,20 +289,16 @@
   }
 }
 
-/* About hero */
 .hero-about {
   padding-top: calc(var(--header-height, 72px) + 4rem);
   padding-bottom: 3rem;
 }
-.hero-about .heading-1 {
-  max-width: 18ch;
-}
+.hero-about .heading-1 { max-width: 18ch; }
 .hero-about .body-large {
   max-width: 40rem;
   margin-top: 1.25rem;
 }
 
-/* CTA band */
 .about-cta-band {
   padding: 4rem 0;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -374,7 +316,6 @@
   margin-top: 1.5rem;
 }
 
-/* Education diagrams (kept minimal) */
 .diagram {
   margin: 1.75rem 0 2rem;
   padding: 1.25rem 1rem;
@@ -383,7 +324,6 @@
   border-radius: 12px;
 }
 
-/* Light theme */
 html[data-theme="light"] .about-panel,
 html[data-theme="light"] .about-principle,
 html[data-theme="light"] .about-focus-card,
