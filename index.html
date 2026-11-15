@@ -125,6 +125,7 @@
           <span class="home-sess" id="home-sess-sydney"><strong>Sydney</strong> <span class="hs-state">—</span></span>
           <span class="home-sess" id="home-sess-asia"><strong>Asia</strong> <span class="hs-state">—</span></span>
           <span class="home-sess" id="home-sess-europe"><strong>Europe</strong> <span class="hs-state">—</span></span>
+          <span class="home-sess" id="home-sess-london"><strong>London</strong> <span class="hs-state">—</span></span>
           <span class="home-sess" id="home-sess-ny"><strong>New York</strong> <span class="hs-state">—</span></span>
         </div>
 
@@ -246,6 +247,7 @@
         setS('home-sess-sydney', h >= 22 || h < 7);
         setS('home-sess-asia', h >= 0 && h < 9);
         setS('home-sess-europe', h >= 7 && h < 16);
+        setS('home-sess-london', h >= 7 && h < 16);
         setS('home-sess-ny', h >= 13 && h < 21);
       }
       tick();
