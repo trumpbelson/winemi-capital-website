@@ -44,8 +44,9 @@
       meta.textContent = 'UTC ' + String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
     }
     var defs = [
+      { id: 'sr-sydney', open: 22, close: 7 },
       { id: 'sr-asia', open: 0, close: 9 },
-      { id: 'sr-london', open: 7, close: 16 },
+      { id: 'sr-europe', open: 7, close: 16 },
       { id: 'sr-ny', open: 13, close: 21 }
     ];
     defs.forEach(function (d) {
@@ -110,7 +111,7 @@
     if (!container) return;
 
     var sessionBar = document.getElementById('home-session-bar');
-    if (sessionBar) sessionBar.style.display = 'none';
+    if (sessionBar) sessionBar.style.display = '';
 
     var wrap = document.createElement('div');
     wrap.id = 'home-command';
@@ -123,6 +124,14 @@
       '      <span class="cmd-meta" id="cmd-utc-meta">UTC --:--</span>',
       '    </div>',
       '    <div class="session-intel" aria-label="Global session status">',
+      '      <div class="sess-ring" id="sr-sydney">',
+      '        <svg viewBox="0 0 64 64" aria-hidden="true">',
+      '          <circle class="sr-bg" cx="32" cy="32" r="26"></circle>',
+      '          <circle class="sr-fg" cx="32" cy="32" r="26" style="stroke-dasharray:' + CIRC + '"></circle>',
+      '        </svg>',
+      '        <span class="sr-label">Sydney</span>',
+      '        <span class="sr-state">—</span>',
+      '      </div>',
       '      <div class="sess-ring" id="sr-asia">',
       '        <svg viewBox="0 0 64 64" aria-hidden="true">',
       '          <circle class="sr-bg" cx="32" cy="32" r="26"></circle>',
@@ -131,12 +140,12 @@
       '        <span class="sr-label">Asia</span>',
       '        <span class="sr-state">—</span>',
       '      </div>',
-      '      <div class="sess-ring" id="sr-london">',
+      '      <div class="sess-ring" id="sr-europe">',
       '        <svg viewBox="0 0 64 64" aria-hidden="true">',
       '          <circle class="sr-bg" cx="32" cy="32" r="26"></circle>',
       '          <circle class="sr-fg" cx="32" cy="32" r="26" style="stroke-dasharray:' + CIRC + '"></circle>',
       '        </svg>',
-      '        <span class="sr-label">London</span>',
+      '        <span class="sr-label">Europe</span>',
       '        <span class="sr-state">—</span>',
       '      </div>',
       '      <div class="sess-ring" id="sr-ny">',
@@ -222,11 +231,6 @@
     var paletteBtn = document.getElementById('cmd-open-palette');
     if (paletteBtn) {
       paletteBtn.addEventListener('click', function () {
-        var existing = document.querySelector('.home-cmd-backdrop, .cmd-backdrop, [data-cmd-palette]');
-        if (existing) {
-          existing.classList.add('is-open');
-          return;
-        }
         document.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', ctrlKey: true, bubbles: true }));
       });
     }
@@ -299,7 +303,6 @@
       hint.classList.remove('is-visible');
       document.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', ctrlKey: true, bubbles: true }));
     });
-    window.addEventListener('pagehide', function () { clearTimeout(t); });
   }
 
   function bindHeroParallax() {
