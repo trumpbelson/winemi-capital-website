@@ -51,12 +51,10 @@
     '<div class="header-inner">' +
       '<div class="header-left">' +
         '<a href="' + homeHref + '" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>' +
-        '<span class="header-divider" aria-hidden="true"></span>' +
-        '<span class="header-meta" title="Firm focus">Accra · Global markets</span>' +
       '</div>' +
       '<nav class="nav-desktop" aria-label="Primary">' + desktopLinks + '</nav>' +
       '<div class="header-right">' +
-        '<span class="header-status" aria-hidden="true"><span class="status-dot"></span>Live context</span>' +
+        '<span class="header-status" aria-hidden="true"><span class="status-dot"></span>Live</span>' +
         '<a href="' + loginHref + '" class="nav-cta">Portal</a>' +
         '<div class="header-actions">' +
           '<button type="button" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">' +
@@ -79,7 +77,7 @@
       '<p class="mobile-nav-label">Navigate</p>' +
       mobileLinks +
       '<div class="mobile-nav-footer">' +
-        '<p class="mobile-nav-meta">Accra · Global markets · Institutional research</p>' +
+        '<p class="mobile-nav-meta">Institutional research · Educational resources</p>' +
         '<a class="mobile-nav-contact" href="https://wa.me/233503100519" target="_blank" rel="noopener noreferrer">WhatsApp +233 50 310 0519</a>' +
         '<a href="' + loginHref + '" class="mobile-nav-cta">Client Portal</a>' +
       '</div>' +
@@ -96,7 +94,7 @@
       { label: 'X', href: 'https://x.com/WinemiCapital', svg: '<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.828L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>' },
       { label: 'YouTube', href: 'https://www.youtube.com/@WinemiCapital', svg: '<path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>' },
       { label: 'Telegram', href: 'https://t.me/WinemiCapital', svg: '<path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.15 1.568-.769 5.233-1.087 6.94-.134.72-.402 1.161-.66 1.189-.552.064-1.067-.36-1.62-.706-.88-.549-1.402-.89-2.246-1.39-1.405-.835-.524-1.293.325-2.04.222-.196 4.068-3.724 4.143-4.046.009-.04.018-.189-.07-.267-.089-.078-.219-.05-.312-.03-.132.027-2.228 1.416-6.286 4.15-.595.408-1.135.608-1.566.599-.516-.01-1.508-.291-2.245-.53-.904-.293-1.623-.449-1.561-.949.032-.26.481-.526 1.319-.8 5.145-2.23 8.576-3.701 10.24-4.37.918-.36 2.14-.54 2.69-.55z"/>' },
-      { label: 'WhatsApp', href: 'https://wa.me/233503100519', svg: '<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>' }
+      { label: 'WhatsApp', href: 'https://wa.me/233503100519', svg: '<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 5.45 0 9.884 4.434 9.884 9.884a9.86 9.86 0 01-1.45 5.15l.92 3.48-3.6-.94a9.87 9.87 0 01-4.76 1.21z"/>' }
     ];
 
     var socialHtml = socials.map(function (s) {
@@ -105,31 +103,21 @@
 
     var firmLinks = [
       { label: 'About', href: prefix + 'about.html' },
-      { label: 'Team', href: prefix + 'team.html' },
-      { label: 'Services', href: prefix + 'services.html' },
       { label: 'Approach', href: prefix + 'approach.html' },
-      { label: 'Global presence', href: prefix + 'global.html' },
-      { label: 'Careers', href: prefix + 'careers.html' },
-      { label: 'Partners', href: prefix + 'partners.html' },
+      { label: 'Markets', href: prefix + 'markets.html' },
       { label: 'Contact', href: prefix + 'contact.html' }
     ].map(function (l) { return '<a href="' + l.href + '">' + l.label + '</a>'; }).join('');
 
     var resourceLinks = [
       { label: 'Education', href: prefix + 'education.html' },
       { label: 'Macro desk', href: prefix + 'education-macro.html' },
-      { label: 'Research', href: prefix + 'research.html' },
-      { label: 'Resources', href: prefix + 'resources.html' },
-      { label: 'Glossary', href: prefix + 'glossary.html' },
-      { label: 'FAQ', href: prefix + 'faq.html' },
       { label: 'Insights', href: prefix + 'insights.html' },
-      { label: 'Risk Disclosure', href: prefix + 'risk-disclosure.html' }
+      { label: 'Disclaimer', href: prefix + 'disclaimer.html' }
     ].map(function (l) { return '<a href="' + l.href + '">' + l.label + '</a>'; }).join('');
 
     var contactLinks = [
       { label: 'winemicapital@gmail.com', href: 'mailto:winemicapital@gmail.com' },
-      { label: '+233 50 310 0519', href: 'https://wa.me/233503100519' },
-      { label: '@WinemiCapital', href: 'https://t.me/WinemiCapital' },
-      { label: 'Accra, Ghana', href: prefix + 'contact.html' }
+      { label: '+233 50 310 0519', href: 'https://wa.me/233503100519' }
     ].map(function (l) {
       var ext = l.href.indexOf('http') === 0 || l.href.indexOf('mailto:') === 0;
       return '<a href="' + l.href + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>' + l.label + '</a>';
@@ -141,7 +129,7 @@
           '<div class="footer-brand">' +
             '<a href="' + homeHref + '" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>' +
             '<p class="footer-tag">Building wealth through intelligent capital allocation.</p>' +
-            '<p class="footer-meta">Global markets · Institutional research · Accra</p>' +
+            '<p class="footer-meta">Institutional research · Educational resources</p>' +
             '<div class="social-icons footer-social">' + socialHtml + '</div>' +
           '</div>' +
           '<div class="footer-col">' +
@@ -244,57 +232,16 @@
   }
 })();
 
-/* Site-wide polish */
-(function loadSitePolish() {
-  if (document.querySelector('script[src*="site-polish.js"]')) return;
+/* Site-wide enhancement loaders */
+(function loadExtras() {
   var path = (window.location.pathname || '');
   var inPages = /\/pages\//.test(path);
-  var s = document.createElement('script');
-  s.src = (inPages ? '../' : '') + 'assets/js/site-polish.js';
-  s.defer = true;
-  document.head.appendChild(s);
-})();
-
-/* Site-wide interactivity */
-(function loadSiteInteractive() {
-  if (document.querySelector('script[src*="site-interactive.js"]')) return;
-  var path = (window.location.pathname || '');
-  var inPages = /\/pages\//.test(path);
-  var s = document.createElement('script');
-  s.src = (inPages ? '../' : '') + 'assets/js/site-interactive.js';
-  s.defer = true;
-  document.head.appendChild(s);
-})();
-
-/* Visual appeal */
-(function loadSiteVisual() {
-  if (document.querySelector('script[src*="site-visual.js"]')) return;
-  var path = (window.location.pathname || '');
-  var inPages = /\/pages\//.test(path);
-  var s = document.createElement('script');
-  s.src = (inPages ? '../' : '') + 'assets/js/site-visual.js';
-  s.defer = true;
-  document.head.appendChild(s);
-})();
-
-/* Professional motion system */
-(function loadSiteMotion() {
-  if (document.querySelector('script[src*="site-motion.js"]')) return;
-  var path = (window.location.pathname || '');
-  var inPages = /\/pages\//.test(path);
-  var s = document.createElement('script');
-  s.src = (inPages ? '../' : '') + 'assets/js/site-motion.js';
-  s.defer = true;
-  document.head.appendChild(s);
-})();
-
-/* Site-wide glassmorphism + surface motion */
-(function loadSiteMorphism() {
-  if (document.querySelector('script[src*="site-morphism.js"]')) return;
-  var path = (window.location.pathname || '');
-  var inPages = /\/pages\//.test(path);
-  var s = document.createElement('script');
-  s.src = (inPages ? '../' : '') + 'assets/js/site-morphism.js';
-  s.defer = true;
-  document.head.appendChild(s);
+  var base = inPages ? '../' : '';
+  ['site-polish.js', 'site-interactive.js', 'site-visual.js', 'site-motion.js', 'site-morphism.js'].forEach(function (name) {
+    if (document.querySelector('script[src*="' + name + '"]')) return;
+    var s = document.createElement('script');
+    s.src = base + 'assets/js/' + name;
+    s.defer = true;
+    document.head.appendChild(s);
+  });
 })();
