@@ -8,29 +8,30 @@ body.page-exit {
 .top-feed {
   position: relative !important;
   top: auto !important;
-  margin-top: var(--header-height, 72px) !important;
-  z-index: 2 !important;
+  margin-top: var(--header-height, 68px) !important;
+  z-index: 50 !important;
   width: 100% !important;
   background: #0a0a0b !important;
-  border-bottom: 1px solid rgba(184, 149, 106, 0.28) !important;
-  box-shadow: none !important;
+  border-bottom: 1px solid rgba(184, 149, 106, 0.38) !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35) !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+  min-height: 92px !important;
 }
 
 body:has(.top-feed) .hero {
   padding-top: 2.25rem !important;
-  min-height: calc(100vh - var(--header-height, 72px) - 84px) !important;
+  min-height: calc(100vh - var(--header-height, 68px) - 96px) !important;
 }
 
 .top-feed .market-ticker {
   position: relative !important;
   top: auto !important;
-  height: 48px !important;
+  height: 52px !important;
   overflow: hidden !important;
-  background: #0a0a0b !important;
-  border-bottom: 1px solid rgba(184, 149, 106, 0.18) !important;
+  background: linear-gradient(180deg, #0e0e10 0%, #0a0a0b 100%) !important;
+  border-bottom: 1px solid rgba(184, 149, 106, 0.22) !important;
   z-index: auto !important;
 }
 .top-feed .market-ticker-inner {
@@ -48,15 +49,16 @@ body:has(.top-feed) .hero {
   flex: 1 1 auto !important;
   width: 100% !important;
   min-width: 0 !important;
-  height: 46px !important;
-  min-height: 46px !important;
+  height: 48px !important;
+  min-height: 48px !important;
   overflow: hidden !important;
 }
 .top-feed .news-ticker {
   position: relative !important;
-  height: 36px !important;
+  height: 40px !important;
   overflow: hidden !important;
-  background: #0c0c0e !important;
+  background: linear-gradient(180deg, #121214 0%, #0c0c0e 100%) !important;
+  border-bottom: 1px solid rgba(184, 149, 106, 0.16) !important;
 }
 .top-feed .news-ticker-inner {
   display: flex !important;
@@ -80,10 +82,26 @@ body:has(.top-feed) .hero {
   gap: 1.35rem !important;
   width: max-content !important;
   white-space: nowrap !important;
-  font-size: 0.8125rem !important;
-  color: rgba(247, 245, 240, 0.78) !important;
+  font-size: 0.875rem !important;
+  color: rgba(247, 245, 240, 0.9) !important;
   animation: wc-news-marquee 48s linear infinite !important;
   will-change: transform;
+}
+.top-feed .news-ticker-label,
+.top-feed .market-ticker-label {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  padding: 0.28rem 0.65rem !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(184, 149, 106, 0.4) !important;
+  background: rgba(184, 149, 106, 0.12) !important;
+  color: #c9a87c !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
 }
 .top-feed .news-ticker:hover .news-ticker-content { animation-play-state: paused; }
 .top-feed .news-sep { color: rgba(184, 149, 106, 0.55); }
@@ -93,26 +111,24 @@ body:has(.top-feed) .hero {
 }
 @media (max-width: 640px) {
   .top-feed { margin-top: var(--header-height, 64px) !important; }
-  .top-feed .market-ticker-label,
-  .top-feed .news-ticker-label { display: none; }
-  .top-feed .market-ticker { height: 42px !important; }
+  .top-feed .market-ticker { height: 46px !important; }
   .top-feed .market-ticker-widget,
   .top-feed .market-ticker-widget .tradingview-widget-container__widget {
-    height: 40px !important;
-    min-height: 40px !important;
+    height: 44px !important;
+    min-height: 44px !important;
   }
-  .top-feed .news-ticker { height: 32px !important; }
+  .top-feed .news-ticker { height: 36px !important; }
   .top-feed .news-ticker-content { animation-duration: 40s !important; }
   body:has(.top-feed) .hero {
     padding-top: 1.5rem !important;
-    min-height: calc(100vh - var(--header-height, 64px) - 74px) !important;
+    min-height: calc(100vh - var(--header-height, 64px) - 86px) !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .top-feed .news-ticker-content { animation: none !important; }
 }
 
-/* Hard visibility — prevent black screen */
+/* Hard visibility */
 html, body {
   opacity: 1 !important;
   visibility: visible !important;
