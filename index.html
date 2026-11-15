@@ -1,92 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>/* Hard visibility boot */document.documentElement.style.opacity='1';document.documentElement.style.visibility='visible';if(document.body){document.body.style.opacity='1';document.body.style.visibility='visible';}</script>
+  <script>/* Hard visibility boot */document.documentElement.style.backgroundColor='#0a0a0b';document.documentElement.style.color='#f7f5f0';</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0a0a0b" />
-  <title>WINEMI CAPITAL. | Building wealth through intelligent capital allocation</title>
+  <title>WINEMI CAPITAL. | Capital. Discipline. Growth.</title>
   <meta name="description" content="WINEMI CAPITAL. — Building wealth through intelligent capital allocation. Institutional perspective on markets, asset management, research, and financial education." />
+  <meta name="theme-color" content="#0a0a0b" />
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="assets/css/nav.css" />
   <link rel="stylesheet" href="assets/css/logo.css" />
   <link rel="stylesheet" href="assets/css/glass.css" />
   <link rel="stylesheet" href="assets/css/home-morphism.css" />
   <link rel="stylesheet" href="assets/css/footer-rich.css" />
-  <link rel="stylesheet" href="assets/css/light-theme.css" />
+  <link rel="stylesheet" href="assets/css/diagrams.css" />
   <link rel="stylesheet" href="assets/css/ticker-fix.css" />
   <link rel="stylesheet" href="assets/css/tv-workspace.css" />
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('winemi-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
   <script src="assets/js/page-ready.js"></script>
-  <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
-  <style>
-    .tv-workspace { margin-top: 1.25rem; }
-    .home-session-bar {
-      display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
-      margin: 0 0 1.25rem; padding: 0.65rem 0;
-    }
-    .home-sess {
-      padding: 0.4rem 0.75rem; border-radius: 6px;
-      border: 1px solid rgba(184,149,106,0.22); background: #161618;
-      font-size: 0.72rem; letter-spacing: 0.04em; color: rgba(247,245,240,0.7);
-    }
-    .home-sess strong { color: #c9a87c; font-weight: 600; }
-    .home-sess.is-open { border-color: rgba(106,158,122,0.45); }
-    .home-sess.is-open strong { color: #8fcea0; }
-    html[data-theme=light] .home-sess { background: #fff; border-color: rgba(122,95,50,0.22); color: rgba(12,12,14,0.7); }
-    html[data-theme=light] .home-sess strong { color: #7a5f32; }
-    .desk-quick {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem;
-      margin: 0 0 2rem;
-    }
-    @media (max-width: 900px) { .desk-quick { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 520px) { .desk-quick { grid-template-columns: 1fr; } }
-    .desk-quick a {
-      display: block; padding: 1rem 1.1rem; border-radius: 12px;
-      border: 1px solid rgba(184,149,106,0.28); background: #141416;
-      text-decoration: none; transition: border-color 150ms ease, transform 150ms ease, background 150ms ease;
-    }
-    .desk-quick a:hover {
-      border-color: rgba(184,149,106,0.55); background: rgba(184,149,106,0.08);
-      transform: translateY(-2px);
-    }
-    .desk-quick .dq-label {
-      display: block; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
-      color: rgba(201,168,124,0.95); font-weight: 600; margin-bottom: 0.35rem;
-    }
-    .desk-quick .dq-title {
-      display: block; font-size: 1rem; font-weight: 600; color: #f7f5f0; margin-bottom: 0.25rem;
-    }
-    .desk-quick .dq-copy {
-      display: block; font-size: 0.8125rem; line-height: 1.45; color: rgba(247,245,240,0.65);
-    }
-    html[data-theme=light] .desk-quick a { background: #fff; border-color: rgba(122,95,50,0.25); }
-    html[data-theme=light] .desk-quick .dq-title { color: #0c0c0e; }
-    html[data-theme=light] .desk-quick .dq-copy { color: rgba(12,12,14,0.7); }
-    html[data-theme=light] .desk-quick .dq-label { color: #7a5f32; }
-    .home-regime {
-      display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.65rem;
-      margin: 0 0 1.5rem;
-    }
-    @media (max-width: 900px) { .home-regime { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 520px) { .home-regime { grid-template-columns: repeat(2, 1fr); } }
-    .home-regime a {
-      display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem;
-      padding: 0.75rem 0.85rem; border-radius: 10px;
-      border: 1px solid rgba(184,149,106,0.22); background: #161618;
-      text-decoration: none; transition: border-color 120ms ease, background 120ms ease;
-    }
-    .home-regime a:hover { border-color: rgba(184,149,106,0.55); background: rgba(184,149,106,0.1); }
-    .home-regime .rg-sym { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; color: #e0c49a; }
-    .home-regime .rg-name { font-size: 0.7rem; color: rgba(247,245,240,0.55); }
-    html[data-theme=light] .home-regime a { background: #fff; border-color: rgba(122,95,50,0.22); }
-    html[data-theme=light] .home-regime .rg-sym { color: #7a5f32; }
-    html[data-theme=light] .home-regime .rg-name { color: rgba(12,12,14,0.55); }
-    .founders-home-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
-    }
-    @media (max-width: 720px) { .founders-home-grid { grid-template-columns: 1fr; } }
-  </style>
 </head>
 <body class="is-home">
   <a class="skip-link" href="#main">Skip to content</a>
