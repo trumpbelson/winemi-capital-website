@@ -310,8 +310,8 @@
     window.addEventListener('scroll', function () {
       var y = window.scrollY;
       if (y > 900) return;
-      if (bg) bg.style.transform = 'scale(1.06) translateY(' + (y * 0.18) + 'px';
-      if (panel) panel.style.transform = 'translateY(' + (y * 0.06) + 'px';
+      if (bg) bg.style.transform = 'scale(1.06) translateY(' + (y * 0.18) + 'px)';
+      if (panel) panel.style.transform = 'translateY(' + (y * 0.06) + 'px)';
     }, { passive: true });
   }
 
