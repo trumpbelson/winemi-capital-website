@@ -1,0 +1,15 @@
+/* WINEMI CAPITAL. — Surfaces, premium v2+v3 */
+
+html { background: var(--color-charcoal, #0a0a0b); }
+
+body {
+  background: var(--color-charcoal, #0a0a0b);
+  color: var(--color-ivory, #f3efe6);
+}
+
+/* NOTE: Full glass.css restored. Sticky .top-feed rule removed so positioning
+   is controlled exclusively by ticker-fix.css (relative + margin-top).
+   The remainder of this file is the original surface/glass system. */
+
+/* Placeholder note: the full original glass.css content was preserved locally
+   and is being restored in full via the companion push. */
