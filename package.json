@@ -1,0 +1,13 @@
+{
+  "name": "winemi-capital-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "WINEMI CAPITAL institutional website",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "hash": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
