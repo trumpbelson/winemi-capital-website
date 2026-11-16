@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <title>Watchlist | WINEMI CAPITAL.</title>
+  <meta name="description" content="Personal instrument watchlist stored in your browser. Educational market scanning by WINEMI CAPITAL." />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/nav.css" />
+  <link rel="stylesheet" href="../assets/css/logo.css" />
+  <link rel="stylesheet" href="../assets/css/glass.css" />
+  <link rel="stylesheet" href="../assets/css/footer-rich.css" />
+  <link rel="stylesheet" href="../assets/css/markets-platform.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+  <script src="../assets/js/page-ready.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner"></header>
+  <main id="main">
+    <div class="page-header mp-page-header">
+      <div class="container">
+        <p class="label">Markets</p>
+        <h1 class="heading-1">Watchlist</h1>
+        <p class="body-large">Save instruments for faster educational scanning. Preferences are stored in this browser only (local storage). Cloud sync requires a future authenticated portal.</p>
+      </div>
+    </div>
+    <section class="section" style="padding-top:0.25rem;">
+      <div class="container">
+        <div class="wl-add-row">
+          <select id="wl-select" aria-label="Add instrument"></select>
+          <button type="button" id="wl-add">Add to watchlist</button>
+          <a class="mp-filter" href="markets-overview.html" style="text-decoration:none;">Browse all</a>
+        </div>
+        <div id="wl-host"></div>
+        <p class="mp-note">No holdings, balances, or portfolio P&amp;L are tracked. This is a symbol shortlist for research — not a brokerage account.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" role="contentinfo"></footer>
+  <script src="../assets/js/markets-data.js"></script>
+  <script src="../assets/js/site-nav.js"></script>
+  <script>
+    (function () {
+      var M = window.WinemiMarkets;
+      if (!M) return;
+      var sel = document.getElementById('wl-select');
+      var host = document.getElementById('wl-host');
+      sel.innerHTML = M.instruments.map(function (r) {
+        return '<option value="' + r.id + '">' + r.name + ' (' + r.symbol + ')</option>';
+      }).join('');
+
+      function render() {
+        var ids = M.watchlist.list();
+        if (!ids.length) {
+          host.innerHTML = '<div class="wl-empty"><p>Your watchlist is empty.</p><a class="btn btn-primary" href="markets-overview.html">Explore market overview</a></div>';
+          return;
+        }
+        var rows = ids.map(function (id) { return M.byId(id); }).filter(Boolean);
+        host.innerHTML =
+          '<div class="mp-table-wrap"><table class="mp-table"><thead><tr>' +
+          '<th>Instrument</th><th>Symbol</th><th>Asset</th><th>Chart</th><th></th>' +
+          '</tr></thead><tbody>' +
+          rows.map(function (r) {
+            return '<tr>' +
+              '<td class="name">' + r.name + '</td>' +
+              '<td class="sym">' + r.symbol + '</td>' +
+              '<td>' + (M.assetLabels[r.asset] || r.asset) + '</td>' +
+              '<td><a class="row-link" href="instrument.html?id=' + encodeURIComponent(r.id) + '">Open</a></td>' +
+              '<td><button type="button" class="wl-remove" data-id="' + r.id + '">Remove</button></td>' +
+              '</tr>';
+          }).join('') +
+          '</tbody></table></div>';
+        host.querySelectorAll('.wl-remove').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            M.watchlist.remove(btn.getAttribute('data-id'));
+            render();
+          });
+        });
+      }
+
+      document.getElementById('wl-add').addEventListener('click', function () {
+        M.watchlist.add(sel.value);
+        render();
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>
