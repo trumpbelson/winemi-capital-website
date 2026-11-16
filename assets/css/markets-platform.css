@@ -295,7 +295,7 @@ html[data-theme="light"] .mp-widget-card { background: #f7f5f0; }
   min-width: 11.5rem;
   padding: 0.4rem;
   background: rgba(14, 14, 16, 0.97);
-  border: 1px solid rgba(184, 149, 106,  Semicolon 0.28);
+  border: 1px solid rgba(184, 149, 106, 0.28);
   border-radius: 12px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
   opacity: 0;
