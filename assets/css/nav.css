@@ -1,6 +1,6 @@
 /* WINEMI CAPITAL. — Clean advanced header */
 :root {
-  --header-height: 68px;
+  --header-height: 72px;
 }
 
 .site-header {
@@ -346,7 +346,6 @@ html[data-theme="light"] .header-actions {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-muted-gold, #b8956a);
 }
 
 .mobile-nav a.nav-link {
@@ -451,7 +450,7 @@ body.nav-open {
   overflow: hidden;
 }
 
-/* ——— Dropdown menus (global; was only on markets pages) ——— */
+/* ——— Dropdown menus (global) ——— */
 .nav-desktop .nav-item {
   position: relative;
   display: inline-flex;
