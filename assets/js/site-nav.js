@@ -1,5 +1,6 @@
 /**
- * WINEMI CAPITAL. — Shared portfolio navigation + professional footer
+ * WINEMI CAPITAL. — Institutional navigation + footer
+ * Dropdown IA: Markets · Macro · Research · Charts · Education · About
  */
 (function () {
   'use strict';
@@ -8,51 +9,143 @@
   var inPages = /\/pages\//.test(path) || /\/pages$/.test(path);
   var prefix = inPages ? '' : 'pages/';
   var homeHref = inPages ? '../index.html' : 'index.html';
+  var loginHref = prefix + 'login.html';
 
-  var items = [
+  var navTree = [
     { id: 'home', label: 'Home', href: homeHref },
-    { id: 'about', label: 'About', href: prefix + 'about.html' },
-    { id: 'approach', label: 'Approach', href: prefix + 'approach.html' },
-    { id: 'markets', label: 'Markets', href: prefix + 'markets.html' },
-    { id: 'education', label: 'Education', href: prefix + 'education.html' },
-    { id: 'insights', label: 'Insights', href: prefix + 'insights.html' },
-    { id: 'contact', label: 'Contact', href: prefix + 'contact.html' }
+    {
+      id: 'markets',
+      label: 'Markets',
+      href: prefix + 'markets-overview.html',
+      children: [
+        { label: 'Market Overview', href: prefix + 'markets-overview.html' },
+        { label: 'Live Charts', href: prefix + 'markets.html' },
+        { label: 'Indices', href: prefix + 'markets-overview.html#indices' },
+        { label: 'Forex', href: prefix + 'markets-overview.html#forex' },
+        { label: 'Commodities', href: prefix + 'markets-overview.html#commodities' },
+        { label: 'Bonds & Yields', href: prefix + 'markets-overview.html#bonds' },
+        { label: 'Cryptocurrency', href: prefix + 'markets-overview.html#crypto' },
+        { label: 'Watchlist', href: prefix + 'watchlist.html' }
+      ]
+    },
+    {
+      id: 'macro',
+      label: 'Macro',
+      href: prefix + 'education-macro.html',
+      children: [
+        { label: 'Macro Desk', href: prefix + 'education-macro.html' },
+        { label: 'Economic Calendar', href: prefix + 'economic-calendar.html' },
+        { label: 'Central Banks & Rates', href: prefix + 'education-macro.html#focus' },
+        { label: 'Cross-Asset Board', href: prefix + 'education-macro.html#board' }
+      ]
+    },
+    {
+      id: 'research',
+      label: 'Research',
+      href: prefix + 'research.html',
+      children: [
+        { label: 'Research Hub', href: prefix + 'research.html' },
+        { label: 'Insights', href: prefix + 'insights.html' },
+        { label: 'Market Outlook', href: prefix + 'insights.html' },
+        { label: 'Risk Management', href: prefix + 'education-risk.html' }
+      ]
+    },
+    {
+      id: 'charts',
+      label: 'Charts',
+      href: prefix + 'markets.html',
+      children: [
+        { label: 'TradingView Workspace', href: prefix + 'markets.html' },
+        { label: 'Technical Analysis', href: prefix + 'markets.html#technicals' },
+        { label: 'Forex Cross Rates', href: prefix + 'markets.html#forex' },
+        { label: 'Heatmap', href: prefix + 'markets.html#heatmap' }
+      ]
+    },
+    {
+      id: 'education',
+      label: 'Education',
+      href: prefix + 'education.html',
+      children: [
+        { label: 'Education Hub', href: prefix + 'education.html' },
+        { label: 'Market Structure', href: prefix + 'education-candlesticks.html' },
+        { label: 'Macro Literacy', href: prefix + 'education-macro.html' },
+        { label: 'Risk & Position Sizing', href: prefix + 'education-risk.html' },
+        { label: 'Glossary', href: prefix + 'glossary.html' }
+      ]
+    },
+    {
+      id: 'about',
+      label: 'About',
+      href: prefix + 'about.html',
+      children: [
+        { label: 'Our Philosophy', href: prefix + 'about.html' },
+        { label: 'Our Approach', href: prefix + 'approach.html' },
+        { label: 'Our Team', href: prefix + 'team.html' },
+        { label: 'Contact', href: prefix + 'contact.html' }
+      ]
+    }
   ];
 
   function activeId() {
     var p = path.toLowerCase();
     if (p.endsWith('/index.html') || p.endsWith('/') || p === '' || /winemi-capital-website\/?$/.test(p)) return 'home';
-    if (p.indexOf('about') !== -1 || p.indexOf('team') !== -1) return 'about';
-    if (p.indexOf('approach') !== -1 || p.indexOf('services') !== -1) return 'approach';
-    if (p.indexOf('markets') !== -1 || p.indexOf('investments') !== -1 || p.indexOf('asset-management') !== -1) return 'markets';
-    if (p.indexOf('education') !== -1 || p.indexOf('mentorship') !== -1 || p.indexOf('glossary') !== -1 || p.indexOf('resources') !== -1 || p.indexOf('research') !== -1) return 'education';
-    if (p.indexOf('insights') !== -1) return 'insights';
-    if (p.indexOf('contact') !== -1) return 'contact';
+    if (p.indexOf('watchlist') !== -1 || p.indexOf('markets-overview') !== -1 || p.indexOf('instrument') !== -1) return 'markets';
+    if (p.indexOf('markets') !== -1 || p.indexOf('investments') !== -1) return 'charts';
+    if (p.indexOf('economic-calendar') !== -1 || p.indexOf('education-macro') !== -1) return 'macro';
+    if (p.indexOf('research') !== -1 || p.indexOf('insights') !== -1) return 'research';
+    if (p.indexOf('education') !== -1 || p.indexOf('glossary') !== -1 || p.indexOf('mentorship') !== -1) return 'education';
+    if (p.indexOf('about') !== -1 || p.indexOf('team') !== -1 || p.indexOf('approach') !== -1 || p.indexOf('contact') !== -1) return 'about';
     return null;
   }
 
   var active = activeId();
-  var loginHref = prefix + 'login.html';
 
   function linkClass(id) {
     return id === active ? 'nav-link active' : 'nav-link';
   }
 
-  var desktopLinks = items.map(function (it) {
-    return '<a href="' + it.href + '" class="' + linkClass(it.id) + '">' + it.label + '</a>';
-  }).join('');
+  function desktopNav() {
+    return navTree.map(function (it) {
+      if (!it.children || !it.children.length) {
+        return '<a href="' + it.href + '" class="' + linkClass(it.id) + '">' + it.label + '</a>';
+      }
+      var kids = it.children.map(function (c) {
+        return '<a href="' + c.href + '" class="nav-dropdown-link">' + c.label + '</a>';
+      }).join('');
+      return (
+        '<div class="nav-item has-dropdown' + (it.id === active ? ' is-active' : '') + '">' +
+          '<a href="' + it.href + '" class="' + linkClass(it.id) + ' nav-dropdown-trigger" aria-haspopup="true">' +
+            it.label +
+            '<svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' +
+          '</a>' +
+          '<div class="nav-dropdown" role="menu">' + kids + '</div>' +
+        '</div>'
+      );
+    }).join('');
+  }
 
-  var mobileLinks = items.map(function (it, i) {
-    var n = (i + 1) < 10 ? '0' + (i + 1) : '' + (i + 1);
-    return '<a href="' + it.href + '" class="' + linkClass(it.id) + '"><span>' + it.label + '</span><span class="nav-index">' + n + '</span></a>';
-  }).join('');
+  function mobileNav() {
+    var html = '';
+    var n = 0;
+    navTree.forEach(function (it) {
+      n += 1;
+      var idx = n < 10 ? '0' + n : '' + n;
+      html += '<a href="' + it.href + '" class="' + linkClass(it.id) + '"><span>' + it.label + '</span><span class="nav-index">' + idx + '</span></a>';
+      if (it.children) {
+        it.children.forEach(function (c) {
+          html += '<a href="' + c.href + '" class="nav-link nav-link-sub"><span>' + c.label + '</span></a>';
+        });
+      }
+    });
+    return html;
+  }
 
   var headerHtml =
     '<div class="header-inner">' +
       '<div class="header-left">' +
         '<a href="' + homeHref + '" class="logo" aria-label="WINEMI CAPITAL. home"><span class="logo-mark" aria-hidden="true"></span></a>' +
       '</div>' +
-      '<nav class="nav-desktop" aria-label="Primary">' + desktopLinks + '</nav>' +
+      '<nav class="nav-desktop" aria-label="Primary">' + desktopNav() + '</nav>' +
       '<div class="header-right">' +
         '<span class="header-status" aria-hidden="true"><span class="status-dot"></span>Live</span>' +
         '<a href="' + loginHref + '" class="nav-cta">Portal</a>' +
@@ -64,7 +157,7 @@
           '<button type="button" class="mobile-toggle" aria-label="Open menu" aria-expanded="false">' +
             '<span class="mobile-toggle-icon" aria-hidden="true">' +
               '<svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>' +
-              '<svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
+              '<svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6L18 18M18 6L6 18"/></svg>' +
             '</span>' +
             '<span class="mobile-toggle-label">Menu</span>' +
           '</button>' +
@@ -75,7 +168,7 @@
   var mobileHtml =
     '<div class="mobile-nav-inner">' +
       '<p class="mobile-nav-label">Navigate</p>' +
-      mobileLinks +
+      mobileNav() +
       '<div class="mobile-nav-footer">' +
         '<p class="mobile-nav-meta">Institutional research · Educational resources</p>' +
         '<a class="mobile-nav-contact" href="https://wa.me/233503100519" target="_blank" rel="noopener noreferrer">WhatsApp +233 50 310 0519</a>' +
@@ -104,14 +197,16 @@
     var firmLinks = [
       { label: 'About', href: prefix + 'about.html' },
       { label: 'Approach', href: prefix + 'approach.html' },
-      { label: 'Markets', href: prefix + 'markets.html' },
+      { label: 'Team', href: prefix + 'team.html' },
       { label: 'Contact', href: prefix + 'contact.html' }
     ].map(function (l) { return '<a href="' + l.href + '">' + l.label + '</a>'; }).join('');
 
     var resourceLinks = [
+      { label: 'Market Overview', href: prefix + 'markets-overview.html' },
+      { label: 'Macro Desk', href: prefix + 'education-macro.html' },
+      { label: 'Economic Calendar', href: prefix + 'economic-calendar.html' },
       { label: 'Education', href: prefix + 'education.html' },
-      { label: 'Macro desk', href: prefix + 'education-macro.html' },
-      { label: 'Insights', href: prefix + 'insights.html' },
+      { label: 'Watchlist', href: prefix + 'watchlist.html' },
       { label: 'Disclaimer', href: prefix + 'disclaimer.html' }
     ].map(function (l) { return '<a href="' + l.href + '">' + l.label + '</a>'; }).join('');
 
@@ -132,18 +227,9 @@
             '<p class="footer-meta">Institutional research · Educational resources</p>' +
             '<div class="social-icons footer-social">' + socialHtml + '</div>' +
           '</div>' +
-          '<div class="footer-col">' +
-            '<p class="footer-col-title">Firm</p>' +
-            '<div class="footer-links">' + firmLinks + '</div>' +
-          '</div>' +
-          '<div class="footer-col">' +
-            '<p class="footer-col-title">Resources</p>' +
-            '<div class="footer-links">' + resourceLinks + '</div>' +
-          '</div>' +
-          '<div class="footer-col">' +
-            '<p class="footer-col-title">Contact</p>' +
-            '<div class="footer-links">' + contactLinks + '</div>' +
-          '</div>' +
+          '<div class="footer-col"><p class="footer-col-title">Firm</p><div class="footer-links">' + firmLinks + '</div></div>' +
+          '<div class="footer-col"><p class="footer-col-title">Markets & Research</p><div class="footer-links">' + resourceLinks + '</div></div>' +
+          '<div class="footer-col"><p class="footer-col-title">Contact</p><div class="footer-links">' + contactLinks + '</div></div>' +
         '</div>' +
         '<div class="footer-bottom">' +
           '<p class="footer-copy">&copy; <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>' +
@@ -166,7 +252,6 @@
       f.innerHTML = footerHtml;
       document.body.appendChild(f);
     }
-
     document.querySelectorAll('.year').forEach(function (el) {
       el.textContent = new Date().getFullYear();
     });
@@ -192,11 +277,8 @@
       mobile = document.createElement('nav');
       mobile.className = 'mobile-nav';
       mobile.setAttribute('aria-label', 'Mobile');
-      if (header && header.parentNode) {
-        header.parentNode.insertBefore(mobile, header.nextSibling);
-      } else {
-        document.body.insertBefore(mobile, document.body.firstChild);
-      }
+      if (header && header.parentNode) header.parentNode.insertBefore(mobile, header.nextSibling);
+      else document.body.insertBefore(mobile, document.body.firstChild);
     }
     mobile.innerHTML = mobileHtml;
 
@@ -222,17 +304,35 @@
       });
     }
 
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.nav-item.has-dropdown')) {
+        document.querySelectorAll('.nav-item.has-dropdown.open').forEach(function (el) {
+          el.classList.remove('open');
+        });
+      }
+    });
+    document.querySelectorAll('.nav-dropdown-trigger').forEach(function (trig) {
+      trig.addEventListener('click', function (e) {
+        if (window.matchMedia('(max-width: 1023px)').matches) return;
+        var item = trig.closest('.nav-item');
+        if (!item) return;
+        if (!item.classList.contains('open')) {
+          e.preventDefault();
+          document.querySelectorAll('.nav-item.has-dropdown.open').forEach(function (el) {
+            if (el !== item) el.classList.remove('open');
+          });
+          item.classList.add('open');
+        }
+      });
+    });
+
     buildFooter();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', mount);
-  } else {
-    mount();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);
+  else mount();
 })();
 
-/* Site-wide enhancement loaders */
 (function loadExtras() {
   var path = (window.location.pathname || '');
   var inPages = /\/pages\//.test(path);
@@ -246,7 +346,6 @@
   });
 })();
 
-/* Macro desk redesign CSS */
 (function loadMacroRedesign() {
   var path = (window.location.pathname || '');
   if (path.indexOf('education-macro') === -1) return;
