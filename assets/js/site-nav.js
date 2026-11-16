@@ -245,3 +245,15 @@
     document.head.appendChild(s);
   });
 })();
+
+/* Macro desk redesign CSS */
+(function loadMacroRedesign() {
+  var path = (window.location.pathname || '');
+  if (path.indexOf('education-macro') === -1) return;
+  if (document.querySelector('link[href*="macro-redesign.css"]')) return;
+  var inPages = /\/pages\//.test(path);
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = (inPages ? '../' : '') + 'assets/css/macro-redesign.css';
+  document.head.appendChild(link);
+})();
