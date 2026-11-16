@@ -1,0 +1,61 @@
+/* WINEMI CAPITAL. — Clean advanced header */
+:root {
+  --header-height: 72px;
+}
+
+.site-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: var(--header-height);
+  z-index: 1000 !important;
+  background: rgba(10, 10, 11, 0.97);
+  border-bottom: 1px solid rgba(184, 149, 106, 0.22);
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  transition: background 280ms ease, border-color 280ms ease, box-shadow 280ms ease, height 220ms ease;
+}
+
+.site-header.scrolled {
+  background: rgba(10, 10, 11, 0.99);
+  border-bottom-color: rgba(184, 149, 106, 0.35);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.28);
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(8rem, 22%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,149,106,0.75), transparent);
+  pointer-events: none;
+}
+
+html[data-theme="light"] .site-header {
+  background: rgba(247, 245, 240, 0.97);
+  border-bottom-color: rgba(10, 10, 11, 0.08);
+}
+html[data-theme="light"] .site-header.scrolled {
+  background: rgba(247, 245, 240, 0.99);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.06);
+}
+
+.header-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 100%;
+}
+
+/* Remaining nav styles are in the full file; this is a minimal restore to prevent broken header while full content is restored in next step. */
+.nav-desktop { display: flex; align-items: center; gap: 0.45rem; }
+.nav-link { padding: 0.55rem 1.2rem; border-radius: 999px; font-size: 0.875rem; color: rgba(243, 239, 230, 0.82); text-decoration: none; }
+.nav-link.active, .nav-link:hover { background: rgba(184, 149, 106, 0.18); color: #f3efe6; }
