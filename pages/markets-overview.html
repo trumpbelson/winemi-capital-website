@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <title>Market Overview | WINEMI CAPITAL.</title>
+  <meta name="description" content="Global market overview — indices, forex, commodities, bonds, volatility and crypto. Educational market intelligence by WINEMI CAPITAL." />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/nav.css" />
+  <link rel="stylesheet" href="../assets/css/logo.css" />
+  <link rel="stylesheet" href="../assets/css/glass.css" />
+  <link rel="stylesheet" href="../assets/css/footer-rich.css" />
+  <link rel="stylesheet" href="../assets/css/markets-platform.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+  <script src="../assets/js/page-ready.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner"></header>
+  <main id="main">
+    <div class="page-header mp-page-header">
+      <div class="container">
+        <p class="label">Markets</p>
+        <h1 class="heading-1">Market Overview</h1>
+        <p class="body-large">Cross-asset reference board for educational scanning. Live prices and charts are provided by TradingView embeds — not proprietary quotes.</p>
+      </div>
+    </div>
+
+    <section class="section" style="padding-top:0.5rem;">
+      <div class="container">
+        <div class="mp-toolbar" role="toolbar" aria-label="Asset filters">
+          <button type="button" class="mp-filter active" data-asset="all">All</button>
+          <button type="button" class="mp-filter" data-asset="indices">Indices</button>
+          <button type="button" class="mp-filter" data-asset="forex">Forex</button>
+          <button type="button" class="mp-filter" data-asset="commodities">Commodities</button>
+          <button type="button" class="mp-filter" data-asset="bonds">Bonds</button>
+          <button type="button" class="mp-filter" data-asset="volatility">Volatility</button>
+          <button type="button" class="mp-filter" data-asset="crypto">Crypto</button>
+          <input type="search" class="mp-search" id="mp-search" placeholder="Search instrument…" autocomplete="off" />
+        </div>
+
+        <div class="mp-table-wrap">
+          <table class="mp-table" id="mp-table">
+            <thead>
+              <tr>
+                <th data-sort="name">Instrument</th>
+                <th data-sort="symbol">Symbol</th>
+                <th data-sort="asset">Asset class</th>
+                <th>Live data</th>
+                <th>Workspace</th>
+                <th>Watch</th>
+              </tr>
+            </thead>
+            <tbody id="mp-tbody"></tbody>
+          </table>
+        </div>
+        <p class="mp-note">Educational platform only. Market data via TradingView. Not investment advice. Values may be delayed depending on the feed.</p>
+
+        <div class="mp-widget-grid cols-2" id="indices">
+          <div class="mp-widget-card">
+            <div class="card-head"><h3>Indices &amp; rates</h3></div>
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+              {"colorTheme":"dark","dateRange":"1M","showChart":true,"locale":"en","width":"100%","height":"100%","isTransparent":true,"showSymbolLogo":true,"tabs":[{"title":"Indices","symbols":[{"s":"FOREXCOM:SPXUSD","d":"S&P 500"},{"s":"NASDAQ:NDX","d":"NASDAQ 100"},{"s":"FOREXCOM:DJI","d":"Dow 30"},{"s":"TVC:UKX","d":"FTSE 100"},{"s":"XETR:DAX","d":"DAX"}]},{"title":"Rates","symbols":[{"s":"TVC:US10Y","d":"US 10Y"},{"s":"TVC:US02Y","d":"US 2Y"},{"s":"TVC:VIX","d":"VIX"}]}]}
+              </script>
+            </div>
+          </div>
+          <div class="mp-widget-card" id="forex">
+            <div class="card-head"><h3>Forex cross rates</h3></div>
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+              {"width":"100%","height":"100%","currencies":["EUR","USD","GBP","JPY","CHF","AUD","CAD","CNY"],"isTransparent":true,"colorTheme":"dark","locale":"en"}
+              </script>
+            </div>
+          </div>
+          <div class="mp-widget-card" id="commodities">
+            <div class="card-head"><h3>Commodities</h3></div>
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+              {"colorTheme":"dark","dateRange":"1M","showChart":true,"locale":"en","width":"100%","height":"100%","isTransparent":true,"showSymbolLogo":true,"tabs":[{"title":"Commodities","symbols":[{"s":"TVC:GOLD","d":"Gold"},{"s":"TVC:SILVER","d":"Silver"},{"s":"TVC:USOIL","d":"WTI"},{"s":"TVC:UKOIL","d":"Brent"}]}]}
+              </script>
+            </div>
+          </div>
+          <div class="mp-widget-card" id="crypto">
+            <div class="card-head"><h3>Crypto screener</h3></div>
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+              {"width":"100%","height":"100%","defaultColumn":"overview","screener_type":"crypto_mkt","displayCurrency":"USD","colorTheme":"dark","locale":"en","isTransparent":true}
+              </script>
+            </div>
+          </div>
+        </div>
+        <div id="bonds" style="height:1px;"></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" role="contentinfo"></footer>
+  <script src="../assets/js/markets-data.js"></script>
+  <script src="../assets/js/site-nav.js"></script>
+  <script>
+    (function () {
+      var M = window.WinemiMarkets;
+      if (!M) return;
+      var tbody = document.getElementById('mp-tbody');
+      var search = document.getElementById('mp-search');
+      var asset = 'all';
+      var labels = M.assetLabels;
+
+      function render() {
+        var q = (search && search.value || '').trim().toLowerCase();
+        var rows = M.byAsset(asset).filter(function (r) {
+          if (!q) return true;
+          return (r.name + ' ' + r.symbol + ' ' + r.asset).toLowerCase().indexOf(q) !== -1;
+        });
+        tbody.innerHTML = rows.map(function (r) {
+          var watched = M.watchlist.has(r.id);
+          return (
+            '<tr data-id="' + r.id + '">' +
+              '<td><a class="row-link" href="instrument.html?id=' + encodeURIComponent(r.id) + '"><span class="name">' + r.name + '</span></a></td>' +
+              '<td class="sym">' + r.symbol + '</td>' +
+              '<td>' + (labels[r.asset] || r.asset) + '</td>' +
+              '<td><a class="row-link" href="instrument.html?id=' + encodeURIComponent(r.id) + '">Open chart</a></td>' +
+              '<td><a class="row-link" href="markets.html">TV desk</a></td>' +
+              '<td><button type="button" class="wl-remove" data-wl="' + r.id + '" style="color:var(--color-muted-gold,#b8956a)">' + (watched ? 'Remove' : 'Add') + '</button></td>' +
+            '</tr>'
+          );
+        }).join('');
+        tbody.querySelectorAll('[data-wl]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            M.watchlist.toggle(btn.getAttribute('data-wl'));
+            render();
+          });
+        });
+      }
+
+      document.querySelectorAll('.mp-filter').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('.mp-filter').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          asset = btn.getAttribute('data-asset') || 'all';
+          render();
+        });
+      });
+      if (search) search.addEventListener('input', render);
+
+      var hash = (location.hash || '').replace('#', '');
+      if (hash && labels[hash]) {
+        asset = hash;
+        document.querySelectorAll('.mp-filter').forEach(function (b) {
+          b.classList.toggle('active', b.getAttribute('data-asset') === hash);
+        });
+      }
+      render();
+    })();
+  </script>
+</body>
+</html>
