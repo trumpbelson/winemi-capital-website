@@ -1,0 +1,350 @@
+/* WINEMI CAPITAL — Markets platform (overview, calendar, instrument, watchlist) */
+
+.mp-page-header {
+  padding: 2rem 0 1rem;
+}
+.mp-page-header .label { margin-bottom: 0.35rem; }
+.mp-page-header h1 { margin: 0 0 0.5rem; }
+.mp-page-header .body-large { max-width: 42rem; margin: 0; opacity: 0.88; }
+
+.mp-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem 0.95rem;
+  margin: 0 0 1.15rem;
+}
+.mp-filter {
+  border: 1px solid rgba(184, 149, 106, 0.28);
+  background: transparent;
+  color: rgba(247, 245, 240, 0.72);
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+.mp-filter:hover,
+.mp-filter.active {
+  background: rgba(184, 149, 106, 0.14);
+  color: var(--color-muted-gold, #b8956a);
+  border-color: rgba(184, 149, 106, 0.55);
+}
+.mp-search {
+  margin-left: auto;
+  min-width: 12rem;
+  max-width: 18rem;
+  flex: 1 1 12rem;
+  border: 1px solid rgba(184, 149, 106, 0.28);
+  background: rgba(16, 16, 18, 0.6);
+  color: #f7f5f0;
+  border-radius: 10px;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.85rem;
+}
+.mp-search::placeholder { color: rgba(247, 245, 240, 0.4); }
+html[data-theme="light"] .mp-search {
+  background: rgba(255, 255, 255, 0.85);
+  color: #0a0a0b;
+  border-color: rgba(10, 10, 11, 0.12);
+}
+
+.mp-table-wrap {
+  border: 1px solid rgba(184, 149, 106, 0.22);
+  border-radius: 14px;
+  overflow: auto;
+  background: rgba(14, 14, 16, 0.92);
+}
+html[data-theme="light"] .mp-table-wrap {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(10, 10, 11, 0.08);
+}
+
+.mp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  min-width: 720px;
+}
+.mp-table th,
+.mp-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(184, 149, 106, 0.12);
+  white-space: nowrap;
+}
+.mp-table th {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(247, 245, 240, 0.5);
+  background: rgba(0, 0, 0, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  cursor: pointer;
+  user-select: none;
+}
+html[data-theme="light"] .mp-table th {
+  color: rgba(10, 10, 11, 0.5);
+  background: rgba(243, 239, 230, 0.9);
+}
+.mp-table th[data-sort]::after {
+  content: " ↕";
+  opacity: 0.35;
+  font-size: 0.75em;
+}
+.mp-table tbody tr {
+  transition: background 120ms ease;
+}
+.mp-table tbody tr:hover {
+  background: rgba(184, 149, 106, 0.06);
+}
+.mp-table .sym {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-muted-gold, #b8956a);
+}
+.mp-table .name { color: rgba(247, 245, 240, 0.88); }
+html[data-theme="light"] .mp-table .name { color: rgba(10, 10, 11, 0.88); }
+.mp-table .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+.mp-table .chg-up { color: #6bcf7f; }
+.mp-table .chg-down { color: #e07070; }
+.mp-table .chg-flat { color: rgba(247, 245, 240, 0.45); }
+.mp-table .status {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(247, 245, 240, 0.45);
+}
+.mp-table .status.open { color: #6bcf7f; }
+.mp-table a.row-link {
+  color: inherit;
+  text-decoration: none;
+}
+.mp-table a.row-link:hover .name {
+  color: var(--color-muted-gold, #b8956a);
+}
+
+.mp-widget-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+@media (min-width: 960px) {
+  .mp-widget-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+}
+.mp-widget-card {
+  border: 1px solid rgba(184, 149, 106, 0.22);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0e0e10;
+  min-height: 420px;
+}
+html[data-theme="light"] .mp-widget-card { background: #f7f5f0; }
+.mp-widget-card .card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(184, 149, 106, 0.15);
+}
+.mp-widget-card .card-head h3 {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted-gold, #b8956a);
+}
+.mp-widget-card .tradingview-widget-container,
+.mp-widget-card .tradingview-widget-container__widget {
+  width: 100% !important;
+  min-height: 380px;
+  height: 380px;
+}
+
+.mp-note {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  opacity: 0.65;
+}
+
+/* Instrument page */
+.inst-hero {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 900px) {
+  .inst-hero { grid-template-columns: 1fr 1.4fr; align-items: start; }
+}
+.inst-meta h1 { margin: 0.25rem 0 0.5rem; }
+.inst-sym {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-gold, #b8956a);
+}
+.inst-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.inst-chart-host {
+  border: 1px solid rgba(184, 149, 106, 0.22);
+  border-radius: 14px;
+  overflow: hidden;
+  min-height: 480px;
+  height: 480px;
+  background: #0e0e10;
+}
+.inst-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+.inst-related a {
+  border: 1px solid rgba(184, 149, 106, 0.25);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: rgba(247, 245, 240, 0.75);
+}
+.inst-related a:hover {
+  border-color: rgba(184, 149, 106, 0.55);
+  color: var(--color-muted-gold, #b8956a);
+}
+
+/* Watchlist */
+.wl-empty {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  border: 1px dashed rgba(184, 149, 106, 0.3);
+  border-radius: 14px;
+}
+.wl-empty p { margin: 0 0 1rem; opacity: 0.75; }
+.wl-add-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.wl-add-row select,
+.wl-add-row button {
+  border-radius: 10px;
+  border: 1px solid rgba(184, 149, 106, 0.3);
+  padding: 0.5rem 0.85rem;
+  font-size: 0.85rem;
+  background: rgba(16, 16, 18, 0.7);
+  color: #f7f5f0;
+}
+.wl-add-row button {
+  background: linear-gradient(180deg, #c9a87c 0%, #b8956a 100%);
+  color: #0a0a0b;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+.wl-remove {
+  border: none;
+  background: transparent;
+  color: rgba(224, 112, 112, 0.9);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Nav dropdowns (kept for markets pages; primary styles live in nav.css) */
+.nav-desktop .nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-desktop .nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.nav-desktop .nav-chevron {
+  opacity: 0.55;
+  transition: transform 180ms ease;
+}
+.nav-desktop .nav-item.open .nav-chevron,
+.nav-desktop .nav-item:hover .nav-chevron {
+  transform: rotate(180deg);
+  opacity: 0.9;
+}
+.nav-desktop .nav-dropdown {
+  position: absolute;
+  top: calc(100% + 0.65rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  min-width: 12.5rem;
+  padding: 0.5rem;
+  background: rgba(14, 14, 16, 0.97);
+  border: 1px solid rgba(184, 149, 106, 0.28);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease, visibility 160ms;
+  z-index: 1200;
+}
+.nav-desktop .nav-item:hover .nav-dropdown,
+.nav-desktop .nav-item.open .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-desktop .nav-dropdown-link {
+  display: block;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(247, 245, 240, 0.78);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-desktop .nav-dropdown-link:hover {
+  background: rgba(184, 149, 106, 0.14);
+  color: #f7f5f0;
+}
+html[data-theme="light"] .nav-desktop .nav-dropdown {
+  background: rgba(247, 245, 240, 0.98);
+  border-color: rgba(10, 10, 11, 0.1);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+html[data-theme="light"] .nav-desktop .nav-dropdown-link {
+  color: rgba(10, 10, 11, 0.75);
+}
+html[data-theme="light"] .nav-desktop .nav-dropdown-link:hover {
+  color: #0a0a0b;
+}
+
+.mobile-nav .nav-link-sub {
+  padding-left: 1.25rem !important;
+  font-size: 0.92rem !important;
+  opacity: 0.82;
+  border-bottom-color: transparent !important;
+}
+
+@media (max-width: 1023px) {
+  .nav-desktop .nav-dropdown { display: none; }
+  .mp-search { margin-left: 0; max-width: none; width: 100%; }
+}
