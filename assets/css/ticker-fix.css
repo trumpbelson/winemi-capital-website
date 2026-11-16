@@ -5,7 +5,7 @@ body.page-exit {
   transform: none !important;
 }
 
-/* Feed sits BELOW fixed header — never inside the nav */
+/* Feed sits BELOW fixed header — never inside the nav panel */
 .top-feed {
   position: relative !important;
   top: auto !important;
@@ -20,24 +20,38 @@ body.page-exit {
   max-width: none !important;
   background: #0a0a0b !important;
   border: none !important;
+  border-top: 1px solid rgba(184, 149, 106, 0.28) !important;
   border-bottom: 1px solid rgba(184, 149, 106, 0.42) !important;
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.4) !important;
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
   min-height: 96px !important;
-  overflow: visible !important;
+  overflow: hidden !important;
   transform: none !important;
   inset: auto !important;
+  isolation: isolate !important;
 }
 
-/* Fixed header always above feed */
+/* Fixed header always above feed — near-opaque so ticker never bleeds into nav */
 .site-header {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
   z-index: 1000 !important;
+  background: rgba(10, 10, 11, 0.97) !important;
+  backdrop-filter: blur(18px) saturate(1.25) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.25) !important;
+}
+.site-header.scrolled {
+  background: rgba(10, 10, 11, 0.99) !important;
+}
+html[data-theme="light"] .site-header {
+  background: rgba(247, 245, 240, 0.97) !important;
+}
+html[data-theme="light"] .site-header.scrolled {
+  background: rgba(247, 245, 240, 0.99) !important;
 }
 
 html[data-theme="light"] .top-feed {
@@ -98,167 +112,4 @@ html[data-theme="light"] .top-feed .news-ticker {
   white-space: nowrap !important;
   font-size: 0.875rem !important;
   line-height: 1.2 !important;
-  color: rgba(247, 245, 240, 0.92) !important;
-  animation: wc-news-marquee 42s linear infinite !important;
-  will-change: transform;
-}
-
-html[data-theme="light"] .top-feed .news-ticker-content {
-  color: rgba(10, 10, 11, 0.82) !important;
-}
-
-.top-feed .news-ticker:hover .news-ticker-content {
-  animation-play-state: paused;
-}
-
-.top-feed .news-sep {
-  color: rgba(184, 149, 106, 0.6) !important;
-}
-
-@keyframes wc-news-marquee {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
-}
-
-.top-feed .market-ticker {
-  position: relative !important;
-  height: 54px !important;
-  overflow: hidden !important;
-  background: linear-gradient(180deg, #101012 0%, #0a0a0b 100%) !important;
-  border-bottom: 1px solid rgba(184, 149, 106, 0.2) !important;
-}
-
-html[data-theme="light"] .top-feed .market-ticker {
-  background: linear-gradient(180deg, #faf8f4 0%, #f0ebe3 100%) !important;
-}
-
-.top-feed .market-ticker-inner {
-  display: flex !important;
-  align-items: center !important;
-  height: 100% !important;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-  gap: 0.85rem;
-}
-
-.top-feed .news-ticker-label,
-.top-feed .market-ticker-label {
-  display: inline-flex !important;
-  align-items: center !important;
-  flex-shrink: 0 !important;
-  font-size: 0.65rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-  color: #c9a87c !important;
-  padding: 0.28rem 0.65rem !important;
-  border-radius: 999px !important;
-  border: 1px solid rgba(184, 149, 106, 0.35) !important;
-  background: rgba(184, 149, 106, 0.1) !important;
-  white-space: nowrap !important;
-}
-
-html[data-theme="light"] .top-feed .news-ticker-label,
-html[data-theme="light"] .top-feed .market-ticker-label {
-  color: #8a6a3c !important;
-  border-color: rgba(138, 106, 60, 0.35) !important;
-  background: rgba(184, 149, 106, 0.12) !important;
-}
-
-.top-feed .market-ticker-widget,
-.top-feed .tradingview-widget-container,
-.top-feed .tradingview-widget-container__widget {
-  flex: 1 1 auto !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  height: 46px !important;
-  min-height: 46px !important;
-  max-height: 46px !important;
-  overflow: hidden !important;
-  position: relative !important;
-}
-
-.top-feed .market-ticker-widget iframe,
-.top-feed .tradingview-widget-container iframe {
-  position: absolute !important;
-  top: 50% !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 46px !important;
-  min-height: 46px !important;
-  max-height: 46px !important;
-  transform: translateY(-50%) !important;
-  border: 0 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.top-feed .market-fallback {
-  display: none;
-  flex: 1 1 auto;
-  min-width: 0;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
-}
-
-.top-feed .market-fallback-track {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.1rem;
-  width: max-content;
-  white-space: nowrap;
-  animation: wc-news-marquee 36s linear infinite;
-  font-size: 0.8rem;
-  color: rgba(247, 245, 240, 0.88);
-}
-
-html[data-theme="light"] .top-feed .market-fallback-track {
-  color: rgba(10, 10, 11, 0.8);
-}
-
-.top-feed .market-fallback-track strong {
-  color: #c9a87c;
-  font-weight: 600;
-  margin-right: 0.35rem;
-}
-
-.top-feed .market-fallback-track .mf-sep {
-  color: rgba(184, 149, 106, 0.45);
-}
-
-.top-feed .market-ticker:not(:has(iframe)) .market-fallback {
-  display: block !important;
-}
-
-.top-feed .market-ticker:not(:has(iframe)) .market-ticker-widget {
-  display: none !important;
-}
-
-@media (max-width: 720px) {
-  .top-feed .news-ticker-label,
-  .top-feed .market-ticker-label {
-    font-size: 0.6rem !important;
-    padding: 0.22rem 0.5rem !important;
-  }
-  .top-feed .news-ticker { height: 36px !important; }
-  .top-feed .market-ticker { height: 48px !important; }
-  .top-feed .news-ticker-content { font-size: 0.78rem !important; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .top-feed .news-ticker-content,
-  .top-feed .market-fallback-track {
-    animation: none !important;
-  }
-}
-
-html, body {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-.hero, .hero-content, main, .top-feed {
-  opacity: 1 !important;
-  visibility: visible !important;
 }
