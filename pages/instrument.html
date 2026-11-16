@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <title>Instrument | WINEMI CAPITAL.</title>
+  <meta name="description" content="Instrument detail — interactive TradingView chart and related market context. Educational use only." />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/nav.css" />
+  <link rel="stylesheet" href="../assets/css/logo.css" />
+  <link rel="stylesheet" href="../assets/css/glass.css" />
+  <link rel="stylesheet" href="../assets/css/footer-rich.css" />
+  <link rel="stylesheet" href="../assets/css/markets-platform.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script>(function(){try{var t=localStorage.getItem('winemi-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+  <script src="../assets/js/page-ready.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner"></header>
+  <main id="main">
+    <div class="page-header mp-page-header">
+      <div class="container">
+        <div class="inst-hero">
+          <div class="inst-meta">
+            <p class="label">Instrument</p>
+            <p class="inst-sym" id="inst-sym">—</p>
+            <h1 class="heading-1" id="inst-name">Loading…</h1>
+            <p class="body-base" id="inst-asset" style="opacity:0.75;"></p>
+            <div class="inst-actions">
+              <button type="button" class="btn btn-primary" id="inst-watch">Add to watchlist</button>
+              <a class="btn btn-secondary" href="markets.html">Markets workspace</a>
+              <a class="btn btn-secondary" href="markets-overview.html">Overview</a>
+            </div>
+            <div class="inst-related" id="inst-related" aria-label="Related instruments"></div>
+          </div>
+          <div>
+            <div class="inst-chart-host" id="tradingview-widget"></div>
+            <p class="mp-note">TradingView chart · Educational scanning only · Not a trade recommendation</p>
+          </div>
+        </div>
+
+        <div class="mp-widget-grid cols-2">
+          <div class="mp-widget-card">
+            <div class="card-head"><h3>Technical analysis</h3></div>
+            <div class="tradingview-widget-container" id="tech-host">
+              <div class="tradingview-widget-container__widget"></div>
+            </div>
+          </div>
+          <div class="mp-widget-card">
+            <div class="card-head"><h3>Symbol info</h3></div>
+            <div class="tradingview-widget-container" id="info-host">
+              <div class="tradingview-widget-container__widget"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer" role="contentinfo"></footer>
+  <script src="../assets/js/markets-data.js"></script>
+  <script src="../assets/js/site-nav.js"></script>
+  <script src="https://s3.tradingview.com/tv.js"></script>
+  <script>
+    (function () {
+      var M = window.WinemiMarkets;
+      if (!M) return;
+      var params = new URLSearchParams(location.search);
+      var id = params.get('id') || 'sp500';
+      var inst = M.byId(id) || M.byId('sp500');
+      document.getElementById('inst-name').textContent = inst.name;
+      document.getElementById('inst-sym').textContent = inst.symbol + ' · ' + inst.tv;
+      document.getElementById('inst-asset').textContent = (M.assetLabels[inst.asset] || inst.asset) + (inst.region ? ' · ' + inst.region : '');
+      document.title = inst.name + ' | WINEMI CAPITAL.';
+
+      var watchBtn = document.getElementById('inst-watch');
+      function syncWatch() {
+        var on = M.watchlist.has(inst.id);
+        watchBtn.textContent = on ? 'Remove from watchlist' : 'Add to watchlist';
+      }
+      syncWatch();
+      watchBtn.addEventListener('click', function () {
+        M.watchlist.toggle(inst.id);
+        syncWatch();
+      });
+
+      var related = M.byAsset(inst.asset).filter(function (x) { return x.id !== inst.id; }).slice(0, 6);
+      document.getElementById('inst-related').innerHTML = related.map(function (r) {
+        return '<a href="instrument.html?id=' + encodeURIComponent(r.id) + '">' + r.symbol + '</a>';
+      }).join('');
+
+      function theme() { return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
+
+      function mountChart() {
+        var el = document.getElementById('tradingview-widget');
+        if (!el || typeof TradingView === 'undefined') return;
+        el.innerHTML = '';
+        new TradingView.widget({
+          autosize: true,
+          symbol: inst.tv,
+          interval: '60',
+          timezone: 'Etc/UTC',
+          theme: theme(),
+          style: '1',
+          locale: 'en',
+          toolbar_bg: '#1c1c1f',
+          enable_publishing: false,
+          allow_symbol_change: true,
+          hide_side_toolbar: false,
+          container_id: 'tradingview-widget',
+          backgroundColor: theme() === 'light' ? '#f7f5f0' : '#0e0e10',
+          gridColor: 'rgba(184,149,106,0.08)'
+        });
+      }
+
+      function injectWidget(hostId, src, config) {
+        var host = document.getElementById(hostId);
+        if (!host) return;
+        host.innerHTML = '<div class="tradingview-widget-container__widget"></div>';
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.src = src;
+        s.async = true;
+        s.text = JSON.stringify(config);
+        host.appendChild(s);
+      }
+
+      function boot() {
+        if (typeof TradingView === 'undefined') { setTimeout(boot, 200); return; }
+        mountChart();
+        injectWidget('tech-host', 'https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js', {
+          interval: '1h', width: '100%', isTransparent: true, height: '100%',
+          symbol: inst.tv, showIntervalTabs: true, displayMode: 'single', locale: 'en', colorTheme: theme()
+        });
+        injectWidget('info-host', 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js', {
+          symbol: inst.tv, width: '100%', locale: 'en', colorTheme: theme(), isTransparent: true
+        });
+      }
+      boot();
+    })();
+  </script>
+</body>
+</html>
