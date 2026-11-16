@@ -8,80 +8,80 @@
   var path = (window.location.pathname || '').replace(/\/$/, '') || '/';
   var inPages = /\/pages\//.test(path) || /\/pages$/.test(path);
   var prefix = inPages ? '' : 'pages/';
-  var homeHref = inPages ? '../index.html' : 'index.html';
-  var loginHref = prefix + 'login.html';
+  var homeHref = inPages ? '../' : '/';
+  var loginHref = prefix + 'login';
 
   var navTree = [
     { id: 'home', label: 'Home', href: homeHref },
     {
       id: 'markets',
       label: 'Markets',
-      href: prefix + 'markets-overview.html',
+      href: prefix + 'markets-overview',
       children: [
-        { label: 'Market Overview', href: prefix + 'markets-overview.html' },
-        { label: 'Live Charts', href: prefix + 'markets.html' },
-        { label: 'Indices', href: prefix + 'markets-overview.html#indices' },
-        { label: 'Forex', href: prefix + 'markets-overview.html#forex' },
-        { label: 'Commodities', href: prefix + 'markets-overview.html#commodities' },
-        { label: 'Bonds & Yields', href: prefix + 'markets-overview.html#bonds' },
-        { label: 'Cryptocurrency', href: prefix + 'markets-overview.html#crypto' },
-        { label: 'Watchlist', href: prefix + 'watchlist.html' }
+        { label: 'Market Overview', href: prefix + 'markets-overview' },
+        { label: 'Live Charts', href: prefix + 'markets' },
+        { label: 'Indices', href: prefix + 'markets-overview#indices' },
+        { label: 'Forex', href: prefix + 'markets-overview#forex' },
+        { label: 'Commodities', href: prefix + 'markets-overview#commodities' },
+        { label: 'Bonds & Yields', href: prefix + 'markets-overview#bonds' },
+        { label: 'Cryptocurrency', href: prefix + 'markets-overview#crypto' },
+        { label: 'Watchlist', href: prefix + 'watchlist' }
       ]
     },
     {
       id: 'macro',
       label: 'Macro',
-      href: prefix + 'education-macro.html',
+      href: prefix + 'education-macro',
       children: [
-        { label: 'Macro Desk', href: prefix + 'education-macro.html' },
-        { label: 'Economic Calendar', href: prefix + 'economic-calendar.html' },
-        { label: 'Central Banks & Rates', href: prefix + 'education-macro.html#focus' },
-        { label: 'Cross-Asset Board', href: prefix + 'education-macro.html#board' }
+        { label: 'Macro Desk', href: prefix + 'education-macro' },
+        { label: 'Economic Calendar', href: prefix + 'economic-calendar' },
+        { label: 'Central Banks & Rates', href: prefix + 'education-macro#focus' },
+        { label: 'Cross-Asset Board', href: prefix + 'education-macro#board' }
       ]
     },
     {
       id: 'research',
       label: 'Research',
-      href: prefix + 'research.html',
+      href: prefix + 'research',
       children: [
-        { label: 'Research Hub', href: prefix + 'research.html' },
-        { label: 'Insights', href: prefix + 'insights.html' },
-        { label: 'Market Outlook', href: prefix + 'insights.html' },
-        { label: 'Risk Management', href: prefix + 'education-risk.html' }
+        { label: 'Research Hub', href: prefix + 'research' },
+        { label: 'Insights', href: prefix + 'insights' },
+        { label: 'Market Outlook', href: prefix + 'insights' },
+        { label: 'Risk Management', href: prefix + 'education-risk' }
       ]
     },
     {
       id: 'charts',
       label: 'Charts',
-      href: prefix + 'markets.html',
+      href: prefix + 'markets',
       children: [
-        { label: 'TradingView Workspace', href: prefix + 'markets.html' },
-        { label: 'Technical Analysis', href: prefix + 'markets.html#technicals' },
-        { label: 'Forex Cross Rates', href: prefix + 'markets.html#forex' },
-        { label: 'Heatmap', href: prefix + 'markets.html#heatmap' }
+        { label: 'TradingView Workspace', href: prefix + 'markets' },
+        { label: 'Technical Analysis', href: prefix + 'markets#technicals' },
+        { label: 'Forex Cross Rates', href: prefix + 'markets#forex' },
+        { label: 'Heatmap', href: prefix + 'markets#heatmap' }
       ]
     },
     {
       id: 'education',
       label: 'Education',
-      href: prefix + 'education.html',
+      href: prefix + 'education',
       children: [
-        { label: 'Education Hub', href: prefix + 'education.html' },
-        { label: 'Market Structure', href: prefix + 'education-candlesticks.html' },
-        { label: 'Macro Literacy', href: prefix + 'education-macro.html' },
-        { label: 'Risk & Position Sizing', href: prefix + 'education-risk.html' },
-        { label: 'Glossary', href: prefix + 'glossary.html' }
+        { label: 'Education Hub', href: prefix + 'education' },
+        { label: 'Market Structure', href: prefix + 'education-candlesticks' },
+        { label: 'Macro Literacy', href: prefix + 'education-macro' },
+        { label: 'Risk & Position Sizing', href: prefix + 'education-risk' },
+        { label: 'Glossary', href: prefix + 'glossary' }
       ]
     },
     {
       id: 'about',
       label: 'About',
-      href: prefix + 'about.html',
+      href: prefix + 'about',
       children: [
-        { label: 'Our Philosophy', href: prefix + 'about.html' },
-        { label: 'Our Approach', href: prefix + 'approach.html' },
-        { label: 'Our Team', href: prefix + 'team.html' },
-        { label: 'Contact', href: prefix + 'contact.html' }
+        { label: 'Our Philosophy', href: prefix + 'about' },
+        { label: 'Our Approach', href: prefix + 'approach' },
+        { label: 'Our Team', href: prefix + 'team' },
+        { label: 'Contact', href: prefix + 'contact' }
       ]
     }
   ];
@@ -195,19 +195,19 @@
     }).join('');
 
     var firmLinks = [
-      { label: 'About', href: prefix + 'about.html' },
-      { label: 'Approach', href: prefix + 'approach.html' },
-      { label: 'Team', href: prefix + 'team.html' },
-      { label: 'Contact', href: prefix + 'contact.html' }
+      { label: 'About', href: prefix + 'about' },
+      { label: 'Approach', href: prefix + 'approach' },
+      { label: 'Team', href: prefix + 'team' },
+      { label: 'Contact', href: prefix + 'contact' }
     ].map(function (l) { return '<a href="' + l.href + '">' + l.label + '</a>'; }).join('');
 
     var resourceLinks = [
-      { label: 'Market Overview', href: prefix + 'markets-overview.html' },
-      { label: 'Macro Desk', href: prefix + 'education-macro.html' },
-      { label: 'Economic Calendar', href: prefix + 'economic-calendar.html' },
-      { label: 'Education', href: prefix + 'education.html' },
-      { label: 'Watchlist', href: prefix + 'watchlist.html' },
-      { label: 'Disclaimer', href: prefix + 'disclaimer.html' }
+      { label: 'Market Overview', href: prefix + 'markets-overview' },
+      { label: 'Macro Desk', href: prefix + 'education-macro' },
+      { label: 'Economic Calendar', href: prefix + 'economic-calendar' },
+      { label: 'Education', href: prefix + 'education' },
+      { label: 'Watchlist', href: prefix + 'watchlist' },
+      { label: 'Disclaimer', href: prefix + 'disclaimer' }
     ].map(function (l) { return '<a href="' + l.href + '">' + l.label + '</a>'; }).join('');
 
     var contactLinks = [
@@ -234,9 +234,9 @@
         '<div class="footer-bottom">' +
           '<p class="footer-copy">&copy; <span class="year"></span> WINEMI CAPITAL. All rights reserved.</p>' +
           '<div class="footer-legal">' +
-            '<a href="' + prefix + 'privacy.html">Privacy</a>' +
-            '<a href="' + prefix + 'terms.html">Terms</a>' +
-            '<a href="' + prefix + 'disclaimer.html">Disclaimer</a>' +
+            '<a href="' + prefix + 'privacy">Privacy</a>' +
+            '<a href="' + prefix + 'terms">Terms</a>' +
+            '<a href="' + prefix + 'disclaimer">Disclaimer</a>' +
           '</div>' +
         '</div>' +
       '</div>';
